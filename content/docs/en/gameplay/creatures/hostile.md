@@ -1,222 +1,222 @@
 ---
-title: Créatures Hostiles
-description: Guide des ennemis et boss de Hytale
+title: Hostile Creatures
+description: Guide to enemies and bosses in Hytale
 ---
 
-# Créatures Hostiles
+# Hostile Creatures
 
-Les créatures hostiles sont vos principaux adversaires sur Orbis. Apprenez leurs patterns pour survivre.
+Hostile creatures are your main adversaries on Orbis. Learn their patterns to survive.
 
 ## Trorks
 
-La menace la plus commune sur Orbis. Race guerrière primitive mais dangereuse.
+The most common threat on Orbis. A primitive but dangerous warrior race.
 
-### Variantes
+### Variants
 
-| Variante | Santé | Dégâts | Comportement |
-|----------|-------|--------|--------------|
-| Scout | Faible | Faible | Fuit pour alerter |
-| Guerrier | Moyen | Moyen | Combat direct |
-| Berserker | Moyen | Élevé | Agressif, charge |
-| Archer | Faible | Moyen | Combat à distance |
-| Shaman | Moyen | Magie | Soigne les alliés, buffs |
-| Chef | Élevé | Élevé | Commande les autres |
+| Variant | Health | Damage | Behavior |
+|---------|--------|--------|----------|
+| Scout | Low | Low | Flees to alert |
+| Warrior | Medium | Medium | Direct combat |
+| Berserker | Medium | High | Aggressive, charges |
+| Archer | Low | Medium | Ranged combat |
+| Shaman | Medium | Magic | Heals allies, buffs |
+| Chief | High | High | Commands others |
 
-### Tactiques Anti-Trork
+### Anti-Trork Tactics
 
-1. **Éliminez les Scouts en premier** - Empêche les alertes
-2. **Ciblez les Shamans** - Retire les soins ennemis
-3. **Évitez les groupes** - Attirez-les un par un
-4. **Utilisez le terrain** - Ils ont du mal avec les hauteurs
+1. **Eliminate Scouts first** - Prevents alerts
+2. **Target Shamans** - Removes enemy healing
+3. **Avoid groups** - Lure them one by one
+4. **Use terrain** - They struggle with heights
 
 ### Loot
 
-| Drop | Chance | Utilisation |
-|------|--------|-------------|
-| Arme Trork | 15% | Combat, vente |
-| Cuir grossier | 60% | Crafting |
-| Viande | 40% | Cuisine |
-| Trophée Trork | 5% | Quêtes, décoration |
+| Drop | Chance | Use |
+|------|--------|-----|
+| Trork Weapon | 15% | Combat, selling |
+| Rough Leather | 60% | Crafting |
+| Meat | 40% | Cooking |
+| Trork Trophy | 5% | Quests, decoration |
 
 ---
 
-## Morts-Vivants
+## Undead
 
-Apparaissent principalement la nuit ou dans les donjons.
+Appear mainly at night or in dungeons.
 
-### Squelettes
+### Skeletons
 
-| Type | Arme | Spécial |
-|------|------|---------|
-| Squelette | Épée | Basique |
-| Squelette Archer | Arc | Tir précis |
-| Squelette Guerrier | Épée + Bouclier | Bloque |
-| Squelette Mage | Bâton | Sorts de feu |
+| Type | Weapon | Special |
+|------|--------|---------|
+| Skeleton | Sword | Basic |
+| Skeleton Archer | Bow | Precise shot |
+| Skeleton Warrior | Sword + Shield | Blocks |
+| Skeleton Mage | Staff | Fire spells |
 
-**Faiblesse** : Dégâts contondants (masses, marteaux)
+**Weakness**: Blunt damage (maces, hammers)
 
 ### Zombies
 
-| Type | Vitesse | Spécial |
-|------|---------|---------|
-| Zombie | Lent | Groupes nombreux |
-| Zombie rapide | Rapide | Attaque surprise |
-| Zombie géant | Très lent | Beaucoup de vie |
+| Type | Speed | Special |
+|------|-------|---------|
+| Zombie | Slow | Large groups |
+| Fast Zombie | Fast | Surprise attack |
+| Giant Zombie | Very slow | High health |
 
-**Faiblesse** : Feu, dégâts à la tête
+**Weakness**: Fire, headshots
 
-### Spectres
+### Specters
 
-| Type | Danger | Spécial |
+| Type | Danger | Special |
 |------|--------|---------|
-| Fantôme | Modéré | Traverse les murs |
-| Wraith | Élevé | Drain de vie |
-| Banshee | Élevé | Cri paralysant |
+| Ghost | Moderate | Passes through walls |
+| Wraith | High | Life drain |
+| Banshee | High | Paralyzing scream |
 
-**Faiblesse** : Magie de lumière, armes bénies
+**Weakness**: Light magic, blessed weapons
 
 ---
 
-## Créatures Élémentaires
+## Elemental Creatures
 
 ### Golems
 
-| Type | Région | Résistance | Faiblesse |
-|------|--------|------------|-----------|
-| Golem de pierre | Partout | Physique | Magie |
-| Golem de sable | Désert | Tranchant | Eau |
-| Golem de glace | Neige | Glace | Feu |
-| Golem de lave | Volcans | Feu | Glace |
+| Type | Region | Resistance | Weakness |
+|------|--------|------------|----------|
+| Stone Golem | Everywhere | Physical | Magic |
+| Sand Golem | Desert | Slashing | Water |
+| Ice Golem | Snow | Ice | Fire |
+| Lava Golem | Volcanoes | Fire | Ice |
 
-**Stratégie** : Utilisez la magie correspondant à leur faiblesse.
+**Strategy**: Use magic corresponding to their weakness.
 
-### Élémentaires
+### Elementals
 
-| Type | Attaques | Immunité |
-|------|----------|----------|
-| Élémentaire de feu | Boules de feu, aura brûlante | Feu |
-| Élémentaire de glace | Rayons de gel, blizzard | Glace |
-| Élémentaire de foudre | Éclairs en chaîne | Foudre |
-| Élémentaire de terre | Séisme, projectiles rocheux | - |
+| Type | Attacks | Immunity |
+|------|---------|----------|
+| Fire Elemental | Fireballs, burning aura | Fire |
+| Ice Elemental | Frost rays, blizzard | Ice |
+| Lightning Elemental | Chain lightning | Lightning |
+| Earth Elemental | Earthquake, rock projectiles | - |
 
 ---
 
-## Créatures de Donjon
+## Dungeon Creatures
 
-### Araignées
+### Spiders
 
-| Type | Taille | Spécial |
-|------|--------|---------|
-| Araignée | Petite | Poison faible |
-| Araignée géante | Grande | Poison fort, toile |
-| Reine araignée | Boss | Ponte, toile massive |
+| Type | Size | Special |
+|------|------|---------|
+| Spider | Small | Weak poison |
+| Giant Spider | Large | Strong poison, web |
+| Spider Queen | Boss | Spawns eggs, massive web |
 
-**Conseil** : Apportez des antidotes !
+**Tip**: Bring antidotes!
 
 ### Mimics
 
-Coffres animés qui attaquent quand ouverts.
+Animated chests that attack when opened.
 
-- **Repérage** : Légère différence de texture
-- **Attaques** : Morsure puissante, saut
-- **Récompense** : Loot garanti de qualité
-
----
-
-## Créatures des Sables
-
-### Momies
-
-| Type | Attaque | Spécial |
-|------|---------|---------|
-| Momie | Mêlée | Malédiction |
-| Momie prêtre | Magie | Invoque des scarabées |
-| Pharaon | Boss | Multiples phases |
-
-**Faiblesse** : Feu (les bandages brûlent)
-
-### Vers des Sables
-
-Monstres massifs sous le désert.
-
-- **Apparition** : Vibrations du sol
-- **Attaque** : Engloutit, morsure massive
-- **Évitement** : Restez sur les rochers
-- **Faiblesse** : Attaquez la bouche ouverte
+- **Detection**: Slight texture difference
+- **Attacks**: Powerful bite, jump
+- **Reward**: Guaranteed quality loot
 
 ---
 
-## Créatures du Froid
+## Desert Creatures
 
-### Yétis
+### Mummies
 
-| Stat | Valeur |
-|------|--------|
-| Santé | Très élevée |
-| Dégâts | Élevés |
-| Vitesse | Moyenne |
-| Résistance | Glace |
-| Faiblesse | Feu |
+| Type | Attack | Special |
+|------|--------|---------|
+| Mummy | Melee | Curse |
+| Priest Mummy | Magic | Summons scarabs |
+| Pharaoh | Boss | Multiple phases |
 
-**Attaques** :
-- Coup de poing (knockback)
-- Lancer de rocher
-- Rugissement (stun)
+**Weakness**: Fire (bandages burn)
 
-### Loups Arctiques
+### Sandworms
 
-- **En meute** : Jusqu'à 6 loups
-- **Alpha** : Plus gros, plus fort
-- **Stratégie** : Tuez l'alpha, la meute fuit
+Massive monsters beneath the desert.
+
+- **Appearance**: Ground vibrations
+- **Attack**: Swallows, massive bite
+- **Avoidance**: Stay on rocks
+- **Weakness**: Attack the open mouth
 
 ---
 
-## Démons
+## Frost Creatures
 
-Réservés aux Devastated Lands.
+### Yetis
 
-### Hiérarchie
+| Stat | Value |
+|------|-------|
+| Health | Very high |
+| Damage | High |
+| Speed | Medium |
+| Resistance | Ice |
+| Weakness | Fire |
 
-| Type | Danger | Capacités |
+**Attacks**:
+- Punch (knockback)
+- Rock throw
+- Roar (stun)
+
+### Arctic Wolves
+
+- **In packs**: Up to 6 wolves
+- **Alpha**: Bigger, stronger
+- **Strategy**: Kill the alpha, the pack flees
+
+---
+
+## Demons
+
+Reserved for the Devastated Lands.
+
+### Hierarchy
+
+| Type | Danger | Abilities |
 |------|--------|-----------|
-| Imp | Modéré | Vol, boules de feu |
-| Démon | Élevé | Combat brutal |
-| Démon supérieur | Très élevé | Magie noire |
-| Seigneur démon | Boss | Phases multiples |
+| Imp | Moderate | Flight, fireballs |
+| Demon | High | Brutal combat |
+| Greater Demon | Very high | Dark magic |
+| Demon Lord | Boss | Multiple phases |
 
-**Résistances** : Feu, Ténèbres
-**Faiblesses** : Lumière, armes bénies
-
----
-
-## Boss
-
-### Gardiens de Donjon
-
-Chaque donjon majeur a un boss unique.
-
-| Boss | Région | Mécanique |
-|------|--------|-----------|
-| Roi Trork | Grasslands | Appelle des renforts |
-| Reine Araignée | Emerald Wilds | Ponte + toiles |
-| Pharaon Maudit | Howling Sands | Phases + invocations |
-| Titan de Glace | Whisperfrost | Zone de gel |
-| Archidémon | Devastated | Combat épique multi-phases |
-
-### Conseils Boss
-
-1. **Apprenez les patterns** - Chaque attaque est télégraphée
-2. **Préparez-vous** - Potions, nourriture, buffs
-3. **Gérez l'endurance** - Ne spammez pas les esquives
-4. **Phases** - Les boss changent de comportement à certains HP
-5. **Environnement** - Utilisez l'arène à votre avantage
-
-## Voir Aussi
-
-- [Système de Combat](/docs/gameplay/combat/overview)
-- [Créatures](/docs/gameplay/creatures/overview)
-- [Donjons](/docs/gameplay/world/dungeons)
+**Resistances**: Fire, Darkness
+**Weaknesses**: Light, blessed weapons
 
 ---
 
-*Source : [HytaleGuide Mobs](https://hytaleguide.net/mobs)*
+## Bosses
+
+### Dungeon Guardians
+
+Each major dungeon has a unique boss.
+
+| Boss | Region | Mechanic |
+|------|--------|----------|
+| Trork King | Grasslands | Calls reinforcements |
+| Spider Queen | Emerald Wilds | Spawns eggs + webs |
+| Cursed Pharaoh | Howling Sands | Phases + summons |
+| Frost Titan | Whisperfrost | Freeze zone |
+| Archdemon | Devastated | Epic multi-phase combat |
+
+### Boss Tips
+
+1. **Learn patterns** - Every attack is telegraphed
+2. **Prepare** - Potions, food, buffs
+3. **Manage stamina** - Don't spam dodges
+4. **Phases** - Bosses change behavior at certain HP
+5. **Environment** - Use the arena to your advantage
+
+## See Also
+
+- [Combat System](/docs/gameplay/combat/overview)
+- [Creatures](/docs/gameplay/creatures/overview)
+- [Dungeons](/docs/gameplay/world/dungeons)
+
+---
+
+*Source: [HytaleGuide Mobs](https://hytaleguide.net/mobs)*

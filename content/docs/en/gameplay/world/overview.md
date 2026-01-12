@@ -1,124 +1,124 @@
 ---
-title: Le Monde d'Orbis
-description: Découvrez le monde de Hytale et ses mystères
+title: The World of Orbis
+description: Discover the world of Hytale and its mysteries
 ---
 
-# Le Monde d'Orbis
+# The World of Orbis
 
-Orbis est le monde de Hytale, une planète riche et diverse où se déroule votre aventure.
+Orbis is the world of Hytale, a rich and diverse planet where your adventure takes place.
 
-## Présentation
+## Overview
 
-Orbis est un monde généré procéduralement, ce qui signifie que chaque partie est unique. Le monde est divisé en **Régions**, chacune avec ses propres biomes, créatures, ressources et défis.
+Orbis is a procedurally generated world, meaning each game is unique. The world is divided into **Regions**, each with its own biomes, creatures, resources, and challenges.
 
-### Caractéristiques
+### Features
 
-- **Génération procédurale** - Monde infini et unique
-- **Verticalité** - Grottes profondes et montagnes élevées
-- **Cycle jour/nuit** - Affecte les créatures et le gameplay
-- **Météo dynamique** - Pluie, neige, tempêtes
+- **Procedural generation** - Infinite and unique world
+- **Verticality** - Deep caves and high mountains
+- **Day/night cycle** - Affects creatures and gameplay
+- **Dynamic weather** - Rain, snow, storms
 
-## Structure du Monde
+## World Structure
 
-### Régions
+### Regions
 
-Les Régions ont remplacé l'ancien système de "Zones". Chaque région représente une collection de 3 à 5 biomes avec un thème cohérent.
+Regions have replaced the old "Zone" system. Each region represents a collection of 3 to 5 biomes with a cohesive theme.
 
-| Région | Thème | Biomes |
+| Region | Theme | Biomes |
 |--------|-------|--------|
-| Central Grasslands | Prairies tempérées | Plaines, forêts clairsemées, collines |
-| Emerald Wilds | Forêts denses | Forêt profonde, clairières, marécages |
-| Howling Sands | Désert aride | Dunes, oasis, canyons |
-| Whisperfrost Frontier | Terres gelées | Taïga, toundra, glaciers |
-| Devastated Lands | Terres corrompues | Ruines, volcans, désolation |
+| Central Grasslands | Temperate meadows | Plains, sparse forests, hills |
+| Emerald Wilds | Dense forests | Deep forest, clearings, swamps |
+| Howling Sands | Arid desert | Dunes, oases, canyons |
+| Whisperfrost Frontier | Frozen lands | Taiga, tundra, glaciers |
+| Devastated Lands | Corrupted lands | Ruins, volcanoes, desolation |
 
-### Anciens Zones (Historique)
+### Legacy Zones (Historical)
 
-Le système original comprenait 4 zones majeures :
+The original system included 4 major zones:
 
-1. **Zone 1 - Emerald Grove** - Forêts verdoyantes
-2. **Zone 2 - Howling Sands** - Déserts brûlants
-3. **Zone 3 - Borea** - Terres glacées
-4. **Zone 4 - Devastated Lands** - Territoire corrompu
+1. **Zone 1 - Emerald Grove** - Lush forests
+2. **Zone 2 - Howling Sands** - Burning deserts
+3. **Zone 3 - Borea** - Frozen lands
+4. **Zone 4 - Devastated Lands** - Corrupted territory
 
-Ces zones ont été subdivisées en régions plus petites mais plus détaillées.
+These zones have been subdivided into smaller but more detailed regions.
 
-## Génération du Monde
+## World Generation
 
 ### World Generation V1
 
-Le système de lancement avec :
-- Nombreux biomes jouables
-- Contenu prêt pour l'exploration
-- Structures et donjons
+The launch system with:
+- Many playable biomes
+- Content ready for exploration
+- Structures and dungeons
 
 ### World Generation V2
 
-En développement, apportera :
-- Biomes plus détaillés
-- Transitions plus naturelles
-- Nouvelles régions à explorer
-- Le "vrai" monde d'Orbis
+In development, will bring:
+- More detailed biomes
+- More natural transitions
+- New regions to explore
+- The "true" world of Orbis
 
-:::tip Mise à jour
-V2 deviendra le générateur principal après son achèvement. Les mondes V1 resteront jouables.
+:::tip Update
+V2 will become the main generator after completion. V1 worlds will remain playable.
 :::
 
-## Points d'Intérêt (POI)
+## Points of Interest (POI)
 
-Le monde est parsemé de structures et lieux spéciaux :
+The world is dotted with structures and special locations:
 
-### Structures Naturelles
+### Natural Structures
 
-- **Grottes** - Systèmes souterrains avec minerais
-- **Ravins** - Canyons profonds
-- **Cascades** - Points d'eau pittoresques
-- **Formations rocheuses** - Repères naturels
+- **Caves** - Underground systems with ores
+- **Ravines** - Deep canyons
+- **Waterfalls** - Picturesque water points
+- **Rock formations** - Natural landmarks
 
-### Structures Construites
+### Built Structures
 
-- **Villages** - PNJ amicaux, commerce
-- **Camps** - Ennemis et loot
-- **Tours** - Défis verticaux
-- **Donjons** - Aventures souterraines
-- **Temples** - Lore et trésors
+- **Villages** - Friendly NPCs, trading
+- **Camps** - Enemies and loot
+- **Towers** - Vertical challenges
+- **Dungeons** - Underground adventures
+- **Temples** - Lore and treasures
 
-### Ruines
+### Ruins
 
-- **Anciens monuments** - Histoire du monde
-- **Forteresses abandonnées** - Exploration risquée
-- **Sites de bataille** - Équipement récupérable
+- **Ancient monuments** - World history
+- **Abandoned fortresses** - Risky exploration
+- **Battle sites** - Recoverable equipment
 
 ## Exploration
 
-### Conseils
+### Tips
 
-1. **Marquez votre chemin** - Utilisez la carte
-2. **Préparez-vous** - Nourriture, armes, torches
-3. **Observez l'environnement** - Indices visuels
-4. **Progressez par étapes** - Ne vous éloignez pas trop vite
+1. **Mark your path** - Use the map
+2. **Prepare yourself** - Food, weapons, torches
+3. **Observe the environment** - Visual clues
+4. **Progress in stages** - Don't venture too far too fast
 
-### Récompenses
+### Rewards
 
-L'exploration rapporte :
-- **Ressources rares** - Matériaux exclusifs par région
-- **Équipement unique** - Trouvé dans les coffres
-- **Connaissances** - Lore et histoire
-- **Expérience** - Progression du personnage
+Exploration yields:
+- **Rare resources** - Materials exclusive to each region
+- **Unique equipment** - Found in chests
+- **Knowledge** - Lore and history
+- **Experience** - Character progression
 
-## Le Ciel et l'Espace
+## The Sky and Space
 
-Orbis possède :
-- **Deux lunes** - Affectent les marées et certaines créatures
-- **Constellations** - Navigation nocturne
-- **Aurores** - Phénomènes dans les régions froides
+Orbis features:
+- **Two moons** - Affect tides and certain creatures
+- **Constellations** - Night navigation
+- **Auroras** - Phenomena in cold regions
 
-## Voir Aussi
+## See Also
 
-- [Régions](/docs/gameplay/world/regions)
+- [Regions](/docs/gameplay/world/regions)
 - [Biomes](/docs/gameplay/world/biomes)
-- [Donjons](/docs/gameplay/world/dungeons)
+- [Dungeons](/docs/gameplay/world/dungeons)
 
 ---
 
-*Sources : [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [World Generation Blog](https://hytale.com/news/2026/1/the-future-of-world-generation)*
+*Sources: [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [World Generation Blog](https://hytale.com/news/2026/1/the-future-of-world-generation)*

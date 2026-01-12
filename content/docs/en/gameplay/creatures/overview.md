@@ -1,174 +1,174 @@
 ---
-title: Créatures
-description: Les habitants d'Orbis - créatures amicales, neutres et hostiles
+title: Creatures
+description: The inhabitants of Orbis - friendly, neutral, and hostile creatures
 ---
 
-# Créatures d'Orbis
+# Creatures of Orbis
 
-Orbis regorge de créatures diverses, des animaux paisibles aux monstres terrifiants. Chaque région possède sa faune unique.
+Orbis is teeming with diverse creatures, from peaceful animals to terrifying monsters. Each region has its unique fauna.
 
 ## Classification
 
-### Par Comportement
+### By Behavior
 
-| Type | Comportement | Exemples |
-|------|--------------|----------|
-| **Amical** | N'attaque jamais | Kweebecs, animaux domestiques |
-| **Neutre** | Attaque si provoqué | Loups, ours, sangliers |
-| **Hostile** | Attaque à vue | Trorks, squelettes, démons |
-| **Boss** | Ennemi majeur | Gardiens de donjon |
+| Type | Behavior | Examples |
+|------|----------|----------|
+| **Friendly** | Never attacks | Kweebecs, domestic animals |
+| **Neutral** | Attacks if provoked | Wolves, bears, boars |
+| **Hostile** | Attacks on sight | Trorks, skeletons, demons |
+| **Boss** | Major enemy | Dungeon guardians |
 
-### Par Origine
+### By Origin
 
-- **Naturels** - Faune d'Orbis (animaux, insectes)
-- **Humanoïdes** - Races intelligentes (Kweebecs, Trorks, Ferans)
-- **Morts-vivants** - Créatures réanimées (squelettes, zombies)
-- **Élémentaires** - Entités magiques (golems, élémentaires)
-- **Démoniaques** - Corruption (démons, entités sombres)
+- **Natural** - Orbis wildlife (animals, insects)
+- **Humanoid** - Intelligent races (Kweebecs, Trorks, Ferans)
+- **Undead** - Reanimated creatures (skeletons, zombies)
+- **Elemental** - Magical entities (golems, elementals)
+- **Demonic** - Corruption (demons, dark entities)
 
-## Créatures par Région
+## Creatures by Region
 
 ### Central Grasslands
 
-| Créature | Type | Danger |
+| Creature | Type | Danger |
 |----------|------|--------|
-| Kweebec | Amical | Aucun |
-| Vache | Amical | Aucun |
-| Mouton | Amical | Aucun |
-| Poulet | Amical | Aucun |
-| Loup | Neutre | Faible |
-| Sanglier | Neutre | Faible |
-| Trork Scout | Hostile | Modéré |
-| Squelette | Hostile (nuit) | Modéré |
+| Kweebec | Friendly | None |
+| Cow | Friendly | None |
+| Sheep | Friendly | None |
+| Chicken | Friendly | None |
+| Wolf | Neutral | Low |
+| Boar | Neutral | Low |
+| Trork Scout | Hostile | Moderate |
+| Skeleton | Hostile (night) | Moderate |
 
 ### Emerald Wilds
 
-| Créature | Type | Danger |
+| Creature | Type | Danger |
 |----------|------|--------|
-| Cerf | Neutre | Aucun |
-| Fée | Amical | Aucun |
-| Ours | Neutre | Modéré |
-| Araignée géante | Hostile | Modéré |
-| Trork Guerrier | Hostile | Élevé |
-| Ent corrompu | Hostile | Élevé |
+| Deer | Neutral | None |
+| Fairy | Friendly | None |
+| Bear | Neutral | Moderate |
+| Giant Spider | Hostile | Moderate |
+| Trork Warrior | Hostile | High |
+| Corrupted Ent | Hostile | High |
 
 ### Howling Sands
 
-| Créature | Type | Danger |
+| Creature | Type | Danger |
 |----------|------|--------|
-| Chameau | Amical | Aucun |
-| Fennec | Amical | Aucun |
-| Scorpion | Neutre | Faible |
-| Serpent | Neutre | Modéré |
-| Momie | Hostile | Modéré |
-| Golem de sable | Hostile | Élevé |
-| Ver des sables | Hostile | Très élevé |
+| Camel | Friendly | None |
+| Fennec | Friendly | None |
+| Scorpion | Neutral | Low |
+| Snake | Neutral | Moderate |
+| Mummy | Hostile | Moderate |
+| Sand Golem | Hostile | High |
+| Sandworm | Hostile | Very High |
 
 ### Whisperfrost Frontier
 
-| Créature | Type | Danger |
+| Creature | Type | Danger |
 |----------|------|--------|
-| Renne | Amical | Aucun |
-| Pingouin | Amical | Aucun |
-| Loup arctique | Neutre | Modéré |
-| Ours polaire | Neutre | Élevé |
-| Yéti | Hostile | Élevé |
-| Élémentaire de glace | Hostile | Très élevé |
+| Reindeer | Friendly | None |
+| Penguin | Friendly | None |
+| Arctic Wolf | Neutral | Moderate |
+| Polar Bear | Neutral | High |
+| Yeti | Hostile | High |
+| Ice Elemental | Hostile | Very High |
 
 ### Devastated Lands
 
-| Créature | Type | Danger |
+| Creature | Type | Danger |
 |----------|------|--------|
-| Démon mineur | Hostile | Élevé |
-| Mort-vivant avancé | Hostile | Élevé |
-| Golem corrompu | Hostile | Très élevé |
-| Seigneur démon | Boss | Extrême |
+| Lesser Demon | Hostile | High |
+| Advanced Undead | Hostile | High |
+| Corrupted Golem | Hostile | Very High |
+| Demon Lord | Boss | Extreme |
 
-## Factions Intelligentes
+## Intelligent Factions
 
 ### Kweebecs
 
-Petits êtres forestiers amicaux.
+Small friendly forest beings.
 
-- **Attitude** : Alliés naturels du joueur
-- **Habitat** : Villages dans les forêts
-- **Commerce** : Vendent nourriture et objets de base
-- **Quêtes** : Proposent des missions
+- **Attitude**: Natural allies of the player
+- **Habitat**: Villages in forests
+- **Trade**: Sell food and basic items
+- **Quests**: Offer missions
 
 ### Trorks
 
-Race guerrière hostile.
+Hostile warrior race.
 
-- **Attitude** : Hostiles par défaut
-- **Habitat** : Camps et forteresses
-- **Équipement** : Armes et armures uniques
-- **Hiérarchie** : Scouts → Guerriers → Shamans → Chefs
+- **Attitude**: Hostile by default
+- **Habitat**: Camps and fortresses
+- **Equipment**: Unique weapons and armor
+- **Hierarchy**: Scouts → Warriors → Shamans → Chiefs
 
 ### Ferans
 
-Race mystérieuse liée à la nature.
+Mysterious race connected to nature.
 
-- **Attitude** : Variable selon les actions du joueur
-- **Habitat** : Forêts profondes
-- **Capacités** : Magie naturelle
-- **Lore** : Gardiens anciens d'Orbis
+- **Attitude**: Variable depending on player actions
+- **Habitat**: Deep forests
+- **Abilities**: Nature magic
+- **Lore**: Ancient guardians of Orbis
 
-## Mécanique des Créatures
+## Creature Mechanics
 
 ### Spawning
 
-- **Jour/Nuit** - Certaines créatures n'apparaissent que la nuit
-- **Biome** - Chaque biome a sa liste de spawns
-- **Densité** - Plus vous vous éloignez des zones sûres, plus les spawns sont fréquents
+- **Day/Night** - Some creatures only appear at night
+- **Biome** - Each biome has its spawn list
+- **Density** - The further from safe zones, the more frequent spawns
 
-### Comportement IA
+### AI Behavior
 
-Les créatures ont des comportements complexes :
+Creatures have complex behaviors:
 
-- **Patrouille** - Mouvement dans une zone définie
-- **Chasse** - Poursuite des proies
-- **Fuite** - Certaines fuient si blessées
-- **Appel** - Peuvent alerter des alliés
-- **Territorialité** - Défendent leur zone
+- **Patrol** - Movement within a defined area
+- **Hunt** - Pursuit of prey
+- **Flee** - Some flee when injured
+- **Call** - Can alert allies
+- **Territoriality** - Defend their zone
 
 ### Loot
 
-Chaque créature peut lâcher :
+Each creature can drop:
 
-| Type de Loot | Exemples |
-|--------------|----------|
-| Matériaux | Cuir, os, écailles |
-| Nourriture | Viande, œufs |
-| Équipement | Armes, armures (rares) |
-| Objets de quête | Items spécifiques |
+| Loot Type | Examples |
+|-----------|----------|
+| Materials | Leather, bones, scales |
+| Food | Meat, eggs |
+| Equipment | Weapons, armor (rare) |
+| Quest Items | Specific items |
 
-## Apprivoisement
+## Taming
 
-Certaines créatures peuvent devenir des compagnons :
+Some creatures can become companions:
 
-### Montures
+### Mounts
 
-| Créature | Région | Vitesse | Capacité |
-|----------|--------|---------|----------|
-| Cheval | Grasslands | Rapide | Équilibrée |
-| Chameau | Howling Sands | Moyenne | Endurance |
-| Loup de guerre | Borea | Rapide | Combat |
+| Creature | Region | Speed | Capacity |
+|----------|--------|-------|----------|
+| Horse | Grasslands | Fast | Balanced |
+| Camel | Howling Sands | Medium | Endurance |
+| War Wolf | Borea | Fast | Combat |
 
-### Familiers
+### Pets
 
-| Créature | Effet |
-|----------|-------|
-| Chat | Détecte les trésors |
-| Hibou | Vision nocturne |
-| Faucon | Repère les ennemis |
+| Creature | Effect |
+|----------|--------|
+| Cat | Detects treasures |
+| Owl | Night vision |
+| Falcon | Spots enemies |
 
-## Voir Aussi
+## See Also
 
-- [Créatures Hostiles](/docs/gameplay/creatures/hostile)
-- [Créatures Amicales](/docs/gameplay/creatures/friendly)
+- [Hostile Creatures](/docs/gameplay/creatures/hostile)
+- [Friendly Creatures](/docs/gameplay/creatures/friendly)
 - [Factions](/docs/gameplay/creatures/factions)
-- [Régions](/docs/gameplay/world/regions)
+- [Regions](/docs/gameplay/world/regions)
 
 ---
 
-*Source : [Hytale Wiki](https://hytale.fandom.com), [HytaleGuide](https://hytaleguide.net/mobs)*
+*Source: [Hytale Wiki](https://hytale.fandom.com), [HytaleGuide](https://hytaleguide.net/mobs)*

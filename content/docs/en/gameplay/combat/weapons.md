@@ -1,196 +1,196 @@
 ---
-title: Armes
-description: Guide complet des armes disponibles dans Hytale
+title: Weapons
+description: Complete guide to weapons available in Hytale
 ---
 
-# Armes
+# Weapons
 
-Les armes dans Hytale définissent votre style de combat. Chaque type possède son propre rythme, ses combos et ses attaques spéciales.
+Weapons in Hytale define your combat style. Each type has its own rhythm, combos, and special attacks.
 
 ## Classification
 
-Les armes sont divisées en trois catégories principales :
+Weapons are divided into three main categories:
 
-- **Mêlée** - Combat rapproché
-- **Distance** - Combat à portée
-- **Magie** - Sorts et grimoires
+- **Melee** - Close-range combat
+- **Ranged** - Distance combat
+- **Magic** - Spells and grimoires
 
-## Armes de Mêlée
+## Melee Weapons
 
-### Épées
+### Swords
 
-L'arme équilibrée par excellence.
+The quintessential balanced weapon.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Dague | 1 | Très rapide | Faible | Coup critique dos |
-| Épée courte | 1 | Rapide | Moyen | Combo rapide |
-| Épée longue | 1 | Moyen | Moyen+ | Portée étendue |
-| Épée à deux mains | 2 | Lent | Élevé | Frappe circulaire |
+| Variant | Hands | Speed | Damage | Special |
+|---------|-------|-------|--------|---------|
+| Dagger | 1 | Very fast | Low | Back critical hit |
+| Short Sword | 1 | Fast | Medium | Quick combo |
+| Long Sword | 1 | Medium | Medium+ | Extended reach |
+| Two-Handed Sword | 2 | Slow | High | Circular strike |
 
-**Attaque spéciale** : Estoc perforant (ignore une partie de l'armure)
+**Special Attack**: Piercing thrust (ignores part of armor)
 
-### Haches
+### Axes
 
-Puissance brute et destruction.
+Raw power and destruction.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Hachette | 1 | Rapide | Moyen | Peut être lancée |
-| Hache de bataille | 1 | Moyen | Élevé | Bonus vs boucliers |
-| Grande hache | 2 | Très lent | Très élevé | Cleave (multi-cibles) |
+| Variant | Hands | Speed | Damage | Special |
+|---------|-------|-------|--------|---------|
+| Hatchet | 1 | Fast | Medium | Can be thrown |
+| Battle Axe | 1 | Medium | High | Bonus vs shields |
+| Great Axe | 2 | Very slow | Very high | Cleave (multi-target) |
 
-**Attaque spéciale** : Frappe dévastatrice (brise les gardes)
+**Special Attack**: Devastating strike (breaks guards)
 
-### Masses et Marteaux
+### Maces and Hammers
 
-Armes contondantes contre les armures lourdes.
+Blunt weapons against heavy armor.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Masse | 1 | Moyen | Moyen | Bonus vs armure |
-| Masse d'armes | 1 | Moyen | Élevé | Étourdissement |
-| Marteau de guerre | 2 | Très lent | Très élevé | Onde de choc |
+| Variant | Hands | Speed | Damage | Special |
+|---------|-------|-------|--------|---------|
+| Mace | 1 | Medium | Medium | Bonus vs armor |
+| Flanged Mace | 1 | Medium | High | Stun |
+| War Hammer | 2 | Very slow | Very high | Shockwave |
 
-**Attaque spéciale** : Coup de grâce (dégâts bonus sur ennemis étourdis)
+**Special Attack**: Finishing blow (bonus damage on stunned enemies)
 
-### Lances
+### Spears
 
-Portée et contrôle du terrain.
+Range and terrain control.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Javelot | 1 | Rapide | Moyen | Lancer possible |
-| Lance | 2 | Moyen | Moyen | Portée maximale |
-| Hallebarde | 2 | Lent | Élevé | Balayage + portée |
+| Variant | Hands | Speed | Damage | Special |
+|---------|-------|-------|--------|---------|
+| Javelin | 1 | Fast | Medium | Can be thrown |
+| Spear | 2 | Medium | Medium | Maximum reach |
+| Halberd | 2 | Slow | High | Sweep + reach |
 
-**Attaque spéciale** : Charge (dash + attaque perforante)
+**Special Attack**: Charge (dash + piercing attack)
 
-## Armes à Distance
+## Ranged Weapons
 
-### Arcs
+### Bows
 
-Dégâts constants à distance.
+Consistent damage at range.
 
-| Variante | Vitesse | Portée | Dégâts |
-|----------|---------|--------|--------|
-| Arc court | Rapide | Courte | Faible |
-| Arc long | Moyen | Longue | Moyen |
-| Arc composite | Moyen | Moyenne | Élevé |
-| Arc de guerre | Lent | Très longue | Très élevé |
+| Variant | Speed | Range | Damage |
+|---------|-------|-------|--------|
+| Short Bow | Fast | Short | Low |
+| Long Bow | Medium | Long | Medium |
+| Composite Bow | Medium | Medium | High |
+| War Bow | Slow | Very long | Very high |
 
-**Munitions** : Flèches (normales, feu, poison, explosive)
+**Ammunition**: Arrows (normal, fire, poison, explosive)
 
-### Arbalètes
+### Crossbows
 
-Puissance de feu supérieure, rechargement plus lent.
+Superior firepower, slower reload.
 
-| Variante | Vitesse | Portée | Dégâts |
-|----------|---------|--------|--------|
-| Arbalète légère | Moyen | Moyenne | Moyen |
-| Arbalète lourde | Lent | Longue | Très élevé |
-| Arbalète à répétition | Rapide | Courte | Faible |
+| Variant | Speed | Range | Damage |
+|---------|-------|-------|--------|
+| Light Crossbow | Medium | Medium | Medium |
+| Heavy Crossbow | Slow | Long | Very high |
+| Repeating Crossbow | Fast | Short | Low |
 
-**Munitions** : Carreaux (normales, perforants, explosifs)
+**Ammunition**: Bolts (normal, piercing, explosive)
 
-### Armes de Lancer
+### Throwing Weapons
 
-Consommables mais puissants.
+Consumable but powerful.
 
-| Type | Quantité | Dégâts | Effet |
-|------|----------|--------|-------|
-| Couteau de lancer | Stack x20 | Faible | Rapide |
-| Javelot | Stack x5 | Moyen | Saignement |
-| Bombes | Stack x3 | Zone | Explosion |
-| Fioles | Stack x5 | Variable | Effets magiques |
+| Type | Quantity | Damage | Effect |
+|------|----------|--------|--------|
+| Throwing Knife | Stack x20 | Low | Fast |
+| Javelin | Stack x5 | Medium | Bleeding |
+| Bombs | Stack x3 | Area | Explosion |
+| Vials | Stack x5 | Variable | Magical effects |
 
-## Boucliers
+## Shields
 
-Équipement défensif pour la main secondaire.
+Defensive equipment for the off-hand.
 
-| Type | Stabilité | Poids | Spécial |
-|------|-----------|-------|---------|
-| Rondache | Faible | Léger | Parade facile |
-| Écu | Moyen | Moyen | Équilibré |
-| Pavois | Élevé | Lourd | Bloque projectiles |
-| Bouclier tour | Très élevé | Très lourd | Protection totale |
+| Type | Stability | Weight | Special |
+|------|-----------|--------|---------|
+| Buckler | Low | Light | Easy parry |
+| Kite Shield | Medium | Medium | Balanced |
+| Pavise | High | Heavy | Blocks projectiles |
+| Tower Shield | Very high | Very heavy | Total protection |
 
-## Matériaux et Raretés
+## Materials and Rarities
 
-### Progression des Matériaux
+### Material Progression
 
 ```
-Bois → Pierre → Fer → Acier → Thorium → Légendaire
+Wood → Stone → Iron → Steel → Thorium → Legendary
 ```
 
-| Matériau | Disponibilité | Bonus |
-|----------|---------------|-------|
-| Bois | Partout | - |
-| Pierre | Partout | +Durabilité |
-| Fer | Central Grasslands | +Dégâts |
-| Acier | Emerald Wilds+ | +Dégâts, +Durabilité |
-| Thorium | Howling Sands+ | +Dégâts magiques |
-| Frost Steel | Whisperfrost | +Dégâts glace |
-| Obsidienne | Devastated Lands | +Dégâts critiques |
+| Material | Availability | Bonus |
+|----------|--------------|-------|
+| Wood | Everywhere | - |
+| Stone | Everywhere | +Durability |
+| Iron | Central Grasslands | +Damage |
+| Steel | Emerald Wilds+ | +Damage, +Durability |
+| Thorium | Howling Sands+ | +Magic damage |
+| Frost Steel | Whisperfrost | +Ice damage |
+| Obsidian | Devastated Lands | +Critical damage |
 
-### Raretés
+### Rarities
 
-| Rareté | Couleur | Caractéristique |
-|--------|---------|-----------------|
-| Commun | Blanc | Stats de base |
-| Peu commun | Vert | Bonus mineur |
-| Rare | Bleu | Bonus significatif |
-| Épique | Violet | Effet unique |
-| Légendaire | Orange | Effet légendaire + histoire |
+| Rarity | Color | Characteristic |
+|--------|-------|----------------|
+| Common | White | Base stats |
+| Uncommon | Green | Minor bonus |
+| Rare | Blue | Significant bonus |
+| Epic | Purple | Unique effect |
+| Legendary | Orange | Legendary effect + lore |
 
-## Armes Spéciales
+## Special Weapons
 
-### Armes Uniques
+### Unique Weapons
 
-Des armes avec des effets spéciaux trouvées dans les donjons :
+Weapons with special effects found in dungeons:
 
-- **Lame du Crépuscule** - Dégâts augmentés la nuit
-- **Marteau de Forgeron** - Répare l'équipement en frappant
-- **Arc des Vents** - Flèches guidées
-- **Dague de l'Ombre** - Invisibilité après backstab
+- **Twilight Blade** - Increased damage at night
+- **Blacksmith's Hammer** - Repairs equipment on hit
+- **Wind Bow** - Guided arrows
+- **Shadow Dagger** - Invisibility after backstab
 
-### Armes Trorks
+### Trork Weapons
 
-Récupérées sur les Trorks, style unique :
+Recovered from Trorks, unique style:
 
-- Design brutal et primitif
-- Dégâts élevés, durabilité faible
-- Bonus contre certaines créatures
+- Brutal and primitive design
+- High damage, low durability
+- Bonus against certain creatures
 
-## Amélioration des Armes
+## Weapon Upgrades
 
-### Forge
+### Smithing
 
-À la forge, améliorez vos armes :
+At the forge, upgrade your weapons:
 
-1. **Affûtage** - +Dégâts
-2. **Renforcement** - +Durabilité
-3. **Équilibrage** - +Vitesse
+1. **Sharpening** - +Damage
+2. **Reinforcement** - +Durability
+3. **Balancing** - +Speed
 
-### Enchantements
+### Enchantments
 
-Ajoutez des effets magiques :
+Add magical effects:
 
-| Enchantement | Effet |
-|--------------|-------|
-| Feu | Dégâts de feu supplémentaires |
-| Gel | Ralentit les ennemis |
-| Foudre | Dégâts en chaîne |
-| Vampirisme | Vol de vie |
-| Précision | Moins de dégâts réduits par armure |
+| Enchantment | Effect |
+|-------------|--------|
+| Fire | Additional fire damage |
+| Frost | Slows enemies |
+| Lightning | Chain damage |
+| Vampirism | Life steal |
+| Precision | Less damage reduced by armor |
 
-## Voir Aussi
+## See Also
 
-- [Système de Combat](/docs/gameplay/combat/overview)
-- [Magie](/docs/gameplay/combat/magic)
-- [Équipement](/docs/gameplay/combat/equipment)
-- [Forge](/docs/gameplay/progression/smithing)
+- [Combat System](/docs/gameplay/combat/overview)
+- [Magic](/docs/gameplay/combat/magic)
+- [Equipment](/docs/gameplay/combat/equipment)
+- [Smithing](/docs/gameplay/progression/smithing)
 
 ---
 
-*Source : [Weapons - Hytale.game](https://hytale.game/en/weapons/)*
+*Source: [Weapons - Hytale.game](https://hytale.game/en/weapons/)*

@@ -1,88 +1,88 @@
 ---
-title: Guide du Joueur
-description: Tout ce que vous devez savoir pour jouer à Hytale
+title: Player Guide
+description: Everything you need to know to play Hytale
 ---
 
-# Guide du Joueur
+# Player Guide
 
-Bienvenue dans le guide complet pour les joueurs de Hytale. Que vous soyez débutant ou explorateur chevronné d'Orbis, vous trouverez ici toutes les informations nécessaires pour profiter pleinement de votre aventure.
+Welcome to the complete guide for Hytale players. Whether you're a beginner or a seasoned Orbis explorer, you'll find here all the information you need to fully enjoy your adventure.
 
-## Qu'est-ce que Hytale ?
+## What is Hytale?
 
-Hytale est un jeu d'aventure et de création développé par Hypixel Studios. Il combine exploration, combat, construction et création dans un monde généré procéduralement appelé **Orbis**.
+Hytale is an adventure and creation game developed by Hypixel Studios. It combines exploration, combat, building and creation in a procedurally generated world called **Orbis**.
 
-Le jeu propose plusieurs modes :
+The game offers several modes:
 
-- **Mode Aventure** - Explorez Orbis, combattez des créatures, découvrez des donjons et progressez dans une histoire épique
-- **Mode Créatif** - Construisez librement avec tous les outils et blocs disponibles
-- **Mini-jeux** - Rejoignez des serveurs communautaires pour des expériences multijoueur variées
+- **Adventure Mode** - Explore Orbis, fight creatures, discover dungeons and progress through an epic story
+- **Creative Mode** - Build freely with all available tools and blocks
+- **Mini-games** - Join community servers for varied multiplayer experiences
 
-## Sections du Guide
+## Guide Sections
 
-### Pour Commencer
+### Getting Started
 
-Nouveau sur Hytale ? Commencez ici :
+New to Hytale? Start here:
 
-- [Premiers Pas](/docs/gameplay/getting-started/first-steps) - Votre première aventure sur Orbis
-- [Contrôles](/docs/gameplay/getting-started/controls) - Maîtrisez les commandes du jeu
-- [Interface](/docs/gameplay/getting-started/interface) - Comprendre l'écran de jeu
+- [First Steps](/docs/gameplay/getting-started/first-steps) - Your first adventure on Orbis
+- [Controls](/docs/gameplay/getting-started/controls) - Master the game controls
+- [Interface](/docs/gameplay/getting-started/interface) - Understanding the game screen
 
-### Le Monde d'Orbis
+### The World of Orbis
 
-Découvrez les terres d'Orbis :
+Discover the lands of Orbis:
 
-- [Vue d'ensemble](/docs/gameplay/world/overview) - Introduction au monde de Hytale
-- [Régions](/docs/gameplay/world/regions) - Les différentes zones à explorer
-- [Biomes](/docs/gameplay/world/biomes) - Environnements et écosystèmes
-- [Donjons](/docs/gameplay/world/dungeons) - Structures et défis
+- [Overview](/docs/gameplay/world/overview) - Introduction to the world of Hytale
+- [Regions](/docs/gameplay/world/regions) - The different zones to explore
+- [Biomes](/docs/gameplay/world/biomes) - Environments and ecosystems
+- [Dungeons](/docs/gameplay/world/dungeons) - Structures and challenges
 
 ### Combat
 
-Maîtrisez l'art du combat :
+Master the art of combat:
 
-- [Système de Combat](/docs/gameplay/combat/overview) - Mécaniques fondamentales
-- [Armes](/docs/gameplay/combat/weapons) - Arsenal disponible
-- [Magie](/docs/gameplay/combat/magic) - Sorts et grimoires
-- [Équipement](/docs/gameplay/combat/equipment) - Armures et accessoires
+- [Combat System](/docs/gameplay/combat/overview) - Fundamental mechanics
+- [Weapons](/docs/gameplay/combat/weapons) - Available arsenal
+- [Magic](/docs/gameplay/combat/magic) - Spells and grimoires
+- [Equipment](/docs/gameplay/combat/equipment) - Armor and accessories
 
-### Créatures
+### Creatures
 
-Rencontrez les habitants d'Orbis :
+Meet the inhabitants of Orbis:
 
-- [Vue d'ensemble](/docs/gameplay/creatures/overview) - Introduction aux créatures
-- [Créatures Hostiles](/docs/gameplay/creatures/hostile) - Ennemis et boss
-- [Créatures Amicales](/docs/gameplay/creatures/friendly) - Alliés et animaux
-- [Factions](/docs/gameplay/creatures/factions) - Les peuples d'Orbis
+- [Overview](/docs/gameplay/creatures/overview) - Introduction to creatures
+- [Hostile Creatures](/docs/gameplay/creatures/hostile) - Enemies and bosses
+- [Friendly Creatures](/docs/gameplay/creatures/friendly) - Allies and animals
+- [Factions](/docs/gameplay/creatures/factions) - The peoples of Orbis
 
 ### Progression
 
-Développez votre personnage :
+Develop your character:
 
-- [Compétences](/docs/gameplay/progression/skills) - Système de progression
-- [Crafting](/docs/gameplay/progression/crafting) - Création d'objets
-- [Cuisine](/docs/gameplay/progression/cooking) - Préparation de nourriture
-- [Forge](/docs/gameplay/progression/smithing) - Fabrication d'équipement
+- [Skills](/docs/gameplay/progression/skills) - Progression system
+- [Crafting](/docs/gameplay/progression/crafting) - Item creation
+- [Cooking](/docs/gameplay/progression/cooking) - Food preparation
+- [Smithing](/docs/gameplay/progression/smithing) - Equipment crafting
 
-## Informations de Sortie
+## Release Information
 
-Hytale entre en **Accès Anticipé le 13 janvier 2026**.
+Hytale enters **Early Access on January 13, 2026**.
 
-| Édition | Prix | Contenu |
-|---------|------|---------|
-| Standard | 34,99 € | Jeu complet |
-| Deluxe | À confirmer | Jeu + cosmétiques exclusifs |
+| Edition | Price | Content |
+|---------|-------|---------|
+| Standard | $34.99 | Full game |
+| Deluxe | TBC | Game + exclusive cosmetics |
 
-:::tip Précommande
-Le jeu est disponible en précommande sur [hytale.com](https://hytale.com) depuis le 13 décembre 2025.
+:::tip Pre-order
+The game is available for pre-order on [hytale.com](https://hytale.com) since December 13, 2025.
 :::
 
-## Sources Officielles
+## Official Sources
 
-- [Site Officiel Hytale](https://hytale.com)
-- [Blog de Développement](https://hytale.com/news)
+- [Official Hytale Website](https://hytale.com)
+- [Development Blog](https://hytale.com/news)
 - [Twitter @Hytale](https://twitter.com/Hytale)
-- [Discord Officiel](https://discord.gg/hytale)
+- [Official Discord](https://discord.gg/hytale)
 
 ---
 
-*Ce wiki est maintenu par la communauté et n'est pas affilié à Hypixel Studios.*
+*This wiki is maintained by the community and is not affiliated with Hypixel Studios.*

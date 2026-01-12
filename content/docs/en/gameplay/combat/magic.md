@@ -1,200 +1,200 @@
 ---
-title: Magie
-description: Le système magique de Hytale - sorts, grimoires et écoles de magie
+title: Magic
+description: Hytale's magic system - spells, grimoires, and schools of magic
 ---
 
-# Magie
+# Magic
 
-La magie dans Hytale offre des options offensives, défensives et utilitaires pour diversifier votre gameplay.
+Magic in Hytale offers offensive, defensive, and utility options to diversify your gameplay.
 
-## Système de Mana
+## Mana System
 
-### Fonctionnement
+### How It Works
 
-- **Barre de Mana** - Ressource pour lancer des sorts
-- **Régénération** - Lente et passive
-- **Épuisement** - Impossible de lancer si vide
-- **Boost** - Potions et équipements augmentent la régénération
+- **Mana Bar** - Resource for casting spells
+- **Regeneration** - Slow and passive
+- **Depletion** - Cannot cast when empty
+- **Boost** - Potions and equipment increase regeneration
 
-### Gestion du Mana
+### Mana Management
 
-| Niveau de Mana | État | Recommandation |
-|----------------|------|----------------|
-| 100-75% | Plein | Utilisez librement |
-| 75-50% | Modéré | Priorisez les sorts essentiels |
-| 50-25% | Bas | Réservez pour urgences |
-| 25-0% | Critique | Passez aux armes physiques |
+| Mana Level | State | Recommendation |
+|------------|-------|----------------|
+| 100-75% | Full | Use freely |
+| 75-50% | Moderate | Prioritize essential spells |
+| 50-25% | Low | Reserve for emergencies |
+| 25-0% | Critical | Switch to physical weapons |
 
 ## Grimoires (Spellbooks)
 
-Les grimoires sont les armes magiques principales. Chaque grimoire contient des sorts spécifiques.
+Grimoires are the main magical weapons. Each grimoire contains specific spells.
 
-### Types de Grimoires
+### Types of Grimoires
 
-| Grimoire | École | Sorts Inclus |
-|----------|-------|--------------|
-| Tome Élémentaire | Éléments | Boule de feu, Éclair, Glaçon |
-| Livre des Ombres | Ténèbres | Drain de vie, Malédiction |
-| Codex de Lumière | Lumière | Soin, Bouclier sacré |
-| Manuel Arcanique | Arcane | Téléportation, Projectile magique |
-| Grimoire Naturel | Nature | Entrave, Régénération |
+| Grimoire | School | Included Spells |
+|----------|--------|-----------------|
+| Elemental Tome | Elements | Fireball, Lightning, Ice Shard |
+| Book of Shadows | Darkness | Life Drain, Curse |
+| Codex of Light | Light | Heal, Sacred Shield |
+| Arcane Manual | Arcane | Teleportation, Magic Missile |
+| Natural Grimoire | Nature | Entangle, Regeneration |
 
-### Rareté des Grimoires
+### Grimoire Rarity
 
-- **Commun** - 1-2 sorts basiques
-- **Rare** - 3-4 sorts, effets améliorés
-- **Épique** - 5+ sorts, sorts uniques
-- **Légendaire** - Sorts exclusifs puissants
+- **Common** - 1-2 basic spells
+- **Rare** - 3-4 spells, enhanced effects
+- **Epic** - 5+ spells, unique spells
+- **Legendary** - Powerful exclusive spells
 
-## Écoles de Magie
+## Schools of Magic
 
-### Magie Élémentaire
+### Elemental Magic
 
-Contrôle des éléments naturels.
+Control of natural elements.
 
-**Feu**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Boule de feu | 20 | Projectile explosif |
-| Mur de flammes | 35 | Zone de dégâts |
-| Immolation | 50 | Buff : armes enflammées |
-| Météore | 80 | Dégâts massifs de zone |
+**Fire**
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Fireball | 20 | Explosive projectile |
+| Wall of Flames | 35 | Damage zone |
+| Immolation | 50 | Buff: flaming weapons |
+| Meteor | 80 | Massive area damage |
 
-**Glace**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Glaçon | 15 | Projectile + ralentissement |
-| Cône de froid | 30 | Zone frontale |
-| Armure de glace | 40 | Buff défensif |
-| Blizzard | 70 | Zone persistante |
+**Ice**
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Ice Shard | 15 | Projectile + slowdown |
+| Cone of Cold | 30 | Frontal zone |
+| Ice Armor | 40 | Defensive buff |
+| Blizzard | 70 | Persistent zone |
 
-**Foudre**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Éclair | 25 | Dégâts instantanés |
-| Chaîne d'éclairs | 45 | Rebondit entre ennemis |
-| Tempête | 60 | Zone massive |
+**Lightning**
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Lightning Bolt | 25 | Instant damage |
+| Chain Lightning | 45 | Bounces between enemies |
+| Storm | 60 | Massive zone |
 
-### Magie des Ténèbres
+### Dark Magic
 
-Pouvoirs sombres et malédictions.
+Dark powers and curses.
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Drain de vie | 30 | Dégâts + soin |
-| Malédiction | 25 | Debuff ennemi |
-| Invocation d'ombre | 50 | Familier temporaire |
-| Néant | 75 | Dégâts purs, ignore armure |
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Life Drain | 30 | Damage + heal |
+| Curse | 25 | Enemy debuff |
+| Shadow Summon | 50 | Temporary familiar |
+| Void | 75 | Pure damage, ignores armor |
 
 :::warning Corruption
-Certains sorts sombres peuvent avoir des effets secondaires négatifs sur le lanceur.
+Some dark spells may have negative side effects on the caster.
 :::
 
-### Magie de Lumière
+### Light Magic
 
-Soins et protection.
+Healing and protection.
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Soin mineur | 20 | Restaure la vie |
-| Soin majeur | 45 | Soin important |
-| Bouclier sacré | 30 | Absorbe les dégâts |
-| Purification | 35 | Retire les debuffs |
-| Résurrection | 100 | Relève un allié (cooldown long) |
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Minor Heal | 20 | Restores health |
+| Major Heal | 45 | Significant healing |
+| Sacred Shield | 30 | Absorbs damage |
+| Purification | 35 | Removes debuffs |
+| Resurrection | 100 | Revives an ally (long cooldown) |
 
-### Magie Arcanique
+### Arcane Magic
 
-Utilitaires et contrôle.
+Utilities and control.
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Projectile arcanique | 10 | Dégâts basiques garantis |
-| Téléportation courte | 40 | Déplacement instantané |
-| Lévitation | 30 | Vol temporaire |
-| Invisibilité | 50 | Furtivité |
-| Portail | 80 | Téléportation longue distance |
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Arcane Missile | 10 | Basic guaranteed damage |
+| Short Teleport | 40 | Instant movement |
+| Levitation | 30 | Temporary flight |
+| Invisibility | 50 | Stealth |
+| Portal | 80 | Long-distance teleportation |
 
-### Magie Naturelle
+### Nature Magic
 
-Connexion avec la nature.
+Connection with nature.
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Entrave | 25 | Immobilise l'ennemi |
-| Régénération | 35 | Soin sur la durée |
-| Invocation animale | 45 | Compagnon temporaire |
-| Tremblement | 60 | Dégâts de zone + stun |
+| Spell | Mana Cost | Effect |
+|-------|-----------|--------|
+| Entangle | 25 | Immobilizes enemy |
+| Regeneration | 35 | Healing over time |
+| Animal Summon | 45 | Temporary companion |
+| Earthquake | 60 | Area damage + stun |
 
-## Combinaisons Magiques
+## Magical Combinations
 
 ### Synergies
 
-Combinez sorts pour des effets amplifiés :
+Combine spells for amplified effects:
 
-| Combo | Sorts | Effet |
-|-------|-------|-------|
-| Tempête de feu | Feu + Vent | Tornade enflammée |
-| Glace noire | Glace + Ténèbres | Gel + drain |
-| Foudre sacrée | Foudre + Lumière | Dégâts + soin allié |
+| Combo | Spells | Effect |
+|-------|--------|--------|
+| Firestorm | Fire + Wind | Flaming tornado |
+| Black Ice | Ice + Darkness | Freeze + drain |
+| Holy Lightning | Lightning + Light | Damage + ally heal |
 
-### Contre-sorts
+### Counter-spells
 
-| Élément | Faible contre | Fort contre |
-|---------|---------------|-------------|
-| Feu | Eau/Glace | Nature |
-| Glace | Feu | Foudre |
-| Foudre | Terre | Eau |
-| Lumière | Ténèbres | Morts-vivants |
-| Ténèbres | Lumière | Vivants |
+| Element | Weak Against | Strong Against |
+|---------|--------------|----------------|
+| Fire | Water/Ice | Nature |
+| Ice | Fire | Lightning |
+| Lightning | Earth | Water |
+| Light | Darkness | Undead |
+| Darkness | Light | Living |
 
-## Progression Magique
+## Magical Progression
 
-### Niveaux de Maîtrise
+### Mastery Levels
 
 ```
-Initié → Apprenti → Mage → Archimage → Maître
+Initiate → Apprentice → Mage → Archmage → Master
 ```
 
-Chaque niveau débloque :
-- Nouveaux sorts
-- Réduction du coût en mana
-- Augmentation des dégâts/effets
-- Temps de recharge réduit
+Each level unlocks:
+- New spells
+- Reduced mana cost
+- Increased damage/effects
+- Reduced cooldowns
 
-### Spécialisation
+### Specialization
 
-Choisissez une école principale pour :
-- Bonus passifs dans cette école
-- Accès à des sorts ultimes
-- Équipements spécialisés
+Choose a main school for:
+- Passive bonuses in that school
+- Access to ultimate spells
+- Specialized equipment
 
-## Équipement Magique
+## Magical Equipment
 
-### Bâtons
+### Staves
 
-Alternative aux grimoires, focus sur un élément :
+Alternative to grimoires, focused on one element:
 
-| Bâton | Élément | Bonus |
+| Staff | Element | Bonus |
 |-------|---------|-------|
-| Bâton de feu | Feu | +Dégâts feu |
-| Bâton de givre | Glace | +Durée effets |
-| Bâton d'orage | Foudre | +Vitesse incantation |
+| Fire Staff | Fire | +Fire damage |
+| Frost Staff | Ice | +Effect duration |
+| Storm Staff | Lightning | +Cast speed |
 
-### Accessoires
+### Accessories
 
-| Accessoire | Effet |
-|------------|-------|
-| Anneau de mana | +Mana max |
-| Amulette de concentration | +Régénération mana |
-| Cape d'archimage | -Coût des sorts |
-| Orbe de pouvoir | +Dégâts magiques |
+| Accessory | Effect |
+|-----------|--------|
+| Mana Ring | +Max mana |
+| Concentration Amulet | +Mana regeneration |
+| Archmage Cape | -Spell cost |
+| Power Orb | +Magic damage |
 
-## Voir Aussi
+## See Also
 
-- [Système de Combat](/docs/gameplay/combat/overview)
-- [Armes](/docs/gameplay/combat/weapons)
-- [Équipement](/docs/gameplay/combat/equipment)
+- [Combat System](/docs/gameplay/combat/overview)
+- [Weapons](/docs/gameplay/combat/weapons)
+- [Equipment](/docs/gameplay/combat/equipment)
 
 ---
 
-*Source : [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+*Source: [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*

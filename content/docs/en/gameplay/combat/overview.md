@@ -1,174 +1,174 @@
 ---
-title: Système de Combat
-description: Maîtrisez les mécaniques de combat de Hytale
+title: Combat System
+description: Master the combat mechanics of Hytale
 ---
 
-# Système de Combat
+# Combat System
 
-Le combat dans Hytale est un système dynamique basé sur la gestion des ressources, le positionnement et la maîtrise des armes.
+Combat in Hytale is a dynamic system based on resource management, positioning, and weapon mastery.
 
-## Mécaniques Fondamentales
+## Fundamental Mechanics
 
-### Endurance
+### Stamina
 
-L'**Endurance** est la ressource centrale du combat :
+**Stamina** is the central resource in combat:
 
-- **Sprint** - Consomme de l'endurance
-- **Esquive** - Coût modéré
-- **Attaques spéciales** - Coût variable selon l'arme
-- **Blocage prolongé** - Drain continu
+- **Sprint** - Consumes stamina
+- **Dodge** - Moderate cost
+- **Special attacks** - Variable cost depending on weapon
+- **Prolonged blocking** - Continuous drain
 
-:::tip Gestion de l'Endurance
-Ne videz jamais complètement votre barre ! Gardez toujours une réserve pour esquiver.
+:::tip Stamina Management
+Never completely empty your bar! Always keep a reserve for dodging.
 :::
 
-### Positionnement
+### Positioning
 
-Le positionnement est crucial, surtout en PvP :
+Positioning is crucial, especially in PvP:
 
-- **Flanc** - Bonus de dégâts sur les côtés
-- **Dos** - Dégâts critiques garantis
-- **Hauteur** - Avantage sur les ennemis en contrebas
-- **Distance** - Chaque arme a une portée optimale
+- **Flank** - Damage bonus from the sides
+- **Back** - Guaranteed critical damage
+- **Height** - Advantage over enemies below
+- **Distance** - Each weapon has an optimal range
 
-### Animations Directionnelles
+### Directional Animations
 
-Les attaques sont téléphonées par des animations claires :
+Attacks are telegraphed through clear animations:
 
-- **Préparation** - Le personnage arme son coup
-- **Direction** - Indique où l'attaque va frapper
-- **Fenêtre de parade** - Moment pour bloquer ou esquiver
-- **Recovery** - Temps de récupération après l'attaque
+- **Preparation** - The character winds up their strike
+- **Direction** - Indicates where the attack will hit
+- **Parry window** - Moment to block or dodge
+- **Recovery** - Recovery time after the attack
 
-## Types d'Attaques
+## Attack Types
 
-### Attaque Légère
+### Light Attack
 
-- **Input** : Clic gauche
-- **Vitesse** : Rapide
-- **Dégâts** : Faibles
-- **Endurance** : Minimal
+- **Input**: Left click
+- **Speed**: Fast
+- **Damage**: Low
+- **Stamina**: Minimal
 
-### Attaque Lourde
+### Heavy Attack
 
-- **Input** : Maintenir clic gauche
-- **Vitesse** : Lente
-- **Dégâts** : Élevés
-- **Endurance** : Modéré
+- **Input**: Hold left click
+- **Speed**: Slow
+- **Damage**: High
+- **Stamina**: Moderate
 
-### Attaque Spéciale
+### Special Attack
 
-- **Input** : F (par défaut)
-- **Vitesse** : Variable selon l'arme
-- **Dégâts** : Très élevés
-- **Endurance** : Coût important
-- **Effet** : Unique à chaque type d'arme
+- **Input**: F (default)
+- **Speed**: Variable depending on weapon
+- **Damage**: Very high
+- **Stamina**: Significant cost
+- **Effect**: Unique to each weapon type
 
 ### Combo
 
-Enchaînez les attaques pour des combos :
+Chain attacks for combos:
 
 ```
-Léger → Léger → Léger = Combo basique
-Léger → Léger → Lourd = Combo finisher
-Léger → Esquive → Lourd = Combo technique
+Light → Light → Light = Basic combo
+Light → Light → Heavy = Finisher combo
+Light → Dodge → Heavy = Technical combo
 ```
 
-## Défense
+## Defense
 
-### Blocage
+### Blocking
 
-Avec un bouclier ou certaines armes :
+With a shield or certain weapons:
 
-- **Réduction de dégâts** - Absorbe une partie des dommages
-- **Stabilité** - Résistance au stagger
-- **Contre-attaque** - Fenêtre après un bloc réussi
+- **Damage reduction** - Absorbs part of the damage
+- **Stability** - Resistance to stagger
+- **Counter-attack** - Window after a successful block
 
-### Parade
+### Parry
 
-Timing précis pour une défense parfaite :
+Precise timing for perfect defense:
 
-- **Fenêtre** : ~0.3 secondes
-- **Récompense** : Ennemi stagger, ouverture pour contre-attaque
-- **Risque** : Si raté, dégâts complets
+- **Window**: ~0.3 seconds
+- **Reward**: Enemy stagger, opening for counter-attack
+- **Risk**: If missed, full damage
 
-### Esquive
+### Dodge
 
-Mouvement d'évitement :
+Evasive movement:
 
-| Direction | Input | Effet |
-|-----------|-------|-------|
-| Arrière | Double-tap S | Saut arrière, distance |
-| Latérale | Double-tap Q/D | Roulade, invincibilité partielle |
-| Avant | Double-tap Z + Sprint | Dash offensif |
+| Direction | Input | Effect |
+|-----------|-------|--------|
+| Back | Double-tap S | Backstep, distance |
+| Lateral | Double-tap A/D | Roll, partial invincibility |
+| Forward | Double-tap W + Sprint | Offensive dash |
 
-## Statuts et Effets
+## Status Effects
 
-### Effets de Statut
+### Status Effects
 
-| Effet | Source | Impact |
-|-------|--------|--------|
-| Saignement | Armes tranchantes | Dégâts sur la durée |
-| Poison | Créatures, plantes | Dégâts + ralentissement régén |
-| Brûlure | Feu, magie | Dégâts de feu continus |
-| Gel | Magie de glace | Ralentissement, puis immobilisation |
-| Étourdissement | Coups critiques | Incapacité temporaire |
+| Effect | Source | Impact |
+|--------|--------|--------|
+| Bleeding | Slashing weapons | Damage over time |
+| Poison | Creatures, plants | Damage + slowed regen |
+| Burn | Fire, magic | Continuous fire damage |
+| Freeze | Ice magic | Slowdown, then immobilization |
+| Stun | Critical hits | Temporary incapacity |
 
-### Buffs de Combat
+### Combat Buffs
 
-| Buff | Source | Effet |
-|------|--------|-------|
-| Rage | Compétence | +Dégâts, -Défense |
-| Fortification | Potion | +Défense temporaire |
-| Hâte | Nourriture | +Vitesse d'attaque |
-| Régénération | Potion | Récupération de vie |
+| Buff | Source | Effect |
+|------|--------|--------|
+| Rage | Skill | +Damage, -Defense |
+| Fortification | Potion | +Temporary defense |
+| Haste | Food | +Attack speed |
+| Regeneration | Potion | Health recovery |
 
-## Progression de Combat
+## Combat Progression
 
-### Compétences d'Armes
+### Weapon Skills
 
-Chaque type d'arme a sa propre progression :
+Each weapon type has its own progression:
 
-- **Novice** → **Apprenti** → **Adepte** → **Expert** → **Maître**
+- **Novice** → **Apprentice** → **Adept** → **Expert** → **Master**
 
-Plus vous utilisez une arme, plus vous débloquez :
-- Nouvelles techniques
-- Combos avancés
-- Attaques spéciales alternatives
+The more you use a weapon, the more you unlock:
+- New techniques
+- Advanced combos
+- Alternative special attacks
 
-### Styles de Combat
+### Combat Styles
 
-Développez votre style :
+Develop your style:
 
-- **Berserker** - Attaques puissantes, peu de défense
-- **Gardien** - Équilibre attaque/défense
-- **Duelliste** - Parades et contre-attaques
-- **Ranger** - Combat à distance
-- **Mage** - Sorts et contrôle
+- **Berserker** - Powerful attacks, little defense
+- **Guardian** - Attack/defense balance
+- **Duelist** - Parries and counter-attacks
+- **Ranger** - Ranged combat
+- **Mage** - Spells and control
 
-## Conseils Avancés
+## Advanced Tips
 
-### Contre les Ennemis
+### Against Enemies
 
-1. **Observez les patterns** - Chaque ennemi a des tells
-2. **Attendez les ouvertures** - Attaquez après leurs combos
-3. **Utilisez l'environnement** - Hauteur, obstacles
-4. **Adaptez votre équipement** - Résistances appropriées
+1. **Observe patterns** - Each enemy has tells
+2. **Wait for openings** - Attack after their combos
+3. **Use the environment** - Height, obstacles
+4. **Adapt your equipment** - Appropriate resistances
 
-### En PvP
+### In PvP
 
-1. **Lisez l'adversaire** - Anticipez ses actions
-2. **Variez vos attaques** - Ne soyez pas prévisible
-3. **Gérez l'espace** - Contrôlez la distance
-4. **Gardez votre calme** - La panique vide l'endurance
+1. **Read your opponent** - Anticipate their actions
+2. **Vary your attacks** - Don't be predictable
+3. **Manage space** - Control the distance
+4. **Stay calm** - Panic drains stamina
 
-## Voir Aussi
+## See Also
 
-- [Armes](/docs/gameplay/combat/weapons)
-- [Magie](/docs/gameplay/combat/magic)
-- [Équipement](/docs/gameplay/combat/equipment)
-- [Créatures Hostiles](/docs/gameplay/creatures/hostile)
+- [Weapons](/docs/gameplay/combat/weapons)
+- [Magic](/docs/gameplay/combat/magic)
+- [Equipment](/docs/gameplay/combat/equipment)
+- [Hostile Creatures](/docs/gameplay/creatures/hostile)
 
 ---
 
-*Source : [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+*Source: [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*

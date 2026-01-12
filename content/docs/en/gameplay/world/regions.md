@@ -1,225 +1,225 @@
 ---
-title: Régions
-description: Les différentes régions d'Orbis à explorer
+title: Regions
+description: The different regions of Orbis to explore
 ---
 
-# Régions d'Orbis
+# Regions of Orbis
 
-Les Régions sont les grandes divisions géographiques du monde d'Orbis. Chaque région possède son identité unique avec des biomes, créatures et ressources spécifiques.
+Regions are the major geographical divisions of the world of Orbis. Each region has its unique identity with specific biomes, creatures, and resources.
 
 ## Central Grasslands
 
-*Les Prairies Centrales*
+*The Central Plains*
 
-La région de départ pour la plupart des joueurs. Un environnement accueillant mais pas sans dangers.
+The starting region for most players. A welcoming environment but not without dangers.
 
-### Caractéristiques
+### Characteristics
 
-- **Difficulté** : Facile à Modéré
-- **Climat** : Tempéré
-- **Biomes** : Prairies, forêts clairsemées, collines rocheuses
+- **Difficulty**: Easy to Moderate
+- **Climate**: Temperate
+- **Biomes**: Meadows, sparse forests, rocky hills
 
-### Ressources
+### Resources
 
-| Ressource | Abondance | Utilisation |
-|-----------|-----------|-------------|
-| Bois de chêne | Commun | Construction, outils basiques |
-| Pierre | Commun | Construction, outils |
-| Fer | Peu commun | Armes et armures |
-| Cuivre | Peu commun | Crafting, décoration |
-| Herbes médicinales | Commun | Potions de soin |
+| Resource | Abundance | Use |
+|----------|-----------|-----|
+| Oak Wood | Common | Construction, basic tools |
+| Stone | Common | Construction, tools |
+| Iron | Uncommon | Weapons and armor |
+| Copper | Uncommon | Crafting, decoration |
+| Medicinal Herbs | Common | Healing potions |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Vaches, moutons, poulets, Kweebecs
-- **Neutres** : Sangliers, loups
-- **Hostiles** : Trorks (la nuit), squelettes
+- **Friendly**: Cows, sheep, chickens, Kweebecs
+- **Neutral**: Boars, wolves
+- **Hostile**: Trorks (at night), skeletons
 
-### Points d'Intérêt
+### Points of Interest
 
-- Villages Kweebec
-- Fermes abandonnées
-- Tours de guet en ruine
-- Entrées de grottes
+- Kweebec villages
+- Abandoned farms
+- Ruined watchtowers
+- Cave entrances
 
 ---
 
 ## Emerald Wilds
 
-*Les Terres Sauvages d'Émeraude*
+*The Emerald Wildlands*
 
-Forêts denses et mystérieuses, abritant d'anciennes créatures et secrets.
+Dense and mysterious forests, home to ancient creatures and secrets.
 
-### Caractéristiques
+### Characteristics
 
-- **Difficulté** : Modéré
-- **Climat** : Humide, brumeux
-- **Biomes** : Forêt profonde, marécages, clairières
+- **Difficulty**: Moderate
+- **Climate**: Humid, foggy
+- **Biomes**: Deep forest, swamps, clearings
 
-### Ressources
+### Resources
 
-| Ressource | Abondance | Utilisation |
-|-----------|-----------|-------------|
-| Bois exotiques | Commun | Crafting avancé |
-| Champignons | Commun | Cuisine, potions |
-| Gemmes vertes | Rare | Enchantements |
-| Vigne | Commun | Cordes, pièges |
+| Resource | Abundance | Use |
+|----------|-----------|-----|
+| Exotic Woods | Common | Advanced crafting |
+| Mushrooms | Common | Cooking, potions |
+| Green Gems | Rare | Enchantments |
+| Vines | Common | Ropes, traps |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Fées, esprits de la forêt
-- **Neutres** : Ours, cerfs géants
-- **Hostiles** : Araignées géantes, plantes carnivores, Trorks forestiers
+- **Friendly**: Fairies, forest spirits
+- **Neutral**: Bears, giant deer
+- **Hostile**: Giant spiders, carnivorous plants, forest Trorks
 
-### Points d'Intérêt
+### Points of Interest
 
-- Arbres ancestraux
-- Ruines elfiques
-- Grottes de champignons lumineux
-- Sanctuaires naturels
+- Ancestral trees
+- Elven ruins
+- Glowing mushroom caves
+- Natural sanctuaries
 
 ---
 
 ## Howling Sands
 
-*Les Sables Hurlants*
+*The Howling Sands*
 
-Un désert impitoyable où seuls les plus préparés survivent.
+A merciless desert where only the most prepared survive.
 
-### Caractéristiques
+### Characteristics
 
-- **Difficulté** : Difficile
-- **Climat** : Aride, extrême (chaud le jour, froid la nuit)
-- **Biomes** : Dunes, oasis, canyons, mesa
+- **Difficulty**: Hard
+- **Climate**: Arid, extreme (hot during day, cold at night)
+- **Biomes**: Dunes, oases, canyons, mesa
 
-### Ressources
+### Resources
 
-| Ressource | Abondance | Utilisation |
-|-----------|-----------|-------------|
-| Grès | Commun | Construction |
-| Or | Peu commun | Commerce, crafting |
-| Cactus | Commun | Eau, nourriture |
-| Sable de silice | Commun | Verre |
-| Reliques anciennes | Rare | Quêtes, échange |
+| Resource | Abundance | Use |
+|----------|-----------|-----|
+| Sandstone | Common | Construction |
+| Gold | Uncommon | Trade, crafting |
+| Cactus | Common | Water, food |
+| Silica Sand | Common | Glass |
+| Ancient Relics | Rare | Quests, trading |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Chameaux, fennecs
-- **Neutres** : Scorpions, serpents
-- **Hostiles** : Momies, golems de sable, vers géants
+- **Friendly**: Camels, fennecs
+- **Neutral**: Scorpions, snakes
+- **Hostile**: Mummies, sand golems, giant worms
 
-### Points d'Intérêt
+### Points of Interest
 
-- Pyramides
-- Temples enterrés
-- Oasis cachées
-- Épaves de navires des sables
+- Pyramids
+- Buried temples
+- Hidden oases
+- Sand ship wrecks
 
-### Survie
+### Survival
 
-:::warning Attention
-La déshydratation est un danger réel. Emportez suffisamment d'eau !
+:::warning Caution
+Dehydration is a real danger. Bring enough water!
 :::
 
 ---
 
 ## Whisperfrost Frontier
 
-*La Frontière du Givre Murmurant*
+*The Whispering Frost Frontier*
 
-Terres gelées où le froid est aussi mortel que les créatures.
+Frozen lands where the cold is as deadly as the creatures.
 
-### Caractéristiques
+### Characteristics
 
-- **Difficulté** : Difficile
-- **Climat** : Glacial, tempêtes de neige
-- **Biomes** : Taïga, toundra, glaciers, rivières gelées
+- **Difficulty**: Hard
+- **Climate**: Glacial, snowstorms
+- **Biomes**: Taiga, tundra, glaciers, frozen rivers
 
-### Ressources
+### Resources
 
-| Ressource | Abondance | Utilisation |
-|-----------|-----------|-------------|
-| Bois de pin | Commun | Construction, feu |
-| Glace éternelle | Peu commun | Crafting magique |
-| Fourrure | Commun | Vêtements chauds |
-| Minerai de frost | Rare | Armes glacées |
+| Resource | Abundance | Use |
+|----------|-----------|-----|
+| Pine Wood | Common | Construction, fire |
+| Eternal Ice | Uncommon | Magical crafting |
+| Fur | Common | Warm clothing |
+| Frost Ore | Rare | Ice weapons |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Rennes, pingouins
-- **Neutres** : Ours polaires, loups arctiques
-- **Hostiles** : Yétis, élémentaires de glace, spectres du froid
+- **Friendly**: Reindeer, penguins
+- **Neutral**: Polar bears, arctic wolves
+- **Hostile**: Yetis, ice elementals, frost specters
 
-### Points d'Intérêt
+### Points of Interest
 
-- Cavernes de glace
-- Villages de chasseurs
-- Épaves de navires
-- Geysers chauds
+- Ice caves
+- Hunter villages
+- Shipwrecks
+- Hot geysers
 
-### Survie
+### Survival
 
-:::warning Hypothermie
-Portez des vêtements chauds et restez près du feu !
+:::warning Hypothermia
+Wear warm clothing and stay near fire!
 :::
 
 ---
 
 ## Devastated Lands
 
-*Les Terres Dévastées*
+*The Devastated Lands*
 
-Une région corrompue par des forces obscures. Réservée aux aventuriers expérimentés.
+A region corrupted by dark forces. Reserved for experienced adventurers.
 
-### Caractéristiques
+### Characteristics
 
-- **Difficulté** : Très Difficile
-- **Climat** : Toxique, orages perpétuels
-- **Biomes** : Terres mortes, volcans, ruines
+- **Difficulty**: Very Hard
+- **Climate**: Toxic, perpetual storms
+- **Biomes**: Dead lands, volcanoes, ruins
 
-### Ressources
+### Resources
 
-| Ressource | Abondance | Utilisation |
-|-----------|-----------|-------------|
-| Obsidienne | Commun | Armes puissantes |
-| Soufre | Commun | Explosifs |
-| Cristaux sombres | Rare | Magie noire |
-| Essence corrompue | Rare | Enchantements maudits |
+| Resource | Abundance | Use |
+|----------|-----------|-----|
+| Obsidian | Common | Powerful weapons |
+| Sulfur | Common | Explosives |
+| Dark Crystals | Rare | Dark magic |
+| Corrupted Essence | Rare | Cursed enchantments |
 
-### Créatures
+### Creatures
 
-- **Hostiles uniquement** : Démons, morts-vivants avancés, boss majeurs
-- **Boss** : Entités corrompues
+- **Hostile only**: Demons, advanced undead, major bosses
+- **Bosses**: Corrupted entities
 
-### Points d'Intérêt
+### Points of Interest
 
-- Forteresses démoniaques
-- Portails dimensionnels
-- Champs de bataille anciens
-- Le Cœur de la Corruption
+- Demonic fortresses
+- Dimensional portals
+- Ancient battlefields
+- The Heart of Corruption
 
-### Préparation Requise
+### Required Preparation
 
-:::danger Zone Endgame
-Cette région est destinée aux joueurs bien équipés avec du stuff de haute qualité.
+:::danger Endgame Zone
+This region is intended for well-equipped players with high-quality gear.
 :::
 
 ---
 
-## Progression Recommandée
+## Recommended Progression
 
-1. **Central Grasslands** - Niveaux 1-10
-2. **Emerald Wilds** - Niveaux 10-20
-3. **Howling Sands** - Niveaux 20-30
-4. **Whisperfrost Frontier** - Niveaux 30-40
-5. **Devastated Lands** - Niveau 40+
+1. **Central Grasslands** - Levels 1-10
+2. **Emerald Wilds** - Levels 10-20
+3. **Howling Sands** - Levels 20-30
+4. **Whisperfrost Frontier** - Levels 30-40
+5. **Devastated Lands** - Level 40+
 
-## Voir Aussi
+## See Also
 
 - [Biomes](/docs/gameplay/world/biomes)
-- [Créatures](/docs/gameplay/creatures/overview)
-- [Donjons](/docs/gameplay/world/dungeons)
+- [Creatures](/docs/gameplay/creatures/overview)
+- [Dungeons](/docs/gameplay/world/dungeons)
 
 ---
 
-*Sources : [Hytale Blog](https://hytale.com/news), [World Generation Update](https://hytale.com/news/2026/1/the-future-of-world-generation)*
+*Sources: [Hytale Blog](https://hytale.com/news), [World Generation Update](https://hytale.com/news/2026/1/the-future-of-world-generation)*
