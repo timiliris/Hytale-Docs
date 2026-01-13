@@ -51,10 +51,7 @@ This list will be updated as servers launch and establish themselves in the comm
 |--------|------|----------|---------|-------------|
 | Coming Soon | - | - | - | Servers will be listed after launch |
 
-<!--
-Template for adding servers:
-| **Server Name** | Survival/Creative/etc. | EN/FR/Multi | ~100-500 | Brief description |
--->
+{/* Template for adding servers: | **Server Name** | Survival/Creative/etc. | EN/FR/Multi | ~100-500 | Brief description | */}
 
 ## How to Choose Your Server
 

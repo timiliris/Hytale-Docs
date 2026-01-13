@@ -51,10 +51,7 @@ Cette liste sera mise a jour au fur et a mesure que les serveurs se lancent et s
 |---------|------|--------|---------|-------------|
 | A venir | - | - | - | Les serveurs seront listes apres le lancement |
 
-<!--
-Template pour ajouter des serveurs :
-| **Nom du Serveur** | Survie/Creatif/etc. | FR/EN/Multi | ~100-500 | Breve description |
--->
+{/* Template pour ajouter des serveurs : | **Nom du Serveur** | Survie/Creatif/etc. | FR/EN/Multi | ~100-500 | Breve description | */}
 
 ## Comment Choisir son Serveur
 
