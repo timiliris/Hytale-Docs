@@ -23,8 +23,8 @@ The `LivingEntityInventoryChangeEvent` is fired when a living entity's inventory
 
 ```java
 public class LivingEntityInventoryChangeEvent extends EntityEvent<LivingEntity, String> {
-    private final ItemContainer itemContainer;
-    private final Transaction transaction;
+    private ItemContainer itemContainer;
+    private Transaction transaction;
 
     public LivingEntityInventoryChangeEvent(
         LivingEntity entity,

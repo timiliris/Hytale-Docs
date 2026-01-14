@@ -23,8 +23,8 @@ L'événement `LivingEntityInventoryChangeEvent` est déclenché lorsque l'inven
 
 ```java
 public class LivingEntityInventoryChangeEvent extends EntityEvent<LivingEntity, String> {
-    private final ItemContainer itemContainer;
-    private final Transaction transaction;
+    private ItemContainer itemContainer;
+    private Transaction transaction;
 
     public LivingEntityInventoryChangeEvent(
         LivingEntity entity,

@@ -28,7 +28,7 @@ public class PlaceBlockEvent extends CancellableEcsEvent {
 
 | Field | Type | Accessor | Description |
 |-------|------|----------|-------------|
-| `itemInHand` | `ItemStack` | `getItemInHand()` | The item (block) being placed from the entity's hand |
+| `itemInHand` | `@Nullable ItemStack` | `getItemInHand()` | The item (block) being placed from the entity's hand (null if no item in hand) |
 | `targetBlock` | `Vector3i` | `getTargetBlock()` | The position where the block will be placed |
 | `rotation` | `RotationTuple` | `getRotation()` | The rotation/orientation of the placed block |
 
@@ -36,7 +36,7 @@ public class PlaceBlockEvent extends CancellableEcsEvent {
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `getItemInHand` | `public ItemStack getItemInHand()` | Returns the item stack being used to place the block |
+| `getItemInHand` | `@Nullable public ItemStack getItemInHand()` | Returns the item stack being used to place the block, or null if no item in hand |
 | `getTargetBlock` | `public Vector3i getTargetBlock()` | Returns the world position where the block will be placed |
 | `setTargetBlock` | `public void setTargetBlock(@Nonnull Vector3i targetBlock)` | Changes the target placement position (line 35) |
 | `getRotation` | `public RotationTuple getRotation()` | Returns the rotation tuple for block orientation |

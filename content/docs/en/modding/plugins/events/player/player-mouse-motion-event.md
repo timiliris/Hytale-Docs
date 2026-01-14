@@ -28,7 +28,6 @@ public class PlayerMouseMotionEvent extends PlayerEvent<Void> implements ICancel
 
 | Field | Type | Accessor | Description |
 |-------|------|----------|-------------|
-| `playerRef` | `Ref<EntityStore>` | `getPlayerRef()` | Reference to the player's entity store (inherited from PlayerEvent) |
 | `player` | `Player` | `getPlayer()` | The player object (inherited from PlayerEvent) |
 | `clientUseTime` | `long` | `getClientUseTime()` | Client-side timestamp of the motion event |
 | `itemInHand` | `Item` | `getItemInHand()` | The item the player is holding |
@@ -42,7 +41,6 @@ public class PlayerMouseMotionEvent extends PlayerEvent<Void> implements ICancel
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `getPlayerRef` | `public Ref<EntityStore> getPlayerRef()` | Returns the player's entity store reference (inherited) |
 | `getPlayer` | `public Player getPlayer()` | Returns the player object (inherited) |
 | `getClientUseTime` | `public long getClientUseTime()` | Returns the client timestamp |
 | `getItemInHand` | `public Item getItemInHand()` | Returns the item being held |

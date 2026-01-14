@@ -55,7 +55,7 @@ public class PlayerChatEvent implements IAsyncEvent<String>, ICancellable {
 
 | Classe | Type | Description |
 |--------|------|-------------|
-| `Formatter` | `interface` | Interface pour formater les messages du chat |
+| `Formatter` | `interface` | Interface pour formater les messages du chat. La méthode `format(PlayerRef sender, String content)` retourne un objet `Message`. |
 
 ## Exemple d'utilisation
 
@@ -81,7 +81,9 @@ eventBus.registerAsync(PlayerChatEvent.class, event -> {
 // Exemple de formateur personnalise
 eventBus.register(PlayerChatEvent.class, event -> {
     event.setFormatter((sender, content) -> {
-        return "[" + sender.getUsername() + "] " + content;
+        return Message.translation("chat.format")
+            .param("sender", sender.getUsername())
+            .param("message", content);
     });
 });
 

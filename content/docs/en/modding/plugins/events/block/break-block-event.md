@@ -28,7 +28,7 @@ public class BreakBlockEvent extends CancellableEcsEvent {
 
 | Field | Type | Accessor | Description |
 |-------|------|----------|-------------|
-| `itemInHand` | `ItemStack` | `getItemInHand()` | The item the entity is holding when breaking the block |
+| `itemInHand` | `@Nullable ItemStack` | `getItemInHand()` | The item the entity is holding when breaking the block (null if no item in hand) |
 | `targetBlock` | `Vector3i` | `getTargetBlock()` | The position of the block being broken |
 | `blockType` | `BlockType` | `getBlockType()` | The type of block being broken |
 
@@ -36,7 +36,7 @@ public class BreakBlockEvent extends CancellableEcsEvent {
 
 | Method | Signature | Description |
 |--------|-----------|-------------|
-| `getItemInHand` | `public ItemStack getItemInHand()` | Returns the item held by the entity breaking the block |
+| `getItemInHand` | `@Nullable public ItemStack getItemInHand()` | Returns the item held by the entity breaking the block, or null if no item in hand |
 | `getTargetBlock` | `public Vector3i getTargetBlock()` | Returns the world position of the target block |
 | `setTargetBlock` | `public void setTargetBlock(@Nonnull Vector3i targetBlock)` | Changes the target block position (line 39) |
 | `getBlockType` | `public BlockType getBlockType()` | Returns the type of block being broken |

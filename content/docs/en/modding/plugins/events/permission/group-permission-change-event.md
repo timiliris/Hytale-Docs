@@ -62,21 +62,21 @@ public static class Added extends GroupPermissionChangeEvent {
     @Nonnull
     private final Set<String> permissions;
 
-    public Added(@Nonnull String groupName, @Nonnull Set<String> permissions) {
+    public Added(@Nonnull String groupName, @Nonnull Set<String> addedPermissions) {
         super(groupName);
-        this.permissions = permissions;
+        this.addedPermissions = addedPermissions;
     }
 
     @Nonnull
-    public Set<String> getPermissions() {
-        return this.permissions;
+    public Set<String> getAddedPermissions() {
+        return Collections.unmodifiableSet(this.addedPermissions);
     }
 }
 ```
 
 | Field | Type | Description | Accessor |
 |-------|------|-------------|----------|
-| `permissions` | `Set<String>` | The set of permission nodes being added to the group | `getPermissions()` |
+| `addedPermissions` | `Set<String>` | The set of permission nodes being added to the group | `getAddedPermissions()` |
 
 ### Removed
 
@@ -85,30 +85,30 @@ Fired when permissions are removed from a group.
 ```java
 public static class Removed extends GroupPermissionChangeEvent {
     @Nonnull
-    private final Set<String> permissions;
+    private final Set<String> removedPermissions;
 
-    public Removed(@Nonnull String groupName, @Nonnull Set<String> permissions) {
+    public Removed(@Nonnull String groupName, @Nonnull Set<String> removedPermissions) {
         super(groupName);
-        this.permissions = permissions;
+        this.removedPermissions = removedPermissions;
     }
 
     @Nonnull
-    public Set<String> getPermissions() {
-        return this.permissions;
+    public Set<String> getRemovedPermissions() {
+        return Collections.unmodifiableSet(this.removedPermissions);
     }
 }
 ```
 
 | Field | Type | Description | Accessor |
 |-------|------|-------------|----------|
-| `permissions` | `Set<String>` | The set of permission nodes being removed from the group | `getPermissions()` |
+| `removedPermissions` | `Set<String>` | The set of permission nodes being removed from the group | `getRemovedPermissions()` |
 
 ## Inner Class Summary
 
 | Inner Class | Description | Additional Fields |
 |-------------|-------------|-------------------|
-| `Added` | Permissions were added to the group | `permissions: Set<String>` |
-| `Removed` | Permissions were removed from the group | `permissions: Set<String>` |
+| `Added` | Permissions were added to the group | `addedPermissions: Set<String>` |
+| `Removed` | Permissions were removed from the group | `removedPermissions: Set<String>` |
 
 ## Usage Example
 
@@ -138,7 +138,7 @@ public class GroupPermissionMonitorPlugin extends PluginBase {
 
     private void onPermissionsAdded(GroupPermissionChangeEvent.Added event) {
         String groupName = event.getGroupName();
-        Set<String> permissions = event.getPermissions();
+        Set<String> permissions = event.getAddedPermissions();
 
         getLogger().info(String.format(
             "Group '%s' gained %d permission(s): %s",
@@ -150,7 +150,7 @@ public class GroupPermissionMonitorPlugin extends PluginBase {
 
     private void onPermissionsRemoved(GroupPermissionChangeEvent.Removed event) {
         String groupName = event.getGroupName();
-        Set<String> permissions = event.getPermissions();
+        Set<String> permissions = event.getRemovedPermissions();
 
         getLogger().info(String.format(
             "Group '%s' lost %d permission(s): %s",
@@ -178,11 +178,11 @@ public class GroupAuditPlugin extends PluginBase {
     public void onEnable(EventBus eventBus) {
         eventBus.register(
             GroupPermissionChangeEvent.Added.class,
-            e -> logChange(e.getGroupName(), "ADDED", e.getPermissions())
+            e -> logChange(e.getGroupName(), "ADDED", e.getAddedPermissions())
         );
         eventBus.register(
             GroupPermissionChangeEvent.Removed.class,
-            e -> logChange(e.getGroupName(), "REMOVED", e.getPermissions())
+            e -> logChange(e.getGroupName(), "REMOVED", e.getRemovedPermissions())
         );
     }
 
@@ -251,7 +251,7 @@ public class PermissionPropagationPlugin extends PluginBase {
 
     private void onGroupPermissionsAdded(GroupPermissionChangeEvent.Added event) {
         String groupName = event.getGroupName();
-        Set<String> newPermissions = event.getPermissions();
+        Set<String> newPermissions = event.getAddedPermissions();
 
         // Get all players in this group
         Set<UUID> members = groupMembers.getOrDefault(groupName, Collections.emptySet());
@@ -270,7 +270,7 @@ public class PermissionPropagationPlugin extends PluginBase {
 
     private void onGroupPermissionsRemoved(GroupPermissionChangeEvent.Removed event) {
         String groupName = event.getGroupName();
-        Set<String> removedPermissions = event.getPermissions();
+        Set<String> removedPermissions = event.getRemovedPermissions();
 
         // Get all players in this group
         Set<UUID> members = groupMembers.getOrDefault(groupName, Collections.emptySet());
@@ -340,7 +340,7 @@ public class DangerousPermissionAlertPlugin extends PluginBase {
 
     private void checkDangerousPermissions(GroupPermissionChangeEvent.Added event) {
         String groupName = event.getGroupName();
-        Set<String> addedPermissions = event.getPermissions();
+        Set<String> addedPermissions = event.getAddedPermissions();
 
         // Check for dangerous permissions
         Set<String> dangerous = addedPermissions.stream()
@@ -398,7 +398,7 @@ public class PermissionVersioningPlugin extends PluginBase {
 
         // Update permissions set
         groupPermissions.computeIfAbsent(groupName, k -> ConcurrentHashMap.newKeySet())
-            .addAll(event.getPermissions());
+            .addAll(event.getAddedPermissions());
 
         // Increment version
         long newVersion = groupVersions
@@ -407,7 +407,7 @@ public class PermissionVersioningPlugin extends PluginBase {
 
         getLogger().info(String.format(
             "Group '%s' updated to version %d (added %d permissions)",
-            groupName, newVersion, event.getPermissions().size()
+            groupName, newVersion, event.getAddedPermissions().size()
         ));
     }
 
@@ -417,7 +417,7 @@ public class PermissionVersioningPlugin extends PluginBase {
         // Update permissions set
         Set<String> perms = groupPermissions.get(groupName);
         if (perms != null) {
-            perms.removeAll(event.getPermissions());
+            perms.removeAll(event.getRemovedPermissions());
         }
 
         // Increment version
@@ -427,7 +427,7 @@ public class PermissionVersioningPlugin extends PluginBase {
 
         getLogger().info(String.format(
             "Group '%s' updated to version %d (removed %d permissions)",
-            groupName, newVersion, event.getPermissions().size()
+            groupName, newVersion, event.getRemovedPermissions().size()
         ));
     }
 

@@ -44,27 +44,37 @@ Represents the actual item drop with the item stack and throw velocity. This inn
 
 **Source:** Line 11
 
-| Field | Type | Accessor | Description |
-|-------|------|----------|-------------|
-| `itemStack` | `ItemStack` | `getItemStack()` | The item stack being dropped |
-| `throwSpeed` | `float` | `getThrowSpeed()` | The velocity at which the item is thrown |
+| Field | Type | Accessor | Mutator | Description |
+|-------|------|----------|---------|-------------|
+| `itemStack` | `ItemStack` | `getItemStack()` | `setItemStack(ItemStack)` | The item stack being dropped |
+| `throwSpeed` | `float` | `getThrowSpeed()` | `setThrowSpeed(float)` | The velocity at which the item is thrown |
 
 ```java
-public static class Drop {
-    private final ItemStack itemStack;
-    private final float throwSpeed;
+public static final class Drop extends DropItemEvent {
+    @Nonnull
+    private ItemStack itemStack;
+    private float throwSpeed;
 
-    public Drop(ItemStack itemStack, float throwSpeed) {
+    public Drop(@Nonnull ItemStack itemStack, float throwSpeed) {
         this.itemStack = itemStack;
         this.throwSpeed = throwSpeed;
     }
 
+    @Nonnull
     public ItemStack getItemStack() {
         return this.itemStack;
     }
 
+    public void setItemStack(@Nonnull ItemStack itemStack) {
+        this.itemStack = itemStack;
+    }
+
     public float getThrowSpeed() {
         return this.throwSpeed;
+    }
+
+    public void setThrowSpeed(float throwSpeed) {
+        this.throwSpeed = throwSpeed;
     }
 }
 ```
@@ -81,7 +91,7 @@ Represents a player's request to drop an item from a specific inventory slot. Th
 | `slotId` | `short` | `getSlotId()` | The specific slot index within the inventory section |
 
 ```java
-public static class PlayerRequest {
+public static final class PlayerRequest extends DropItemEvent {
     private final int inventorySectionId;
     private final short slotId;
 

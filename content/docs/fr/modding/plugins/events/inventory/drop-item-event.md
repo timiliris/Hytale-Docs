@@ -44,27 +44,37 @@ Represente le lachage d'objet reel avec la pile d'objets et la velocite de lance
 
 **Source :** Ligne 11
 
-| Champ | Type | Accesseur | Description |
-|-------|------|-----------|-------------|
-| `itemStack` | `ItemStack` | `getItemStack()` | La pile d'objets lachee |
-| `throwSpeed` | `float` | `getThrowSpeed()` | La velocite a laquelle l'objet est lance |
+| Champ | Type | Accesseur | Mutateur | Description |
+|-------|------|-----------|----------|-------------|
+| `itemStack` | `ItemStack` | `getItemStack()` | `setItemStack(ItemStack)` | La pile d'objets lachee |
+| `throwSpeed` | `float` | `getThrowSpeed()` | `setThrowSpeed(float)` | La velocite a laquelle l'objet est lance |
 
 ```java
-public static class Drop {
-    private final ItemStack itemStack;
-    private final float throwSpeed;
+public static final class Drop extends DropItemEvent {
+    @Nonnull
+    private ItemStack itemStack;
+    private float throwSpeed;
 
-    public Drop(ItemStack itemStack, float throwSpeed) {
+    public Drop(@Nonnull ItemStack itemStack, float throwSpeed) {
         this.itemStack = itemStack;
         this.throwSpeed = throwSpeed;
     }
 
+    @Nonnull
     public ItemStack getItemStack() {
         return this.itemStack;
     }
 
+    public void setItemStack(@Nonnull ItemStack itemStack) {
+        this.itemStack = itemStack;
+    }
+
     public float getThrowSpeed() {
         return this.throwSpeed;
+    }
+
+    public void setThrowSpeed(float throwSpeed) {
+        this.throwSpeed = throwSpeed;
     }
 }
 ```
@@ -81,7 +91,7 @@ Represente la demande d'un joueur de lacher un objet depuis un emplacement d'inv
 | `slotId` | `short` | `getSlotId()` | L'index de l'emplacement specifique dans la section d'inventaire |
 
 ```java
-public static class PlayerRequest {
+public static final class PlayerRequest extends DropItemEvent {
     private final int inventorySectionId;
     private final short slotId;
 

@@ -28,7 +28,7 @@ public class PlaceBlockEvent extends CancellableEcsEvent {
 
 | Champ | Type | Accesseur | Description |
 |-------|------|-----------|-------------|
-| `itemInHand` | `ItemStack` | `getItemInHand()` | L'objet (bloc) en cours de placement depuis la main de l'entite |
+| `itemInHand` | `@Nullable ItemStack` | `getItemInHand()` | L'objet (bloc) en cours de placement depuis la main de l'entite (null si aucun objet en main) |
 | `targetBlock` | `Vector3i` | `getTargetBlock()` | La position ou le bloc sera place |
 | `rotation` | `RotationTuple` | `getRotation()` | La rotation/orientation du bloc place |
 
@@ -36,7 +36,7 @@ public class PlaceBlockEvent extends CancellableEcsEvent {
 
 | Méthode | Signature | Description |
 |---------|-----------|-------------|
-| `getItemInHand` | `public ItemStack getItemInHand()` | Retourne la pile d'objets utilisee pour placer le bloc |
+| `getItemInHand` | `@Nullable public ItemStack getItemInHand()` | Retourne la pile d'objets utilisee pour placer le bloc, ou null si aucun objet en main |
 | `getTargetBlock` | `public Vector3i getTargetBlock()` | Retourne la position dans le monde ou le bloc sera place |
 | `setTargetBlock` | `public void setTargetBlock(@Nonnull Vector3i targetBlock)` | Change la position de placement cible (ligne 35) |
 | `getRotation` | `public RotationTuple getRotation()` | Retourne le tuple de rotation pour l'orientation du bloc |

@@ -944,7 +944,7 @@ public class Player extends LivingEntity implements CommandSender, PermissionHol
 
     // Gestion du GameMode
     public GameMode getGameMode();
-    public void setGameMode(GameMode gameMode);
+    public static void setGameMode(@Nonnull Ref<EntityStore> playerRef, @Nonnull GameMode gameMode, @Nonnull ComponentAccessor<EntityStore> componentAccessor);
 
     // Gestionnaires d'interface utilisateur
     public WindowManager getWindowManager();
@@ -971,6 +971,14 @@ public class TransformComponent implements Component<EntityStore> {
     public Vector3d getPosition();
     public Vector3f getRotation();
     public Transform getTransform();
+
+    // Methodes de modification
+    public void setPosition(@Nonnull Vector3d position);
+    public void setRotation(@Nonnull Vector3f rotation);
+
+    // Methodes de teleportation - gere les valeurs NaN
+    public void teleportPosition(@Nonnull Vector3d position);
+    public void teleportRotation(@Nonnull Vector3f rotation);
 }
 ```
 
@@ -1703,7 +1711,7 @@ public class EntityScaleComponent implements Component<EntityStore> {
       return EntityModule.get().getEntityScaleComponentType();
    }
 
-   public EntityScaleComponent() {}
+   private EntityScaleComponent() {}
    public EntityScaleComponent(float scale) {
       this.scale = scale;
    }

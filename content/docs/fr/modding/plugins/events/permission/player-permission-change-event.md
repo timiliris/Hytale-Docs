@@ -110,23 +110,23 @@ Déclenché lorsque des permissions individuelles sont ajoutees a un joueur.
 ```java
 public static class PermissionsAdded extends PlayerPermissionChangeEvent {
     @Nonnull
-    private final Set<String> permissions;
+    private final Set<String> addedPermissions;
 
-    public PermissionsAdded(@Nonnull UUID playerUuid, @Nonnull Set<String> permissions) {
+    public PermissionsAdded(@Nonnull UUID playerUuid, @Nonnull Set<String> addedPermissions) {
         super(playerUuid);
-        this.permissions = permissions;
+        this.addedPermissions = addedPermissions;
     }
 
     @Nonnull
-    public Set<String> getPermissions() {
-        return this.permissions;
+    public Set<String> getAddedPermissions() {
+        return this.addedPermissions;
     }
 }
 ```
 
 | Champ | Type | Description | Accesseur |
 |-------|------|-------------|-----------|
-| `permissions` | `Set<String>` | L'ensemble des noeuds de permissions ajoutes | `getPermissions()` |
+| `addedPermissions` | `Set<String>` | L'ensemble des noeuds de permissions ajoutes | `getAddedPermissions()` |
 
 ### PermissionsRemoved
 
@@ -135,23 +135,23 @@ Déclenché lorsque des permissions individuelles sont retirees d'un joueur.
 ```java
 public static class PermissionsRemoved extends PlayerPermissionChangeEvent {
     @Nonnull
-    private final Set<String> permissions;
+    private final Set<String> removedPermissions;
 
-    public PermissionsRemoved(@Nonnull UUID playerUuid, @Nonnull Set<String> permissions) {
+    public PermissionsRemoved(@Nonnull UUID playerUuid, @Nonnull Set<String> removedPermissions) {
         super(playerUuid);
-        this.permissions = permissions;
+        this.removedPermissions = removedPermissions;
     }
 
     @Nonnull
-    public Set<String> getPermissions() {
-        return this.permissions;
+    public Set<String> getRemovedPermissions() {
+        return this.removedPermissions;
     }
 }
 ```
 
 | Champ | Type | Description | Accesseur |
 |-------|------|-------------|-----------|
-| `permissions` | `Set<String>` | L'ensemble des noeuds de permissions retires | `getPermissions()` |
+| `removedPermissions` | `Set<String>` | L'ensemble des noeuds de permissions retires | `getRemovedPermissions()` |
 
 ## Resume des classes internes
 
@@ -159,8 +159,8 @@ public static class PermissionsRemoved extends PlayerPermissionChangeEvent {
 |----------------|-------------|------------------------|
 | `GroupAdded` | Un groupe de permissions a ete ajoute au joueur | `groupName: String` |
 | `GroupRemoved` | Un groupe de permissions a ete retire du joueur | `groupName: String` |
-| `PermissionsAdded` | Des permissions individuelles ont ete ajoutees au joueur | `permissions: Set<String>` |
-| `PermissionsRemoved` | Des permissions individuelles ont ete retirees du joueur | `permissions: Set<String>` |
+| `PermissionsAdded` | Des permissions individuelles ont ete ajoutees au joueur | `addedPermissions: Set<String>` |
+| `PermissionsRemoved` | Des permissions individuelles ont ete retirees du joueur | `removedPermissions: Set<String>` |
 
 ## Exemple d'utilisation
 
@@ -208,13 +208,13 @@ public class PermissionLoggerPlugin extends PluginBase {
 
     private void onPermissionsAdded(PlayerPermissionChangeEvent.PermissionsAdded event) {
         UUID playerId = event.getPlayerUuid();
-        Set<String> perms = event.getPermissions();
+        Set<String> perms = event.getAddedPermissions();
         getLogger().info("Player " + playerId + " gained permissions: " + perms);
     }
 
     private void onPermissionsRemoved(PlayerPermissionChangeEvent.PermissionsRemoved event) {
         UUID playerId = event.getPlayerUuid();
-        Set<String> perms = event.getPermissions();
+        Set<String> perms = event.getRemovedPermissions();
         getLogger().info("Player " + playerId + " lost permissions: " + perms);
     }
 }
@@ -245,11 +245,11 @@ public class PermissionAuditPlugin extends PluginBase {
         );
         eventBus.register(
             PlayerPermissionChangeEvent.PermissionsAdded.class,
-            e -> audit(e.getPlayerUuid(), "PERM_ADD", String.join(", ", e.getPermissions()))
+            e -> audit(e.getPlayerUuid(), "PERM_ADD", String.join(", ", e.getAddedPermissions()))
         );
         eventBus.register(
             PlayerPermissionChangeEvent.PermissionsRemoved.class,
-            e -> audit(e.getPlayerUuid(), "PERM_REMOVE", String.join(", ", e.getPermissions()))
+            e -> audit(e.getPlayerUuid(), "PERM_REMOVE", String.join(", ", e.getRemovedPermissions()))
         );
     }
 
