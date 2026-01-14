@@ -20,7 +20,7 @@ export function AnnouncementBanner() {
         >
           <span className="flex items-center gap-2">
             <Server className="h-4 w-4 text-amber-500" />
-            <span className="font-semibold text-amber-500">v1</span>
+            <span className="font-semibold text-amber-500">v2</span>
             <span className="hidden sm:inline text-foreground">—</span>
             <span className="text-foreground">{t("title")}</span>
           </span>

@@ -1,7 +1,7 @@
 {
   "announcement": {
     "title": "Server Internal Documentation",
-    "subtitle": "Plugins, Events, ECS, Packets and more",
+    "subtitle": "Complete API reference verified against source code",
     "cta": "Explore"
   },
   "sidebar": {

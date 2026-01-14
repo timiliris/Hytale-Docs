@@ -1,7 +1,7 @@
 {
   "announcement": {
     "title": "Documentation Interne Serveur",
-    "subtitle": "Plugins, Events, ECS, Packets et plus",
+    "subtitle": "Référence API complète vérifiée contre le code source",
     "cta": "Explorer"
   },
   "sidebar": {
