@@ -14,107 +14,208 @@ interface ValidationResult {
   warnings: string[];
 }
 
-// Schema definitions - permissive mode for block/item/npc since official format varies
-// Only manifest has strict requirements as it's for plugins
+// Schema definitions based on decompiled Hytale server code
+// Block/Item use actual field names from BlockType.java and Item.java
 const schemas: Record<SchemaType, { required: string[]; knownFields: string[]; types: Record<string, string>; strict: boolean }> = {
   block: {
-    required: [], // No required fields - official Hytale blocks vary in structure
-    knownFields: ["id", "displayName", "name", "properties", "texture", "model", "drops", "sounds", "behaviors", "hardness", "resistance", "material", "translucent", "collidable", "replaceable", "flammable"],
-    types: {},
-    strict: false, // Allow any fields
+    required: ["DrawType", "Material", "Opacity"], // Required by BlockType.java
+    knownFields: [
+      // Core fields
+      "Group", "DrawType", "Material", "Opacity", "BlockListAssetId", "PrefabListAssetId",
+      // Rendering
+      "Textures", "TextureSideMask", "CubeShadingMode", "CustomModel", "CustomModelTexture",
+      "CustomModelScale", "CustomModelAnimation", "BlockBreakingDecalId", "RequiresAlphaBlending",
+      // Light & Effects
+      "Light", "Effect", "Particles", "BlockParticleSetId", "ParticleColor",
+      // Placement & Rotation
+      "RandomRotation", "VariantRotation", "FlipType", "RotationYawPlacementOffset", "PlacementSettings",
+      // Interactions
+      "IsUsable", "IsStackable", "Interactions", "InteractionHint", "InteractionHitboxType",
+      // Physics & Support
+      "HitboxType", "SupportDropType", "MaxSupportDistance", "SupportsRequiredFor", "IgnoreSupportWhenPlaced",
+      // Sounds
+      "BlockSoundSetId", "AmbientSoundEventId", "InteractionSoundEventId", "Looping",
+      // Special features
+      "Bench", "Gathering", "Farming", "IsDoor", "AllowsMultipleUsers", "Seats", "Beds", "Rail",
+      // Tinting
+      "Tint", "TintUp", "TintDown", "TintNorth", "TintSouth", "TintWest", "TintEast",
+      "BiomeTint", "BiomeTintUp", "BiomeTintDown", "BiomeTintNorth", "BiomeTintSouth", "BiomeTintWest", "BiomeTintEast",
+      // Transitions
+      "TransitionTexture", "TransitionToGroups", "TransitionToTag",
+      // State & Entity
+      "State", "BlockEntity", "Aliases", "MovementSettings", "DamageToEntities", "TickProcedure", "ConnectedBlockRuleSet"
+    ],
+    types: {
+      DrawType: "string",
+      Material: "string",
+      Opacity: "string",
+      Group: "string",
+      CustomModelScale: "number",
+      IsUsable: "boolean",
+      IsStackable: "boolean",
+      IsDoor: "boolean",
+      Looping: "boolean",
+      MaxSupportDistance: "number",
+      DamageToEntities: "number",
+    },
+    strict: false, // Permissive - many optional fields
   },
   item: {
-    required: [], // No required fields - official Hytale items vary in structure
-    knownFields: ["id", "displayName", "name", "type", "stackSize", "texture", "model", "durability", "damage", "enchantable", "maxStackSize", "rarity", "category"],
-    types: {},
-    strict: false, // Allow any fields
+    required: [], // No strictly required fields in Item.java
+    knownFields: [
+      // Core
+      "id", "icon", "iconProperties", "translationProperties", "itemLevel",
+      // Stack & Quality
+      "maxStack", "qualityId", "qualityIndex",
+      // Block association
+      "blockId", "hasBlockType",
+      // Type flags
+      "consumable", "variant",
+      // Equipment types
+      "tool", "weapon", "armor", "glider", "utility",
+      "blockSelectorToolData", "builderToolData", "itemStackContainerConfig", "portalKey",
+      // Visuals
+      "model", "scale", "texture", "animation", "reticleId", "reticleIndex",
+      "playerAnimationsId", "usePlayerAnimations",
+      // Categories
+      "categories", "set",
+      // Sounds
+      "soundEventId", "soundEventIndex", "itemSoundSetId", "itemSoundSetIndex",
+      // Effects
+      "particles", "firstPersonParticles", "trails", "light",
+      // Crafting & Resources
+      "recipeToGenerate", "resourceTypes", "fuelQuality",
+      // Durability
+      "maxDurability", "durabilityLossOnHit",
+      // Interactions
+      "interactions", "interactionVars", "interactionConfig",
+      // Entity & Display
+      "itemEntityConfig", "droppedItemAnimation", "displayEntityStatsHUD",
+      // Other
+      "stateToBlock", "blockToState", "pullbackConfig", "clipsGeometry",
+      "renderDeployablePreview", "dropOnDeath", "itemAppearanceConditions"
+    ],
+    types: {
+      maxStack: "number",
+      itemLevel: "number",
+      scale: "number",
+      maxDurability: "number",
+      fuelQuality: "number",
+      consumable: "boolean",
+      variant: "boolean",
+      hasBlockType: "boolean",
+      usePlayerAnimations: "boolean",
+      clipsGeometry: "boolean",
+      renderDeployablePreview: "boolean",
+      dropOnDeath: "boolean",
+    },
+    strict: false, // Permissive
   },
   npc: {
-    required: [], // No required fields - official Hytale NPCs vary in structure
-    knownFields: ["id", "displayName", "name", "health", "model", "behaviors", "loot", "spawning", "attributes", "sounds", "maxHealth", "speed", "damage"],
-    types: {},
-    strict: false, // Allow any fields
+    required: [], // NPCs use ECS components, no fixed schema
+    knownFields: [
+      // NPC Builder fields
+      "id", "name", "type",
+      // Components (ECS-based)
+      "components", "attributes", "combat", "ai", "behaviors",
+      // Spawning
+      "spawning", "weights", "rotation",
+      // Visuals
+      "model", "animation", "particles", "scale",
+      // Stats
+      "health", "maxHealth", "speed", "damage",
+      // Interactions
+      "interactions", "loot", "drops"
+    ],
+    types: {
+      health: "number",
+      maxHealth: "number",
+      speed: "number",
+      damage: "number",
+      scale: "number",
+    },
+    strict: false, // ECS-based, very flexible
   },
   manifest: {
-    required: ["id", "name", "version", "main", "api_version"],
-    knownFields: ["id", "name", "version", "main", "api_version", "description", "authors", "dependencies", "load_order", "permissions"],
+    required: ["Group", "Name", "Version", "Main"],
+    knownFields: ["Group", "Name", "Version", "Description", "Authors", "Main", "IncludesAssetPack", "Dependencies", "LoadOrder", "Permissions"],
     types: {
-      id: "string",
-      name: "string",
-      version: "string",
-      main: "string",
-      api_version: "string",
-      description: "string",
-      authors: "array",
-      dependencies: "object",
-      load_order: "string",
-      permissions: "object",
+      Group: "string",
+      Name: "string",
+      Version: "string",
+      Description: "string",
+      Authors: "array",
+      Main: "string",
+      IncludesAssetPack: "boolean",
+      Dependencies: "array",
+      LoadOrder: "string",
+      Permissions: "object",
     },
-    strict: true, // Plugin manifests have strict requirements
+    strict: true,
   },
 };
 
 const schemaDescriptions: Record<SchemaType, string> = {
-  block: "Block definition JSON for custom blocks",
-  item: "Item definition JSON for custom items",
-  npc: "NPC/creature definition JSON",
+  block: "BlockType definition (from BlockType.java)",
+  item: "Item definition (from Item.java)",
+  npc: "Entity/NPC definition (ECS-based)",
   manifest: "Plugin manifest.json file",
 };
 
 const exampleJson: Record<SchemaType, string> = {
   block: `{
-  "id": "mymod:ruby_block",
-  "displayName": "Ruby Block",
-  "properties": {
-    "hardness": 3.0,
-    "resistance": 5.0,
-    "material": "stone"
-  },
-  "texture": "textures/blocks/ruby_block.png"
+  "Group": "decorative",
+  "DrawType": "Cube",
+  "Material": "Stone",
+  "Opacity": "Opaque",
+  "Textures": [
+    { "texture": "Blocks/MyBlock.png" }
+  ],
+  "BlockSoundSetId": "BSS_Stone",
+  "IsUsable": false,
+  "HitboxType": "Full"
 }`,
   item: `{
   "id": "mymod:magic_sword",
-  "displayName": "Magic Sword",
-  "type": "weapon",
-  "stackSize": 1,
-  "durability": 500,
-  "damage": 8,
-  "texture": "textures/items/magic_sword.png"
+  "icon": "Items/MagicSword.png",
+  "texture": "Items/MagicSword.png",
+  "maxStack": 1,
+  "itemLevel": 5,
+  "categories": ["weapon", "sword"],
+  "weapon": {
+    "damage": 8,
+    "attackSpeed": 1.2
+  },
+  "maxDurability": 500,
+  "itemSoundSetId": "ISS_Sword"
 }`,
   npc: `{
   "id": "mymod:custom_creature",
-  "displayName": "Custom Creature",
+  "name": "Custom Creature",
+  "type": "hostile",
   "health": 20,
-  "model": "models/custom_creature.blockymodel",
-  "behaviors": [
-    { "type": "wander" },
-    { "type": "flee", "target": "player" }
-  ],
-  "attributes": {
-    "speed": 1.0,
-    "attack_damage": 3.0
+  "maxHealth": 20,
+  "speed": 1.0,
+  "model": "Models/CustomCreature.blockymodel",
+  "components": {
+    "ai": { "behaviors": ["wander", "chase"] },
+    "combat": { "damage": 3 }
   }
 }`,
   manifest: `{
-  "id": "my-plugin",
-  "name": "My Awesome Plugin",
-  "version": "1.0.0",
-  "description": "A description of what this plugin does",
-  "authors": ["YourName"],
-  "main": "com.example.myplugin.MyPlugin",
-  "api_version": "1.0",
-  "dependencies": {
-    "required": [],
-    "optional": []
-  },
-  "load_order": "POSTWORLD"
+  "Group": "com.example",
+  "Name": "MyPlugin",
+  "Version": "1.0.0",
+  "Description": "A description of what this plugin does",
+  "Authors": [{ "Name": "YourName" }],
+  "Main": "com.example.myplugin.MyPlugin",
+  "IncludesAssetPack": false
 }`,
 };
 
 function validateJson(json: string, schemaType: SchemaType): ValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
-  const info: string[] = [];
 
   // Try to parse JSON
   let parsed: Record<string, unknown>;
@@ -139,60 +240,79 @@ function validateJson(json: string, schemaType: SchemaType): ValidationResult {
 
   const schema = schemas[schemaType];
 
-  // Check required fields (only for strict schemas like manifest)
+  // Check required fields
   for (const field of schema.required) {
     if (!(field in parsed)) {
-      errors.push(`Missing required field: "${field}"`);
+      if (schema.strict) {
+        errors.push(`Missing required field: "${field}"`);
+      } else {
+        warnings.push(`Recommended field missing: "${field}"`);
+      }
     }
   }
 
-  // Check field types (only for strict schemas)
-  if (schema.strict) {
-    for (const [field, value] of Object.entries(parsed)) {
-      const expectedType = schema.types[field];
-      if (expectedType) {
-        const actualType = Array.isArray(value) ? "array" : typeof value;
-        const allowedTypes = expectedType.split("|");
-        if (!allowedTypes.includes(actualType)) {
+  // Check field types for known fields
+  for (const [field, value] of Object.entries(parsed)) {
+    const expectedType = schema.types[field];
+    if (expectedType && value !== null && value !== undefined) {
+      const actualType = Array.isArray(value) ? "array" : typeof value;
+      const allowedTypes = expectedType.split("|");
+      if (!allowedTypes.includes(actualType)) {
+        if (schema.strict) {
           errors.push(`Field "${field}" should be ${expectedType}, got ${actualType}`);
+        } else {
+          warnings.push(`Field "${field}" is typically ${expectedType}, got ${actualType}`);
         }
       }
     }
   }
 
-  // For non-strict schemas (block/item/npc), just provide helpful info
-  if (!schema.strict) {
-    const fieldCount = Object.keys(parsed).length;
-    info.push(`Found ${fieldCount} field(s) in your JSON`);
+  // Block-specific validations
+  if (schemaType === "block") {
+    const drawType = parsed.DrawType as string;
+    if (drawType) {
+      const validDrawTypes = ["Cube", "Cross", "Custom", "Liquid", "None", "Torch"];
+      if (!validDrawTypes.includes(drawType)) {
+        warnings.push(`DrawType "${drawType}" is not a known type (Cube, Cross, Custom, Liquid, None, Torch)`);
+      }
+    }
 
-    // Check for common fields
-    if (parsed.id || parsed.name) {
-      info.push(`Identifier: ${parsed.id || parsed.name}`);
+    const opacity = parsed.Opacity as string;
+    if (opacity) {
+      const validOpacity = ["Opaque", "Transparent", "Translucent"];
+      if (!validOpacity.includes(opacity)) {
+        warnings.push(`Opacity "${opacity}" should be Opaque, Transparent, or Translucent`);
+      }
+    }
+  }
+
+  // Item-specific validations
+  if (schemaType === "item") {
+    const maxStack = parsed.maxStack as number;
+    if (typeof maxStack === "number" && maxStack !== -1 && (maxStack < 1 || maxStack > 999)) {
+      warnings.push(`maxStack ${maxStack} is unusual (typically 1-999, or -1 for default)`);
     }
   }
 
   // Manifest-specific validations
   if (schemaType === "manifest") {
-    // Version format
-    const version = parsed.version as string;
+    const version = parsed.Version as string;
     if (version && typeof version === "string") {
       if (!/^\d+\.\d+\.\d+/.test(version)) {
         warnings.push(`Version "${version}" should follow semantic versioning (e.g., 1.0.0)`);
       }
     }
 
-    // Main class format
-    const main = parsed.main as string;
+    const main = parsed.Main as string;
     if (main && typeof main === "string") {
       if (!main.includes(".")) {
         errors.push(`Main class "${main}" should be a fully qualified class name (e.g., com.example.MyPlugin)`);
       }
     }
 
-    // Load order validation
-    const loadOrder = parsed.load_order as string;
+    const loadOrder = parsed.LoadOrder as string;
     if (loadOrder && !["STARTUP", "POSTWORLD"].includes(loadOrder)) {
-      errors.push(`load_order must be "STARTUP" or "POSTWORLD", got "${loadOrder}"`);
+      errors.push(`LoadOrder must be "STARTUP" or "POSTWORLD", got "${loadOrder}"`);
     }
   }
 
