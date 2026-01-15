@@ -14,55 +14,30 @@ interface ValidationResult {
   warnings: string[];
 }
 
-// Schema definitions based on Hytale documentation
-const schemas: Record<SchemaType, { required: string[]; optional: string[]; types: Record<string, string> }> = {
+// Schema definitions - permissive mode for block/item/npc since official format varies
+// Only manifest has strict requirements as it's for plugins
+const schemas: Record<SchemaType, { required: string[]; knownFields: string[]; types: Record<string, string>; strict: boolean }> = {
   block: {
-    required: ["id", "displayName"],
-    optional: ["properties", "texture", "model", "drops", "sounds", "behaviors"],
-    types: {
-      id: "string",
-      displayName: "string",
-      properties: "object",
-      texture: "string|object",
-      model: "string",
-      drops: "array",
-      sounds: "object",
-      behaviors: "array",
-    },
+    required: [], // No required fields - official Hytale blocks vary in structure
+    knownFields: ["id", "displayName", "name", "properties", "texture", "model", "drops", "sounds", "behaviors", "hardness", "resistance", "material", "translucent", "collidable", "replaceable", "flammable"],
+    types: {},
+    strict: false, // Allow any fields
   },
   item: {
-    required: ["id", "displayName"],
-    optional: ["type", "stackSize", "texture", "model", "durability", "damage", "enchantable"],
-    types: {
-      id: "string",
-      displayName: "string",
-      type: "string",
-      stackSize: "number",
-      texture: "string",
-      model: "string",
-      durability: "number",
-      damage: "number",
-      enchantable: "boolean",
-    },
+    required: [], // No required fields - official Hytale items vary in structure
+    knownFields: ["id", "displayName", "name", "type", "stackSize", "texture", "model", "durability", "damage", "enchantable", "maxStackSize", "rarity", "category"],
+    types: {},
+    strict: false, // Allow any fields
   },
   npc: {
-    required: ["id", "displayName"],
-    optional: ["health", "model", "behaviors", "loot", "spawning", "attributes", "sounds"],
-    types: {
-      id: "string",
-      displayName: "string",
-      health: "number",
-      model: "string",
-      behaviors: "array|object",
-      loot: "object",
-      spawning: "object",
-      attributes: "object",
-      sounds: "object",
-    },
+    required: [], // No required fields - official Hytale NPCs vary in structure
+    knownFields: ["id", "displayName", "name", "health", "model", "behaviors", "loot", "spawning", "attributes", "sounds", "maxHealth", "speed", "damage"],
+    types: {},
+    strict: false, // Allow any fields
   },
   manifest: {
     required: ["id", "name", "version", "main", "api_version"],
-    optional: ["description", "authors", "dependencies", "load_order", "permissions"],
+    knownFields: ["id", "name", "version", "main", "api_version", "description", "authors", "dependencies", "load_order", "permissions"],
     types: {
       id: "string",
       name: "string",
@@ -75,6 +50,7 @@ const schemas: Record<SchemaType, { required: string[]; optional: string[]; type
       load_order: "string",
       permissions: "object",
     },
+    strict: true, // Plugin manifests have strict requirements
   },
 };
 
@@ -138,6 +114,7 @@ const exampleJson: Record<SchemaType, string> = {
 function validateJson(json: string, schemaType: SchemaType): ValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
+  const info: string[] = [];
 
   // Try to parse JSON
   let parsed: Record<string, unknown>;
@@ -151,42 +128,50 @@ function validateJson(json: string, schemaType: SchemaType): ValidationResult {
     };
   }
 
+  // Check if it's an object
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    return {
+      valid: false,
+      errors: ["JSON must be an object, not an array or primitive value."],
+      warnings: [],
+    };
+  }
+
   const schema = schemas[schemaType];
 
-  // Check required fields
+  // Check required fields (only for strict schemas like manifest)
   for (const field of schema.required) {
     if (!(field in parsed)) {
       errors.push(`Missing required field: "${field}"`);
     }
   }
 
-  // Check field types
-  for (const [field, value] of Object.entries(parsed)) {
-    const expectedType = schema.types[field];
-    if (expectedType) {
-      const actualType = Array.isArray(value) ? "array" : typeof value;
-      const allowedTypes = expectedType.split("|");
-      if (!allowedTypes.includes(actualType)) {
-        errors.push(`Field "${field}" should be ${expectedType}, got ${actualType}`);
-      }
-    } else if (![...schema.required, ...schema.optional].includes(field)) {
-      warnings.push(`Unknown field: "${field}" (may be valid but not in schema)`);
-    }
-  }
-
-  // Schema-specific validations
-  if (schemaType === "block" || schemaType === "item" || schemaType === "npc") {
-    // ID format validation
-    const id = parsed.id as string;
-    if (id && typeof id === "string") {
-      if (!id.includes(":")) {
-        warnings.push(`ID "${id}" should follow namespace:name format (e.g., mymod:block_name)`);
-      } else if (!/^[a-z0-9_]+:[a-z0-9_]+$/.test(id)) {
-        warnings.push(`ID "${id}" should use lowercase letters, numbers, and underscores only`);
+  // Check field types (only for strict schemas)
+  if (schema.strict) {
+    for (const [field, value] of Object.entries(parsed)) {
+      const expectedType = schema.types[field];
+      if (expectedType) {
+        const actualType = Array.isArray(value) ? "array" : typeof value;
+        const allowedTypes = expectedType.split("|");
+        if (!allowedTypes.includes(actualType)) {
+          errors.push(`Field "${field}" should be ${expectedType}, got ${actualType}`);
+        }
       }
     }
   }
 
+  // For non-strict schemas (block/item/npc), just provide helpful info
+  if (!schema.strict) {
+    const fieldCount = Object.keys(parsed).length;
+    info.push(`Found ${fieldCount} field(s) in your JSON`);
+
+    // Check for common fields
+    if (parsed.id || parsed.name) {
+      info.push(`Identifier: ${parsed.id || parsed.name}`);
+    }
+  }
+
+  // Manifest-specific validations
   if (schemaType === "manifest") {
     // Version format
     const version = parsed.version as string;
@@ -208,33 +193,6 @@ function validateJson(json: string, schemaType: SchemaType): ValidationResult {
     const loadOrder = parsed.load_order as string;
     if (loadOrder && !["STARTUP", "POSTWORLD"].includes(loadOrder)) {
       errors.push(`load_order must be "STARTUP" or "POSTWORLD", got "${loadOrder}"`);
-    }
-  }
-
-  if (schemaType === "block") {
-    // Properties validation
-    const props = parsed.properties as Record<string, unknown> | undefined;
-    if (props) {
-      if (typeof props.hardness === "number" && props.hardness < 0) {
-        errors.push("hardness cannot be negative");
-      }
-      if (typeof props.resistance === "number" && props.resistance < 0) {
-        errors.push("resistance cannot be negative");
-      }
-    }
-  }
-
-  if (schemaType === "item") {
-    const stackSize = parsed.stackSize as number | undefined;
-    if (typeof stackSize === "number" && (stackSize < 1 || stackSize > 64)) {
-      warnings.push(`stackSize ${stackSize} is unusual (typically 1-64)`);
-    }
-  }
-
-  if (schemaType === "npc") {
-    const health = parsed.health as number | undefined;
-    if (typeof health === "number" && health <= 0) {
-      errors.push("health must be greater than 0");
     }
   }
 
@@ -448,17 +406,25 @@ export default function JsonValidatorPage() {
                 {/* Schema Info */}
                 <div className="mt-6 pt-4 border-t border-border">
                   <h4 className="text-sm font-semibold text-muted-foreground mb-2">
-                    Expected Schema: {schemaType}
+                    Schema: {schemaType}
                   </h4>
                   <div className="text-xs text-muted-foreground space-y-1">
-                    <p>
-                      <span className="text-primary">Required:</span>{" "}
-                      {schemas[schemaType].required.join(", ")}
-                    </p>
-                    <p>
-                      <span className="text-secondary">Optional:</span>{" "}
-                      {schemas[schemaType].optional.join(", ")}
-                    </p>
+                    {schemas[schemaType].strict ? (
+                      <>
+                        <p>
+                          <span className="text-primary">Required:</span>{" "}
+                          {schemas[schemaType].required.join(", ")}
+                        </p>
+                        <p>
+                          <span className="text-secondary">Known fields:</span>{" "}
+                          {schemas[schemaType].knownFields.filter(f => !schemas[schemaType].required.includes(f)).join(", ")}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="text-muted-foreground/70">
+                        This validator only checks JSON syntax. Official Hytale {schemaType} files have varying structures.
+                      </p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -471,8 +437,9 @@ export default function JsonValidatorPage() {
       <div className="mt-8 p-6 rounded-xl bg-muted/50 border border-border">
         <h3 className="text-lg font-semibold text-foreground mb-3">About This Validator</h3>
         <p className="text-sm text-muted-foreground mb-4">
-          This validator checks your JSON against schemas based on official Hytale documentation.
-          Note that Hytale is in Early Access and schemas may change. Always test your content in-game.
+          For <strong>blocks, items, and NPCs</strong>, this tool validates JSON syntax only. Official Hytale files have varying structures that change between versions.
+          For <strong>plugin manifests</strong>, it validates against the known plugin schema.
+          Always test your content in-game as Hytale is in Early Access.
         </p>
         <div className="flex flex-wrap gap-2">
           <a
