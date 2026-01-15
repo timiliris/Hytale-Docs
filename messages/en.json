@@ -589,10 +589,10 @@
   },
   "docsDisclaimer": {
     "title": "Community Documentation",
-    "message": "This documentation contain errors. Always verify against actual code.",
+    "message": "This AI generated documentation contains errors. Always verify against actual code.",
     "reportLink": "Report an error",
     "toastTitle": "Documentation Notice",
-    "toastMessage": "This documentation is AI-maintained and loosely based on decompiled code. Information may be inaccurate or outdated."
+    "toastMessage": "This documentation is AI-maintained and loosely based on decompiled code. Information is inaccurate and or outdated."
   },
   "error": {
     "title": "Something went wrong",
