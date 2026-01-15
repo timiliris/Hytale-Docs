@@ -279,7 +279,7 @@ export const sidebarConfig: SidebarItem[] = [
         titleKey: "serverInternals",
         items: [
           { titleKey: "serverInternalsOverview", href: "/docs/api/server-internals" },
-          { titleKey: "pluginSystem", href: "/docs/api/server-internals/plugins", verified: true },
+          { titleKey: "pluginSystem", href: "/docs/api/server-internals/plugins" },
           {
             titleKey: "modules",
             items: [
@@ -302,11 +302,11 @@ export const sidebarConfig: SidebarItem[] = [
               { titleKey: "npcSystem", href: "/docs/api/server-internals/modules/npc-system" },
             ],
           },
-          { titleKey: "eventSystem", href: "/docs/api/server-internals/events", verified: true },
-          { titleKey: "commandSystem", href: "/docs/api/server-internals/commands", verified: true },
-          { titleKey: "ecsSystem", href: "/docs/api/server-internals/ecs", verified: true },
-          { titleKey: "dataTypes", href: "/docs/api/server-internals/types", verified: true },
-          { titleKey: "networkPackets", href: "/docs/api/server-internals/packets", verified: true },
+          { titleKey: "eventSystem", href: "/docs/api/server-internals/events" },
+          { titleKey: "commandSystem", href: "/docs/api/server-internals/commands" },
+          { titleKey: "ecsSystem", href: "/docs/api/server-internals/ecs" },
+          { titleKey: "dataTypes", href: "/docs/api/server-internals/types" },
+          { titleKey: "networkPackets", href: "/docs/api/server-internals/packets" },
           { titleKey: "customUI", href: "/docs/api/server-internals/custom-ui", verified: true },
         ],
       },
