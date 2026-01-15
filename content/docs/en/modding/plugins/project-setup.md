@@ -61,6 +61,8 @@ A well-organized plugin project looks like this:
 
 ```filetree
 my-hytale-plugin/
+├── libs/
+│   └── HytaleServer.jar      # Server JAR for compilation
 ├── src/
 │   ├── main/
 │   │   ├── java/
@@ -89,6 +91,23 @@ my-hytale-plugin/
 └── README.md
 ```
 
+## Setting Up the Server JAR
+
+Before you can compile your plugin, you need to add the Hytale server JAR to your project:
+
+1. **Download the server JAR** from [cdn.hytale.com/HytaleServer.jar](https://cdn.hytale.com/HytaleServer.jar)
+2. **Create a `libs` folder** in your project root
+3. **Copy `HytaleServer.jar`** into the `libs` folder
+
+```bash
+mkdir libs
+curl -o libs/HytaleServer.jar https://cdn.hytale.com/HytaleServer.jar
+```
+
+The server JAR is used as a `compileOnly` dependency - it provides the API classes for compilation but is not bundled into your plugin (the server already has these classes at runtime).
+
+For a complete example project, see [Build-9/Hytale-Example-Project](https://github.com/Build-9/Hytale-Example-Project) on GitHub.
+
 ## Gradle Configuration
 
 ### build.gradle (Groovy DSL)
@@ -104,16 +123,13 @@ version = '1.0.0'
 
 repositories {
     mavenCentral()
-    // Hytale API repository (when available)
-    maven {
-        name = 'hytale'
-        url = 'https://repo.hytale.com/releases'
-    }
 }
 
 dependencies {
-    // Hytale Server API - compileOnly since server provides it
-    compileOnly 'com.hytale:server-api:1.0.0'
+    // Hytale Server JAR - add to classpath from your local installation
+    // Download HytaleServer.jar from https://cdn.hytale.com/HytaleServer.jar
+    // Place it in a 'libs' folder in your project root
+    compileOnly files('libs/HytaleServer.jar')
 
     // Optional: Common utilities
     implementation 'com.google.guava:guava:32.1.3-jre'
@@ -171,14 +187,11 @@ version = "1.0.0"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "hytale"
-        url = uri("https://repo.hytale.com/releases")
-    }
 }
 
 dependencies {
-    compileOnly("com.hytale:server-api:1.0.0")
+    // Hytale Server JAR - add to classpath from your local installation
+    compileOnly(files("libs/HytaleServer.jar"))
 
     implementation("com.google.guava:guava:32.1.3-jre")
     implementation("com.google.code.gson:gson:2.10.1")
@@ -232,7 +245,6 @@ org.gradle.parallel=true
 org.gradle.caching=true
 
 # Dependency versions (optional, for easier management)
-hytaleApiVersion=1.0.0
 guavaVersion=32.1.3-jre
 ```
 
