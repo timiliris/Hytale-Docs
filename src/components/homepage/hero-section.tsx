@@ -1,48 +1,10 @@
-"use client";
-
-import * as React from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ArrowRight, Gamepad2, Code, Server } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// 13 janvier 2026 à 16h00 Bruxelles (10h00 EST)
-const RELEASE_DATE = new Date("2026-01-13T15:00:00Z");
-
-function useCountdown() {
-  const [timeLeft, setTimeLeft] = React.useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  React.useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const difference = RELEASE_DATE.getTime() - now.getTime();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / (1000 * 60)) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return timeLeft;
-}
-
 export function HeroSection() {
   const t = useTranslations("hero");
-  const countdown = useCountdown();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -68,45 +30,16 @@ export function HeroSection() {
 
       <div className="container px-4 py-24">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Countdown */}
+          {/* Early Access Badge */}
           <div className="mb-8">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
               </span>
               <span className="text-muted-foreground">{t("earlyAccess")}</span>
               <span className="text-muted-foreground">-</span>
-              <span className="text-foreground font-medium">{t("releaseDate")}</span>
-            </div>
-            <div className="flex items-center justify-center gap-3 sm:gap-4">
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-bold text-primary tabular-nums">
-                  {String(countdown.days).padStart(2, "0")}
-                </span>
-                <span className="text-xs text-muted-foreground uppercase">{t("days")}</span>
-              </div>
-              <span className="text-2xl text-muted-foreground">:</span>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-bold text-foreground tabular-nums">
-                  {String(countdown.hours).padStart(2, "0")}
-                </span>
-                <span className="text-xs text-muted-foreground uppercase">{t("hours")}</span>
-              </div>
-              <span className="text-2xl text-muted-foreground">:</span>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-bold text-foreground tabular-nums">
-                  {String(countdown.minutes).padStart(2, "0")}
-                </span>
-                <span className="text-xs text-muted-foreground uppercase">{t("minutes")}</span>
-              </div>
-              <span className="text-2xl text-muted-foreground">:</span>
-              <div className="flex flex-col items-center">
-                <span className="text-2xl sm:text-3xl font-bold text-foreground tabular-nums">
-                  {String(countdown.seconds).padStart(2, "0")}
-                </span>
-                <span className="text-xs text-muted-foreground uppercase">{t("seconds")}</span>
-              </div>
+              <span className="text-foreground font-medium">{t("sinceDate")}</span>
             </div>
           </div>
 

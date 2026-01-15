@@ -229,11 +229,7 @@
   },
   "hero": {
     "earlyAccess": "Early Access",
-    "releaseDate": "January 13, 2026",
-    "days": "days",
-    "hours": "hours",
-    "minutes": "min",
-    "seconds": "sec",
+    "sinceDate": "Since January 13",
     "subtitle": "The community documentation for Hytale",
     "description": "Gameplay guides, modding, server administration and API reference.",
     "descriptionLine2": "Everything you need to master Hytale.",
