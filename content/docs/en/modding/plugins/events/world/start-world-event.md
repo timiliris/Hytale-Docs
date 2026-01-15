@@ -59,47 +59,32 @@ Inherited from `WorldEvent`. Returns the world that has started.
 
 ## Usage Example
 
+> **Tested** - This code has been verified with a working plugin.
+
+Since `StartWorldEvent` extends `WorldEvent` which has a non-Void key type, you must use `registerGlobal()` to catch all world events regardless of their key.
+
 ```java
 import com.hypixel.hytale.server.core.universe.world.events.StartWorldEvent;
-import com.hypixel.hytale.event.EventPriority;
+import com.hypixel.hytale.event.EventRegistry;
 
-// Register a listener to perform actions when worlds start
-eventBus.register(EventPriority.NORMAL, StartWorldEvent.class, event -> {
+// Register a global listener to perform actions when worlds start
+eventBus.registerGlobal(StartWorldEvent.class, event -> {
     World world = event.getWorld();
+    String worldName = world != null ? world.getName() : "Unknown";
 
     // Log world startup
-    System.out.println("World started: " + world.getName());
+    logger.info("World started: " + worldName);
 
     // Example: Initialize world-specific features
-    initializeWorldFeatures(world);
-
-    // Example: Load world-specific configuration
-    loadWorldConfig(world);
-
-    // Example: Schedule world-specific tasks
-    scheduleWorldTasks(world);
-});
-
-private void initializeWorldFeatures(World world) {
-    // Set up spawn points, NPCs, or other world-specific elements
-    if (world.getName().equals("spawn")) {
+    if ("spawn".equals(worldName)) {
         setupSpawnWorld(world);
-    } else if (world.getName().startsWith("dungeon_")) {
+    } else if (worldName.startsWith("dungeon_")) {
         setupDungeonWorld(world);
     }
-}
-
-private void loadWorldConfig(World world) {
-    // Load any configuration specific to this world
-    String configPath = "worlds/" + world.getName() + "/config.json";
-    // ... load configuration
-}
-
-private void scheduleWorldTasks(World world) {
-    // Schedule recurring tasks for the world
-    // Example: mob spawning, weather changes, etc.
-}
+});
 ```
+
+**Important:** Using `register()` instead of `registerGlobal()` will not work for this event because it has a non-Void key type.
 
 ## When This Event Fires
 

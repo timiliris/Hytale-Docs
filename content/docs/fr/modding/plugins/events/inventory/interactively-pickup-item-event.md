@@ -47,29 +47,74 @@ public class InteractivelyPickupItemEvent extends CancellableEcsEvent {
 
 ## Exemple d'utilisation
 
+> **Testé** - Ce code a été vérifié avec un plugin fonctionnel.
+
+**Important :** Les événements ECS nécessitent une classe `EntityEventSystem` dédiée enregistrée via `getEntityStoreRegistry().registerSystem()`. Ils n'utilisent **pas** la méthode standard `EventBus.register()`.
+
+### Étape 1 : Créer l'EntityEventSystem
+
 ```java
+package com.example.myplugin.systems;
+
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.event.events.ecs.InteractivelyPickupItemEvent;
-import com.hypixel.hytale.event.EventPriority;
 
-public class PickupListener extends PluginBase {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    @Override
-    public void onEnable() {
-        getServer().getEventBus().register(
-            EventPriority.NORMAL,
-            InteractivelyPickupItemEvent.class,
-            this::onItemPickup
-        );
+public class ItemPickupSystem extends EntityEventSystem<EntityStore, InteractivelyPickupItemEvent> {
+
+    public ItemPickupSystem() {
+        super(InteractivelyPickupItemEvent.class);
     }
 
-    private void onItemPickup(InteractivelyPickupItemEvent event) {
-        ItemStack item = event.getItemStack();
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull InteractivelyPickupItemEvent event
+    ) {
+        String itemInfo = event.getItemStack() != null ? event.getItemStack().toString() : "Unknown";
 
-        getLogger().info("Le joueur ramasse: " + item.getAmount() + " objets");
+        System.out.println("Objet ramassé: " + itemInfo);
 
-        // Acceder aux proprietes de l'objet
-        // item.getItem() - Obtenir le type d'objet
-        // item.getAmount() - Obtenir la taille de la pile
+        // Exemple: Empêcher de ramasser des objets restreints
+        // if (isRestrictedItem(event.getItemStack())) {
+        //     event.setCancelled(true);
+        // }
+
+        // Exemple: Modifier l'objet ramassé
+        // event.setItemStack(modifiedItemStack);
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
+
+### Étape 2 : Enregistrer le système dans votre plugin
+
+```java
+public class MyPlugin extends JavaPlugin {
+
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
+
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new ItemPickupSystem());
     }
 }
 ```

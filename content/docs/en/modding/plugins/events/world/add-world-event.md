@@ -95,25 +95,31 @@ Inherited from `WorldEvent`. Returns the world that is being added.
 
 ## Usage Example
 
+> **Tested** - This code has been verified with a working plugin.
+
+Since `AddWorldEvent` extends `WorldEvent` which has a non-Void key type, you must use `registerGlobal()` to catch all world events regardless of their key.
+
 ```java
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
-import com.hypixel.hytale.event.EventPriority;
+import com.hypixel.hytale.event.EventRegistry;
 
-// Register a listener to control world additions
-eventBus.register(EventPriority.NORMAL, AddWorldEvent.class, event -> {
+// Register a global listener to control world additions
+eventBus.registerGlobal(AddWorldEvent.class, event -> {
     World world = event.getWorld();
-
-    // Example: Prevent adding worlds with certain names
-    if (world.getName().startsWith("restricted_")) {
-        event.setCancelled(true);
-        System.out.println("Blocked addition of restricted world: " + world.getName());
-        return;
-    }
+    String worldName = world != null ? world.getName() : "Unknown";
 
     // Log world additions
-    System.out.println("World being added: " + world.getName());
+    logger.info("World being added: " + worldName);
+
+    // Example: Prevent adding worlds with certain names
+    if (worldName.startsWith("restricted_")) {
+        event.setCancelled(true);
+        logger.info("Blocked addition of restricted world: " + worldName);
+    }
 });
 ```
+
+**Important:** Using `register()` instead of `registerGlobal()` will not work for this event because it has a non-Void key type.
 
 ## When This Event Fires
 

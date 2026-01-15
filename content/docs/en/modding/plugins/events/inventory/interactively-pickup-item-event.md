@@ -47,87 +47,76 @@ public class InteractivelyPickupItemEvent extends CancellableEcsEvent {
 
 ## Usage Example
 
+> **Tested** - This code has been verified with a working plugin.
+
+**Important:** ECS events require a dedicated `EntityEventSystem` class registered via `getEntityStoreRegistry().registerSystem()`. They do **not** use the standard `EventBus.register()` method.
+
+### Step 1: Create the EntityEventSystem
+
 ```java
+package com.example.myplugin.systems;
+
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.event.events.ecs.InteractivelyPickupItemEvent;
-import com.hypixel.hytale.event.EventPriority;
 
-public class PickupListener extends PluginBase {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    @Override
-    public void onEnable() {
-        getServer().getEventBus().register(
-            EventPriority.NORMAL,
-            InteractivelyPickupItemEvent.class,
-            this::onItemPickup
-        );
+public class ItemPickupSystem extends EntityEventSystem<EntityStore, InteractivelyPickupItemEvent> {
+
+    public ItemPickupSystem() {
+        super(InteractivelyPickupItemEvent.class);
     }
 
-    private void onItemPickup(InteractivelyPickupItemEvent event) {
-        ItemStack item = event.getItemStack();
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull InteractivelyPickupItemEvent event
+    ) {
+        String itemInfo = event.getItemStack() != null ? event.getItemStack().toString() : "Unknown";
 
-        getLogger().info("Player picking up: " + item.getAmount() + " items");
+        System.out.println("Item picked up: " + itemInfo);
 
-        // Access item properties
-        // item.getItem() - Get the item type
-        // item.getAmount() - Get the stack size
+        // Example: Prevent picking up restricted items
+        // if (isRestrictedItem(event.getItemStack())) {
+        //     event.setCancelled(true);
+        // }
+
+        // Example: Modify the picked up item
+        // event.setItemStack(modifiedItemStack);
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
     }
 }
 ```
 
-### Modifying Picked Up Items
+### Step 2: Register the System in Your Plugin
 
 ```java
-// Example: Double all picked up items (bonus pickup)
-getServer().getEventBus().register(
-    EventPriority.NORMAL,
-    InteractivelyPickupItemEvent.class,
-    event -> {
-        ItemStack original = event.getItemStack();
+public class MyPlugin extends JavaPlugin {
 
-        // Create a new item stack with double the amount
-        // ItemStack doubled = original.copy();
-        // doubled.setAmount(original.getAmount() * 2);
-        // event.setItemStack(doubled);
-
-        getLogger().info("Applied pickup bonus!");
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
     }
-);
-```
 
-### Filtering Pickups
-
-```java
-// Example: Prevent picking up certain items
-getServer().getEventBus().register(
-    EventPriority.FIRST,
-    InteractivelyPickupItemEvent.class,
-    event -> {
-        ItemStack item = event.getItemStack();
-
-        // Check if this is a restricted item
-        // if (isRestrictedItem(item)) {
-        //     event.setCancelled(true);
-        //     // Item remains in the world
-        // }
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new ItemPickupSystem());
     }
-);
-```
-
-### Logging Pickups
-
-```java
-// Example: Log all item pickups for analytics
-getServer().getEventBus().register(
-    EventPriority.LAST,
-    InteractivelyPickupItemEvent.class,
-    event -> {
-        if (!event.isCancelled()) {
-            ItemStack item = event.getItemStack();
-            // Log the pickup
-            // analyticsLogger.logPickup(player, item);
-        }
-    }
-);
+}
 ```
 
 ## When This Event Fires

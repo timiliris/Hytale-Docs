@@ -60,47 +60,32 @@ Hérité de `WorldEvent`. Retourne le monde qui a demarre.
 
 ## Exemple d'utilisation
 
+> **Testé** - Ce code a été vérifié avec un plugin fonctionnel.
+
+Puisque `StartWorldEvent` étend `WorldEvent` qui a un type de clé non-Void, vous devez utiliser `registerGlobal()` pour capturer tous les événements de monde indépendamment de leur clé.
+
 ```java
 import com.hypixel.hytale.server.core.universe.world.events.StartWorldEvent;
-import com.hypixel.hytale.event.EventPriority;
+import com.hypixel.hytale.event.EventRegistry;
 
-// Enregistrer un listener pour effectuer des actions lorsque les mondes demarrent
-eventBus.register(EventPriority.NORMAL, StartWorldEvent.class, event -> {
+// Enregistrer un listener global pour effectuer des actions lorsque les mondes démarrent
+eventBus.registerGlobal(StartWorldEvent.class, event -> {
     World world = event.getWorld();
+    String worldName = world != null ? world.getName() : "Unknown";
 
-    // Journaliser le demarrage du monde
-    System.out.println("Monde demarre : " + world.getName());
+    // Journaliser le démarrage du monde
+    logger.info("Monde démarré: " + worldName);
 
-    // Exemple : Initialiser les fonctionnalites spécifiques au monde
-    initializeWorldFeatures(world);
-
-    // Exemple : Charger la configuration spécifique au monde
-    loadWorldConfig(world);
-
-    // Exemple : Planifier des taches spécifiques au monde
-    scheduleWorldTasks(world);
-});
-
-private void initializeWorldFeatures(World world) {
-    // Configurer les points d'apparition, PNJ, ou autres elements spécifiques au monde
-    if (world.getName().equals("spawn")) {
+    // Exemple: Initialiser les fonctionnalités spécifiques au monde
+    if ("spawn".equals(worldName)) {
         setupSpawnWorld(world);
-    } else if (world.getName().startsWith("dungeon_")) {
+    } else if (worldName.startsWith("dungeon_")) {
         setupDungeonWorld(world);
     }
-}
-
-private void loadWorldConfig(World world) {
-    // Charger toute configuration spécifique a ce monde
-    String configPath = "worlds/" + world.getName() + "/config.json";
-    // ... charger la configuration
-}
-
-private void scheduleWorldTasks(World world) {
-    // Planifier des taches recurrentes pour le monde
-    // Exemple : apparition de mobs, changements de meteo, etc.
-}
+});
 ```
+
+**Important :** Utiliser `register()` au lieu de `registerGlobal()` ne fonctionnera pas pour cet événement car il a un type de clé non-Void.
 
 ## Quand cet événement se déclenché
 

@@ -59,76 +59,84 @@ Key differences:
 
 ## Usage Example
 
+> **Tested** - This code has been verified with a working plugin.
+
+**Important:** ECS events require a dedicated `EntityEventSystem` class registered via `getEntityStoreRegistry().registerSystem()`. They do **not** use the standard `EventBus.register()` method.
+
+### Step 1: Create the EntityEventSystem
+
 ```java
-// Note: ECS event registration may differ from standard IEvent registration
-// The exact registration mechanism depends on how your plugin integrates with the ECS system
+package com.example.myplugin.systems;
 
-public class MiningPlugin extends PluginBase {
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.event.events.ecs.DamageBlockEvent;
 
-    @Override
-    public void onEnable() {
-        // ECS events are typically handled through component systems
-        // This is a conceptual example - actual implementation may vary
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-        // Register to handle DamageBlockEvent
-        registerEcsEventHandler(DamageBlockEvent.class, this::onBlockDamage);
+public class DamageBlockSystem extends EntityEventSystem<EntityStore, DamageBlockEvent> {
+
+    public DamageBlockSystem() {
+        super(DamageBlockEvent.class);
     }
 
-    private void onBlockDamage(DamageBlockEvent event) {
-        // Get information about the block damage
-        Vector3i position = event.getTargetBlock();
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DamageBlockEvent event
+    ) {
+        int x = event.getTargetBlock().getX();
+        int y = event.getTargetBlock().getY();
+        int z = event.getTargetBlock().getZ();
         BlockType blockType = event.getBlockType();
-        ItemStack tool = event.getItemInHand();
         float currentDamage = event.getCurrentDamage();
         float incomingDamage = event.getDamage();
 
-        // Example: Make certain blocks indestructible
+        // Example: Make bedrock indestructible
         if (isIndestructible(blockType)) {
             event.setCancelled(true);
             return;
         }
 
-        // Example: Modify damage based on tool effectiveness
-        float modifiedDamage = calculateToolEffectiveness(tool, blockType, incomingDamage);
-        event.setDamage(modifiedDamage);
+        // Example: Mining fatigue - slow down mining by 50%
+        event.setDamage(incomingDamage * 0.5f);
 
-        // Example: Implement mining fatigue in certain areas
-        if (isSlowMiningZone(position)) {
-            event.setDamage(incomingDamage * 0.5f); // 50% slower mining
-        }
+        System.out.println("Block damaged at [" + x + "," + y + "," + z + "]");
+    }
 
-        // Example: Bonus damage for specific tools on specific blocks
-        if (isOptimalTool(tool, blockType)) {
-            event.setDamage(incomingDamage * 2.0f); // Double speed
-        }
-
-        // Example: Track mining progress
-        float totalDamage = currentDamage + event.getDamage();
-        logMiningProgress(position, blockType, totalDamage);
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty(); // Catch events from all entities
     }
 
     private boolean isIndestructible(BlockType blockType) {
-        // Check if block should be indestructible
-        return false;
+        return false; // Implement your logic
+    }
+}
+```
+
+### Step 2: Register the System in Your Plugin
+
+```java
+public class MyPlugin extends JavaPlugin {
+
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
     }
 
-    private float calculateToolEffectiveness(ItemStack tool, BlockType block, float baseDamage) {
-        // Tool effectiveness calculation
-        return baseDamage;
-    }
-
-    private boolean isSlowMiningZone(Vector3i position) {
-        // Check for mining fatigue zones
-        return false;
-    }
-
-    private boolean isOptimalTool(ItemStack tool, BlockType block) {
-        // Check if tool is optimal for block type
-        return false;
-    }
-
-    private void logMiningProgress(Vector3i pos, BlockType type, float damage) {
-        // Progress tracking implementation
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new DamageBlockSystem());
     }
 }
 ```

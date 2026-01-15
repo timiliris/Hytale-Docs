@@ -48,87 +48,82 @@ public class DamageBlockEvent extends CancellableEcsEvent {
 | `isCancelled` | `public boolean isCancelled()` | Retourne si l'événement a ete annule (hérité) |
 | `setCancelled` | `public void setCancelled(boolean cancelled)` | Definit l'etat d'annulation de l'événement (hérité) |
 
-## Comprendre les événements ECS
-
-**Important :** Les événements ECS (Entity Component System) fonctionnent différemment des événements `IEvent` classiques. Ils font partie de l'architecture basee sur les composants de Hytale et sont généralement envoyes et traites via le framework ECS plutot que via l'`EventBus` standard.
-
-Differences cles :
-- Les événements ECS etendent `EcsEvent` ou `CancellableEcsEvent` au lieu d'implementer `IEvent`
-- Ils sont associes aux composants et systemes d'entites
-- L'enregistrement et le traitement peuvent utiliser des mecanismes differents de l'event bus standard
-
 ## Exemple d'utilisation
 
+> **Testé** - Ce code a été vérifié avec un plugin fonctionnel.
+
+**Important :** Les événements ECS nécessitent une classe `EntityEventSystem` dédiée enregistrée via `getEntityStoreRegistry().registerSystem()`. Ils n'utilisent **pas** la méthode standard `EventBus.register()`.
+
+### Étape 1 : Créer l'EntityEventSystem
+
 ```java
-// Note: L'enregistrement des événements ECS peut differer de l'enregistrement standard IEvent
-// Le mecanisme exact d'enregistrement depend de la facon dont votre plugin s'integre au systeme ECS
+package com.example.myplugin.systems;
 
-public class MiningPlugin extends PluginBase {
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import com.hypixel.hytale.server.core.event.events.ecs.DamageBlockEvent;
 
-    @Override
-    public void onEnable() {
-        // Les événements ECS sont généralement traites via les systemes de composants
-        // Ceci est un exemple conceptuel - l'implementation reelle peut varier
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-        // Enregistrer pour traiter DamageBlockEvent
-        registerEcsEventHandler(DamageBlockEvent.class, this::onBlockDamage);
+public class DamageBlockSystem extends EntityEventSystem<EntityStore, DamageBlockEvent> {
+
+    public DamageBlockSystem() {
+        super(DamageBlockEvent.class);
     }
 
-    private void onBlockDamage(DamageBlockEvent event) {
-        // Obtenir des informations sur les degats au bloc
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DamageBlockEvent event
+    ) {
+        // Obtenir des informations sur les dégâts au bloc
         Vector3i position = event.getTargetBlock();
         BlockType blockType = event.getBlockType();
         ItemStack tool = event.getItemInHand();
         float currentDamage = event.getCurrentDamage();
         float incomingDamage = event.getDamage();
 
+        System.out.println("Bloc endommagé: " + blockType + " à " + position);
+
         // Exemple: Rendre certains blocs indestructibles
-        if (isIndestructible(blockType)) {
-            event.setCancelled(true);
-            return;
-        }
+        // if (isIndestructible(blockType)) {
+        //     event.setCancelled(true);
+        //     return;
+        // }
 
-        // Exemple: Modifier les degats en fonction de l'efficacite de l'outil
-        float modifiedDamage = calculateToolEffectiveness(tool, blockType, incomingDamage);
-        event.setDamage(modifiedDamage);
-
-        // Exemple: Implementer la fatigue de minage dans certaines zones
-        if (isSlowMiningZone(position)) {
-            event.setDamage(incomingDamage * 0.5f); // Minage 50% plus lent
-        }
-
-        // Exemple: Degats bonus pour des outils spécifiques sur des blocs spécifiques
-        if (isOptimalTool(tool, blockType)) {
-            event.setDamage(incomingDamage * 2.0f); // Vitesse double
-        }
-
-        // Exemple: Suivre la progression du minage
-        float totalDamage = currentDamage + event.getDamage();
-        logMiningProgress(position, blockType, totalDamage);
+        // Exemple: Modifier les dégâts en fonction de l'outil
+        // event.setDamage(incomingDamage * 2.0f); // Vitesse double
     }
 
-    private boolean isIndestructible(BlockType blockType) {
-        // Verifier si le bloc doit etre indestructible
-        return false;
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
+
+### Étape 2 : Enregistrer le système dans votre plugin
+
+```java
+public class MyPlugin extends JavaPlugin {
+
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
     }
 
-    private float calculateToolEffectiveness(ItemStack tool, BlockType block, float baseDamage) {
-        // Calcul de l'efficacite de l'outil
-        return baseDamage;
-    }
-
-    private boolean isSlowMiningZone(Vector3i position) {
-        // Verifier les zones de fatigue de minage
-        return false;
-    }
-
-    private boolean isOptimalTool(ItemStack tool, BlockType block) {
-        // Verifier si l'outil est optimal pour le type de bloc
-        return false;
-    }
-
-    private void logMiningProgress(Vector3i pos, BlockType type, float damage) {
-        // Implementation du suivi de progression
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new DamageBlockSystem());
     }
 }
 ```

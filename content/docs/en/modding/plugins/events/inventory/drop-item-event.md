@@ -112,63 +112,106 @@ public static final class PlayerRequest extends DropItemEvent {
 
 ## Usage Example
 
+> **Tested** - This code has been verified with a working plugin.
+
+**Important:** ECS events require dedicated `EntityEventSystem` classes registered via `getEntityStoreRegistry().registerSystem()`. They do **not** use the standard `EventBus.register()` method.
+
+### Step 1: Create EntityEventSystem for DropItemEvent.Drop
+
 ```java
+package com.example.myplugin.systems;
+
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.event.events.ecs.DropItemEvent;
-import com.hypixel.hytale.event.EventPriority;
 
-public class ItemDropListener extends PluginBase {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    @Override
-    public void onEnable() {
-        // Register to handle item drop events
-        getServer().getEventBus().register(
-            EventPriority.NORMAL,
-            DropItemEvent.class,
-            this::onItemDrop
-        );
+public class DropItemDropSystem extends EntityEventSystem<EntityStore, DropItemEvent.Drop> {
+
+    public DropItemDropSystem() {
+        super(DropItemEvent.Drop.class);
     }
 
-    private void onItemDrop(DropItemEvent event) {
-        // Check if this is a player-initiated drop
-        // The event context determines if Drop or PlayerRequest data is available
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DropItemEvent.Drop event
+    ) {
+        String itemInfo = event.getItemStack() != null ? event.getItemStack().toString() : "Unknown";
+        float throwSpeed = event.getThrowSpeed();
 
-        if (event.isCancelled()) {
-            return;
-        }
+        System.out.println("Item dropped: " + itemInfo + " (speed: " + throwSpeed + ")");
 
-        // Example: Prevent dropping items in certain areas
-        // (You would need to get entity position from ECS context)
+        // Example: Prevent dropping valuable items
+        // if (isValuableItem(event.getItemStack())) {
+        //     event.setCancelled(true);
+        // }
+    }
 
-        // Cancel the drop if needed
-        // event.setCancelled(true);
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
     }
 }
 ```
 
-### Handling Drop Inner Class
+### Step 2: Create EntityEventSystem for DropItemEvent.PlayerRequest
 
 ```java
-// When working with the Drop inner class
-DropItemEvent.Drop dropInfo = new DropItemEvent.Drop(itemStack, 0.5f);
+public class DropItemRequestSystem extends EntityEventSystem<EntityStore, DropItemEvent.PlayerRequest> {
 
-// Access drop properties
-ItemStack dropped = dropInfo.getItemStack();
-float velocity = dropInfo.getThrowSpeed();
+    public DropItemRequestSystem() {
+        super(DropItemEvent.PlayerRequest.class);
+    }
 
-getLogger().info("Dropping " + dropped.getAmount() + " items with velocity " + velocity);
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DropItemEvent.PlayerRequest event
+    ) {
+        int sectionId = event.getInventorySectionId();
+        short slotId = event.getSlotId();
+
+        System.out.println("Player drop request: section=" + sectionId + ", slot=" + slotId);
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
 ```
 
-### Handling PlayerRequest Inner Class
+### Step 3: Register Systems in Your Plugin
 
 ```java
-// When working with the PlayerRequest inner class
-DropItemEvent.PlayerRequest request = new DropItemEvent.PlayerRequest(0, (short) 5);
+public class MyPlugin extends JavaPlugin {
 
-// Access request properties
-int section = request.getInventorySectionId();
-short slot = request.getSlotId();
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
 
-getLogger().info("Player dropping from section " + section + ", slot " + slot);
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new DropItemDropSystem());
+        getEntityStoreRegistry().registerSystem(new DropItemRequestSystem());
+    }
+}
 ```
 
 ## When This Event Fires

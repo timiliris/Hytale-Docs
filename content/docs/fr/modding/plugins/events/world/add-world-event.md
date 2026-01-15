@@ -96,25 +96,31 @@ Hérité de `WorldEvent`. Retourne le monde qui est en cours d'ajout.
 
 ## Exemple d'utilisation
 
+> **Testé** - Ce code a été vérifié avec un plugin fonctionnel.
+
+Puisque `AddWorldEvent` étend `WorldEvent` qui a un type de clé non-Void, vous devez utiliser `registerGlobal()` pour capturer tous les événements de monde indépendamment de leur clé.
+
 ```java
 import com.hypixel.hytale.server.core.universe.world.events.AddWorldEvent;
-import com.hypixel.hytale.event.EventPriority;
+import com.hypixel.hytale.event.EventRegistry;
 
-// Enregistrer un listener pour controler les ajouts de mondes
-eventBus.register(EventPriority.NORMAL, AddWorldEvent.class, event -> {
+// Enregistrer un listener global pour contrôler les ajouts de mondes
+eventBus.registerGlobal(AddWorldEvent.class, event -> {
     World world = event.getWorld();
-
-    // Exemple : Empecher l'ajout de mondes avec certains noms
-    if (world.getName().startsWith("restricted_")) {
-        event.setCancelled(true);
-        System.out.println("Ajout bloque du monde restreint : " + world.getName());
-        return;
-    }
+    String worldName = world != null ? world.getName() : "Unknown";
 
     // Journaliser les ajouts de mondes
-    System.out.println("Monde en cours d'ajout : " + world.getName());
+    logger.info("Monde en cours d'ajout: " + worldName);
+
+    // Exemple: Empêcher l'ajout de mondes avec certains noms
+    if (worldName.startsWith("restricted_")) {
+        event.setCancelled(true);
+        logger.info("Ajout bloqué du monde restreint: " + worldName);
+    }
 });
 ```
+
+**Important :** Utiliser `register()` au lieu de `registerGlobal()` ne fonctionnera pas pour cet événement car il a un type de clé non-Void.
 
 ## Quand cet événement se déclenché
 

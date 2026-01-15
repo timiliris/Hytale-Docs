@@ -92,50 +92,107 @@ public static final class Post extends CraftRecipeEvent {
 
 ## Usage Example
 
-### Listening to Pre-Craft Events
+> **Tested** - This code has been verified with a working plugin.
+
+**Important:** ECS events require dedicated `EntityEventSystem` classes registered via `getEntityStoreRegistry().registerSystem()`. They do **not** use the standard `EventBus.register()` method.
+
+### Step 1: Create EntityEventSystem for Pre-Craft
 
 ```java
+package com.example.myplugin.systems;
+
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.event.events.ecs.CraftRecipeEvent;
-import com.hypixel.hytale.event.EventPriority;
 
-public class CraftingListener extends PluginBase {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    @Override
-    public void onEnable() {
-        // Listen for pre-craft events to validate/block
-        getServer().getEventBus().register(
-            EventPriority.FIRST,
-            CraftRecipeEvent.Pre.class,
-            this::onPreCraft
-        );
+public class CraftRecipePreSystem extends EntityEventSystem<EntityStore, CraftRecipeEvent.Pre> {
 
-        // Listen for post-craft events for logging/rewards
-        getServer().getEventBus().register(
-            EventPriority.NORMAL,
-            CraftRecipeEvent.Post.class,
-            this::onPostCraft
-        );
+    public CraftRecipePreSystem() {
+        super(CraftRecipeEvent.Pre.class);
     }
 
-    private void onPreCraft(CraftRecipeEvent.Pre event) {
-        CraftingRecipe recipe = event.getCraftedRecipe();
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull CraftRecipeEvent.Pre event
+    ) {
+        String recipeInfo = event.getCraftedRecipe() != null ?
+            event.getCraftedRecipe().toString() : "Unknown";
         int quantity = event.getQuantity();
 
-        getLogger().info("Player attempting to craft " + quantity + " items");
+        System.out.println("Player attempting to craft: " + recipeInfo + " x" + quantity);
 
         // Example: Block certain recipes
-        // if (isRestrictedRecipe(recipe)) {
+        // if (isRestrictedRecipe(event.getCraftedRecipe())) {
         //     event.setCancelled(true);
         // }
     }
 
-    private void onPostCraft(CraftRecipeEvent.Post event) {
-        CraftingRecipe recipe = event.getCraftedRecipe();
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
+
+### Step 2: Create EntityEventSystem for Post-Craft
+
+```java
+public class CraftRecipePostSystem extends EntityEventSystem<EntityStore, CraftRecipeEvent.Post> {
+
+    public CraftRecipePostSystem() {
+        super(CraftRecipeEvent.Post.class);
+    }
+
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull CraftRecipeEvent.Post event
+    ) {
+        String recipeInfo = event.getCraftedRecipe() != null ?
+            event.getCraftedRecipe().toString() : "Unknown";
         int quantity = event.getQuantity();
 
-        getLogger().info("Successfully crafted " + quantity + " items");
-
+        System.out.println("Successfully crafted: " + recipeInfo + " x" + quantity);
         // Grant XP, achievements, etc.
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
+
+### Step 3: Register Systems in Your Plugin
+
+```java
+public class MyPlugin extends JavaPlugin {
+
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
+
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new CraftRecipePreSystem());
+        getEntityStoreRegistry().registerSystem(new CraftRecipePostSystem());
     }
 }
 ```

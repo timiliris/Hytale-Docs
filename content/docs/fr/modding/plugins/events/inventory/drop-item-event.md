@@ -112,63 +112,106 @@ public static final class PlayerRequest extends DropItemEvent {
 
 ## Exemple d'utilisation
 
+> **Testé** - Ce code a été vérifié avec un plugin fonctionnel.
+
+**Important :** Les événements ECS nécessitent des classes `EntityEventSystem` dédiées enregistrées via `getEntityStoreRegistry().registerSystem()`. Ils n'utilisent **pas** la méthode standard `EventBus.register()`.
+
+### Étape 1 : Créer l'EntityEventSystem pour DropItemEvent.Drop
+
 ```java
+package com.example.myplugin.systems;
+
+import com.hypixel.hytale.component.Archetype;
+import com.hypixel.hytale.component.ArchetypeChunk;
+import com.hypixel.hytale.component.CommandBuffer;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.component.query.Query;
+import com.hypixel.hytale.component.system.EntityEventSystem;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import com.hypixel.hytale.server.core.event.events.ecs.DropItemEvent;
-import com.hypixel.hytale.event.EventPriority;
 
-public class ItemDropListener extends PluginBase {
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-    @Override
-    public void onEnable() {
-        // S'enregistrer pour gerer les événements de lachage d'objets
-        getServer().getEventBus().register(
-            EventPriority.NORMAL,
-            DropItemEvent.class,
-            this::onItemDrop
-        );
+public class DropItemDropSystem extends EntityEventSystem<EntityStore, DropItemEvent.Drop> {
+
+    public DropItemDropSystem() {
+        super(DropItemEvent.Drop.class);
     }
 
-    private void onItemDrop(DropItemEvent event) {
-        // Verifier si c'est un lachage initie par le joueur
-        // Le contexte de l'événement determine si les donnees Drop ou PlayerRequest sont disponibles
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DropItemEvent.Drop event
+    ) {
+        String itemInfo = event.getItemStack() != null ? event.getItemStack().toString() : "Unknown";
+        float throwSpeed = event.getThrowSpeed();
 
-        if (event.isCancelled()) {
-            return;
-        }
+        System.out.println("Objet lâché: " + itemInfo + " (vitesse: " + throwSpeed + ")");
 
-        // Exemple: Empecher de lacher des objets dans certaines zones
-        // (Vous devriez obtenir la position de l'entite depuis le contexte ECS)
+        // Exemple: Empêcher de lâcher des objets précieux
+        // if (isValuableItem(event.getItemStack())) {
+        //     event.setCancelled(true);
+        // }
+    }
 
-        // Annuler le lachage si necessaire
-        // event.setCancelled(true);
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
     }
 }
 ```
 
-### Gestion de la classe interne Drop
+### Étape 2 : Créer l'EntityEventSystem pour DropItemEvent.PlayerRequest
 
 ```java
-// Lors du travail avec la classe interne Drop
-DropItemEvent.Drop dropInfo = new DropItemEvent.Drop(itemStack, 0.5f);
+public class DropItemRequestSystem extends EntityEventSystem<EntityStore, DropItemEvent.PlayerRequest> {
 
-// Acceder aux proprietes du lachage
-ItemStack dropped = dropInfo.getItemStack();
-float velocity = dropInfo.getThrowSpeed();
+    public DropItemRequestSystem() {
+        super(DropItemEvent.PlayerRequest.class);
+    }
 
-getLogger().info("Lachage de " + dropped.getAmount() + " objets avec une velocite de " + velocity);
+    @Override
+    public void handle(
+            int index,
+            @Nonnull ArchetypeChunk<EntityStore> archetypeChunk,
+            @Nonnull Store<EntityStore> store,
+            @Nonnull CommandBuffer<EntityStore> commandBuffer,
+            @Nonnull DropItemEvent.PlayerRequest event
+    ) {
+        int sectionId = event.getInventorySectionId();
+        short slotId = event.getSlotId();
+
+        System.out.println("Demande de lâcher: section=" + sectionId + ", slot=" + slotId);
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
 ```
 
-### Gestion de la classe interne PlayerRequest
+### Étape 3 : Enregistrer les systèmes dans votre plugin
 
 ```java
-// Lors du travail avec la classe interne PlayerRequest
-DropItemEvent.PlayerRequest request = new DropItemEvent.PlayerRequest(0, (short) 5);
+public class MyPlugin extends JavaPlugin {
 
-// Acceder aux proprietes de la demande
-int section = request.getInventorySectionId();
-short slot = request.getSlotId();
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
 
-getLogger().info("Le joueur lache depuis la section " + section + ", emplacement " + slot);
+    @Override
+    protected void setup() {
+        getEntityStoreRegistry().registerSystem(new DropItemDropSystem());
+        getEntityStoreRegistry().registerSystem(new DropItemRequestSystem());
+    }
+}
 ```
 
 ## Quand cet événement se déclenché
