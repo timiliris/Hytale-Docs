@@ -5,201 +5,187 @@ description: Guide complet des armes disponibles dans Hytale
 
 # Armes
 
-Les armes dans Hytale definissent votre style de combat. **Chaque arme possede son propre rythme, sa posture et ses attaques speciales**. Le choix de votre armement impacte directement votre facon de jouer et vos options tactiques en combat.
-
-## Philosophie des Armes
-
-Dans Hytale, chaque arme est unique :
-
-- **Rythme propre** - Vitesse d'attaque et timings specifiques
-- **Posture distincte** - Animation et stance de combat uniques
-- **Attaques speciales** - Capacites exclusives a chaque type d'arme
-- **Style de jeu** - Chaque arme favorise une approche tactique differente
+Les armes dans Hytale definissent votre style de combat. Chaque type a son propre rythme, ses combos et ses attaques speciales. Il n'y a pas de classes de personnages rigides - vous definissez votre style de combat par le choix de vos armes.
 
 ## Classification
 
 Les armes sont divisees en trois categories principales :
 
-- **Melee** - Combat rapproche, timing et positionnement cruciaux
-- **Distance** - Combat a portee, gestion des munitions
-- **Magie** - Sorts et grimoires, gestion du mana
+- **Melee** - Combat rapproche (epees, dagues, masses, haches de bataille, lances)
+- **Distance** - Combat a portee (arcs, arbaletes, armes de lancer)
+- **Magie** - Batons et grimoires
 
 ## Armes de Melee
 
-Le combat de melee dans Hytale repose sur la **physique avancee** : inertie, knockback et collisions impactent chaque echange. Maitrisez le timing de vos attaques et les fenetres de recuperation de vos ennemis.
-
 ### Epees
 
-L'arme equilibree par excellence, ideale pour debuter.
+L'arme equilibree par excellence. **Tier S** pour la polyvalence.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Dague | 1 | Très rapide | Faible | Coup critique dos |
-| Épée courte | 1 | Rapide | Moyen | Combo rapide |
-| Épée longue | 1 | Moyen | Moyen+ | Portée étendue |
-| Épée à deux mains | 2 | Lent | Élevé | Frappe circulaire |
+- **Mains** : Une main (permet les objets en main secondaire comme boucliers ou torches)
+- **Vitesse** : Moyenne
+- **Degats** : Moyens (inferieurs aux armes a deux mains)
+- **Attaque Chargee** : Charge d'estoc - dash vers l'avant avec une attaque percante
 
-**Attaque spéciale** : Estoc perforant (ignore une partie de l'armure)
+Les epees sont considerees comme l'un des meilleurs types d'armes grace a leur polyvalence. Etant a une main, vous pouvez equiper des boucliers pour la defense ou des torches pour l'exploration.
 
-### Haches
+### Dagues
 
-Puissance brute et destruction.
+Arme a haute mobilite et haut DPS. **Tier S** pour la vitesse et la securite.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Hachette | 1 | Rapide | Moyen | Peut être lancée |
-| Hache de bataille | 1 | Moyen | Élevé | Bonus vs boucliers |
-| Grande hache | 2 | Très lent | Très élevé | Cleave (multi-cibles) |
+- **Mains** : Deux mains (maniees en dual)
+- **Vitesse** : Tres rapide
+- **Degats** : Faibles par coup, DPS eleve
+- **Attaque Chargee** : Bond - propulse le joueur vers l'avant avec une attaque d'estoc
+- **Ultime** : Combo melee rapide sur cible unique
 
-**Attaque spéciale** : Frappe dévastatrice (brise les gardes)
+Les dagues offrent une mobilite et un DPS extremement eleves. Les attaques combo combinees au bond creent un style de combat mobile et rapide. Les Mithril Daggers sont considerees comme la meilleure arme en early access grace a leur vitesse, flexibilite et faible risque.
 
-### Masses et Marteaux
+**Style de jeu Dagues**
 
-Armes contondantes contre les armures lourdes.
+Utilisez le combo melee et le bond en tandem pour une efficacite maximale. Le bond peut etre utilise offensivement et pour echapper au danger.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Masse | 1 | Moyen | Moyen | Bonus vs armure |
-| Masse d'armes | 1 | Moyen | Élevé | Étourdissement |
-| Marteau de guerre | 2 | Très lent | Très élevé | Onde de choc |
+### Masses
 
-**Attaque spéciale** : Coup de grâce (dégâts bonus sur ennemis étourdis)
+Armes contondantes lentes mais devastatrices. **Tier A** pour les degats bruts.
+
+- **Mains** : Deux mains
+- **Vitesse** : Tres lente (arme de melee la plus lente)
+- **Degats** : Tres eleves (meilleurs degats en un coup)
+- **Attaque Chargee** : Larges balayages frappant plusieurs ennemis
+- **Special** : Peut changer la direction de l'attaque en plein mouvement
+
+La Masse demande de la pratique pour etre maitrisee a cause de sa lenteur. Une fois apprise, elle inflige des degats massifs et peut toucher plusieurs ennemis avec ses grands balayages. Note : Vous ne pouvez pas faire de bunny-hop en tenant la masse.
+
+### Haches de Bataille / Grandes Haches
+
+Armes de puissance avec options de mobilite. **Tier A** pour les degats et le controle de foule.
+
+- **Mains** : Deux mains
+- **Vitesse** : Lente
+- **Degats** : Eleves
+- **Attaque Chargee** : Saut tranche descendant - reduit rapidement la distance
+- **Ultime** : Attaque tourbillonnante - inflige des degats a tous les ennemis environnants
+
+La charge de l'attaque peut etre utilisee pour l'offense et la defense. Les larges balayages touchent plusieurs ennemis a la fois.
 
 ### Lances
 
-Portée et contrôle du terrain.
+Portee et polyvalence. **En cours de developpement** - disponible en Mode Creatif.
 
-| Variante | Mains | Vitesse | Dégâts | Spécial |
-|----------|-------|---------|--------|---------|
-| Javelot | 1 | Rapide | Moyen | Lancer possible |
-| Lance | 2 | Moyen | Moyen | Portée maximale |
-| Hallebarde | 2 | Lent | Élevé | Balayage + portée |
+- **Mains** : Deux mains
+- **Vitesse** : Moyenne
+- **Degats** : Moyens
+- **Special** : Peut etre lancee comme arme a distance
+- **Mecanique** : Les lances lancees se plantent dans les blocs
 
-**Attaque spéciale** : Charge (dash + attaque perforante)
+Les lances sont uniques car elles fonctionnent a la fois comme armes de melee et a distance. Elles offrent la plus longue portee en melee.
 
-## Armes à Distance
+## Armes a Distance
 
 ### Arcs
 
-Dégâts constants à distance.
+Meilleure arme a distance pour l'accessibilite et la constance. **Tier S** pour le combat a distance.
 
-| Variante | Vitesse | Portée | Dégâts |
-|----------|---------|--------|--------|
-| Arc court | Rapide | Courte | Faible |
-| Arc long | Moyen | Longue | Moyen |
-| Arc composite | Moyen | Moyenne | Élevé |
-| Arc de guerre | Lent | Très longue | Très élevé |
+- **Mains** : Deux mains
+- **Vitesse** : Necessite de charger pour les degats/portee maximum
+- **Munitions** : Fleches (craftables, abondantes)
+- **Ultime** (Arc court) : Tire trois fleches simultanement
 
-**Munitions** : Flèches (normales, feu, poison, explosive)
+Les arcs sont accessibles des le debut du jeu et faciles a utiliser. Vous devez charger l'arc pour infliger des degats maximum et augmenter la portee, ce qui vous rend vulnerable pendant la charge.
 
-### Arbalètes
+| Variante | Vitesse | Portee | Notes |
+|----------|---------|--------|-------|
+| Arc court | Charge rapide | Moyenne | Ultime : tir triple fleche |
+| Arc long | Charge moyenne | Longue | Degats de base plus eleves |
 
-Puissance de feu supérieure, rechargement plus lent.
+### Arbaletes de Poing
 
-| Variante | Vitesse | Portée | Dégâts |
-|----------|---------|--------|--------|
-| Arbalète légère | Moyen | Moyenne | Moyen |
-| Arbalète lourde | Lent | Longue | Très élevé |
-| Arbalète à répétition | Rapide | Courte | Faible |
+Degats en rafale avec temps de rechargement. **Tier A** pour le potentiel de burst.
 
-**Munitions** : Carreaux (normales, perforants, explosifs)
+- **Mains** : Une main
+- **Vitesse** : Tir rapide, rechargement long
+- **Munitions** : Fleches
+- **Inconvenient** : Forte chute due a la gravite, portee limitee
+- **Ultime** : Tir unique puissant
+
+Les arbaletes de poing peuvent charger plusieurs fleches pour des tirs successifs rapides. Cependant, elles ont une longue animation de rechargement et doivent recharger a chaque fois que vous passez a cette arme.
+
+**Limitations des Arbaletes**
+
+Fortement affectees par la gravite (chute de la fleche), offrant une portee effective moindre comparee aux arcs. Le long rechargement vous rend vulnerable.
 
 ### Armes de Lancer
 
-Consommables mais puissants.
-
-| Type | Quantité | Dégâts | Effet |
-|------|----------|--------|-------|
-| Couteau de lancer | Stack x20 | Faible | Rapide |
-| Javelot | Stack x5 | Moyen | Saignement |
-| Bombes | Stack x3 | Zone | Explosion |
-| Fioles | Stack x5 | Variable | Effets magiques |
+Les lances peuvent etre lancees comme attaques a distance et se planteront dans les blocs quand elles atterrissent.
 
 ## Boucliers
 
-Équipement défensif pour la main secondaire.
+Equipement defensif en main secondaire pour les utilisateurs d'armes a une main.
 
-| Type | Stabilité | Poids | Spécial |
-|------|-----------|-------|---------|
-| Rondache | Faible | Léger | Parade facile |
-| Écu | Moyen | Moyen | Équilibré |
-| Pavois | Élevé | Lourd | Bloque projectiles |
-| Bouclier tour | Très élevé | Très lourd | Protection totale |
+- **Fonction** : Bloque les degats entrants au cout d'endurance
+- **Synergie** : Meilleure combinaison avec les epees pour un equilibre offense/defense
 
-## Matériaux et Raretés
+## Materiaux et Raretes
 
-### Progression des Matériaux
+### Progression des Materiaux
 
 ```
-Bois → Pierre → Fer → Acier → Thorium → Légendaire
+Bois → Pierre → Cuivre → Fer → Thorium → Cobalt/Argent → Mithril → Adamantite
 ```
 
-| Matériau | Disponibilité | Bonus |
-|----------|---------------|-------|
-| Bois | Partout | - |
-| Pierre | Partout | +Durabilité |
-| Fer | Central Grasslands | +Dégâts |
-| Acier | Emerald Wilds+ | +Dégâts, +Durabilité |
-| Thorium | Howling Sands+ | +Dégâts magiques |
-| Frost Steel | Whisperfrost | +Dégâts glace |
-| Obsidienne | Devastated Lands | +Dégâts critiques |
+| Materiau | Localisation | Notes |
+|----------|--------------|-------|
+| Bois | Partout (Zone 1+) | Materiau de depart |
+| Pierre | Partout (Zone 1+) | Outils basiques |
+| Cuivre | Zone 1 (Emerald Wilds) | Metal d'entree, trouve dans les grottes |
+| Fer | Howling Sands (Badlands/Desert) | Mi-niveau, abondant dans les grottes du desert |
+| Thorium | Howling Sands (Badlands) | Minerai vert, trouve avec le fer dans le desert |
+| Or | Howling Sands | Surface des rochers en forme de champignon |
+| Cobalt/Argent | Biome de Neige (Zone 3) | Trouve dans les grottes et surfaces montagneuses |
+| Mithril | Zone 4 (Toundra/Volcan) | Rare, drop du boss squelette geant |
+| Adamantite | Zone 4 (Cinder Islands) | Trouve pres des poches de lave, fragments rouges |
 
-### Raretés
+**Efficacite de Minage**
 
-| Rareté | Couleur | Caractéristique |
+Le desert Howling Sands est la meilleure destination de minage - le Thorium et le Fer apparaissent ensemble dans les falaises du desert, vous permettant de recolter les deux en une seule expedition.
+
+### Raretes
+
+| Rarete | Couleur | Caracteristique |
 |--------|---------|-----------------|
 | Commun | Blanc | Stats de base |
 | Peu commun | Vert | Bonus mineur |
 | Rare | Bleu | Bonus significatif |
-| Épique | Violet | Effet unique |
-| Légendaire | Orange | Effet légendaire + histoire |
+| Epique | Violet | Effet unique |
+| Legendaire | Orange | Effet legendaire + histoire |
 
-## Armes Spéciales
+### Synergie d'Armure
 
-### Armes Uniques
+Actuellement, le tier d'armure le plus eleve est l'**Adamantite**, qui fournit un bonus de degats aux attaques legeres. Cela beneficie :
+- **Dagues** - Profitent du scaling de vitesse d'attaque
+- **Masses** - Profitent des degats de base eleves par coup
 
-Des armes avec des effets spéciaux trouvées dans les donjons :
-
-- **Lame du Crépuscule** - Dégâts augmentés la nuit
-- **Marteau de Forgeron** - Répare l'équipement en frappant
-- **Arc des Vents** - Flèches guidées
-- **Dague de l'Ombre** - Invisibilité après backstab
+## Armes Speciales
 
 ### Armes Trorks
 
-Récupérées sur les Trorks, style unique :
+Recuperees sur les Trorks, style primitif unique :
 
+- Trork Staff (arme magique utilisee par les ennemis)
 - Design brutal et primitif
-- Dégâts élevés, durabilité faible
-- Bonus contre certaines créatures
+- Esthetique visuelle unique
 
-## Amélioration des Armes
+### Drops de Boss
 
-### Forge
-
-À la forge, améliorez vos armes :
-
-1. **Affûtage** - +Dégâts
-2. **Renforcement** - +Durabilité
-3. **Équilibrage** - +Vitesse
-
-### Enchantements
-
-Ajoutez des effets magiques :
-
-| Enchantement | Effet |
-|--------------|-------|
-| Feu | Dégâts de feu supplémentaires |
-| Gel | Ralentit les ennemis |
-| Foudre | Dégâts en chaîne |
-| Vampirisme | Vol de vie |
-| Précision | Moins de dégâts réduits par armure |
+Certaines armes proviennent de la defaite de boss, comme l'equipement Mithril du boss squelette geant en Zone 4.
 
 ## Voir Aussi
 
-- [Système de Combat](/docs/gameplay/combat/overview)
+- [Systeme de Combat](/docs/gameplay/combat/overview)
 - [Magie](/docs/gameplay/combat/magic)
 
 ---
 
-*Source : [Weapons - Hytale.game](https://hytale.game/en/weapons/)*
+**Note Early Access**
+
+Hytale est en Early Access (janvier 2026). L'equilibrage des armes et les materiaux disponibles peuvent changer. Certaines armes comme les Lances sont encore en cours de developpement. Le contenu de la Zone 4 peut avoir une accessibilite limitee.

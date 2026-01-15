@@ -1,193 +1,139 @@
 ---
 title: Magic
-description: Hytale's magic system - spells, grimoires, and schools of magic
+description: Hytale's magic system - staves, spellbooks, and elemental attacks
 ---
 
 # Magic
 
-Magic in Hytale offers offensive, defensive, and utility options to diversify your gameplay.
+Magic in Hytale offers ranged offensive options through staves and spellbooks. The magic system is still being developed, with more features planned for future updates.
 
-## Mana System
+## Early Access Status
 
-### How It Works
+The full mana system is **not yet implemented** in Hytale Early Access. Despite a mana stat appearing on the character sheet, staves currently use an **Essence charge system** instead of mana. Spellbooks are currently only usable by enemies, not players.
 
-- **Mana Bar** - Resource for casting spells
-- **Regeneration** - Slow and passive
-- **Depletion** - Cannot cast when empty
-- **Boost** - Potions and equipment increase regeneration
+## Current Magic System
 
-### Mana Management
+### How It Works (Early Access)
 
-| Mana Level | State | Recommendation |
-|------------|-------|----------------|
-| 100-75% | Full | Use freely |
-| 75-50% | Moderate | Prioritize essential spells |
-| 50-25% | Low | Reserve for emergencies |
-| 25-0% | Critical | Switch to physical weapons |
+In the current build, magic works through **Elemental Essences**:
 
-## Grimoires (Spellbooks)
+- **Essence of Fire** - Powers fire-based staves
+- **Essence of Ice** - Powers ice-based staves
+- Staves store charges of their elemental essence
+- No mana bar management currently required
 
-Grimoires are the main magical weapons. Each grimoire contains specific spells.
+### Crafting Magic Weapons
 
-### Types of Grimoires
+To craft magical weapons, you need the **Arcanist's Workbench**:
 
-| Grimoire | School | Included Spells |
-|----------|--------|-----------------|
-| Elemental Tome | Elements | Fireball, Lightning, Ice Shard |
-| Book of Shadows | Darkness | Life Drain, Curse |
-| Codex of Light | Light | Heal, Sacred Shield |
-| Arcane Manual | Arcane | Teleportation, Magic Missile |
-| Natural Grimoire | Nature | Entangle, Regeneration |
+1. Build an Arcanist's Workbench
+2. Gather required materials (metals, essences, gems)
+3. Craft staves at the workbench
 
-### Grimoire Rarity
+## Staves
 
-- **Common** - 1-2 basic spells
-- **Rare** - 3-4 spells, enhanced effects
-- **Epic** - 5+ spells, unique spells
-- **Legendary** - Powerful exclusive spells
+Staves are two-handed magical weapons that allow ranged elemental attacks.
 
-## Schools of Magic
+### How Staves Work
 
-### Elemental Magic
+- **Basic Attack**: Melee swing (like a staff weapon)
+- **Charged Attack**: Consumes stamina to launch a magical projectile
+- **Essence System**: Uses stored elemental essences for spells
 
-Control of natural elements.
+### Available Staves
 
-**Fire**
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Fireball | 20 | Explosive projectile |
-| Wall of Flames | 35 | Damage zone |
-| Immolation | 50 | Buff: flaming weapons |
-| Meteor | 80 | Massive area damage |
+| Staff | Element | Attack | Notes |
+|-------|---------|--------|-------|
+| Fire Staff | Fire | Fireball projectile | Requires Essence of Fire |
+| Ice Crystal Staff | Ice | Ice spray/projectile | Requires Essence of Ice |
+| Flame Crystal Staff | Fire | Enhanced fire attacks | Rare rarity, crafted with Ruby |
 
-**Ice**
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Ice Shard | 15 | Projectile + slowdown |
-| Cone of Cold | 30 | Frontal zone |
-| Ice Armor | 40 | Defensive buff |
-| Blizzard | 70 | Persistent zone |
+### Flame Crystal Staff
 
-**Lightning**
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Lightning Bolt | 25 | Instant damage |
-| Chain Lightning | 45 | Bounces between enemies |
-| Storm | 60 | Massive zone |
+A notable staff requiring advanced materials:
 
-### Dark Magic
+- **Rarity**: Rare
+- **Crafting Location**: Arcanist's Table
+- **Materials**: Silver ingots, Gold ingots, Ruby, large amount of Essence of Fire
+- **Effect**: Multiple fire-based attacks, increased magic stats
 
-Dark powers and curses.
+### Ice Crystal Staff
 
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Life Drain | 30 | Damage + heal |
-| Curse | 25 | Enemy debuff |
-| Shadow Summon | 50 | Temporary familiar |
-| Void | 75 | Pure damage, ignores armor |
+- **Appearance**: Wood staff tipped with glowing blue crystals, secured with metal straps
+- **Attack**: Creates a spray of ice that travels through the ground and pierces from distance
 
-:::warning Corruption
-Some dark spells may have negative side effects on the caster.
-:::
+## Spellbooks (Grimoires)
 
-### Light Magic
+Spellbooks are tomes containing magical knowledge and spells.
 
-Healing and protection.
+### Current Limitation
 
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Minor Heal | 20 | Restores health |
-| Major Heal | 45 | Significant healing |
-| Sacred Shield | 30 | Absorbs damage |
-| Purification | 35 | Removes debuffs |
-| Resurrection | 100 | Revives an ally (long cooldown) |
+In the Early Access build, **spellbooks are currently only usable by enemies**, not players. You will encounter enemies using spellbooks against you, but player functionality is planned for future updates.
 
-### Arcane Magic
+### Known Grimoire Types
 
-Utilities and control.
+- **Void Grimoire** - Currently acts as decoration/crafting recipe
+- **Air Grimoire** - Currently acts as decoration/crafting recipe
 
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Arcane Missile | 10 | Basic guaranteed damage |
-| Short Teleport | 40 | Instant movement |
-| Levitation | 30 | Temporary flight |
-| Invisibility | 50 | Stealth |
-| Portal | 80 | Long-distance teleportation |
+These grimoires appear to be consumed as recipes, presumably to unlock the ability to craft spellbook weapons in future updates.
 
-### Nature Magic
+### Enemy Spellbooks
 
-Connection with nature.
+Enemies can use spellbooks to cast magical projectiles at players. Watch for enemies with books - they indicate ranged magical attacks incoming.
 
-| Spell | Mana Cost | Effect |
-|-------|-----------|--------|
-| Entangle | 25 | Immobilizes enemy |
-| Regeneration | 35 | Healing over time |
-| Animal Summon | 45 | Temporary companion |
-| Earthquake | 60 | Area damage + stun |
+## Other Magic Items
 
-## Magical Combinations
+### Enemy Magic Weapons
 
-### Synergies
+Some enemies use unique magical weapons:
 
-Combine spells for amplified effects:
+- **Bone Staff** - Used by undead enemies
+- **Trork Staff** - Used by Trork shamans
 
-| Combo | Spells | Effect |
-|-------|--------|--------|
-| Firestorm | Fire + Wind | Flaming tornado |
-| Black Ice | Ice + Darkness | Freeze + drain |
-| Holy Lightning | Lightning + Light | Damage + ally heal |
+### Craftable Staves by Material
 
-### Counter-spells
+You can craft staves using various metals:
 
-| Element | Weak Against | Strong Against |
-|---------|--------------|----------------|
-| Fire | Water/Ice | Nature |
-| Ice | Fire | Lightning |
-| Lightning | Earth | Water |
-| Light | Darkness | Undead |
-| Darkness | Light | Living |
+| Metal | Staff Tier |
+|-------|------------|
+| Copper | Basic |
+| Iron | Standard |
+| Thorium | Mid-tier |
+| Mithril | Advanced |
 
-## Magical Progression
+## Planned Features
 
-### Mastery Levels
+Based on the character sheet and game design, future updates may include:
 
-```
-Initiate → Apprentice → Mage → Archmage → Master
-```
+- **Full Mana System** - Mana bar for casting spells
+- **Player Spellbooks** - Ability to use grimoires
+- **Multiple Magic Schools** - Offensive, defensive, and utility spells
+- **Magic Progression** - Leveling up magical abilities
 
-Each level unlocks:
-- New spells
-- Reduced mana cost
-- Increased damage/effects
-- Reduced cooldowns
+### Possible Spell Types (Speculative)
 
-### Specialization
+From game files and design documents, possible future spells include:
 
-Choose a main school for:
-- Passive bonuses in that school
-- Access to ultimate spells
-- Specialized equipment
+- Persistent zones (area effects)
+- Projectiles (various elements)
+- Shields and buffs
+- Debuffs and curses
+- Short-range teleportation
 
-## Magical Equipment
+## Tips for Using Magic
 
-### Staves
+### Current Best Practices
 
-Alternative to grimoires, focused on one element:
+1. **Craft staves early** - Build an Arcanist's Workbench when possible
+2. **Gather essences** - Collect Essence of Fire and Ice for ammunition
+3. **Use charged attacks** - The magical projectiles are more powerful than melee
+4. **Mix with melee** - Staves can melee attack when out of essence
 
-| Staff | Element | Bonus |
-|-------|---------|-------|
-| Fire Staff | Fire | +Fire damage |
-| Frost Staff | Ice | +Effect duration |
-| Storm Staff | Lightning | +Cast speed |
+### Against Magic Enemies
 
-### Accessories
-
-| Accessory | Effect |
-|-----------|--------|
-| Mana Ring | +Max mana |
-| Concentration Amulet | +Mana regeneration |
-| Archmage Cape | -Spell cost |
-| Power Orb | +Magic damage |
+- Watch for spellbook-wielding enemies
+- Dodge roll to avoid projectiles
+- Close distance quickly - magic users are often vulnerable in melee
 
 ## See Also
 
@@ -196,4 +142,4 @@ Alternative to grimoires, focused on one element:
 
 ---
 
-*Source: [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+*Note: Hytale's magic system is actively being developed. The information above reflects the Early Access build (January 2026). Expect significant additions and changes as the game evolves.*

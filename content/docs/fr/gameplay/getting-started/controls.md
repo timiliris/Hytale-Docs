@@ -5,139 +5,117 @@ description: Guide des commandes et raccourcis clavier de Hytale
 
 # Contrôles
 
-Maîtrisez les commandes de Hytale pour une expérience optimale.
+Maîtrisez les commandes de Hytale pour une expérience optimale. Si vous venez de Minecraft, les contrôles vous sembleront familiers, bien qu'il y ait quelques différences importantes.
 
 ## Déplacement
 
-| Action | Touche Par Défaut |
+| Action | Touche par défaut |
 |--------|-------------------|
-| Avancer | Z / W |
+| Avancer | W |
 | Reculer | S |
-| Gauche | Q / A |
+| Gauche | A |
 | Droite | D |
 | Sauter | Espace |
-| Sprint | Shift (maintenu) |
-| S'accroupir | Ctrl |
+| Sprint | Shift gauche (maintenu) |
+| S'accroupir | Ctrl gauche (maintenu) |
 | Marcher | Alt (maintenu) |
 
-## Combat
+**Mode bascule**
 
-| Action | Touche Par Défaut |
+Pour les actions de déplacement, vous pouvez basculer entre le mode "maintenu" et "bascule" dans **Paramètres > Contrôles**. Par défaut, le sprint, l'accroupissement et la marche sont en mode MAINTENU.
+
+## Combat et Actions
+
+| Action | Touche par défaut |
 |--------|-------------------|
-| Attaque principale | Clic Gauche |
-| Attaque secondaire | Clic Droit |
-| Bloquer / Parer | Clic Droit (avec bouclier) |
-| Attaque spéciale | F |
-| Esquive | Double-tap direction |
-| Verrouiller cible | Tab |
-| Changer de cible | Molette |
-
-## Inventaire et Interface
-
-| Action | Touche Par Défaut |
-|--------|-------------------|
-| Ouvrir inventaire | E |
-| Barre d'action 1-9 | Touches 1-9 |
+| Action principale (attaque) | Clic gauche |
+| Action secondaire | Clic droit |
+| Capacité 1 (compétence d'arme) | Q |
+| Interagir | F |
+| Interaction secondaire | E |
+| Emplacement de capacité | R |
 | Lâcher objet | G |
-| Utiliser objet | Clic Droit |
+
+**Barre de compétence d'arme**
+
+Votre barre de compétence d'arme se charge grâce aux coups réussis. Appuyez sur Q quand elle est pleine pour déclencher une attaque spéciale. Ce système récompense le jeu agressif tout en punissant le spam de boutons.
+
+## Inventaire et Menus
+
+| Action | Touche par défaut |
+|--------|-------------------|
+| Ouvrir inventaire | Tab |
+| Emplacements 1-9 de la barre d'action | Touches 1-9 |
 | Carte | M |
-| Journal de quêtes | J |
+| Liste des joueurs | P |
 | Menu pause | Échap |
-| Chat | Entrée / T |
 
 ## Construction
 
-| Action | Touche Par Defaut |
+| Action | Touche par défaut |
 |--------|-------------------|
-| Placer bloc | Clic Droit |
-| Detruire bloc | Clic Gauche (maintenu) |
-| Selectionner bloc | Molette |
-| Copier bloc (pick) | Clic Molette |
-| Faire pivoter | R |
-| Mode construction | B |
+| Placer bloc | Clic droit |
+| Détruire bloc | Clic gauche (maintenu) |
+| Sélectionner bloc | Molette |
+| Copier bloc (pick) | Clic molette |
 
-### Outils du Mode Creatif
+### Outils du constructeur
 
-En mode Creatif, des outils avances sont disponibles :
-
-- **Scripted Brushes** - Pinceaux scriptes pour constructions complexes
-- **Selection Tool** - Selection et manipulation de zones
-- **Prefabs** - Sauvegarde et reutilisation de structures
-- **Outils Machinima** - Creation cinematographique
+Les outils du constructeur sont les outils d'édition avancés de Hytale pour sculpter le terrain, peindre des blocs, et copier ou coller des structures. Beaucoup de ces raccourcis utilisent le pavé numérique, donc un clavier complet est idéal si vous utilisez ces fonctionnalités fréquemment.
 
 ## Caméra
 
-| Action | Touche Par Défaut |
+| Action | Touche par défaut |
 |--------|-------------------|
 | Regarder | Souris |
-| Zoom | Molette (mode construction) |
-| Vue première personne | F5 |
-| Vue troisième personne | F5 (x2) |
-| Capture d'écran | F2 |
-| Mode photo | F4 |
+| Basculer première/troisième personne | V |
+| Masquer l'interface (vue épurée) | F8 |
+| Plein écran | F11 |
+| Capture d'écran | F12 |
 
-## Social
+**Vue à la troisième personne**
 
-| Action | Touche Par Defaut |
-|--------|-------------------|
-| Liste des joueurs | Tab (maintenu) |
-| Emotes | Y |
-| Menu social | O |
+Contrairement à Minecraft qui utilise F5, Hytale utilise la **touche V** pour basculer entre la vue première personne et troisième personne. Notez que vous êtes limité à la première personne quand il y a un bloc au-dessus de votre tête.
 
-:::info Chat Vocal
-Le chat vocal de proximite n'est pas disponible au lancement mais est prevu pour une mise a jour ulterieure.
-:::
+### Paramètres de la caméra
+
+Vous pouvez ajuster vos préférences de caméra dans **Paramètres > Gameplay > Caméra** :
+- **Champ de vision** : Par défaut 75 (ajustable de 30 à 120)
+- **Préférence d'épaule** : Choisissez sur quelle épaule la caméra troisième personne se positionne
+- **Préférence de caméra au spawn** : Définissez votre mode de vue par défaut
 
 ## Personnalisation
 
 Toutes les touches peuvent être reconfigurées dans :
 
-**Menu > Paramètres > Contrôles**
+**Échap > Paramètres > Contrôles**
 
-### Profils de Contrôles
+- Chaque contrôle peut être réassigné selon vos préférences
+- Si votre nouvelle touche entre en conflit avec une assignation existante, Hytale supprime l'ancienne assignation
+- Le menu Contrôles inclut une option pour réinitialiser toutes les touches par défaut
 
-Hytale permet de créer plusieurs profils :
-- Un pour le combat
-- Un pour la construction
-- Un pour l'exploration
+### Support manette
 
-### Support Manette
+Le support manette **n'est pas actuellement disponible** dans la version Early Access de Hytale. Les développeurs ont indiqué que le support manette est prévu pour une mise à jour future.
 
-Hytale supporte les manettes Xbox et PlayStation :
+## Conseils utiles
 
-| Action | Xbox | PlayStation |
-|--------|------|-------------|
-| Déplacement | Stick Gauche | Stick Gauche |
-| Caméra | Stick Droit | Stick Droit |
-| Attaque | RT | R2 |
-| Bloquer | LT | L2 |
-| Sauter | A | X |
-| Interagir | X | Carré |
-| Inventaire | Y | Triangle |
-| Sprint | LS (clic) | L3 |
+### Conseils de combat
 
-## Raccourcis Utiles
+- **Gestion de l'endurance** : L'endurance se vide pendant le blocage mais pas pendant l'attaque. Utilisez cela pour maintenir la pression tout en gérant votre endurance efficacement
+- **Compétence d'arme** : Remplissez votre barre de compétence grâce aux coups réussis, puis appuyez sur Q pour une attaque spéciale puissante
 
-### Combat Avancé
+### Construction rapide
 
-- **Combo rapide** : Clic gauche x3 rapidement
-- **Attaque chargée** : Maintenir clic gauche
-- **Contre-attaque** : Bloquer puis clic gauche immédiat
-- **Roulade** : Sprint + S'accroupir
+- **Placement rapide** : Maintenez le clic droit en vous déplaçant
+- **Copie de bloc** : Cliquez avec la molette sur un bloc pour le copier rapidement dans votre barre d'action - utile pour copier des structures existantes ou travailler à partir de constructions de référence
 
-### Construction Rapide
+## Voir aussi
 
-- **Placement rapide** : Maintenir clic droit en se déplaçant
-- **Sélection rapide** : Maintenir Ctrl + Molette
-- **Copier structure** : Ctrl + C (en mode construction)
-- **Coller structure** : Ctrl + V
-
-## Voir Aussi
-
-- [Premiers Pas](/docs/gameplay/getting-started/first-steps)
+- [Premiers pas](/docs/gameplay/getting-started/first-steps)
 - [Interface](/docs/gameplay/getting-started/interface)
-- [Système de Combat](/docs/gameplay/combat/overview)
+- [Système de combat](/docs/gameplay/combat/overview)
 
 ---
 
-*Les contrôles peuvent varier selon les mises à jour du jeu.*
+*Les contrôles peuvent varier avec les mises à jour du jeu. Dernière vérification : janvier 2026 (Early Access).*

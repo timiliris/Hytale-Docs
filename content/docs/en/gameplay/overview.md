@@ -53,8 +53,8 @@ Meet the inhabitants of Orbis:
 
 Develop your character:
 
-- [Crafting Guide](/docs/gameplay/crafting-guide) - Complete crafting system
-- [Items Database](/docs/gameplay/items-database) - All available items
+- [Crafting Guide](/docs/gameplay/crafting-guide) - Workbenches, recipes, and crafting system
+- [Items Database](/docs/gameplay/items-database) - Equipment tiers, ores, and materials
 
 ## Release Information
 

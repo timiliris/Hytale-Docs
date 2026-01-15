@@ -1,56 +1,21 @@
 ---
 title: Guide du Joueur
-description: Tout ce que vous devez savoir pour jouer à Hytale
+description: Tout ce que vous devez savoir pour jouer a Hytale
 ---
 
 # Guide du Joueur
 
-Bienvenue dans le guide complet pour les joueurs de Hytale. Que vous soyez débutant ou explorateur chevronné d'Orbis, vous trouverez ici toutes les informations nécessaires pour profiter pleinement de votre aventure.
+Bienvenue dans le guide complet pour les joueurs de Hytale. Que vous soyez debutant ou explorateur chevronne d'Orbis, vous trouverez ici toutes les informations necessaires pour profiter pleinement de votre aventure.
 
 ## Qu'est-ce que Hytale ?
 
-Hytale est un jeu d'aventure et de création développé par Hypixel Studios. Il combine exploration, combat, construction et création dans un monde généré procéduralement appelé **Orbis**.
+Hytale est un jeu d'aventure et de creation developpe par Hypixel Studios. Il combine exploration, combat, construction et creation dans un monde genere proceduralement appele **Orbis**.
 
-## Modes de Jeu Disponibles au Lancement
+Le jeu offre plusieurs modes :
 
-### Exploration Mode (Survival)
-
-Le mode principal de Hytale pour l'aventure :
-
-- **Generation procedurale du monde** - Chaque partie offre un monde unique
-- **Biomes varies** - Explorez des environnements distincts avec leurs propres ressources
-- **Minage et crafting** - Recoltez des materiaux et fabriquez equipements et objets
-- **Combat tactique** - Affrontez des creatures hostiles avec un systeme de combat exigeant
-- **Donjons et secrets** - Decouvrez des structures cachees et des tresors
-- **Interaction avec les PNJ** - Rencontrez les habitants d'Orbis
-
-### Creative Mode
-
-Liberez votre creativite avec des outils puissants :
-
-- **Acces illimite aux blocs** - Tous les materiaux disponibles instantanement
-- **Scripted Brushes** - Pinceaux scriptes pour des constructions complexes
-- **Selection Tool** - Outils de selection et manipulation avances
-- **Prefabs** - Sauvegardez et reutilisez vos creations
-- **Outils Machinima** - Creation cinematographique integree
-- **Changeur de modele de personnage** - Personnalisez l'apparence de votre avatar
-
-### Multijoueur
-
-- **Serveurs communautaires** - Fonctionnels des le jour 1 du lancement
-- **Support complet du modding** - Les serveurs peuvent implementer leurs propres regles et contenus
-
-## Contenu Prevu pour Plus Tard
-
-:::info Non disponible au lancement
-Les fonctionnalites suivantes ne seront pas presentes a la sortie mais sont prevues pour des mises a jour ulterieures :
-:::
-
-- **Adventure Mode** - Campagne narrative avec quetes et histoire
-- **Mini-jeux officiels** - Modes type Bedwars, Skywars
-- **Peche** - Systeme de peche complet
-- **Animaux de compagnie apprivoisables** - Creatures domesticables
-- **Chat vocal de proximite** - Communication vocale in-game
+- **Mode Aventure** - Explorez Orbis, combattez des creatures, decouvrez des donjons et progressez a travers une histoire epique
+- **Mode Creatif** - Construisez librement avec tous les outils et blocs disponibles
+- **Mini-jeux** - Rejoignez des serveurs communautaires pour des experiences multijoueur variees
 
 ## Sections du Guide
 
@@ -58,59 +23,59 @@ Les fonctionnalites suivantes ne seront pas presentes a la sortie mais sont prev
 
 Nouveau sur Hytale ? Commencez ici :
 
-- [Premiers Pas](/docs/gameplay/getting-started/first-steps) - Votre première aventure sur Orbis
-- [Contrôles](/docs/gameplay/getting-started/controls) - Maîtrisez les commandes du jeu
-- [Interface](/docs/gameplay/getting-started/interface) - Comprendre l'écran de jeu
+- [Premiers Pas](/docs/gameplay/getting-started/first-steps) - Votre premiere aventure sur Orbis
+- [Controles](/docs/gameplay/getting-started/controls) - Maitrisez les commandes du jeu
+- [Interface](/docs/gameplay/getting-started/interface) - Comprendre l'ecran de jeu
 
 ### Le Monde d'Orbis
 
-Découvrez les terres d'Orbis :
+Decouvrez les terres d'Orbis :
 
 - [Vue d'ensemble](/docs/gameplay/world/overview) - Introduction au monde de Hytale
-- [Régions](/docs/gameplay/world/regions) - Les différentes zones à explorer
+- [Regions](/docs/gameplay/world/regions) - Les differentes zones a explorer
 
 ### Combat
 
-Maîtrisez l'art du combat :
+Maitrisez l'art du combat :
 
-- [Système de Combat](/docs/gameplay/combat/overview) - Mécaniques fondamentales
+- [Systeme de Combat](/docs/gameplay/combat/overview) - Mecaniques fondamentales
 - [Armes](/docs/gameplay/combat/weapons) - Arsenal disponible
 - [Magie](/docs/gameplay/combat/magic) - Sorts et grimoires
 
-### Créatures
+### Creatures
 
 Rencontrez les habitants d'Orbis :
 
-- [Vue d'ensemble](/docs/gameplay/creatures/overview) - Introduction aux créatures
-- [Créatures Hostiles](/docs/gameplay/creatures/hostile) - Ennemis et boss
+- [Vue d'ensemble](/docs/gameplay/creatures/overview) - Introduction aux creatures
+- [Creatures Hostiles](/docs/gameplay/creatures/hostile) - Ennemis et boss
 
 ### Progression
 
-Développez votre personnage :
+Developpez votre personnage :
 
-- [Guide de Fabrication](/docs/gameplay/crafting-guide) - Système de crafting complet
-- [Base de Données Items](/docs/gameplay/items-database) - Tous les objets disponibles
+- [Guide de Fabrication](/docs/gameplay/crafting-guide) - Etablis, recettes et systeme de craft
+- [Base de Donnees Items](/docs/gameplay/items-database) - Niveaux d'equipement, minerais et materiaux
 
 ## Informations de Sortie
 
-Hytale entre en **Accès Anticipé le 13 janvier 2026**.
+Hytale entre en **Early Access le 13 janvier 2026**.
 
-| Édition | Prix | Contenu |
+| Edition | Prix | Contenu |
 |---------|------|---------|
-| Standard | 34,99 € | Jeu complet |
-| Deluxe | À confirmer | Jeu + cosmétiques exclusifs |
+| Standard | 34,99 $ | Jeu complet |
+| Deluxe | A confirmer | Jeu + cosmetiques exclusifs |
 
-:::tip Précommande
-Le jeu est disponible en précommande sur [hytale.com](https://hytale.com) depuis le 13 décembre 2025.
+:::tip Precommande
+Le jeu est disponible en precommande sur [hytale.com](https://hytale.com) depuis le 13 decembre 2025.
 :::
 
 ## Sources Officielles
 
 - [Site Officiel Hytale](https://hytale.com)
-- [Blog de Développement](https://hytale.com/news)
+- [Blog de Developpement](https://hytale.com/news)
 - [Twitter @Hytale](https://twitter.com/Hytale)
 - [Discord Officiel](https://discord.gg/hytale)
 
 ---
 
-*Ce wiki est maintenu par la communauté et n'est pas affilié à Hypixel Studios.*
+*Ce wiki est maintenu par la communaute et n'est pas affilie a Hypixel Studios.*

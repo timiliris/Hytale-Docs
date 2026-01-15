@@ -35,14 +35,30 @@ Les items dans Hytale utilisent un systeme base sur les composants avec les prop
 
 ## Systeme d'Armure
 
-Hytale utilise un systeme d'armure a 4 emplacements :
+Hytale utilise un **systeme d'armure a 5 emplacements** craftes a l'Etabli de l'Armurier :
 
-| Emplacement | Index | Description |
-|-------------|-------|-------------|
-| Tete (Head) | 0 | Casque/couvre-chef |
-| Torse (Chest) | 1 | Plastron/armure corporelle |
-| Mains (Hands) | 2 | Gants/gantelets |
-| Jambes (Legs) | 3 | Jambieres/pantalons |
+| Emplacement | Description |
+|-------------|-------------|
+| **Casque** | Protection de la tete |
+| **Cuirasse** | Armure de torse/corps |
+| **Gantelets** | Protection des mains |
+| **Jambieres** | Armure de jambes |
+| **Bouclier** | Item defensif en main secondaire (recettes separees) |
+
+### Niveaux de Materiaux d'Armure
+
+| Niveau | Materiau | Niveau Etabli | Zone | Proprietes Speciales |
+|--------|----------|---------------|------|----------------------|
+| 1 | **Cuivre** | Niveau 1 | Zone 1 | Protection basique |
+| 2 | **Fer** | Niveau 1 | Zone 1-2 | Protection standard |
+| 3 | **Thorium** | Niveau 2 | Zone 2 | Forte resistance au poison |
+| 4 | **Cobalt** | Niveau 2 | Zone 3 | Stats orientees degats |
+| 5 | **Adamantite** | Niveau 3 | Zone 4 | Bonus de degats d'attaque legere |
+| 6 | **Mithril** | Niveau 3 | Zone 4 | Plus haut niveau (peut necessiter des drops de boss) |
+
+:::note Bonus de Set d'Armure
+Differents sets d'armure fournissent des bonus uniques. Cobalt et Adamantite favorisent les degats, tandis que Thorium offre de fortes proprietes defensives contre le poison.
+:::
 
 ### Proprietes d'Armure
 
@@ -70,13 +86,55 @@ Les outils utilisent un systeme base sur les specifications avec "GatherType" de
 
 ## Systeme d'Armes
 
-Les armes peuvent modifier les stats d'entite quand equipees :
+Les armes sont craftees a l'**Enclume du Forgeron** et peuvent modifier les stats d'entite quand equipees.
+
+### Types d'Armes
+
+| Arme | Description | Special |
+|------|-------------|---------|
+| **Epees** | Armes a une main versatiles | Permet un item en main secondaire |
+| **Dagues** | Armes rapides en double maniement | Haute mobilite, forte attaque chargee |
+| **Arcs** | Armes a distance | Munitions abondantes |
+| **Marteaux/Masses** | Armes lourdes | Degats de base eleves |
+| **Batons** | Armes magiques | Utilise le systeme de mana |
+
+### Niveaux de Materiaux d'Armes
+
+Les armes suivent la meme progression de materiaux que l'armure :
+- Cuivre > Fer > Thorium > Cobalt > Adamantite > Mithril
+
+:::tip Meilleures Armes
+Les Dagues en Mithril sont actuellement considerees comme les armes de melee craftees les plus puissantes. Les dagues beneficient du bonus de degats d'attaque legere de l'armure en Adamantite.
+:::
+
+### Proprietes d'Armes
 
 | Propriete | Description |
 |-----------|-------------|
 | StatModifiers | Table des types de stats vers modificateurs |
 | EntityStatsToClear | Stats a effacer quand l'arme est desequipee |
 | RenderDualWielded | Si rendu en double maniement |
+
+## Types de Minerais
+
+Hytale propose **sept types de minerais confirmes** trouves dans differentes zones :
+
+| Minerai | Zone | Emplacement | Pioche Requise | Notes |
+|---------|------|-------------|----------------|-------|
+| **Cuivre** | Zone 1 | Parois de grottes, faibles profondeurs | Pioche Rudimentaire | Minerai de depart, apparence vert-brun |
+| **Fer** | Zone 1-2 | ~50 blocs de profondeur, abondant dans les Badlands | Pioche Rudimentaire | Plus commun dans les grottes du desert |
+| **Or** | Zone 2 | Diverses profondeurs | Pioche en Fer | Utilise pour l'Etabli de l'Alchimiste |
+| **Thorium** | Zone 2 | Grottes, flancs de falaises dans les Howling Sands | Pioche en Fer | Apparence verte brillante |
+| **Cobalt** | Zone 3 | Whisperfrost Frontiers, colonnes de schiste | Pioche en Fer | Couleur bleu fonce, veines en surface |
+| **Adamantite** | Zone 4 | Cinder Islands, pres de la lave | Pioche en Fer | Resistance au feu recommandee |
+| **Mithril** | Zone 4 | Biomes Toundra/Volcan, drops de boss | Pioche en Fer | Minerai le plus rare, peut necessiter des kills de boss |
+
+:::tip Conseils de Minage
+- Tous les minerais peuvent etre mines avec une Pioche en Fer (meme l'Adamantite)
+- Le Cuivre et le Fer peuvent etre mines avec la Pioche Rudimentaire de depart
+- Les grottes du Desert/Badlands ont le plus de Fer
+- Les colonnes de schiste en surface en Zone 3 contiennent de grandes veines de Cobalt
+:::
 
 ## Types de Blocs Confirmes
 
@@ -197,6 +255,25 @@ Hytale possede un systeme de fluides avec 6 types confirmes :
 | `Fluid_Tar` | `Tar_Source` | `Tar` | Goudron collant |
 | `Fluid_Slime` | `Slime_Source` | `Slime` | Slime rebondissant |
 | `Fluid_Poison` | `Poison_Source` | `Poison` | Poison causant des degats |
+
+## Durabilite et Reparation des Items
+
+Les items avec durabilite se degradent avec l'utilisation et peuvent etre repares.
+
+### Systeme de Reparation
+
+1. Craftez un **Kit de Reparation** a un etabli
+2. Equipez le Kit de Reparation dans votre barre de raccourcis
+3. Appuyez sur **Clic Droit** pour ouvrir la fenetre de reparation
+4. Selectionnez les items a reparer
+
+:::warning Perte de Durabilite
+Utiliser un Kit de Reparation **reduit la durabilite maximale de 10%**. Reparer le meme item de facon repetee finira par le casser definitivement. Envisagez de crafter un nouvel equipement plutot que de trop reparer.
+:::
+
+### Recyclage
+
+L'**Etabli du Recycleur** vous permet de decomposer l'equipement non desire en materiaux bruts, qui peuvent ensuite etre utilises pour crafter un nouvel equipement.
 
 ## Systeme de Qualite d'Item
 

@@ -1,251 +1,258 @@
 ---
-title: Zones
-description: Les différentes zones d'Orbis à explorer
+title: Regions
+description: Les differentes regions d'Orbis a explorer
 ---
 
-# Zones d'Orbis
+# Regions d'Orbis
 
-Les Zones sont les grandes divisions géographiques du monde d'Orbis. Chaque zone est associée à un **élément** et possède son identité unique avec des biomes, créatures et ressources spécifiques.
+Les Regions sont la nouvelle approche pour organiser le monde d'Orbis. Elles ont remplace l'ancien systeme de "Zones" dans la facon dont les developpeurs concoivent chaque partie du monde. Chaque region represente une collection de 3 a 5 biomes avec un theme coherent qui lie gameplay, direction creative et narration. Les regions sont plus petites que les anciennes Zones, mais il y en a davantage - ce controle plus fin donne a chaque partie du monde une identite plus marquee.
 
-## Zones Disponibles au Lancement
+**Zones vs Regions**
 
-Quatre zones seront accessibles dès la sortie de Hytale :
+Les 4 Zones originales (Emerald Grove, Howling Sands, Borea, Devastated Lands) existent toujours comme divisions elementaires majeures. Les Regions sont des subdivisions au sein de ces zones qui offrent une conception du monde plus detaillee.
 
----
+## Central Grasslands
 
-## Zone 1 - Emerald Grove
+*Le Coeur de la Zone 1 (Emerald Grove)*
 
-*La Forêt d'Émeraude*
+La premiere region developpee pour le nouveau systeme, representant le coeur de ce qui etait autrefois la Zone 1. Ici, les joueurs trouvent des prairies ouvertes parsemees de forets eparses et d'affleurements rocheux. Riche en ressources, c'est l'endroit ou de nombreux voyages sur Orbis commencent.
 
-**Élément : Terre**
+### Caracteristiques
 
-La zone de départ pour la plupart des joueurs. Un environnement luxuriant de forêts et de rivières, accueillant mais pas sans dangers.
-
-### Caractéristiques
-
-- **Difficulté** : Facile à Modéré
-- **Climat** : Tempéré, humide
-- **Paysages** : Forêts denses, rivières sinueuses, prairies verdoyantes, collines boisées
+- **Zone** : Zone 1 (Emerald Grove)
+- **Element** : Terre
+- **Difficulte** : Facile a Moderee
+- **Climat** : Tempere
+- **Biomes** : Plaines, forets eparses, collines rocheuses
 
 ### Ressources
 
 | Ressource | Abondance | Utilisation |
 |-----------|-----------|-------------|
-| Bois variés | Commun | Construction, outils basiques |
+| Bois de Chene | Commun | Construction, outils basiques |
 | Pierre | Commun | Construction, outils |
 | Fer | Peu commun | Armes et armures |
-| Cuivre | Peu commun | Crafting, décoration |
-| Herbes médicinales | Commun | Potions de soin |
-| Gemmes de terre | Rare | Enchantements élémentaires |
+| Cuivre | Peu commun | Artisanat, decoration |
+| Charbon | Commun | Combustible, torches |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Kweebecs, animaux de la forêt
-- **Neutres** : Sangliers, loups
-- **Hostiles** : Trorks, squelettes (la nuit)
+- **Amicales** : Vaches, moutons, poules, cerfs, lapins
+- **Neutres/Defensives** : Kweebecs (attaqueront si vous entrez dans leurs villages avec une hache)
+- **Hostiles** : Trorks (y etablissent leur foyer), squelettes
 
-### Points d'Intérêt
+### Points d'Interet
 
-- Villages Kweebec
-- Ruines forestières
-- Grottes naturelles
-- Sanctuaires de Gaia
+- Villages Kweebec (colonies dans les arbres)
+- Camps Trork
+- Fermes abandonnees
+- Entrees de grottes vers des systemes souterrains
 
 ---
 
-## Zone 2 - Howling Sands
+## Emerald Wilds
 
-*Les Sables Hurlants*
+*Forets Profondes de la Zone 1*
 
-**Élément : Air**
+Forets denses et mysterieuses au sein de la Zone 1, comportant des biomes axes sur les plaines et les marecages ou habitent des creatures uniques.
 
-Un désert impitoyable balayé par les vents, où seuls les plus préparés survivent. Les canyons offrent refuge et mystères.
+### Caracteristiques
 
-### Caractéristiques
-
-- **Difficulté** : Modéré à Difficile
-- **Climat** : Aride, vents violents (chaud le jour, froid la nuit)
-- **Paysages** : Vastes déserts, dunes mouvantes, canyons profonds, mesas
+- **Zone** : Zone 1 (Emerald Grove)
+- **Element** : Terre
+- **Difficulte** : Moderee
+- **Climat** : Humide, brumeux dans les marecages
+- **Biomes** : Foret profonde, marecages, clairieres
 
 ### Ressources
 
 | Ressource | Abondance | Utilisation |
 |-----------|-----------|-------------|
-| Grès | Commun | Construction |
-| Or | Peu commun | Commerce, crafting |
+| Bois Exotiques | Commun | Artisanat avance |
+| Champignons | Commun | Cuisine, potions |
+| Lianes | Commun | Cordes, pieges |
+
+### Creatures
+
+- **Amicales** : Grenouilles (protegees par les Fen Stalkers), faune forestiere
+- **Neutres** : Ours grizzly, cerfs
+- **Hostiles** : Fen Stalkers (habitants des marecages, nocturnes, evitent la lumiere vive), Bam (grandes creatures semblables a des grenouilles), Trorks
+
+### Points d'Interet
+
+- Temple de Gaia (avec Golem Corrompu)
+- Villages Kweebec des marecages
+- Zones marecageuses avec flore unique
+- Ruines d'Emerald Grove (avec squelettes)
+
+---
+
+## Howling Sands
+
+*Zone 2 - La Zone Desertique*
+
+Un desert impitoyable ou seuls les plus prepares survivent. Nomme d'apres les vents constants qui balayent ses dunes, cette zone abrite les factions Scarak et Feran.
+
+### Caracteristiques
+
+- **Zone** : Zone 2
+- **Element** : Air
+- **Difficulte** : Moyenne a Difficile
+- **Climat** : Aride, extreme (chaud le jour, froid la nuit)
+- **Biomes** : Dunes de desert, savane, canyons, oasis
+
+### Ressources
+
+| Ressource | Abondance | Utilisation |
+|-----------|-----------|-------------|
+| Gres | Commun | Construction (remplace la pierre en souterrain) |
+| Sable | Abondant | Verre, construction |
+| Or | Peu commun | Commerce, artisanat |
 | Cactus | Commun | Eau, nourriture |
-| Sable de silice | Commun | Verre |
-| Reliques anciennes | Rare | Quêtes, échange |
-| Cristaux d'air | Rare | Enchantements élémentaires |
+| Artefacts Anciens | Rare | Quetes, echange |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Chameaux, fennecs
-- **Neutres** : Scorpions, serpents
-- **Hostiles** : Momies, golems de sable, vers géants, élémentaires d'air
+- **Amicales/Neutres** : Ferans (humanoides semblables a des renards, anciennement esclaves des Scaraks), suricates
+- **Hostiles** : Scaraks (creatures insectoides vivant en ruche avec variantes Ouvriers, Guerriers, Tanks, Sauterelles et Mere Progenitrice)
 
-### Points d'Intérêt
+### Points d'Interet
 
-- Pyramides anciennes
-- Temples enterrés
-- Oasis cachées
-- Épaves de navires des sables
-- Passages secrets dans les canyons
+- Ziggourats (habites par les Scaraks)
+- Ruches Scarak
+- Oasis cachees (souvent avec colonies Feran)
+- Temples enfouis
+- Grottes de gres en souterrain
 
 ### Survie
 
-:::warning Attention
-La déshydratation et les tempêtes de sable sont des dangers réels. Emportez suffisamment d'eau et trouvez un abri pendant les tempêtes !
-:::
+**Attention**
+
+La deshydratation est un danger reel. La zone a peu d'eau et pas d'herbe - preparez-vous en consequence !
 
 ---
 
-## Zone 3 - Borea
+## Whisperfrost Frontier (Borea)
 
-*Les Terres Glacées*
+*Zone 3 - La Zone Gelee*
 
-**Élément : Eau**
+Terres gelees ou le froid est aussi mortel que les creatures. Aussi connue sous le nom de Borea ou Boreal Frontier, cette region hivernale est composee de vallees forestieres, de hautes montagnes et de grottes profondes. La zone incarne l'element Eau sous toutes ses formes.
 
-Toundras glaciales et montagnes enneigées où le froid est aussi mortel que les créatures qui y habitent.
+### Caracteristiques
 
-### Caractéristiques
-
-- **Difficulté** : Difficile
-- **Climat** : Glacial, tempêtes de neige fréquentes
-- **Paysages** : Toundra gelée, montagnes enneigées, glaciers, fjords, lacs gelés
+- **Zone** : Zone 3 (Borea)
+- **Element** : Eau
+- **Difficulte** : Difficile
+- **Climat** : Glacial, tempetes de neige, froid perpetuel
+- **Biomes** : Forets de pins, montagnes enneigees, toundra, grottes de glace, rivieres gelees, landes
 
 ### Ressources
 
 | Ressource | Abondance | Utilisation |
 |-----------|-----------|-------------|
-| Bois de pin | Commun | Construction, feu |
-| Glace éternelle | Peu commun | Crafting magique |
-| Fourrure | Commun | Vêtements chauds |
-| Minerai de frost | Rare | Armes glacées |
-| Cristaux d'eau | Rare | Enchantements élémentaires |
+| Bois de Pin | Commun | Construction, combustible |
+| Blocs de Glace | Abondant | Construction, artisanat special |
+| Fourrure | Commun | Protection contre le froid |
+| Minerai de Givre | Modere | Equipement resistant au froid |
+| Cobalt | Trouve chez les Outlanders | Armes et armures |
 
-### Créatures
+### Creatures
 
-- **Amicales** : Rennes, pingouins
-- **Neutres** : Ours polaires, loups arctiques
-- **Hostiles** : Yétis, élémentaires de glace, spectres du froid
+- **Defensives/Territoriales** : Outlanders (humains tribaux avec Rangers, Guerriers, Chefs, Pretres et Cultistes corrompus)
+- **Neutres** : Beliers, souris, bisons, chevres des montagnes, pingouins
+- **Hostiles** : Yetis (betes des neiges territoriales), loups, ours polaires, Dragons de Glace, hiboux des neiges
 
-### Points d'Intérêt
+### Points d'Interet
 
-- Cavernes de glace
-- Villages de chasseurs
-- Épaves de navires gelés
-- Geysers chauds
-- Sommets mystiques
+- Villages Outlander (colonies dans les forets de pins et la toundra)
+- Grottes de glace avec faune et ressources uniques
+- Epaves de navires geles
+- Temples du nord
 
 ### Survie
 
-:::warning Hypothermie
-Portez des vêtements chauds et restez près du feu ! L'hypothermie peut être fatale.
-:::
+**Hypothermie**
+
+Les temperatures glaciales de la Zone 3 peuvent tuer rapidement les aventuriers non prepares. Investissez dans un equipement resistant au froid et emportez du materiel pour faire du feu !
 
 ---
 
-## Zone 4 - Devastated Lands
+## Devastated Lands
 
-*Les Terres Dévastées*
+*Zone 4 - La Zone de Feu*
 
-**Élément : Feu**
+Un environnement infernal et sterile devaste il y a longtemps. Reserve aux aventuriers experimentes. La pierre brulee domine le terrain, avec des rivieres et des lacs de lave couvrant la surface. Sous le paysage volcanique se cache un secret surprenant : la Jungle Oubliee.
 
-Des terres volcaniques souterraines, un royaume de feu et de désolation. Réservée aux aventuriers les plus expérimentés.
+### Caracteristiques
 
-### Caractéristiques
-
-- **Difficulté** : Très Difficile
-- **Climat** : Volcanique, chaleur extrême, fumées toxiques
-- **Paysages** : Cavernes volcaniques, lacs de lave, formations basaltiques, ruines anciennes
+- **Zone** : Zone 4
+- **Element** : Feu
+- **Difficulte** : Tres Difficile
+- **Climat** : Volcanique, cieux remplis de cendres, chaleur extreme
+- **Biomes** : Plaines volcaniques, dechets de cendres, cavernes de magma (4 niveaux de grottes), champs d'obsidienne, Jungle Oubliee (plus profond sous terre)
 
 ### Ressources
 
 | Ressource | Abondance | Utilisation |
 |-----------|-----------|-------------|
-| Obsidienne | Commun | Armes puissantes |
-| Soufre | Commun | Explosifs |
-| Cristaux de feu | Rare | Enchantements élémentaires |
-| Métaux rares | Peu commun | Équipement endgame |
-| Essence de Varyn | Très rare | Artefacts puissants |
+| Obsidienne | Commun | Armes avancees, construction |
+| Soufre | Commun | Explosifs, alchimie |
+| Minerai de Feu | Modere | Equipement resistant a la chaleur |
+| Reliques Anciennes | Tres Rare | Objets legendaires |
 
-### Créatures
+### Creatures de Surface
 
-- **Hostiles uniquement** : Démons, élémentaires de feu, dragons mineurs, serviteurs de Varyn
-- **Boss** : Entités corrompues majeures
+- **Hostiles** : Emberwulf, squelettes, creatures de lave, d'os et de cendres
 
-### Points d'Intérêt
+### Creatures Souterraines (Jungle Oubliee)
 
-- Forteresses volcaniques
-- Temples de Varyn
-- Forges anciennes
-- Portails dimensionnels
-- Le Cœur de la Corruption
+- **Hostiles** : Cave Rexes, Slothians, reptiles anciens, dangers tropicaux
 
-### Préparation Requise
+### Points d'Interet
 
-:::danger Zone Endgame
-Cette zone est destinée aux joueurs bien équipés. Préparez une résistance au feu et aux toxines avant d'y entrer !
-:::
+- Quatre niveaux de grottes souterraines (passant du volcanique a la jungle en descendant)
+- La Jungle Oubliee (couche la plus profonde - luxuriante et dangereuse)
+- Cheminées volcaniques (dangereuses mais riches en ressources)
+- Ruines de civilisations detruites par l'activite volcanique
 
----
+### Preparation Requise
 
-## Zones Futures
+**Zone de Fin de Jeu**
 
-Ces zones sont confirmées mais ne seront pas disponibles au lancement :
-
-### Zone 5 - Skylands
-
-*Les Îles Célestes*
-
-**Élément : Foudre/Électricité**
-
-Des îles flottantes dans le ciel, accessibles par des moyens spéciaux. Cette zone a été confirmée dans les outils de développement.
-
-:::info En développement
-Cette zone sera ajoutée dans une mise à jour future après le lancement.
-:::
-
-### Zone 6 - Poisonlands
-
-*Les Terres Empoisonnées*
-
-**Élément : Vide/Corruption**
-
-Une zone mystérieuse dont l'existence a été confirmée. Peu d'informations sont disponibles pour le moment.
-
-:::info En développement
-Cette zone sera ajoutée dans une mise à jour future après le lancement.
-:::
+Les Devastated Lands tueront les joueurs non prepares en quelques minutes. La resistance au feu est obligatoire, et les ennemis ici sont parmi les plus forts du jeu.
 
 ---
 
-## Système Élémentaire
+## Progression de la Difficulte
 
-Chaque zone est liée à un élément qui influence :
+**Progression Non-Lineaire**
 
-| Élément | Zone | Effets |
-|---------|------|--------|
-| Terre | Emerald Grove | Bonus de régénération, affinité avec la nature |
-| Air | Howling Sands | Bonus de vitesse, résistance aux vents |
-| Eau | Borea | Résistance au froid, affinité avec la glace |
-| Feu | Devastated Lands | Résistance à la chaleur, dégâts de feu |
-| Foudre | Skylands (futur) | À déterminer |
-| Vide | Poisonlands (futur) | À déterminer |
+La progression lineaire originale (Zone 1 a Zone 4) a evolue. Les trois premieres zones comportent maintenant plusieurs paliers de difficulte internes, avec les ressources et le loot qui evoluent en consequence. Au lieu d'une ligne droite du "facile" au "difficile", les joueurs peuvent s'enfoncer plus profondement dans une region familiere ou bifurquer vers une autre zone a des niveaux de puissance similaires.
 
-## Progression Recommandée
+### Selection de la Zone de Depart
 
-1. **Zone 1 - Emerald Grove** - Débutants
-2. **Zone 2 - Howling Sands** - Joueurs intermédiaires
-3. **Zone 3 - Borea** - Joueurs avancés
-4. **Zone 4 - Devastated Lands** - Joueurs experts (Endgame)
+Les joueurs peuvent choisir de commencer dans :
+- **Zone 1 (Emerald Grove)** - Recommande pour les debutants
+- **Zone 2 (Howling Sands)** - Pour les joueurs qui preferent les environnements desertiques
+- **Zone 3 (Borea)** - Pour les joueurs cherchant un defi de survie au froid des le debut
+
+La Zone 4 (Devastated Lands) n'est pas disponible comme zone de depart.
+
+### Progression Generale
+
+| Zone | Difficulte | Defis Principaux |
+|------|------------|------------------|
+| Zone 1 | Facile | Apprendre les mecaniques, Trorks, survie basique |
+| Zone 2 | Moyenne | Chaleur, deshydratation, ruches Scarak |
+| Zone 3 | Difficile | Survie au froid, Outlanders, Yetis |
+| Zone 4 | Tres Difficile | Tout - contenu de fin de jeu |
 
 ## Voir Aussi
 
-- [Aperçu du Monde](/docs/gameplay/world/overview)
-- [Créatures](/docs/gameplay/creatures/overview)
+- [Apercu du Monde](/docs/gameplay/world/overview)
+- [Zones du Monde (Guide Detaille)](/docs/gameplay/world-zones)
+- [Creatures](/docs/gameplay/creatures/overview)
 
 ---
 
-*Sources : [Hytale Blog](https://hytale.com/news), [World Generation Update](https://hytale.com/news/2026/1/the-future-of-world-generation)*
+*Sources : [Hytale Blog](https://hytale.com/news), [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [The Future of World Generation](https://hytale.com/news/2026/1/the-future-of-world-generation)*

@@ -16,7 +16,7 @@ Orbis est le nom du monde genere proceduralement de Hytale. Il est divise en **z
 
 ### Caracteristiques Principales d'Orbis
 
-- **Themes Elementaires** : Chaque zone est liee a un element classique (Terre, Air, Eau, Feu)
+- **Themes Elementaires** : Chaque zone est liee a un element (Terre, Air, Eau, Feu, avec Foudre et Vide prevus pour les zones futures)
 - **Difficulte Progressive** : Le jeu est concu pour une progression naturelle de la Zone 1 a la Zone 4
 - **Biomes Uniques** : Chaque zone contient plusieurs biomes avec des ecosystemes distincts
 - **Creatures Diverses** : Des ennemis hostiles et des PNJ amicaux peuplent chaque region
@@ -31,35 +31,40 @@ Orbis est le nom du monde genere proceduralement de Hytale. Il est divise en **z
 | Zone 3 | Borea | Eau | Difficile |
 | Zone 4 | Devastated Lands | Feu | Tres Difficile |
 
+**Selection de la Zone de Depart**
+
+Les joueurs peuvent choisir de commencer leur aventure dans la Zone 1 (Emerald Grove), la Zone 2 (Howling Sands) ou la Zone 3 (Borea). La Zone 4 n'est pas disponible comme zone de depart.
+
 ---
 
-## Zone 1 - Emerald Grove (Bosquet d'Emeraude)
+## Zone 1 - Emerald Grove
 
 **Element** : Terre | **Difficulte** : Facile
 
 ### Description
 
-L'Emerald Grove est un paradis verdoyant de forets luxuriantes, de rivieres cristallines et de collines verdoyantes. C'est la zone de depart pour la plupart des joueurs et sert d'introduction parfaite a Orbis. Le paysage est caracterise par des arbres imposants, une faune abondante et une atmosphere paisible pendant la journee.
+L'Emerald Grove (egalement connu sous le nom d'Emerald Wilds) est un paradis verdoyant de forets luxuriantes, de rivieres cristallines et de collines verdoyantes. C'est la zone de depart pour la plupart des joueurs et sert d'introduction parfaite a Orbis. Le paysage est caracterise par des arbres imposants, une faune abondante et une atmosphere paisible pendant la journee.
 
 ### Biomes
 
-- **Foret Temperee** : Bois denses avec diverses especes d'arbres
+- **Foret Temperee** : Bois denses avec diverses especes d'arbres incluant chene et bouleau
 - **Prairies** : Plaines ouvertes avec des fleurs sauvages et des collines douces
 - **Marecages** : Zones humides boueuses avec une flore unique et des dangers caches
 - **Vallees Fluviales** : Zones fertiles le long des cours d'eau
+- **Montagnes Enneigees** : Zones de haute altitude avec des temperatures plus froides
 
 ### Creatures
 
-#### Creatures Amicales
-- **Kweebecs** : Petits etres intelligents vivant dans des villages arbricoles. Ce sont des allies potentiels et des partenaires commerciaux
-- **Animaux Forestiers** : Cerfs, lapins, oiseaux et autres animaux sauvages
-- **Villageois** : PNJ humains avec divers metiers et quetes
+#### Creatures Amicales/Neutres
+- **Kweebecs** : Humanoides semblables a des arbres qui vivent dans des villages dans les forets et marecages. Ils obtiennent leurs nutriments du soleil comme les arbres. Les jeunes Kweebecs sont appeles "Seedlings". Attention : ils deviendront hostiles si vous entrez dans leurs villages avec une hache !
+- **Animaux Forestiers** : Cerfs, lapins, renards, moutons, vaches, poules, canards, moineaux, corbeaux, chauves-souris, grenouilles et jackalopes
 
 #### Creatures Hostiles
-- **Trorks** : Creatures brutales et agressives qui pillent les colonies
-- **Loups** : Peuvent etre dangereux la nuit
-- **Araignees des Cavernes** : Trouvees dans les zones souterraines
-- **Morts-vivants** : Squelettes et zombies emergent la nuit
+- **Trorks** : Orcs/trolls brutaux qui pillent les colonies. Ils ont differentes classes incluant sentinelles et chefs, et peuvent domestiquer des animaux et utiliser des armes
+- **Fen Stalkers** : Monstres des marecages principalement nocturnes qui evitent la lumiere vive. Ils peuvent etre calmes avec du poisson cru et sont protecteurs envers les grenouilles
+- **Squelettes** : Trouves dans les ruines et emergent la nuit
+- **Golems Corrompus** : Trouves dans le Temple de Gaia
+- **Bam** : Grandes creatures semblables a des grenouilles avec des pointes trouvees dans les marecages
 
 ### Ressources
 
@@ -82,9 +87,9 @@ L'Emerald Grove est un paradis verdoyant de forets luxuriantes, de rivieres cris
 
 ### Conseils de Survie
 
-:::tip Zone de Depart
+**Zone de Depart**
+
 La Zone 1 est la zone de depart recommandee pour tous les joueurs. Prenez votre temps pour apprendre les mecaniques du jeu ici avant de vous aventurer plus loin.
-:::
 
 1. **Etablissez une base tot** - Construisez un abri avant votre premiere nuit
 2. **Liez-vous d'amitie avec les Kweebecs** - Ils offrent des echanges et informations precieuses
@@ -94,33 +99,34 @@ La Zone 1 est la zone de depart recommandee pour tous les joueurs. Prenez votre 
 
 ---
 
-## Zone 2 - Howling Sands (Sables Hurlants)
+## Zone 2 - Howling Sands
 
 **Element** : Air | **Difficulte** : Moyenne
 
 ### Description
 
-Les Howling Sands sont une vaste etendue de deserts brulants, de canyons imposants et d'oasis mysterieuses. Nommee d'apres les vents constants qui balayent ses dunes, cette zone represente une augmentation significative de la difficulte. D'anciennes civilisations prosperaient ici autrefois, laissant derriere elles des pyramides et des temples enfouis sous les sables.
+Les Howling Sands sont une vaste etendue de deserts brulants, de canyons imposants et d'oasis mysterieuses. Nommee d'apres les vents constants qui balayent ses dunes, cette zone represente une augmentation significative de la difficulte. D'anciennes civilisations prosperaient ici autrefois, laissant derriere elles des pyramides et des ziggourats enfouis sous les sables. En souterrain, des grottes de gres remplacent les grottes de pierre de la Zone 1.
 
 ### Biomes
 
-- **Desert** : Dunes de sable infinies avec des temperatures extremes
-- **Mesa** : Formations rocheuses colorees et plateaux
-- **Canyons** : Ravins profonds creuses par d'anciennes rivieres
-- **Oasis** : Sources d'eau rares entourees de palmiers
+- **Desert** : Dunes de sable infinies avec des temperatures extremes et de grands piliers de gres
+- **Savane** : Terres partiellement herbeuses avec des arbres epars et de la faune errante comme des suricates
+- **Canyons** : Ravins profonds creuses par d'anciennes rivieres, avec des falaises separant le terrain
+- **Oasis** : Sources d'eau rares cachees a travers le desert
 
 ### Creatures
 
-#### Creatures Amicales
-- **Nomades du Desert** : Marchands et guides itinerants
-- **Habitants des Oasis** : Colonies autour des sources d'eau
+#### Creatures Amicales/Neutres
+- **Ferans** : Petits humanoides semblables a des renards avec de grandes oreilles qui vivent en communautes tribales. Ils etaient autrefois esclaves des Scaraks et portent des "Bracelets de Liberte" graves du symbole du vent. Ils peuvent devenir Chamans qui defendent leurs villages
+- **Suricates** : Trouves dans le biome de savane
 
 #### Creatures Hostiles
-- **Momies** : Gardiens morts-vivants des tombes anciennes
-- **Scarabees Geants** : Creatures blindees de type coleoptere
-- **Vers des Sables** : Creatures massives qui creusent des tunnels dans les dunes
-- **Scorpions** : Arachnides venimeux de tailles variees
-- **Bandits** : Pillards humains qui s'en prennent aux voyageurs
+- **Scaraks** : Ennemis insectoides qui vivent dans des structures de ruche et des ziggourats. Plusieurs variantes existent :
+  - **Scarak Ouvriers** : S'occupent des oeufs et larves dans la ruche
+  - **Scarak Guerriers** : Variantes orientees combat
+  - **Scarak Tank** : Variante lourdement blindee avec une tete en forme de bouclier
+  - **Scarak Sauterelles** : Variantes volantes
+  - **Scarak Mere Progenitrice** : Reine de la race Scarak, trouvee au fond des ruches
 
 ### Ressources
 
@@ -135,17 +141,17 @@ Les Howling Sands sont une vaste etendue de deserts brulants, de canyons imposan
 
 ### Points d'Interet
 
-- **Pyramides** : Tombes massives remplies de pieges et de tresors
+- **Ziggourats** : Structures massives a gradins habitees par les Scaraks
+- **Ruches Scarak** : Colonies insectoides souterraines avec un butin precieux
 - **Temples Enfouis** : Sites religieux anciens avec un butin puissant
-- **Caravanes Marchandes** : Marchands mobiles traversant le desert
-- **Colonies d'Oasis** : Havres de paix avec eau et provisions
+- **Colonies d'Oasis** : Havres de paix avec eau et provisions, souvent villages Feran
 - **Ruines de Cites Perdues** : Vestiges de civilisations anciennes
 
 ### Defis Environnementaux
 
-:::warning Dangers du Desert
+**Dangers du Desert**
+
 Les Howling Sands presentent des dangers environnementaux uniques qui necessitent une preparation.
-:::
 
 | Defi | Effet | Contre-mesure |
 |------|-------|---------------|
@@ -171,28 +177,34 @@ Les Howling Sands presentent des dangers environnementaux uniques qui necessiten
 
 ### Description
 
-Borea est un royaume gele de toundras infinies, de montagnes enneigees imposantes et de fjords glaciaires traitres. Le froid mordant impregne tout, et la survie necessite une preparation minutieuse. Malgre ses conditions difficiles, Borea recele des secrets anciens et des ressources precieuses pour ceux assez courageux pour affronter ses defis.
+Borea (derive du latin signifiant "le nord", egalement connu sous le nom de Boreal Frontier ou Whisperfrost Frontier) est un royaume gele de vallees forestieres, de montagnes imposantes enneigees et de grottes de glace profondes. Le froid mordant impregne tout, et la survie necessite une preparation minutieuse. Chaque zone a une affinite avec la magie elementaire, et Borea incarne l'eau sous toutes ses formes - des rivieres sinueuses aux pics enneiges et aux glaciers de glace. En souterrain, la glace, la neige et l'eau couvrent les murs, et la lave est beaucoup moins susceptible d'apparaitre.
 
 ### Biomes
 
 - **Toundra** : Plaines gelees et plates avec une vegetation clairsemee
-- **Glaciers** : Formations de glace massives avec des grottes cachees
-- **Montagnes Enneigees** : Pics imposants avec des gisements de minerai precieux
-- **Forets de Coniferes** : Forets de pins robustes offrant un certain abri
-- **Lacs Geles** : Eaux recouvertes de glace cachant des dangers en dessous
+- **Forets de Pins** : L'un des rares biomes pas completement couvert de neige
+- **Montagnes Enneigees** : Pics massifs couverts de neige avec des paysages a couper le souffle
+- **Grottes de Glace** : Vastes cavernes souterraines avec une faune et des ressources uniques
+- **Rivieres Gelees** : Cours d'eau recouverts de glace avec pingouins et autre faune
+- **Landes** : Terrain ouvert balaye par le vent
 
 ### Creatures
 
-#### Creatures Amicales
-- **Clans du Nord** : Tribus humaines robustes adaptees au froid
-- **Ermites des Montagnes** : PNJ sages avec des connaissances precieuses
+#### Creatures Amicales/Neutres
+- **Outlanders** : Faction humaine tribale qui s'est isolee a Borea. Ils sont defensifs et territoriaux, portant des masques en bois et de l'equipement en cobalt. Les variantes incluent :
+  - **Rangers** : Chasseurs qui s'aventurent loin pour chasser le bison et surveiller les menaces
+  - **Guerriers** : Defenseurs standards des colonies
+  - **Chefs** : Leaders en armure bleue avec boucliers
+  - **Pretres** : Utilisateurs de magie de l'eau qui dirigent les camps
+  - **Cultistes/Colosse** : Outlanders corrompus avec un troisieme oeil
+- **Faune** : Beliers, souris, bisons, chevres des montagnes
 
 #### Creatures Hostiles
-- **Yetis** : Betes des neiges massives et agressives
-- **Loups de Givre** : Chasseurs en meute plus dangereux que leurs cousins forestiers
-- **Elementaires de Glace** : Etres magiques de froid pur
-- **Geants du Givre** : Ennemis puissants gardant des sites anciens
+- **Yetis** : Betes des neiges massives et territoriales montrees dans plusieurs bandes-annonces
+- **Loups** : Chasseurs en meute plus dangereux que leurs cousins de la Zone 1
 - **Ours Polaires** : Territoriaux et mortels
+- **Dragons de Glace** : Creatures puissantes habitant la zone
+- **Hiboux des Neiges et Pics** : Trouves a travers la zone
 
 ### Ressources
 
@@ -207,17 +219,16 @@ Borea est un royaume gele de toundras infinies, de montagnes enneigees imposante
 
 ### Points d'Interet
 
-- **Forteresses de Glace** : Anciennes places fortes preservees dans la glace
-- **Grottes Gelees** : Reseaux de cavernes de glace avec des secrets
-- **Sources Chaudes** : Zones chaudes rares offrant un repit
-- **Epaves de Navires** : Vaisseaux geles avec une cargaison precieuse
+- **Villages Outlander** : Colonies tribales construites dans les forets de pins et zones de toundra
+- **Grottes de Glace** : Reseaux de cavernes de glace avec ressources et secrets
+- **Epaves de Navires Geles** : Vaisseaux avec cargaison precieuse pieges dans la glace
 - **Temples du Nord** : Sites sacres des clans du givre
 
 ### Defis Environnementaux
 
-:::danger Froid Extreme
+**Froid Extreme**
+
 Les temperatures glaciales de Borea peuvent tuer les aventuriers non prepares rapidement.
-:::
 
 | Defi | Effet | Contre-mesure |
 |------|-------|---------------|
@@ -239,35 +250,35 @@ Les temperatures glaciales de Borea peuvent tuer les aventuriers non prepares ra
 
 ---
 
-## Zone 4 - Devastated Lands (Terres Devastees)
+## Zone 4 - Devastated Lands
 
 **Element** : Feu | **Difficulte** : Tres Difficile
 
 ### Description
 
-Les Devastated Lands sont un royaume cauchemardesque de volcans actifs, de rivieres de lave en fusion et de cieux charges de cendres. C'est le domaine des forces demoniaques et represente le defi ultime pour les aventuriers. L'environnement lui-meme est hostile, et des ennemis puissants rodent a chaque coin. Seuls les joueurs les plus prepares et habiles devraient s'y aventurer.
+Les Devastated Lands sont un royaume cauchemardesque de volcans actifs, de rivieres de lave en fusion et de cieux charges de cendres. Cet environnement infernal et sterile a ete devaste il y a longtemps. La pierre brulee domine le terrain, avec des rivieres et des lacs de lave couvrant la surface. L'environnement lui-meme est hostile, et des ennemis puissants rodent a chaque coin. Seuls les joueurs les plus prepares et habiles devraient s'y aventurer.
+
+Etonnamment, sous le paysage volcanique se trouve une jungle souterraine luxuriante - plus vous explorez en profondeur, plus le biome passe du feu et des cendres a des cavernes dangereuses et envahies par la vegetation.
 
 ### Biomes
 
-- **Plaines Volcaniques** : Paysages steriles marques par les coulees de lave
-- **Dechets de Cendres** : Zones desolees couvertes de cendres volcaniques
-- **Cavernes de Magma** : Reseaux souterrains de roche en fusion
+- **Plaines Volcaniques** : Paysages steriles marques par les coulees de lave et la pierre brulee
+- **Dechets de Cendres** : Zones desolees couvertes de cendres volcaniques avec des cieux remplis de cendres
+- **Cavernes de Magma** : Reseaux souterrains avec quatre niveaux de grottes
 - **Champs d'Obsidienne** : Zones de lave refroidie avec des ressources precieuses
-- **Territoires Demoniaques** : Regions controlees par des forces infernales
+- **Jungle Oubliee** : La couche souterraine la plus profonde - une jungle luxuriante et dangereuse sous la surface volcanique
 
 ### Creatures
 
-#### Rencontres Amicales Rares
-- **Ames Perdues** : Esprits qui peuvent offrir des conseils
-- **Demons Exiles** : Parias qui pourraient echanger des informations
+#### Creatures de Surface
+- **Emberwulf** : Creatures mortelles semblables a des loups faites de braise
+- **Squelettes** : Creatures d'os habitant les terres brulees
+- **Creatures de lave, d'os et de cendres** : Divers ennemis au theme de feu
 
-#### Creatures Hostiles
-- **Demons** : Divers etres infernaux d'une puissance immense
-- **Elementaires de Feu** : Flammes vivantes qui attaquent les intrus
-- **Golems de Lave** : Constructions massives de roche en fusion
-- **Chiens Infernaux** : Betes demoniaques qui chassent en meute
-- **Spectres de Cendre** : Creatures mortes-vivantes nees de la mort volcanique
-- **Creatures Draconiques** : Predateurs supremes de la zone
+#### Creatures Souterraines (Jungle Oubliee)
+- **Cave Rexes** : Creatures reptiliennes dangereuses dans la jungle souterraine
+- **Slothians** : Creatures tropicales trouvees dans les cavernes envahies
+- **Reptiles Anciens** : La zone melange dangers volcaniques et menaces reptiliennes anciennes
 
 ### Ressources
 
@@ -290,9 +301,9 @@ Les Devastated Lands sont un royaume cauchemardesque de volcans actifs, de rivie
 
 ### Defis Environnementaux
 
-:::danger Environnement Mortel
+**Environnement Mortel**
+
 Les Devastated Lands tueront les joueurs non prepares en quelques minutes.
-:::
 
 | Defi | Effet | Contre-mesure |
 |------|-------|---------------|
@@ -316,33 +327,30 @@ Les Devastated Lands tueront les joueurs non prepares en quelques minutes.
 
 ## Zones Futures
 
-:::info Non Disponibles au Lancement
-Les zones suivantes sont prevues pour des mises a jour futures et ne seront pas disponibles lorsque Hytale entrera en Acces Anticipe.
-:::
+**Non Disponibles au Lancement**
 
-### Zone 5 - Skylands (Terres Celestes)
+Les zones suivantes sont des noms provisoires trouves dans les outils de developpement par des dataminers. Elles sont prevues pour des mises a jour futures et ne seront pas disponibles lorsque Hytale entrera en Acces Anticipe. Tres peu d'informations sont disponibles sur ces zones.
+
+### Zone 5 - Skylands (Nom Provisoire)
 
 **Element** : Foudre
 
-Les Skylands sont des iles flottantes suspendues haut au-dessus d'Orbis, reliees par des ponts et accessibles par des moyens speciaux. Ce royaume etheree presente :
+Les Skylands sont des iles flottantes suspendues haut au-dessus d'Orbis. Base sur des informations dataminees et des concept arts montrant la foudre au-dessus de cette zone :
 
-- Des masses terrestres flottantes avec des ecosystemes uniques
-- Des creatures et dangers bases sur la foudre
-- Une technologie avancee et d'anciens temples celestes
-- Des defis de navigation aerienne uniques
-- Des dangers environnementaux bases sur les tempetes
+- Masses terrestres flottantes suggerant un style de generation de monde fragmente et vertical
+- Theme base sur la foudre et affinite elementaire
+- Possiblement des mecaniques de traversee aerienne et de gravite inhabituelle
+- Dangers environnementaux bases sur les tempetes
 
-### Zone 6 - Poisonlands (Terres Empoisonnees) (Speculee)
+### Zone 6 - Poisonlands (Nom Provisoire)
 
 **Element** : Vide
 
-Un royaume corrompu ou les tenebres ont pris le controle :
+Presque rien n'est confirme sur cette zone :
 
-- Environnements toxiques necessitant un equipement special
-- Creatures touchees par le vide et etres corrompus
-- Structures mysterieuses d'origine inconnue
-- La source de la corruption menacant Orbis
-- Potentiellement liee a l'histoire principale du jeu
+- Crue etre liee a l'element Vide
+- Pas de details fermes sur la structure de surface ou souterraine
+- Existe dans le cadre des zones du jeu pour une expansion future
 
 ---
 
@@ -350,23 +358,33 @@ Un royaume corrompu ou les tenebres ont pris le controle :
 
 ### Generation V1 (Lancement)
 
-Le systeme de generation de monde initial disponible au lancement de l'Acces Anticipe :
+Le systeme de generation de monde initial disponible au lancement de l'Acces Anticipe (janvier 2026) :
 
 - Terrain genere proceduralement pour chaque zone
 - Elements thematiques coherents au sein des zones
-- Transitions fluides entre les biomes
+- Deja rempli de biomes jouables
 - Structures et donjons pre-places
 - Distribution equilibree des ressources
 
 ### Generation V2 (Future)
 
-Un systeme de generation ameliore prevu pour des mises a jour futures :
+Un systeme de generation ameliore en cours de developpement pour le monde complet d'Orbis :
 
-- Accessible via les **Gateways** - portails speciaux dans le monde
+- Accessible via les **Gateways** - portails speciaux dans le monde qui permettent aux joueurs de previsualiser le contenu V2 pendant le developpement
+- Deviendra le generateur de monde principal une fois termine
 - Caracteristiques de terrain plus variees et complexes
-- Diversite de biomes amelioree
-- Generation de donjons amelioree
-- Nouvelles caracteristiques et secrets du monde
+- Diversite de biomes amelioree avec une experience visuelle et de gameplay superieure
+- Tous les biomes seront partages avec la communaute pour le modding
+- Les mondes V1 resteront accessibles apres le lancement de V2
+
+### Systeme de Regions
+
+Les developpeurs ont introduit une nouvelle approche "Regions" qui subdivise les zones :
+
+- Chaque region represente 3 a 5 biomes avec un theme coherent
+- Les regions sont plus petites que les zones mais plus nombreuses
+- Offre un controle plus fin sur l'identite du monde
+- Exemples incluent : Central Grasslands, Emerald Wilds, Whisperfrost Frontier, Wild Savannah, Earthglade
 
 ---
 
@@ -413,9 +431,9 @@ Un systeme de generation ameliore prevu pour des mises a jour futures :
 |-----------------|--------|--------|--------|--------|
 | Element | Terre | Air | Eau | Feu |
 | Climat | Tempere | Chaud/Aride | Glacial | Volcanique |
-| Menace Principale | Trorks | Dangers du desert | Froid | Tout |
-| Ressource Cle | Bois/Fer | Or/Gemmes | Minerai de Givre | Obsidienne |
-| PNJ Amicaux | Kweebecs | Nomades | Clans du Nord | Rares |
+| Menace Principale | Trorks | Scaraks | Outlanders/Froid | Tout |
+| Ressource Cle | Bois/Fer | Or/Sable | Minerai de Givre/Fourrure | Obsidienne |
+| PNJ Amicaux | Kweebecs | Ferans | Outlanders (defensifs) | Tres Rare |
 
 ### Priorites de Survie par Zone
 
@@ -440,4 +458,6 @@ Un systeme de generation ameliore prevu pour des mises a jour futures :
 
 ---
 
-*Ce guide est base sur les informations officielles de Hytale. Le contenu peut changer au fur et a mesure que le jeu evolue pendant l'Acces Anticipe.*
+*Ce guide est base sur les informations officielles de Hytale de [hytale.com](https://hytale.com/news), les wikis communautaires et les informations dataminees. Le contenu peut changer au fur et a mesure que le jeu evolue pendant l'Acces Anticipe.*
+
+*Sources : [Hytale Wiki](https://hytale.fandom.com/wiki/Zones), [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [The Future of World Generation](https://hytale.com/news/2026/1/the-future-of-world-generation)*

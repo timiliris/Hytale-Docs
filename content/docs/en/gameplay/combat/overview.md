@@ -5,7 +5,7 @@ description: Master the combat mechanics of Hytale
 
 # Combat System
 
-Combat in Hytale is a dynamic system based on resource management, positioning, and weapon mastery.
+Combat in Hytale is a dynamic, high-mobility system that emphasizes resource management, positioning, and weapon mastery. The game features full action-RPG combat with dodge rolls, combos, and strategic positioning.
 
 ## Fundamental Mechanics
 
@@ -13,154 +13,134 @@ Combat in Hytale is a dynamic system based on resource management, positioning, 
 
 **Stamina** is the central resource in combat:
 
-- **Sprint** - Consumes stamina
-- **Dodge** - Moderate cost
-- **Special attacks** - Variable cost depending on weapon
-- **Prolonged blocking** - Continuous drain
+- **Sprint** - Consumes stamina continuously
+- **Dodge roll** - Moderate cost, essential for evasion
+- **Charged attacks** - Consumes stamina when released
+- **Blocking** - Drains stamina while held
 
 :::tip Stamina Management
-Never completely empty your bar! Always keep a reserve for dodging.
+Never completely empty your bar! If you deplete your stamina, you become sluggish and vulnerable. Keep a reserve for dodging or switch weapons when running low.
 :::
 
 ### Positioning
 
 Positioning is crucial, especially in PvP:
 
-- **Flank** - Damage bonus from the sides
-- **Back** - Guaranteed critical damage
+- **Flank** - Attack from the sides for advantage
 - **Height** - Advantage over enemies below
 - **Distance** - Each weapon has an optimal range
+- **Environment** - Use pillars, tree roots, and obstacles tactically
 
 ### Directional Animations
 
 Attacks are telegraphed through clear animations:
 
-- **Preparation** - The character winds up their strike
+- **Wind-up** - The character prepares their strike (telegraph)
 - **Direction** - Indicates where the attack will hit
-- **Parry window** - Moment to block or dodge
-- **Recovery** - Recovery time after the attack
+- **Attack window** - Moment to block or dodge
+- **Recovery** - Recovery time after the attack, window for counter-attack
 
 ## Attack Types
 
-### Light Attack
+### Light Attack (Basic Combo)
 
 - **Input**: Left click
 - **Speed**: Fast
-- **Damage**: Low
-- **Stamina**: Minimal
+- **Damage**: Low to medium
+- **Stamina**: None or minimal
 
-### Heavy Attack
+Each weapon has its own combo rhythm and chain length.
 
-- **Input**: Hold left click
-- **Speed**: Slow
+### Charged Attack
+
+- **Input**: Hold left click, then release
+- **Speed**: Slow charge-up, variable execution
 - **Damage**: High
-- **Stamina**: Moderate
+- **Stamina**: Consumed on release
+- **Effect**: Unique to each weapon type (lance charge for sword, pounce for dagger, downward slam for battleaxe, etc.)
 
-### Special Attack
+### Ultimate Ability
 
-- **Input**: F (default)
-- **Speed**: Variable depending on weapon
+- **Input**: Special ability button
 - **Damage**: Very high
-- **Stamina**: Significant cost
-- **Effect**: Unique to each weapon type
+- **Stamina/Resource**: Significant cost
+- **Effect**: Powerful attack unique to each weapon type
 
-### Combo
-
-Chain attacks for combos:
-
-```
-Light → Light → Light = Basic combo
-Light → Light → Heavy = Finisher combo
-Light → Dodge → Heavy = Technical combo
-```
+Examples:
+- **Dagger**: Rapid single-target melee combo
+- **Battleaxe**: Whirlwind attack hitting all surrounding enemies
+- **Shortbow**: Fire three arrows simultaneously
 
 ## Defense
 
 ### Blocking
 
-With a shield or certain weapons:
+With a shield or melee weapon:
 
 - **Damage reduction** - Absorbs part of the damage
-- **Stability** - Resistance to stagger
+- **Stamina drain** - Blocking drains stamina (not attacking)
 - **Counter-attack** - Window after a successful block
 
-### Parry
+### Dodge Roll
 
-Precise timing for perfect defense:
+Evasive movement with invincibility frames:
 
-- **Window**: ~0.3 seconds
-- **Reward**: Enemy stagger, opening for counter-attack
-- **Risk**: If missed, full damage
+- **Direction**: Roll in any direction based on movement input
+- **Cost**: Moderate stamina
+- **Effect**: Brief invincibility, repositioning
 
-### Dodge
-
-Evasive movement:
-
-| Direction | Input | Effect |
-|-----------|-------|--------|
-| Back | Double-tap S | Backstep, distance |
-| Lateral | Double-tap A/D | Roll, partial invincibility |
-| Forward | Double-tap W + Sprint | Offensive dash |
+:::tip Dodge Strategy
+Against enemies like Trorks or skeletons, observe their telegraphs - they wind up before striking. Use your dodge roll to evade, then punish them during their recovery animation.
+:::
 
 ## Status Effects
 
-### Status Effects
+### Negative Effects
 
 | Effect | Source | Impact |
 |--------|--------|--------|
 | Bleeding | Slashing weapons | Damage over time |
 | Poison | Creatures, plants | Damage + slowed regen |
 | Burn | Fire, magic | Continuous fire damage |
-| Freeze | Ice magic | Slowdown, then immobilization |
-| Stun | Critical hits | Temporary incapacity |
+| Freeze | Ice magic | Slowdown, can lead to immobilization |
+| Stun | Heavy hits, abilities | Temporary incapacity |
 
 ### Combat Buffs
 
 | Buff | Source | Effect |
 |------|--------|--------|
-| Rage | Skill | +Damage, -Defense |
 | Fortification | Potion | +Temporary defense |
 | Haste | Food | +Attack speed |
-| Regeneration | Potion | Health recovery |
+| Regeneration | Potion | Health recovery over time |
 
-## Combat Progression
+## Combat Strategy
 
-### Weapon Skills
+### Weapon Synergy
 
-Each weapon type has its own progression:
+Hytale rewards smart positioning and weapon synergy more than raw stats:
 
-- **Novice** → **Apprentice** → **Adept** → **Expert** → **Master**
+- **Heavy weapons** (Mace, Battleaxe) - Dominate damage but slow
+- **Fast weapons** (Daggers) - Shine through mobility and safety
+- **Versatile weapons** (Sword) - Balanced, allows off-hand items
+- **Ranged weapons** (Bow) - Safe damage from distance
 
-The more you use a weapon, the more you unlock:
-- New techniques
-- Advanced combos
-- Alternative special attacks
+:::tip Pro Strategy
+Combining different weapons based on the situation outperforms sticking to just one. Switch weapons when stamina is low or when facing different enemy types.
+:::
 
-### Combat Styles
+### Against PvE Enemies
 
-Develop your style:
-
-- **Berserker** - Powerful attacks, little defense
-- **Guardian** - Attack/defense balance
-- **Duelist** - Parries and counter-attacks
-- **Ranger** - Ranged combat
-- **Mage** - Spells and control
-
-## Advanced Tips
-
-### Against Enemies
-
-1. **Observe patterns** - Each enemy has tells
-2. **Wait for openings** - Attack after their combos
-3. **Use the environment** - Height, obstacles
-4. **Adapt your equipment** - Appropriate resistances
+1. **Observe patterns** - Each enemy has tells before attacking
+2. **Wait for openings** - Attack during their recovery frames
+3. **Use the environment** - Bounce off pillars, slide under attacks, mantle objects
+4. **Adapt your equipment** - Match weapons and armor to the challenge
 
 ### In PvP
 
 1. **Read your opponent** - Anticipate their actions
-2. **Vary your attacks** - Don't be predictable
-3. **Manage space** - Control the distance
-4. **Stay calm** - Panic drains stamina
+2. **Vary your attacks** - Mix light attacks, charged attacks, and movement
+3. **Manage stamina** - The player who depletes stamina first is vulnerable
+4. **Use charge attacks tactically** - For both offense and defense (repositioning)
 
 ## See Also
 
@@ -170,4 +150,6 @@ Develop your style:
 
 ---
 
-*Source: [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+:::note Early Access
+Hytale is currently in Early Access (released January 13, 2026). Combat mechanics may evolve as the game develops. Some advanced features like Adventure Mode with deeper progression and boss fights are planned for future updates.
+:::

@@ -16,7 +16,7 @@ Orbis is the name of Hytale's procedurally generated world. It is divided into d
 
 ### Key Features of Orbis
 
-- **Elemental Themes**: Each zone is tied to a classical element (Earth, Air, Water, Fire)
+- **Elemental Themes**: Each zone is tied to an element (Earth, Wind, Water, Fire, with Lightning and Void planned for future zones)
 - **Progressive Difficulty**: The game is designed for natural progression from Zone 1 to Zone 4
 - **Unique Biomes**: Each zone contains multiple biomes with distinct ecosystems
 - **Diverse Creatures**: Both hostile enemies and friendly NPCs populate each region
@@ -27,9 +27,13 @@ Orbis is the name of Hytale's procedurally generated world. It is divided into d
 | Zone | Name | Element | Difficulty |
 |------|------|---------|------------|
 | Zone 1 | Emerald Grove | Earth | Easy |
-| Zone 2 | Howling Sands | Air | Medium |
+| Zone 2 | Howling Sands | Wind | Medium |
 | Zone 3 | Borea | Water | Hard |
 | Zone 4 | Devastated Lands | Fire | Very Hard |
+
+:::info Starting Zone Selection
+Players can choose to start their adventure in Zone 1 (Emerald Grove), Zone 2 (Howling Sands), or Zone 3 (Borea). Zone 4 is not available as a starting zone.
+:::
 
 ---
 
@@ -39,27 +43,28 @@ Orbis is the name of Hytale's procedurally generated world. It is divided into d
 
 ### Description
 
-The Emerald Grove is a verdant paradise of lush forests, crystal-clear rivers, and rolling green hills. This is the starting zone for most players and serves as the perfect introduction to Orbis. The landscape is characterized by towering trees, abundant wildlife, and a peaceful atmosphere during the day.
+The Emerald Grove (also known as Emerald Wilds) is a verdant paradise of lush forests, crystal-clear rivers, and rolling green hills. This is the starting zone for most players and serves as the perfect introduction to Orbis. The landscape is characterized by towering trees, abundant wildlife, and a peaceful atmosphere during the day.
 
 ### Biomes
 
-- **Temperate Forest**: Dense woodlands with diverse tree species
+- **Temperate Forest**: Dense woodlands with diverse tree species including oak and birch
 - **Meadows**: Open grasslands with wildflowers and gentle hills
 - **Swamps**: Murky wetlands with unique flora and hidden dangers
 - **River Valleys**: Fertile areas along waterways
+- **Snowy Mountains**: Higher altitude areas with colder temperatures
 
 ### Creatures
 
-#### Friendly Creatures
-- **Kweebecs**: Small, intelligent beings who live in tree villages. They are potential allies and trading partners
-- **Forest Animals**: Deer, rabbits, birds, and other wildlife
-- **Villagers**: Human NPCs with various trades and quests
+#### Friendly/Neutral Creatures
+- **Kweebecs**: Tree-like humanoids who live in villages in forests and marshlands. They get their nutrients from the sun like trees. Young Kweebecs are called "Seedlings." Warning: they will become hostile if you enter their villages wielding an axe!
+- **Forest Animals**: Deer, rabbits, foxes, sheep, cows, chickens, ducks, sparrows, crows, bats, frogs, and jackalopes
 
 #### Hostile Creatures
-- **Trorks**: Brutish, aggressive creatures that raid settlements
-- **Wolves**: Can be dangerous at night
-- **Cave Spiders**: Found in underground areas
-- **Undead**: Skeletons and zombies emerge at night
+- **Trorks**: Brutish orcs/trolls that raid settlements. They have different classes including sentries and chieftains, and can domesticate animals and use weapons
+- **Fen Stalkers**: Swamp-dwelling monsters that are mainly nocturnal and avoid bright light. They can be calmed with raw fish and are protective of frogs
+- **Skeletons**: Found in ruins and emerge at night
+- **Corrupted Golems**: Found in the Temple of Gaia
+- **Bam**: Large frog-like creatures with spikes found in swamps
 
 ### Resources
 
@@ -96,31 +101,32 @@ Zone 1 is the recommended starting area for all players. Take your time to learn
 
 ## Zone 2 - Howling Sands
 
-**Element**: Air | **Difficulty**: Medium
+**Element**: Wind | **Difficulty**: Medium
 
 ### Description
 
-The Howling Sands is a vast expanse of scorching deserts, towering canyons, and mysterious oases. Named for the constant winds that whip across its dunes, this zone presents a significant step up in difficulty. Ancient civilizations once thrived here, leaving behind pyramids and temples buried beneath the sands.
+The Howling Sands is a vast expanse of scorching deserts, towering canyons, and mysterious oases. Named for the constant winds that whip across its dunes, this zone presents a significant step up in difficulty. Ancient civilizations once thrived here, leaving behind pyramids and ziggurats buried beneath the sands. Underground, sandstone caves replace the stone caves of Zone 1.
 
 ### Biomes
 
-- **Desert**: Endless sand dunes with extreme temperatures
-- **Mesa**: Colorful layered rock formations and plateaus
-- **Canyons**: Deep ravines carved by ancient rivers
-- **Oases**: Rare water sources surrounded by palm trees
+- **Desert**: Endless sand dunes with extreme temperatures and large sandstone pillars
+- **Savannah**: Partially grassy lands with sparse trees and roaming wildlife like meerkats
+- **Canyons**: Deep ravines carved by ancient rivers, with cliffs separating terrain
+- **Oases**: Rare water sources hidden throughout the desert
 
 ### Creatures
 
-#### Friendly Creatures
-- **Desert Nomads**: Traveling merchants and guides
-- **Oasis Dwellers**: Settlements around water sources
+#### Friendly/Neutral Creatures
+- **Ferans**: Small fox-like humanoids with large ears who live in tribal communities. They were formerly enslaved by Scaraks and wear "Freedom Bracers" engraved with the wind symbol. They can become Shamans who defend their villages
+- **Meerkats**: Found in the savannah biome
 
 #### Hostile Creatures
-- **Mummies**: Undead guardians of ancient tombs
-- **Giant Scarabs**: Armored beetle creatures
-- **Sand Wyrms**: Massive creatures that tunnel through dunes
-- **Scorpions**: Venomous arachnids of various sizes
-- **Bandits**: Human raiders who prey on travelers
+- **Scaraks**: Insectoid enemies that live in hive structures and ziggurats. Multiple variants exist:
+  - **Scarak Workers**: Tend to eggs and larvae in the hive
+  - **Scarak Warriors**: Combat-focused variants
+  - **Scarak Tank**: Heavy-armored variant with a shield-like head
+  - **Scarak Locusts**: Flying variants
+  - **Scarak Broodmother**: Queen of the Scarak race, found deep in hives
 
 ### Resources
 
@@ -135,10 +141,10 @@ The Howling Sands is a vast expanse of scorching deserts, towering canyons, and 
 
 ### Points of Interest
 
-- **Pyramids**: Massive tombs filled with traps and treasure
+- **Ziggurats**: Massive stepped structures inhabited by Scaraks
+- **Scarak Hives**: Underground insectoid colonies with valuable loot
 - **Buried Temples**: Ancient religious sites with powerful loot
-- **Trading Caravans**: Mobile merchants crossing the desert
-- **Oasis Settlements**: Safe havens with water and supplies
+- **Oasis Settlements**: Safe havens with water and supplies, often Feran villages
 - **Ruins of Lost Cities**: Remnants of ancient civilizations
 
 ### Environmental Challenges
@@ -171,28 +177,34 @@ The Howling Sands presents unique environmental dangers that require preparation
 
 ### Description
 
-Borea is a frozen realm of endless tundras, towering snow-capped mountains, and treacherous glacial fjords. The bitter cold permeates everything, and survival requires careful preparation. Despite its harsh conditions, Borea holds ancient secrets and valuable resources for those brave enough to face its challenges.
+Borea (derived from Latin meaning "the north", also known as Boreal Frontier or Whisperfrost Frontier) is a frozen realm of forested valleys, towering snow-capped mountains, and deep ice caves. The bitter cold permeates everything, and survival requires careful preparation. Each zone has an affinity with elemental magic, and Borea embodies water in all its forms - from winding rivers to snow-capped peaks and icy glaciers. Underground, ice, snow and water cover the walls, and lava is far less likely to appear.
 
 ### Biomes
 
 - **Tundra**: Flat, frozen plains with sparse vegetation
-- **Glaciers**: Massive ice formations with hidden caves
-- **Snowy Mountains**: Towering peaks with valuable ore deposits
-- **Coniferous Forests**: Hardy pine forests offering some shelter
-- **Frozen Lakes**: Ice-covered waters hiding dangers below
+- **Pine Forests**: One of the few biomes not completely covered in snow
+- **Snowy Mountains**: Massive, snow-covered peaks with breathtaking scenery
+- **Ice Caves**: Vast underground caverns with unique wildlife and resources
+- **Frozen Rivers**: Ice-covered waterways with penguins and other wildlife
+- **Moorlands**: Open, windswept terrain
 
 ### Creatures
 
-#### Friendly Creatures
-- **Northern Clans**: Hardy human tribes adapted to the cold
-- **Mountain Hermits**: Wise NPCs with valuable knowledge
+#### Friendly/Neutral Creatures
+- **Outlanders**: A tribal human faction that isolated itself to Borea. They are defensive and territorial, wearing wooden masks and cobalt equipment. Variants include:
+  - **Rangers**: Hunters who venture far to hunt bison and scout threats
+  - **Warriors**: Standard defenders of settlements
+  - **Chiefs**: Leaders in blue armor with shields
+  - **Priests**: Water magic users who lead camps
+  - **Cultists/Colossus**: Corrupted Outlanders with a third eye
+- **Wildlife**: Rams, mice, bison, mountain goats
 
 #### Hostile Creatures
-- **Yetis**: Massive, aggressive snow beasts
-- **Frost Wolves**: Pack hunters more dangerous than their forest cousins
-- **Ice Elementals**: Magical beings of pure cold
-- **Frost Giants**: Powerful enemies guarding ancient sites
+- **Yetis**: Massive, territorial snow beasts shown in multiple trailers
+- **Wolves**: More dangerous pack hunters than their Zone 1 cousins
 - **Polar Bears**: Territorial and deadly
+- **Ice Dragons**: Powerful creatures inhabiting the zone
+- **Snowy Owls and Woodpeckers**: Found throughout the zone
 
 ### Resources
 
@@ -207,10 +219,9 @@ Borea is a frozen realm of endless tundras, towering snow-capped mountains, and 
 
 ### Points of Interest
 
-- **Ice Fortresses**: Ancient strongholds preserved in ice
-- **Frozen Caves**: Networks of ice caverns with secrets
-- **Hot Springs**: Rare warm areas providing respite
-- **Shipwrecks**: Frozen vessels with valuable cargo
+- **Outlander Villages**: Tribal settlements built in pine forests and tundra areas
+- **Ice Caves**: Networks of ice caverns with resources and secrets
+- **Frozen Shipwrecks**: Vessels with valuable cargo trapped in ice
 - **Northern Temples**: Sacred sites of the frost clans
 
 ### Environmental Challenges
@@ -245,29 +256,29 @@ Borea's freezing temperatures can kill unprepared adventurers quickly.
 
 ### Description
 
-The Devastated Lands is a nightmarish realm of active volcanoes, rivers of molten lava, and ash-choked skies. This is the domain of demonic forces and represents the ultimate challenge for adventurers. The environment itself is hostile, and powerful enemies lurk around every corner. Only the most prepared and skilled players should venture here.
+The Devastated Lands is a nightmarish realm of active volcanoes, rivers of molten lava, and ash-choked skies. This hellish and barren environment was devastated long ago. Scorched stone dominates the land, with lava rivers and lakes covering the surface. The environment itself is hostile, and powerful enemies lurk around every corner. Only the most prepared and skilled players should venture here.
+
+Surprisingly, beneath the volcanic landscape lies a lush underground jungle - the deeper you explore, the more the biome shifts from fire and ash into dangerous, overgrown caverns.
 
 ### Biomes
 
-- **Volcanic Plains**: Barren landscapes scarred by lava flows
-- **Ash Wastes**: Desolate areas covered in volcanic ash
-- **Magma Caverns**: Underground networks of molten rock
+- **Volcanic Plains**: Barren landscapes scarred by lava flows and scorched stone
+- **Ash Wastes**: Desolate areas covered in volcanic ash with ash-filled skies
+- **Magma Caverns**: Underground networks with four cave levels
 - **Obsidian Fields**: Areas of cooled lava with valuable resources
-- **Demon Territories**: Regions controlled by infernal forces
+- **Forgotten Jungle**: The deepest underground layer - a lush, dangerous jungle beneath the volcanic surface
 
 ### Creatures
 
-#### Rare Friendly Encounters
-- **Lost Souls**: Spirits who may offer guidance
-- **Exiled Demons**: Outcasts who might trade information
+#### Surface Creatures
+- **Emberwulf**: Deadly wolf-like creatures made of ember
+- **Skeletons**: Bone creatures inhabiting the scorched lands
+- **Creatures of lava, bones and ash**: Various fire-themed enemies
 
-#### Hostile Creatures
-- **Demons**: Various infernal beings of immense power
-- **Fire Elementals**: Living flames that attack intruders
-- **Lava Golems**: Massive constructs of molten rock
-- **Hell Hounds**: Demonic beasts that hunt in packs
-- **Ash Wraiths**: Undead creatures born from volcanic death
-- **Dragon-like Creatures**: Apex predators of the zone
+#### Underground Creatures (Forgotten Jungle)
+- **Cave Rexes**: Dangerous reptilian creatures in the underground jungle
+- **Slothians**: Tropical creatures found in the overgrown caverns
+- **Ancient Reptiles**: The zone mixes volcanic hazards with ancient reptilian threats
 
 ### Resources
 
@@ -317,32 +328,29 @@ The Devastated Lands will kill unprepared players within minutes.
 ## Future Zones
 
 :::info Not Available at Launch
-The following zones are planned for future updates and will not be available when Hytale enters Early Access.
+The following zones are placeholder names found in developer tools by dataminers. They are planned for future updates and will not be available when Hytale enters Early Access. Very limited information is available about these zones.
 :::
 
-### Zone 5 - Skylands
+### Zone 5 - Skylands (Placeholder Name)
 
 **Element**: Lightning
 
-The Skylands are floating islands suspended high above Orbis, connected by bridges and accessible through special means. This ethereal realm features:
+The Skylands are floating islands suspended high above Orbis. Based on datamined information and concept art showing lightning above this area:
 
-- Floating landmasses with unique ecosystems
-- Lightning-based creatures and hazards
-- Advanced technology and ancient sky temples
-- Unique aerial navigation challenges
+- Floating landmasses suggesting a fragmented, vertical world generation style
+- Lightning-based theme and elemental affinity
+- Possibly features aerial traversal and unusual gravity mechanics
 - Storm-based environmental hazards
 
-### Zone 6 - Poisonlands (Speculated)
+### Zone 6 - Poisonlands (Placeholder Name)
 
 **Element**: Void
 
-A corrupted realm where darkness has taken hold:
+Almost nothing is confirmed about this zone:
 
-- Toxic environments requiring special equipment
-- Void-touched creatures and corrupted beings
-- Mysterious structures of unknown origin
-- The source of corruption threatening Orbis
-- Potentially tied to the game's main storyline
+- Believed to be related to the Void element
+- No firm details about surface or underground structure
+- Exists within the game's zone framework for future expansion
 
 ---
 
@@ -350,23 +358,33 @@ A corrupted realm where darkness has taken hold:
 
 ### V1 Generation (Launch)
 
-The initial world generation system available at Early Access launch:
+The initial world generation system available at Early Access launch (January 2026):
 
 - Procedurally generated terrain for each zone
 - Consistent thematic elements within zones
-- Seamless transitions between biomes
+- Already packed with playable biomes
 - Pre-placed structures and dungeons
 - Balanced resource distribution
 
 ### V2 Generation (Future)
 
-An enhanced generation system planned for future updates:
+An enhanced generation system being developed for the complete world of Orbis:
 
-- Accessible via **Gateways** - special portals in the world
+- Accessible via **Gateways** - special portals in the world that let players preview V2 content during development
+- Will become the primary world generator once completed
 - More varied and complex terrain features
-- Enhanced biome diversity
-- Improved dungeon generation
-- New world features and secrets
+- Enhanced biome diversity with superior visual and gameplay experience
+- All biomes will be shared with the community for modding
+- V1 worlds will remain accessible after V2 launches
+
+### Regions System
+
+The developers have introduced a new "Regions" approach that subdivides zones:
+
+- Each region represents 3-5 biomes with a cohesive theme
+- Regions are smaller than zones but more numerous
+- Provides finer control over world identity
+- Examples include: Central Grasslands, Emerald Wilds, Whisperfrost Frontier, Wild Savannah, Earthglade
 
 ---
 
@@ -411,11 +429,11 @@ An enhanced generation system planned for future updates:
 
 | Feature | Zone 1 | Zone 2 | Zone 3 | Zone 4 |
 |---------|--------|--------|--------|--------|
-| Element | Earth | Air | Water | Fire |
+| Element | Earth | Wind | Water | Fire |
 | Climate | Temperate | Hot/Arid | Freezing | Volcanic |
-| Main Threat | Trorks | Desert hazards | Cold | Everything |
-| Key Resource | Wood/Iron | Gold/Gems | Frost Ore | Obsidian |
-| Friendly NPCs | Kweebecs | Nomads | Northern Clans | Rare |
+| Main Threat | Trorks | Scaraks | Outlanders/Cold | Everything |
+| Key Resource | Wood/Iron | Gold/Sand | Frost Ore/Fur | Obsidian |
+| Friendly NPCs | Kweebecs | Ferans | Outlanders (defensive) | Very Rare |
 
 ### Survival Priorities by Zone
 
@@ -440,4 +458,6 @@ An enhanced generation system planned for future updates:
 
 ---
 
-*This guide is based on official Hytale information. Content may change as the game develops during Early Access.*
+*This guide is based on official Hytale information from [hytale.com](https://hytale.com/news), community wikis, and datamined information. Content may change as the game develops during Early Access.*
+
+*Sources: [Hytale Wiki](https://hytale.fandom.com/wiki/Zones), [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [The Future of World Generation](https://hytale.com/news/2026/1/the-future-of-world-generation)*

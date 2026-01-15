@@ -1,284 +1,232 @@
 ---
-title: Créatures Hostiles
+title: Creatures Hostiles
 description: Guide des ennemis et boss de Hytale
 ---
 
-# Créatures Hostiles
+# Creatures Hostiles
 
-Les créatures hostiles sont vos principaux adversaires sur Orbis. Chaque type d'ennemi possède ses propres attaques et comportements uniques, avec des patterns lisibles mais exigeants. L'endurance est essentielle pour esquiver et bloquer efficacement.
-
-## Système de Combat contre les Créatures
-
-Le combat contre les créatures hostiles dans Hytale repose sur plusieurs mécaniques clés :
-
-- **Patterns lisibles mais exigeants** - Chaque ennemi télégraphie ses attaques, mais la fenêtre de réaction demande de la pratique
-- **Physique avancée** - Inertie, knockback et collisions jouent un rôle important dans les affrontements
-- **Comportements uniques** - Chaque type d'ennemi a ses propres attaques et stratégies
-- **Gestion de l'endurance** - Essentielle pour esquiver et bloquer efficacement
-
-## Ennemis par Zone
-
-### Zone 1 - Emerald Grove
+Les creatures hostiles sont vos principaux adversaires sur Orbis. Apprenez leurs patterns pour survivre. La difficulte des ennemis augmente avec la progression des zones.
 
 ## Trorks
 
-La menace la plus commune d'Emerald Grove. Race guerrière primitive mais dangereuse, ce sont les créatures hostiles principales des forêts.
+Race guerriere hybride troll-orc dans l'Emerald Grove (Zone 1). Decrits comme "les chasseurs de monstres les plus dangereux d'Orbis". Le nom est un mot-valise de "troll" et "orc".
 
-### Variantes
+### Classes
 
-| Variante | Santé | Dégâts | Comportement |
-|----------|-------|--------|--------------|
-| Scout | Faible | Faible | Fuit pour alerter |
-| Guerrier | Moyen | Moyen | Combat direct |
-| Berserker | Moyen | Élevé | Agressif, charge |
-| Archer | Faible | Moyen | Combat à distance |
-| Shaman | Moyen | Magie | Soigne les alliés, buffs |
-| Chef | Élevé | Élevé | Commande les autres |
+Le systeme NPC modulaire de Hytale permet de nombreuses variations. Chaque classe necessite differentes strategies de combat :
+
+| Classe | Equipement | Role |
+|--------|------------|------|
+| Sentinelle | Grandes lances a pointe de pierre | Garde les limites du village, alerte les autres |
+| Guerrier | Armure lourde, haches de bataille runiques | Combattants principaux, ligne de front |
+| Chasseur | Epees runiques | Chasseurs d'animaux et de joueurs |
+| Shaman | Batons a pointe d'or | Utilisateurs de magie, leaders religieux |
+| Chef | Equipement superieur | Leaders, commandent les autres Trorks |
 
 ### Tactiques Anti-Trork
 
-1. **Éliminez les Scouts en premier** - Empêche les alertes
-2. **Ciblez les Shamans** - Retire les soins ennemis
-3. **Évitez les groupes** - Attirez-les un par un
-4. **Utilisez le terrain** - Ils ont du mal avec les hauteurs
+1. **Eliminez les Sentinelles en premier** - Empeche les alertes au camp
+2. **Ciblez les Shamans** - Supprime le support magique
+3. **Evitez les camps** - Attirez les individus loin des groupes
+4. **Analysez avant d'attaquer** - Differentes classes necessitent differentes strategies
 
 ### Loot
 
-| Drop | Chance | Utilisation |
-|------|--------|-------------|
-| Arme Trork | 15% | Combat, vente |
-| Cuir grossier | 60% | Crafting |
-| Viande | 40% | Cuisine |
-| Trophée Trork | 5% | Quêtes, décoration |
+Les Trorks laissent tomber des armes et armures specifiques a leur faction avec des runes Trork uniques.
 
 ---
 
-### Zone 2 - Howling Sands
+## Morts-Vivants
 
-## Créatures des Sables
-
-La Zone 2 abrite des créatures du désert, des momies et d'autres menaces des sables.
+Apparaissent dans les donjons et partout sur Orbis. Leur apparence et niveau de menace changent selon la progression des zones.
 
 ### Squelettes
 
-| Type | Arme | Spécial |
-|------|------|---------|
-| Squelette | Épée | Basique |
-| Squelette Archer | Arc | Tir précis |
-| Squelette Guerrier | Épée + Bouclier | Bloque |
-| Squelette Mage | Bâton | Sorts de feu |
+Les squelettes sont un type d'ennemi standard avec des variantes specifiques aux zones :
 
-**Faiblesse** : Dégâts contondants (masses, marteaux)
+| Type | Zone | Equipement | Notes |
+|------|------|------------|-------|
+| Squelette Normal | Zone 1 | Epee | Lent, peut ramper hors du sol |
+| Squelette Archer | Zone 1+ | Arc, capuche | Attaques a distance |
+| Mort-vivant des Marais | Zone 1 (marecages) | Epee | Champignons poussant du crane |
+| Guerrier des Sables | Zone 2 | Equipement du desert | Adapte aux Howling Sands |
+| Aventurier Mort-vivant | Diverses | Epee | Anciens explorateurs |
+| Pretorien Mort-vivant | Fin de jeu | Armure lourde, hache, bouclier | Variante la plus forte |
+
+**Note de progression** : Les morts-vivants dans les zones ulterieures portent de meilleures armures et manient des armes plus puissantes.
 
 ### Zombies
 
-| Type | Vitesse | Spécial |
-|------|---------|---------|
-| Zombie | Lent | Groupes nombreux |
-| Zombie rapide | Rapide | Attaque surprise |
-| Zombie géant | Très lent | Beaucoup de vie |
+Les zombies apparaissent partout sur Orbis, squelettiques et en decomposition, portant des restes de vetements d'antan.
 
-**Faiblesse** : Feu, dégâts à la tête
-
-### Spectres
-
-| Type | Danger | Spécial |
-|------|--------|---------|
-| Fantôme | Modéré | Traverse les murs |
-| Wraith | Élevé | Drain de vie |
-| Banshee | Élevé | Cri paralysant |
-
-**Faiblesse** : Magie de lumière, armes bénies
+| Type | Vitesse | Notes |
+|------|---------|-------|
+| Zombie | Lent | Commun, apparait en groupes |
 
 ---
 
-## Créatures Élémentaires
+## Scaraks (Zone 2)
 
-### Golems
+Faction de ruche insectoide dans les Howling Sands. Pas telepathes - ils communiquent efficacement par lumiere et gestes, creant des attaques coordonnees qui peuvent sembler etranges.
 
-| Type | Région | Résistance | Faiblesse |
-|------|--------|------------|-----------|
-| Golem de pierre | Partout | Physique | Magie |
-| Golem de sable | Désert | Tranchant | Eau |
-| Golem de glace | Neige | Glace | Feu |
-| Golem de lave | Volcans | Feu | Glace |
+### Caracteristiques
 
-**Stratégie** : Utilisez la magie correspondant à leur faiblesse.
+- **Apparence** : Silhouettes insectoides, yeux et parties du corps bleus lumineux
+- **Communication** : Signaux visuels (lumiere et gestes), pas de telepathie
+- **Societe** : Hierarchie hautement ordonnee, chaine de commandement
 
-### Élémentaires
+### Variantes
 
-| Type | Attaques | Immunité |
-|------|----------|----------|
-| Élémentaire de feu | Boules de feu, aura brûlante | Feu |
-| Élémentaire de glace | Rayons de gel, blizzard | Glace |
-| Élémentaire de foudre | Éclairs en chaîne | Foudre |
-| Élémentaire de terre | Séisme, projectiles rocheux | - |
+| Type | Role | Danger |
+|------|------|--------|
+| Larve Scarak | Stade jeune | Faible |
+| Ouvrier Scarak | Travail | Faible |
+| Guerrier Scarak | Gardes, combat | Modere |
+| Tank Scarak | Assaut lourd | Eleve |
+| Sauterelle Scarak | Variante volante | Modere |
+| Scarak Broodmother | Boss | Tres eleve |
 
----
+### Guerriers Scarak
 
-## Créatures de Donjon
+La variante la plus commune. Ils :
+- Evoluent depuis les Larves Scarak
+- Gardent les structures de la ruche et patrouillent le territoire
+- Utilisent leurs pattes avant comme armes de melee
+- Comptent sur leur carapace dure et leur nombre
 
-### Araignées
+### Loot
 
-| Type | Taille | Spécial |
-|------|--------|---------|
-| Araignée | Petite | Poison faible |
-| Araignée géante | Grande | Poison fort, toile |
-| Reine araignée | Boss | Ponte, toile massive |
-
-**Conseil** : Apportez des antidotes !
-
-### Mimics
-
-Coffres animés qui attaquent quand ouverts.
-
-- **Repérage** : Légère différence de texture
-- **Attaques** : Morsure puissante, saut
-- **Récompense** : Loot garanti de qualité
+- **Chitine Solide** - Materiau de fabrication pour selles d'insectes et ameliorations d'armure
+- Tombe principalement dans le biome Badlands de la Zone 2
 
 ---
 
-### Momies
+## Araignees
 
-| Type | Attaque | Spécial |
-|------|---------|---------|
-| Momie | Mêlée | Malédiction |
-| Momie prêtre | Magie | Invoque des scarabées |
-| Pharaon | Boss | Multiples phases |
+Trouvees dans l'Emerald Grove et les donjons.
 
-**Faiblesse** : Feu (les bandages brûlent)
-
-### Vers des Sables
-
-Monstres massifs sous le désert.
-
-- **Apparition** : Vibrations du sol
-- **Attaque** : Engloutit, morsure massive
-- **Évitement** : Restez sur les rochers
-- **Faiblesse** : Attaquez la bouche ouverte
+| Type | Taille | Notes |
+|------|--------|-------|
+| Araignee | Petite | Commune dans les grottes |
+| Araignee Geante | Grande | Poison, attaques de toile |
 
 ---
 
-### Zone 3 - Borea
+## Creatures du Desert (Zone 2)
 
-## Créatures des Glaces
+### Predateurs de la Savane
 
-La Zone 3, Borea, abrite des créatures arctiques adaptées au froid extrême.
+| Creature | Danger | Notes |
+|----------|--------|-------|
+| Hyene | Modere | Chasseurs en meute |
+| Tigre a dents de sabre | Eleve | Predateur puissant |
 
-### Creatures des Glaces
+---
 
-Les créatures des glaces sont des ennemis liés à l'élément glacé de Borea.
+## Outlanders (Zone 3)
 
-| Type | Danger | Spécial |
-|------|--------|---------|
-| Créature des glaces mineure | Modéré | Attaques de gel |
-| Créature des glaces majeure | Élevé | Aura de froid |
+Faction tribale humaine corrompue en Borea. Ils venerent Varyn et affichent sa Marque du Mal.
 
-**Faiblesse** : Feu
+### Caracteristiques
 
-### Yétis
+- **Origine** : Branche de la civilisation humaine qui s'est isolee en Borea
+- **Corruption** : Fortement corrompus par les rituels sombres qu'ils pratiquent
+- **Equipement** : Armement et armure en Cobalt
+- **Premiere apparition** : Trailer d'annonce - guerrier masque colossal dans un donjon
+
+### Niveau de Menace
+
+Les Outlanders sont la faction hostile principale que les joueurs affrontent en Zone 3. Ils sont significativement plus dangereux que les ennemis des Zones 1 et 2.
+
+---
+
+## Yeti (Boss Zone 3)
+
+La menace boss majeure de Borea. Une bete extremement grande et territoriale.
 
 | Stat | Valeur |
 |------|--------|
-| Santé | Très élevée |
-| Dégâts | Élevés |
+| Sante | Tres elevee |
+| Degats | Eleves |
 | Vitesse | Moyenne |
-| Résistance | Glace |
-| Faiblesse | Feu |
+| Type | Boss |
 
-**Attaques** :
-- Coup de poing (knockback)
-- Lancer de rocher
-- Rugissement (stun)
-
-### Loups Arctiques
-
-- **En meute** : Jusqu'à 6 loups
-- **Alpha** : Plus gros, plus fort
-- **Stratégie** : Tuez l'alpha, la meute fuit
+Present de facon proeminente dans le Trailer d'Annonce de Hytale. Extremement difficile a vaincre.
 
 ---
 
-### Zone 4 - Devastated Lands
+## Creatures du Void (Zone 4)
 
-## Créatures Volcaniques et Souterraines
+Les serviteurs corrompus de Varyn dans les Devastated Lands. Caracterises par des yeux verts lumineux et une coloration violette.
 
-Les Devastated Lands abritent les ennemis les plus dangereux d'Orbis. Cette zone corrompue par Varyn combine des créatures volcaniques et souterraines.
+### Le Void
 
-### Créatures Volcaniques
+Le Void est l'une des six runes elementaires. Varyn l'utilise pour corrompre les creatures et environnements en formes tordues.
 
-| Type | Danger | Spécial |
-|------|--------|---------|
-| Créature de lave | Élevé | Immunité au feu, dégâts de brûlure |
-| Golem de magma | Très élevé | Explosions, projections de lave |
+### Types de Void
 
-**Faiblesse** : Glace, eau
+| Type | Role | Danger |
+|------|------|--------|
+| Void Eyes | Eclaireurs, reconnaissance | Modere |
+| Void Spawn | Soldats, combat | Eleve |
+| Void Dragon | Volonte aerienne de Varyn | Extreme (Boss) |
 
-### Créatures Souterraines
+### Void Eyes
 
-| Type | Danger | Spécial |
-|------|--------|---------|
-| Créature des profondeurs | Élevé | Attaques depuis les ombres |
-| Ver des cavernes | Très élevé | Embuscades souterraines |
+- Servent d'eclaireurs pour les forces de Varyn
+- Peuvent apparaitre dans n'importe quelle zone d'Orbis
+- S'aventurent profondement dans les territoires non corrompus
+- Rapportent leurs trouvailles a Varyn
 
-## Démons
+### Void Spawn
 
-Les forces de Varyn, présentes dans les Devastated Lands.
-
-### Hiérarchie
-
-| Type | Danger | Capacités |
-|------|--------|-----------|
-| Imp | Modéré | Vol, boules de feu |
-| Démon | Élevé | Combat brutal |
-| Démon supérieur | Très élevé | Magie noire |
-| Seigneur démon | Boss | Phases multiples |
-
-**Résistances** : Feu, Ténèbres
-**Faiblesses** : Lumière, armes bénies
+- Soldats letaux commandes par Varyn
+- Portent de grandes armes et armures en Thorium
+- Parmi les serviteurs les plus dangereux de Varyn
 
 ---
 
 ## Boss
 
-### Gardiens de Donjon
+### Boss Confirmes par Zone
 
-Chaque donjon majeur a un boss unique.
+| Boss | Zone | Notes |
+|------|------|-------|
+| Scarak Broodmother | Zone 2 (Howling Sands) | Reine de la ruche insectoide |
+| Yeti | Zone 3 (Borea) | Bete territoriale, vue dans les trailers |
+| Dragon de Glace | Zone 3 (Borea) | Dragon associe a l'element Eau |
+| Void Dragon | Zone 4 (Devastated Lands) | Volonte incarnee de Varyn |
 
-| Boss | Région | Mécanique |
-|------|--------|-----------|
-| Roi Trork | Grasslands | Appelle des renforts |
-| Reine Araignée | Emerald Wilds | Ponte + toiles |
-| Pharaon Maudit | Howling Sands | Phases + invocations |
-| Titan de Glace | Whisperfrost | Zone de gel |
-| Archidémon | Devastated | Combat épique multi-phases |
+### Systeme de Donjons
+
+Hytale propose plusieurs types de donjons :
+- **Donjons d'Histoire** - Apparaissent une fois par monde, contiennent du lore
+- **Donjons Aleatoires** - Generes proceduralement avec salles finales
+- **Donjons de Defi** - Haute difficulte pour joueurs experimentes
+- **Donjons de Portail** - Connectent a d'autres dimensions (Alterverses)
 
 ### Conseils Boss
 
-1. **Apprenez les patterns** - Chaque attaque est télégraphée, les patterns sont lisibles mais exigeants
-2. **Préparez-vous** - Potions, nourriture, buffs
-3. **Gérez l'endurance** - L'endurance est essentielle pour esquiver et bloquer
-4. **Utilisez la physique** - L'inertie, le knockback et les collisions peuvent jouer en votre faveur
-5. **Phases** - Les boss changent de comportement à certains HP
-6. **Environnement** - Utilisez l'arène à votre avantage
+1. **Apprenez les patterns** - Les attaques de boss sont telegraphiees
+2. **Preparez-vous** - Apportez nourriture et objets de soin
+3. **Phases** - Les boss changent de comportement a certains niveaux de PV
+4. **Environnement** - Utilisez l'arene a votre avantage
+
+## Varyn - L'Antagoniste Principal
+
+L'antagoniste principal de Hytale. Une entite manipulatrice du void non native d'Orbis qui commande toutes les creatures du Void.
+
+- **Apparence** : Figure demoniaque
+- **Pouvoirs** : Puissante magie du void, corruption
+- **Serviteurs** : Void Spawn, Void Eyes, Void Dragon
+- **Influence** : Venere par les Outlanders
 
 ## Voir Aussi
 
-- [Système de Combat](/docs/gameplay/combat/overview)
-- [Créatures](/docs/gameplay/creatures/overview)
-- [Régions](/docs/gameplay/world/regions)
-
-## Lore des Créatures Hostiles
-
-Les créatures hostiles d'Orbis sont intrinsèquement liées aux éléments de chaque zone :
-
-- **Zone 1 (Emerald Grove)** - Les Trorks sont des créatures des forêts, primitives mais organisées
-- **Zone 2 (Howling Sands)** - Les momies et créatures des sables sont liées à l'élément du désert
-- **Zone 3 (Borea)** - Les créatures des glaces sont adaptées au froid arctique
-- **Zone 4 (Devastated Lands)** - Les forces de Varyn et ses créatures corrompues dominent cette zone
-
-Varyn et ses forces menacent tout Orbis, et plus le joueur progresse vers la Zone 4, plus les ennemis deviennent puissants et corrompus.
+- [Systeme de Combat](/docs/gameplay/combat/overview)
+- [Creatures](/docs/gameplay/creatures/overview)
+- [Zones](/docs/gameplay/world/zones)
 
 ---
 
-*Dernière mise à jour : janvier 2026*
+*Sources : [Blog Officiel Hytale](https://hytale.com/news), [Wiki Hytale](https://hytale.fandom.com)*

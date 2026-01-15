@@ -3,164 +3,166 @@ title: Interface
 description: Comprendre l'interface utilisateur de Hytale
 ---
 
-# Interface du Jeu
+# Interface du jeu
 
-Guide complet de l'interface utilisateur de Hytale.
+Guide complet de l'interface utilisateur de Hytale. L'équipe UI/UX a conçu l'interface de Hytale pour offrir une expérience immersive, intuitive et universelle dans tous les modes de jeu.
 
-## Écran Principal (HUD)
+## Ecran principal (HUD)
 
-L'interface en jeu affiche les informations essentielles sans obstruer la vue.
+Le HUD (affichage tête haute) apparaît à l'écran pendant le jeu, superposé à votre vue du monde sans obstruer le gameplay.
 
-### Barre de Vie
+### Barre de vie
 
-Située en haut à gauche :
-- **Cœurs** - Votre santé actuelle
-- **Régénération** - Se remplit lentement hors combat
-- **Dégâts** - Les cœurs clignotent en rouge
+Située en **bas de l'écran, au-dessus de la barre d'action** :
+- **Barre rouge** - Votre santé actuelle (100 PV par défaut)
+- **Régénération** - Se remplit en fonction de votre état de faim
+- **Dégâts** - La barre diminue quand vous subissez des dégâts ; atteindre zéro cause la mort
 
-### Barre d'Endurance
+### Barre de faim
 
-Sous la barre de vie, **ressource essentielle du combat** :
-- **Endurance** - Ressource pour sprint, esquive, attaques speciales
-- **Regeneration** - Se remplit rapidement au repos, plus lentement en combat
-- **Epuisement** - Actions limitees si vide, vous rend vulnerable
+Également située en bas près de la santé :
+- **Faim** - Liée à l'alimentation de votre personnage
+- **Visibilité** - N'apparaît pas quand la barre est pleine
+- **Régénération de santé** - Manger remplit cette barre et joue un rôle central dans la régénération de la santé
 
-:::warning Importance de l'Endurance
-L'endurance est cruciale en combat. Ne la videz jamais completement car vous serez incapable d'esquiver les attaques ennemies.
-:::
+### Barre de mana
 
-### Barre de Mana
+Pour les utilisateurs d'armes magiques :
+- **Jauge bleue** - Située à gauche de la barre d'action
+- **Utilisation** - Requise pour les armes magiques
+- **Régénération** - Se remplit avec le temps
 
-Pour les utilisateurs de magie :
-- **Mana** - Ressource pour les sorts
-- **Régénération** - Lente, accélérée par certains équipements
-- **Sorts** - Chaque sort consomme une quantité variable
+### Barre d'action
 
-### Barre d'Action
-
-En bas de l'écran :
-- **9 emplacements** - Accès rapide aux objets
+Au centre bas de l'écran :
+- **9 emplacements** - Accès rapide aux objets et blocs
 - **Sélection** - Touches 1-9 ou molette
-- **Indicateur** - Objet actif surligné
+- **Objet actif** - L'emplacement sélectionné est surligné
 
-### Mini-carte
+### Réticule
 
-En haut à droite :
-- **Position** - Votre emplacement
-- **Direction** - Boussole intégrée
-- **POI** - Points d'intérêt à proximité
-- **Joueurs** - Alliés en multijoueur
+- **Petit point** - Situé au centre de l'écran
+- **Fonction** - Indique le point de visée de l'objet tenu
+
+### Indicateur de direction
+
+- **Boussole** - Située en haut de l'écran
+- **Direction** - Affiche les points cardinaux pour la navigation
+
+### Icônes de navigation
+
+Situées en bas à droite de l'écran :
+- **Icône carte** - Ouvre la carte du monde (touche M)
+- **Icône inventaire** - Ouvre l'inventaire (touche Tab)
+- Raccourcis supplémentaires vers d'autres éléments d'interface
 
 ## Inventaire
 
-Appuyez sur **E** pour ouvrir l'inventaire.
+Appuyez sur **Tab** pour ouvrir l'inventaire.
 
-### Sections
+### Stockage principal
 
 | Section | Description |
 |---------|-------------|
-| Sac principal | 40 emplacements de stockage |
-| Équipement | Armure et accessoires équipés |
-| Crafting rapide | Fabrication basique 2x2 |
-| Effets actifs | Buffs et debuffs en cours |
+| Inventaire principal | Emplacements par défaut, extensibles via les sacs à dos |
+| Emplacement sac à dos | Situé à droite de votre modèle de personnage |
+| Équipement | Armure et équipement porté |
+| Craft de poche | Fabrication basique sans établi |
 
-### Équipement
+### Améliorations de sac à dos
 
-Emplacements d'équipement :
-- **Tête** - Casques, chapeaux
-- **Torse** - Plastrons, robes
-- **Jambes** - Jambières, pantalons
-- **Pieds** - Bottes, chaussures
-- **Main principale** - Armes, outils
-- **Main secondaire** - Boucliers, torches, grimoires
-- **Accessoires** - Anneaux, amulettes (2-4 slots)
+Votre inventaire peut être étendu grâce aux améliorations de sac à dos :
+- **Sac à dos basique** - Ajoute 9 emplacements supplémentaires (nécessite Établi niveau 2)
+- **Amélioration de sac 1** - Emplacements additionnels (nécessite Établi niveau 3)
+- **Amélioration de sac 2** - Plus d'emplacements (nécessite de restaurer 100 Mémoires)
 
-## Menu de Crafting
+**Conseil sac à dos**
 
-Accessible via les stations de craft :
+Les sacs à dos sont des objets consommables qui débloquent de façon permanente des emplacements d'inventaire supplémentaires pour votre personnage. Cliquez sur le troisième losange sous l'onglet Fabrication pour voir le contenu de votre sac à dos.
 
-### Établi
+### Emplacements d'équipement
 
-- Recettes basiques et avancées
-- Filtres par catégorie
-- Recherche par nom
-- Favoris sauvegardés
+Emplacements d'armure et d'équipement :
+- **Heaume** - Protection de la tête
+- **Cuirasse** - Armure du torse (meilleur bonus défensif)
+- **Gantelets** - Protection des mains
+- **Jambières** - Armure des jambes
+- **Bouclier** - Équipement défensif en main secondaire
+- **Équipement dorsal** - Cape ou accessoires de dos
 
-### Forge
+**Équipement automatique**
 
-- Création d'armes et armures
-- Amélioration d'équipement
+Si l'emplacement d'armure correspondant est vide, les nouvelles pièces d'armure s'équipent automatiquement ; sinon, elles vont dans votre inventaire.
+
+## Système de fabrication
+
+Hytale utilise des établis spécialisés pour différents types de fabrication :
+
+### Etabli du constructeur
+
+- Recettes de fabrication basiques
+- Matériaux de construction
+- Création d'outils
+- Améliorable pour débloquer plus de recettes
+
+### Etabli de l'armurier
+
+- Fabrication de heaume, cuirasse, gantelets, jambières
+- Création de boucliers
+- Nécessite des lingots de cuivre, des troncs d'arbre et de la pierre pour le fabriquer
+
+### Enclume du forgeron
+
+- Améliorations d'armes
+- Renforcement d'équipement
 - Réparation d'objets
 
-### Cuisine
+### Fourneau du chef
 
-- Préparation de plats
-- Combinaison d'ingrédients
-- Recettes découvertes
+- Préparation de nourriture
+- Recettes de cuisine
+- Plats accordant des bonus
 
-## Carte du Monde
+### Etabli du fermier
+
+- Outils agricoles
+- Transformation de graines
+- Objets d'agriculture
+
+### Stations additionnelles
+
+- **Etabli du récupérateur** - Démontage d'objets pour récupérer des matériaux
+- **Etabli de l'alchimiste** - Potions et objets magiques
+- **Etabli de l'arcaniste** - Fabrication magique de fin de jeu (nécessite du thorium et de l'Essence du Vide)
+
+## Carte du monde
 
 Appuyez sur **M** pour la carte complète.
 
 ### Fonctionnalités
 
-- **Zoom** - Vue rapprochée ou éloignée
-- **Marqueurs** - Ajoutez vos propres points
-- **Brouillard** - Zones non explorées masquées
-- **Waypoints** - Navigation guidée
+- **Vue de dessus** - Vue à vol d'oiseau du monde
+- **Zoom** - Utilisez la molette pour zoomer/dézoomer pour un placement précis des marqueurs
+- **Votre position** - Flèche bleue indiquant votre emplacement et direction
+- **Marqueurs personnalisés** - Clic droit pour placer des marqueurs visibles par votre groupe
 
-### Types de Marqueurs
+### Icônes de la carte
 
 | Icône | Signification |
 |-------|---------------|
-| Maison | Votre base |
-| Crâne | Zone dangereuse |
-| Étoile | Point d'intérêt |
-| Point d'exclamation | Quête active |
-| Coffre | Loot découvert |
-
-## Journal de Quetes
-
-Appuyez sur **J** pour les quetes.
-
-:::info Adventure Mode
-Le mode Aventure avec la campagne narrative et les quetes principales n'est pas disponible au lancement. Il sera ajoute dans une mise a jour ulterieure.
-:::
-
-### Organisation
-
-- **Quetes secondaires** - Missions optionnelles des PNJ
-- **Defis** - Objectifs a accomplir
-- **Succes** - Accomplissements permanents
-
-### Suivi
-
-- Quête active affichée à l'écran
-- Objectifs avec progression
-- Récompenses prévisualisées
-
-## Menus Sociaux
-
-### Liste d'Amis (O)
-
-- Amis en ligne/hors ligne
-- Invitations de groupe
-- Messagerie privée
-- Statut personnalisé
-
-### Chat (Entrée)
-
-- **Global** - Tous les joueurs du serveur
-- **Local** - Joueurs à proximité
-- **Groupe** - Membres de votre équipe
-- **Whisper** - Messages privés (/w nom)
+| Flèche bleue | Votre position et direction |
+| Icône de spawn | Votre point d'apparition |
+| Icône spirale | Portail du Temple Oublié |
+| Icônes de joueurs | Autres joueurs dans votre lobby |
+| Marqueurs de quête | Objectifs actifs |
+| Icônes de structure | Bâtiments et donjons à proximité |
 
 ## Paramètres
 
 ### Graphiques
 
 - Qualité des textures
-- Distance de rendu
+- Distance de rendu (minimum 192 blocs, recommandé 348)
 - Effets visuels
 - VSync et FPS max
 
@@ -172,15 +174,21 @@ Le mode Aventure avec la campagne narrative et les quetes principales n'est pas 
 
 ### Gameplay
 
-- Difficulté
+- Préférences de caméra (première/troisième personne par défaut)
+- Champ de vision (30-120, par défaut 75)
 - Indicateurs d'aide
-- Langue
 
-## Voir Aussi
+### Contrôles
+
+- Personnalisation complète des raccourcis clavier
+- Comportement bascule ou maintenu pour sprint/accroupissement
+- Sensibilité de la souris (horizontale et verticale)
+
+## Voir aussi
 
 - [Contrôles](/docs/gameplay/getting-started/controls)
-- [Premiers Pas](/docs/gameplay/getting-started/first-steps)
+- [Premiers pas](/docs/gameplay/getting-started/first-steps)
 
 ---
 
-*L'interface peut évoluer avec les mises à jour du jeu.*
+*L'interface peut évoluer avec les mises à jour du jeu. Dernière vérification : janvier 2026 (Early Access).*

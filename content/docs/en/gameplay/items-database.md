@@ -35,14 +35,30 @@ Items in Hytale use a component-based system with the following properties:
 
 ## Armor System
 
-Hytale uses a 4-slot armor system:
+Hytale uses a **5-slot armor system** crafted at the Armorer's Workbench:
 
-| Slot | Index | Description |
-|------|-------|-------------|
-| Head | 0 | Helmet/headgear slot |
-| Chest | 1 | Chestplate/body armor |
-| Hands | 2 | Gloves/gauntlets |
-| Legs | 3 | Leggings/pants |
+| Slot | Description |
+|------|-------------|
+| **Helm** | Head protection |
+| **Cuirass** | Chest/body armor |
+| **Gauntlets** | Hand protection |
+| **Greaves** | Leg armor |
+| **Shield** | Off-hand defensive item (separate recipes) |
+
+### Armor Material Tiers
+
+| Tier | Material | Workbench Tier | Zone | Special Properties |
+|------|----------|----------------|------|-------------------|
+| 1 | **Copper** | Tier 1 | Zone 1 | Basic protection |
+| 2 | **Iron** | Tier 1 | Zone 1-2 | Standard protection |
+| 3 | **Thorium** | Tier 2 | Zone 2 | Strong poison resistance |
+| 4 | **Cobalt** | Tier 2 | Zone 3 | Damage-focused stats |
+| 5 | **Adamantite** | Tier 3 | Zone 4 | Light attack damage boost |
+| 6 | **Mithril** | Tier 3 | Zone 4 | Highest tier (may require boss drops) |
+
+:::note Armor Set Bonuses
+Different armor sets provide unique bonuses. Cobalt and Adamantite favor damage output, while Thorium offers strong defensive properties against poison.
+:::
 
 ### Armor Properties
 
@@ -70,13 +86,55 @@ Tools use a specification-based system with "GatherType" determining what blocks
 
 ## Weapon System
 
-Weapons can modify entity stats when equipped:
+Weapons are crafted at the **Blacksmith's Anvil** and can modify entity stats when equipped.
+
+### Weapon Types
+
+| Weapon | Description | Special |
+|--------|-------------|---------|
+| **Swords** | Versatile one-handed weapons | Allows off-hand item |
+| **Daggers** | Fast dual-wielded weapons | High mobility, strong charged attack |
+| **Bows** | Ranged weapons | Plentiful ammunition |
+| **Hammers/Maces** | Heavy weapons | High base damage |
+| **Staves** | Magic weapons | Uses mana system |
+
+### Weapon Material Tiers
+
+Weapons follow the same material progression as armor:
+- Copper > Iron > Thorium > Cobalt > Adamantite > Mithril
+
+:::tip Best Weapons
+Mithril Daggers are currently considered the strongest crafted melee weapons. Daggers benefit from Adamantite armor's light attack damage boost.
+:::
+
+### Weapon Properties
 
 | Property | Description |
 |----------|-------------|
 | StatModifiers | Map of stat types to modifiers |
 | EntityStatsToClear | Stats to clear when weapon is unequipped |
 | RenderDualWielded | Whether to render as dual-wielded |
+
+## Ore Types
+
+Hytale features **seven confirmed ore types** found across different zones:
+
+| Ore | Zone | Location | Pickaxe Required | Notes |
+|-----|------|----------|------------------|-------|
+| **Copper** | Zone 1 | Cave walls, shallow depths | Crude Pickaxe | Starting ore, green-brown appearance |
+| **Iron** | Zone 1-2 | ~50 blocks deep, abundant in Badlands | Crude Pickaxe | More common in desert caves |
+| **Gold** | Zone 2 | Various depths | Iron Pickaxe | Used for Alchemist's Workbench |
+| **Thorium** | Zone 2 | Caves, cliffsides in Howling Sands | Iron Pickaxe | Shiny green appearance |
+| **Cobalt** | Zone 3 | Whisperfrost Frontiers, shale columns | Iron Pickaxe | Dark blue color, aboveground veins |
+| **Adamantite** | Zone 4 | Cinder Islands, near lava | Iron Pickaxe | Fire resistance recommended |
+| **Mithril** | Zone 4 | Tundra/Volcano biomes, boss drops | Iron Pickaxe | Rarest ore, may require boss kills |
+
+:::tip Mining Tips
+- All ores can be mined with an Iron Pickaxe (even Adamantite)
+- Copper and Iron can be mined with the starting Crude Pickaxe
+- Desert/Badlands caves have the most Iron
+- Aboveground shale columns in Zone 3 contain large Cobalt veins
+:::
 
 ## Confirmed Block Types
 
@@ -197,6 +255,25 @@ Hytale has a fluid system with 6 confirmed fluid types:
 | `Fluid_Tar` | `Tar_Source` | `Tar` | Sticky tar |
 | `Fluid_Slime` | `Slime_Source` | `Slime` | Bouncy slime |
 | `Fluid_Poison` | `Poison_Source` | `Poison` | Damaging poison |
+
+## Item Durability & Repair
+
+Items with durability will degrade with use and can be repaired.
+
+### Repair System
+
+1. Craft a **Repair Kit** at a workbench
+2. Equip the Repair Kit in your hotbar
+3. Press **Right Mouse Button** to open the repair window
+4. Select items to repair
+
+:::warning Durability Loss
+Using a Repair Kit **reduces maximum durability by 10%**. Repeatedly repairing the same item will eventually cause it to permanently break. Consider crafting new equipment instead of over-repairing.
+:::
+
+### Salvaging
+
+The **Salvager's Workbench** allows you to break down unwanted gear into raw materials, which can then be used to craft new equipment.
 
 ## Item Quality System
 

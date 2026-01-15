@@ -1,207 +1,145 @@
 ---
 title: Magie
-description: Le système magique de Hytale - sorts, grimoires et écoles de magie
+description: Le systeme magique de Hytale - batons, grimoires et attaques elementaires
 ---
 
 # Magie
 
-La magie dans Hytale est un systeme complet organise en **plusieurs ecoles** : offensive, defensive et utilitaire. Elle offre une alternative strategique au combat physique et peut etre combinee avec les armes traditionnelles.
+La magie dans Hytale offre des options offensives a distance via les batons et les grimoires. Le systeme magique est encore en developpement, avec plus de fonctionnalites prevues pour de futures mises a jour.
 
-## Système de Mana
+## Statut Early Access
 
-### Fonctionnement
+Le systeme de mana complet n'est **pas encore implemente** dans Hytale Early Access. Malgre une statistique de mana apparaissant sur la fiche de personnage, les batons utilisent actuellement un **systeme de charges d'Essence** au lieu du mana. Les grimoires ne sont actuellement utilisables que par les ennemis, pas les joueurs.
 
-- **Barre de Mana** - Ressource pour lancer des sorts
-- **Régénération** - Lente et passive
-- **Épuisement** - Impossible de lancer si vide
-- **Boost** - Potions et équipements augmentent la régénération
+## Systeme Magique Actuel
 
-### Gestion du Mana
+### Fonctionnement (Early Access)
 
-| Niveau de Mana | État | Recommandation |
-|----------------|------|----------------|
-| 100-75% | Plein | Utilisez librement |
-| 75-50% | Modéré | Priorisez les sorts essentiels |
-| 50-25% | Bas | Réservez pour urgences |
-| 25-0% | Critique | Passez aux armes physiques |
+Dans la version actuelle, la magie fonctionne via les **Essences Elementaires** :
+
+- **Essence of Fire** - Alimente les batons de feu
+- **Essence of Ice** - Alimente les batons de glace
+- Les batons stockent des charges de leur essence elementaire
+- Pas de gestion de barre de mana actuellement requise
+
+### Fabrication d'Armes Magiques
+
+Pour fabriquer des armes magiques, vous avez besoin de l'**Arcanist's Workbench** :
+
+1. Construisez un Arcanist's Workbench
+2. Rassemblez les materiaux requis (metaux, essences, gemmes)
+3. Fabriquez les batons a l'etabli
+
+## Batons
+
+Les batons sont des armes magiques a deux mains qui permettent des attaques elementaires a distance.
+
+### Fonctionnement des Batons
+
+- **Attaque Basique** : Coup de melee (comme une arme de baton)
+- **Attaque Chargee** : Consomme de l'endurance pour lancer un projectile magique
+- **Systeme d'Essence** : Utilise les essences elementaires stockees pour les sorts
+
+### Batons Disponibles
+
+| Baton | Element | Attaque | Notes |
+|-------|---------|---------|-------|
+| Fire Staff | Feu | Projectile boule de feu | Necessite Essence of Fire |
+| Ice Crystal Staff | Glace | Spray/projectile de glace | Necessite Essence of Ice |
+| Flame Crystal Staff | Feu | Attaques de feu ameliorees | Rarete Rare, fabrique avec Ruby |
+
+### Flame Crystal Staff
+
+Un baton notable necessitant des materiaux avances :
+
+- **Rarete** : Rare
+- **Lieu de Fabrication** : Arcanist's Table
+- **Materiaux** : Lingots d'argent, lingots d'or, Ruby, grande quantite d'Essence of Fire
+- **Effet** : Multiples attaques de feu, statistiques magiques augmentees
+
+### Ice Crystal Staff
+
+- **Apparence** : Baton de bois surmonte de cristaux bleus lumineux, fixes avec des sangles metalliques
+- **Attaque** : Cree un spray de glace qui voyage a travers le sol et perce a distance
 
 ## Grimoires (Spellbooks)
 
-Les grimoires sont les armes magiques principales. Chaque grimoire contient des sorts spécifiques.
+Les grimoires sont des tomes contenant des connaissances et des sorts magiques.
 
-### Types de Grimoires
+### Limitation Actuelle
 
-| Grimoire | École | Sorts Inclus |
-|----------|-------|--------------|
-| Tome Élémentaire | Éléments | Boule de feu, Éclair, Glaçon |
-| Livre des Ombres | Ténèbres | Drain de vie, Malédiction |
-| Codex de Lumière | Lumière | Soin, Bouclier sacré |
-| Manuel Arcanique | Arcane | Téléportation, Projectile magique |
-| Grimoire Naturel | Nature | Entrave, Régénération |
+Dans la version Early Access, **les grimoires ne sont actuellement utilisables que par les ennemis**, pas les joueurs. Vous rencontrerez des ennemis utilisant des grimoires contre vous, mais la fonctionnalite joueur est prevue pour de futures mises a jour.
 
-### Rareté des Grimoires
+### Types de Grimoires Connus
 
-- **Commun** - 1-2 sorts basiques
-- **Rare** - 3-4 sorts, effets améliorés
-- **Épique** - 5+ sorts, sorts uniques
-- **Légendaire** - Sorts exclusifs puissants
+- **Void Grimoire** - Agit actuellement comme decoration/recette de fabrication
+- **Air Grimoire** - Agit actuellement comme decoration/recette de fabrication
 
-## Ecoles de Magie
+Ces grimoires semblent etre consommes comme recettes, probablement pour debloquer la capacite de fabriquer des armes grimoire dans de futures mises a jour.
 
-Le systeme magique de Hytale est divise en trois grandes categories :
+### Grimoires Ennemis
 
-| Categorie | Role | Exemples |
-|-----------|------|----------|
-| **Offensive** | Infliger des degats | Feu, Foudre, Tenebres |
-| **Defensive** | Protection et soins | Lumiere, Glace (armure) |
-| **Utilitaire** | Mobilite et controle | Arcane, Nature |
+Les ennemis peuvent utiliser des grimoires pour lancer des projectiles magiques sur les joueurs. Surveillez les ennemis avec des livres - ils indiquent des attaques magiques a distance imminentes.
 
-### Magie Elementaire (Offensive)
+## Autres Objets Magiques
 
-Controle des elements naturels pour infliger des degats.
+### Armes Magiques Ennemies
 
-**Feu**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Boule de feu | 20 | Projectile explosif |
-| Mur de flammes | 35 | Zone de dégâts |
-| Immolation | 50 | Buff : armes enflammées |
-| Météore | 80 | Dégâts massifs de zone |
+Certains ennemis utilisent des armes magiques uniques :
 
-**Glace**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Glaçon | 15 | Projectile + ralentissement |
-| Cône de froid | 30 | Zone frontale |
-| Armure de glace | 40 | Buff défensif |
-| Blizzard | 70 | Zone persistante |
+- **Bone Staff** - Utilise par les ennemis morts-vivants
+- **Trork Staff** - Utilise par les chamans Trorks
 
-**Foudre**
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Éclair | 25 | Dégâts instantanés |
-| Chaîne d'éclairs | 45 | Rebondit entre ennemis |
-| Tempête | 60 | Zone massive |
+### Batons Fabricables par Materiau
 
-### Magie des Tenebres (Offensive)
+Vous pouvez fabriquer des batons avec differents metaux :
 
-Pouvoirs sombres et maledictions pour des degats devastateurs.
+| Metal | Tier du Baton |
+|-------|---------------|
+| Cuivre | Basique |
+| Fer | Standard |
+| Thorium | Mi-niveau |
+| Mithril | Avance |
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Drain de vie | 30 | Dégâts + soin |
-| Malédiction | 25 | Debuff ennemi |
-| Invocation d'ombre | 50 | Familier temporaire |
-| Néant | 75 | Dégâts purs, ignore armure |
+## Fonctionnalites Prevues
 
-:::warning Corruption
-Certains sorts sombres peuvent avoir des effets secondaires négatifs sur le lanceur.
-:::
+Base sur la fiche de personnage et le design du jeu, les futures mises a jour pourraient inclure :
 
-### Magie de Lumiere (Defensive)
+- **Systeme de Mana Complet** - Barre de mana pour lancer des sorts
+- **Grimoires Joueur** - Capacite d'utiliser les grimoires
+- **Ecoles de Magie Multiples** - Sorts offensifs, defensifs et utilitaires
+- **Progression Magique** - Montee en niveau des capacites magiques
 
-Ecole specialisee dans les soins et la protection.
+### Types de Sorts Possibles (Speculatif)
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Soin mineur | 20 | Restaure la vie |
-| Soin majeur | 45 | Soin important |
-| Bouclier sacré | 30 | Absorbe les dégâts |
-| Purification | 35 | Retire les debuffs |
-| Résurrection | 100 | Relève un allié (cooldown long) |
+D'apres les fichiers du jeu et les documents de design, les futurs sorts possibles incluent :
 
-### Magie Arcanique (Utilitaire)
+- Zones persistantes (effets de zone)
+- Projectiles (differents elements)
+- Boucliers et buffs
+- Debuffs et maledictions
+- Teleportation courte portee
 
-Ecole axee sur la mobilite, le controle et les utilitaires.
+## Conseils pour Utiliser la Magie
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Projectile arcanique | 10 | Dégâts basiques garantis |
-| Téléportation courte | 40 | Déplacement instantané |
-| Lévitation | 30 | Vol temporaire |
-| Invisibilité | 50 | Furtivité |
-| Portail | 80 | Téléportation longue distance |
+### Meilleures Pratiques Actuelles
 
-### Magie Naturelle (Utilitaire/Defensive)
+1. **Fabriquez des batons tot** - Construisez un Arcanist's Workbench des que possible
+2. **Collectez les essences** - Rassemblez les Essence of Fire et Ice pour les munitions
+3. **Utilisez les attaques chargees** - Les projectiles magiques sont plus puissants que le melee
+4. **Melangez avec le melee** - Les batons peuvent attaquer au corps a corps quand vous n'avez plus d'essence
 
-Connexion avec la nature pour le controle et le soutien.
+### Contre les Ennemis Magiques
 
-| Sort | Coût Mana | Effet |
-|------|-----------|-------|
-| Entrave | 25 | Immobilise l'ennemi |
-| Régénération | 35 | Soin sur la durée |
-| Invocation animale | 45 | Compagnon temporaire |
-| Tremblement | 60 | Dégâts de zone + stun |
-
-## Combinaisons Magiques
-
-### Synergies
-
-Combinez sorts pour des effets amplifiés :
-
-| Combo | Sorts | Effet |
-|-------|-------|-------|
-| Tempête de feu | Feu + Vent | Tornade enflammée |
-| Glace noire | Glace + Ténèbres | Gel + drain |
-| Foudre sacrée | Foudre + Lumière | Dégâts + soin allié |
-
-### Contre-sorts
-
-| Élément | Faible contre | Fort contre |
-|---------|---------------|-------------|
-| Feu | Eau/Glace | Nature |
-| Glace | Feu | Foudre |
-| Foudre | Terre | Eau |
-| Lumière | Ténèbres | Morts-vivants |
-| Ténèbres | Lumière | Vivants |
-
-## Progression Magique
-
-### Niveaux de Maîtrise
-
-```
-Initié → Apprenti → Mage → Archimage → Maître
-```
-
-Chaque niveau débloque :
-- Nouveaux sorts
-- Réduction du coût en mana
-- Augmentation des dégâts/effets
-- Temps de recharge réduit
-
-### Spécialisation
-
-Choisissez une école principale pour :
-- Bonus passifs dans cette école
-- Accès à des sorts ultimes
-- Équipements spécialisés
-
-## Équipement Magique
-
-### Bâtons
-
-Alternative aux grimoires, focus sur un élément :
-
-| Bâton | Élément | Bonus |
-|-------|---------|-------|
-| Bâton de feu | Feu | +Dégâts feu |
-| Bâton de givre | Glace | +Durée effets |
-| Bâton d'orage | Foudre | +Vitesse incantation |
-
-### Accessoires
-
-| Accessoire | Effet |
-|------------|-------|
-| Anneau de mana | +Mana max |
-| Amulette de concentration | +Régénération mana |
-| Cape d'archimage | -Coût des sorts |
-| Orbe de pouvoir | +Dégâts magiques |
+- Surveillez les ennemis portant des grimoires
+- Utilisez la roulade d'esquive pour eviter les projectiles
+- Reduisez rapidement la distance - les utilisateurs de magie sont souvent vulnerables au corps a corps
 
 ## Voir Aussi
 
-- [Système de Combat](/docs/gameplay/combat/overview)
+- [Systeme de Combat](/docs/gameplay/combat/overview)
 - [Armes](/docs/gameplay/combat/weapons)
 
 ---
 
-*Source : [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+*Note : Le systeme magique de Hytale est activement en developpement. Les informations ci-dessus refletent la version Early Access (janvier 2026). Attendez-vous a des ajouts et changements significatifs au fil de l'evolution du jeu.*

@@ -1,152 +1,136 @@
 ---
 title: Le Monde d'Orbis
-description: Découvrez le monde de Hytale et ses mystères
+description: Decouvrez le monde de Hytale et ses mysteres
 ---
 
 # Le Monde d'Orbis
 
-Orbis est le monde de Hytale, une planète riche et diverse où se déroule votre aventure en tant que **Cursebreaker**.
+Orbis est le monde de Hytale, une planete riche et diverse ou se deroule votre aventure.
 
-## Présentation
+## Presentation
 
-Orbis est un monde généré procéduralement, ce qui signifie que chaque partie est unique. Le monde est divisé en **Zones**, chacune associée à un élément et possédant ses propres biomes, créatures, ressources et défis.
+Orbis est un monde genere proceduralement, ce qui signifie que chaque partie est unique. Le monde est divise en **Regions**, chacune possedant ses propres biomes, creatures, ressources et defis.
 
-### Caractéristiques
+### Caracteristiques
 
-- **Génération procédurale** - Monde infini et unique
-- **Verticalité** - Grottes profondes et montagnes élevées
-- **Cycle jour/nuit** - Affecte les créatures et le gameplay
-- **Météo dynamique** - Pluie, neige, tempêtes
-- **Système élémentaire** - Chaque zone est liée à un élément (Terre, Air, Eau, Feu, etc.)
+- **Generation procedurale** - Monde infini et unique
+- **Verticalite** - Grottes profondes et montagnes elevees
+- **Cycle jour/nuit** - Affecte les creatures et le gameplay
+- **Meteo dynamique** - Pluie, neige, tempetes
 
-## Lore d'Orbis
+## Structure du Monde
 
-### Les Divinités
+### Zones
 
-Le monde d'Orbis est façonné par deux forces divines :
+Orbis est divise en six zones elementaires, dont les quatre premieres seront disponibles au lancement :
 
-- **Gaia** - Déesse de la création et de la vie
-- **Varyn** - Dieu de la destruction et du chaos
+| Zone | Nom | Element | Difficulte |
+|------|-----|---------|------------|
+| Zone 1 | Emerald Grove | Terre | Facile |
+| Zone 2 | Howling Sands | Air | Moyenne |
+| Zone 3 | Borea | Eau | Difficile |
+| Zone 4 | Devastated Lands | Feu | Tres Difficile |
+| Zone 5 | Skylands (provisoire) | Foudre | A determiner |
+| Zone 6 | Poisonlands (provisoire) | Vide | A determiner |
 
-### Personnages Clés
+**Selection de la zone de depart**
 
-- **Tessa** - Personnage principal, guide pour les joueurs
-- **Kyros** - Autre personnage important dans l'histoire
+Les joueurs peuvent choisir de commencer dans la Zone 1, la Zone 2 ou la Zone 3. La Zone 4 est du contenu de fin de jeu.
 
-### Le Rôle du Joueur
+### Regions
 
-Les joueurs incarnent des **Cursebreakers**, des héros destinés à combattre les forces de corruption qui menacent Orbis.
+Les Regions sont un nouveau systeme de subdivision au sein des zones. Chaque region represente une collection de 3 a 5 biomes avec un theme coherent, offrant un controle plus fin sur l'identite du monde.
 
-### Les Alterverses
+| Region | Zone | Theme |
+|--------|------|-------|
+| Central Grasslands | Zone 1 | Prairies ouvertes, forets eparses, affleurements rocheux |
+| Emerald Wilds | Zone 1 | Forets denses, marecages, clairieres |
+| Wild Savannah | Zone 2 | Savanes herbeuses avec arbres epars |
+| Whisperfrost Frontier | Zone 3 | Forets de taiga, rivieres gelees |
+| Earthglade | Zone 1 | Forets profondes |
 
-Un concept prévu pour le contenu futur : des dimensions alternatives d'Orbis offrant de nouvelles possibilités d'exploration et d'aventure.
+## Generation du Monde
 
-## Zones d'Orbis
+### World Generation V1 (Lancement)
 
-### Zones Disponibles au Lancement
+Le systeme disponible au lancement de l'Acces Anticipe (janvier 2026) :
+- Deja rempli de biomes jouables
+- Contenu pret pour l'exploration
+- Structures et donjons
+- Terrain genere proceduralement pour chaque zone
 
-Quatre zones seront accessibles dès la sortie du jeu :
+### World Generation V2 (Futur)
 
-| Zone | Nom | Thème | Élément |
-|------|-----|-------|---------|
-| Zone 1 | Emerald Grove | Forêts luxuriantes et rivières | Terre |
-| Zone 2 | Howling Sands | Vastes déserts et canyons | Air |
-| Zone 3 | Borea | Toundras glaciales et montagnes enneigées | Eau |
-| Zone 4 | Devastated Lands | Terres volcaniques souterraines | Feu |
+Le monde complet d'Orbis est en cours de reconstruction sur V2 :
+- Experience visuelle et de gameplay superieure
+- Caracteristiques de terrain plus variees et complexes
+- Diversite de biomes amelioree
+- Accessible pendant le developpement via des **Gateways** (portails speciaux)
+- Tous les biomes seront partages avec la communaute pour le modding
 
-### Zones Futures (Non disponibles au lancement)
+**Mise a jour**
 
-Deux zones supplémentaires sont confirmées pour des mises à jour ultérieures :
+V2 deviendra le generateur principal une fois termine. Les mondes V1 resteront accessibles, bien que V1 finira par cesser de generer de nouveaux chunks.
 
-| Zone | Nom | Thème | Élément | Statut |
-|------|-----|-------|---------|--------|
-| Zone 5 | Skylands | Îles flottantes | Foudre/Électricité | Confirmé dans les outils de développement |
-| Zone 6 | Poisonlands | Terres empoisonnées | Vide/Corruption | Existence confirmée |
+## Points d'Interet (POI)
 
-## Génération du Monde
-
-Hytale utilise deux systèmes de génération de monde :
-
-### World Generation V1 (2016-2020)
-
-Le système utilisé au lancement avec :
-- Nombreux biomes jouables
-- Contenu prêt pour l'exploration
-- Structures et donjons variés
-- Base solide pour le mode Exploration
-
-### World Generation V2 (Depuis 2021)
-
-Nouveau système en développement actif :
-- Biomes plus détaillés et immersifs
-- Transitions plus naturelles entre les zones
-- Nouvelles régions à explorer
-- Le "vrai" monde d'Orbis tel qu'envisagé par les développeurs
-
-:::tip Accès au contenu V2
-Les joueurs pourront accéder au contenu V2 en construction via des **Gateways** dans le mode Exploration. Cela permet de découvrir les nouveaux biomes au fur et à mesure de leur développement.
-:::
-
-:::info Transition V1 vers V2
-V2 remplacera complètement V1 une fois son développement achevé. Les mondes V1 resteront jouables pendant la période de transition.
-:::
-
-## Points d'Intérêt (POI)
-
-Le monde est parsemé de structures et lieux spéciaux :
+Le monde est parseme de structures et lieux speciaux :
 
 ### Structures Naturelles
 
-- **Grottes** - Systèmes souterrains avec minerais
+- **Grottes** - Systemes souterrains avec minerais
 - **Ravins** - Canyons profonds
 - **Cascades** - Points d'eau pittoresques
-- **Formations rocheuses** - Repères naturels
+- **Formations rocheuses** - Reperes naturels
 
 ### Structures Construites
 
 - **Villages** - PNJ amicaux, commerce
 - **Camps** - Ennemis et loot
-- **Tours** - Défis verticaux
+- **Tours** - Defis verticaux
 - **Donjons** - Aventures souterraines
-- **Temples** - Lore et trésors
-- **Gateways** - Portails vers le contenu V2
+- **Temples** - Lore et tresors
 
 ### Ruines
 
 - **Anciens monuments** - Histoire du monde
-- **Forteresses abandonnées** - Exploration risquée
-- **Sites de bataille** - Équipement récupérable
+- **Forteresses abandonnees** - Exploration risquee
+- **Sites de bataille** - Equipement recuperable
 
 ## Exploration
 
 ### Conseils
 
 1. **Marquez votre chemin** - Utilisez la carte
-2. **Préparez-vous** - Nourriture, armes, torches
+2. **Preparez-vous** - Nourriture, armes, torches
 3. **Observez l'environnement** - Indices visuels
-4. **Progressez par étapes** - Ne vous éloignez pas trop vite
-5. **Adaptez-vous à l'élément** - Chaque zone a ses propres défis
+4. **Progressez par etapes** - Ne vous eloignez pas trop vite
 
-### Récompenses
+### Recompenses
 
 L'exploration rapporte :
-- **Ressources rares** - Matériaux exclusifs par zone
-- **Équipement unique** - Trouvé dans les coffres
-- **Connaissances** - Lore et histoire d'Orbis
-- **Expérience** - Progression du personnage
+- **Ressources rares** - Materiaux exclusifs a chaque region
+- **Equipement unique** - Trouve dans les coffres
+- **Connaissances** - Lore et histoire
+- **Experience** - Progression du personnage
 
 ## Le Ciel et l'Espace
 
-Orbis possède :
-- **Deux lunes** - Affectent les marées et certaines créatures
+Orbis possede :
+- **Deux lunes** - Affectent les marees et certaines creatures
 - **Constellations** - Navigation nocturne
-- **Aurores** - Phénomènes dans Borea (Zone 3)
+- **Aurores** - Phenomenes dans les regions froides
+
+## L'Ocean Profond
+
+L'Ocean Profond est techniquement separe des autres zones et a ete decrit par les developpeurs comme "une zone a part entiere". Il separe les Terres Infinies du continent principal d'Orbis. Des iles tropicales existent au sein de l'ocean.
 
 ## Voir Aussi
 
-- [Zones](/docs/gameplay/world/regions)
-- [Créatures](/docs/gameplay/creatures/overview)
+- [Regions](/docs/gameplay/world/regions)
+- [Zones du Monde (Guide Detaille)](/docs/gameplay/world-zones)
+- [Creatures](/docs/gameplay/creatures/overview)
 
 ---
 
-*Sources : [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [World Generation Blog](https://hytale.com/news/2026/1/the-future-of-world-generation)*
+*Sources : [Spring 2025 Development Update](https://hytale.com/news/2025/3/spring-2025-development-update), [The Future of World Generation](https://hytale.com/news/2026/1/the-future-of-world-generation), [Hytale Wiki](https://hytale.fandom.com/wiki/Zones)*

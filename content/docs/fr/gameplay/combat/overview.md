@@ -1,196 +1,155 @@
 ---
-title: Système de Combat
-description: Maîtrisez les mécaniques de combat de Hytale
+title: Systeme de Combat
+description: Maitrisez les mecaniques de combat de Hytale
 ---
 
 # Systeme de Combat
 
-Le combat dans Hytale est un **systeme tactique et reactif** avec une physique avancee incluant inertie, knockback et collisions realistes. Chaque arme possede son propre rythme, sa posture et ses attaques speciales uniques.
-
-## Philosophie du Combat
-
-Le systeme de combat de Hytale repose sur plusieurs piliers :
-
-- **Lisibilite** - Les patterns d'ennemis sont clairs mais exigeants a maitriser
-- **Tactique** - Le positionnement et le timing sont cruciaux
-- **Physique avancee** - Inertie, knockback et collisions impactent le combat
-- **Diversite** - Chaque type d'arme offre une experience de jeu differente
+Le combat dans Hytale est un systeme dynamique a haute mobilite qui met l'accent sur la gestion des ressources, le positionnement et la maitrise des armes. Le jeu propose un combat action-RPG complet avec des roulades d'esquive, des combos et un positionnement strategique.
 
 ## Mecaniques Fondamentales
 
 ### Endurance
 
-L'**Endurance** est la **ressource essentielle** du combat. Sa gestion est primordiale pour survivre :
+L'**Endurance** est la ressource centrale du combat :
 
-- **Sprint** - Consomme de l'endurance progressivement
-- **Esquive** - Cout modere mais vital pour eviter les degats
-- **Attaques speciales** - Cout variable selon le type d'arme
-- **Blocage prolonge** - Drain continu tant que vous bloquez
-- **Recuperation** - Se regenere plus rapidement hors combat
+- **Sprint** - Consomme de l'endurance en continu
+- **Roulade d'esquive** - Cout modere, essentielle pour l'evasion
+- **Attaques chargees** - Consomme de l'endurance lors du relachement
+- **Blocage** - Draine l'endurance tant qu'il est maintenu
 
-:::warning Gestion Critique de l'Endurance
-L'endurance est votre ressource de survie. Ne la videz **jamais completement** ! Gardez toujours une reserve pour esquiver ou fuir. Un joueur sans endurance est vulnerable aux combos ennemis.
-:::
+**Conseil de gestion de l'endurance**
+
+Ne videz jamais completement votre barre ! Si vous epuisez votre endurance, vous devenez lent et vulnerable. Gardez une reserve pour esquiver ou changez d'arme quand vous etes a court.
 
 ### Positionnement
 
 Le positionnement est crucial, surtout en PvP :
 
-- **Flanc** - Bonus de dégâts sur les côtés
-- **Dos** - Dégâts critiques garantis
+- **Flanc** - Attaquez par les cotes pour obtenir un avantage
 - **Hauteur** - Avantage sur les ennemis en contrebas
-- **Distance** - Chaque arme a une portée optimale
+- **Distance** - Chaque arme a une portee optimale
+- **Environnement** - Utilisez les piliers, racines d'arbres et obstacles de maniere tactique
 
-### Physique Avancee
+### Animations Directionnelles
 
-Le systeme de combat integre une physique realiste :
+Les attaques sont telegraphiees par des animations claires :
 
-- **Inertie** - Les mouvements ont du poids et de l'elan
-- **Knockback** - Les coups puissants repoussent les cibles
-- **Collisions** - L'environnement impacte le combat (murs, obstacles)
-- **Gravite** - Les attaques aeriennes et chutes ont des effets specifiques
-
-### Animations et Lisibilite
-
-Les attaques sont telephones par des animations claires et lisibles :
-
-- **Preparation** - Le personnage arme son coup (temps de wind-up)
+- **Preparation** - Le personnage prepare sa frappe (telegraph)
 - **Direction** - Indique ou l'attaque va frapper
-- **Fenetre de parade** - Moment precis pour bloquer ou esquiver
-- **Recovery** - Temps de recuperation apres l'attaque (fenetre de punition)
+- **Fenetre d'attaque** - Moment pour bloquer ou esquiver
+- **Recuperation** - Temps de recuperation apres l'attaque, fenetre pour contre-attaquer
 
 ## Types d'Attaques
 
-### Attaque Légère
+### Attaque Legere (Combo Basique)
 
 - **Input** : Clic gauche
 - **Vitesse** : Rapide
-- **Dégâts** : Faibles
-- **Endurance** : Minimal
+- **Degats** : Faibles a moyens
+- **Endurance** : Aucune ou minimale
 
-### Attaque Lourde
+Chaque arme a son propre rythme de combo et sa longueur de chaine.
 
-- **Input** : Maintenir clic gauche
-- **Vitesse** : Lente
-- **Dégâts** : Élevés
-- **Endurance** : Modéré
+### Attaque Chargee
 
-### Attaque Spéciale
+- **Input** : Maintenir clic gauche, puis relacher
+- **Vitesse** : Charge lente, execution variable
+- **Degats** : Eleves
+- **Endurance** : Consommee au relachement
+- **Effet** : Unique a chaque type d'arme (charge d'estoc pour l'epee, bond pour la dague, frappe descendante pour la hache de bataille, etc.)
 
-- **Input** : F (par défaut)
-- **Vitesse** : Variable selon l'arme
-- **Dégâts** : Très élevés
-- **Endurance** : Coût important
-- **Effet** : Unique à chaque type d'arme
+### Capacite Ultime
 
-### Combo
+- **Input** : Bouton de capacite speciale
+- **Degats** : Tres eleves
+- **Endurance/Ressource** : Cout significatif
+- **Effet** : Attaque puissante unique a chaque type d'arme
 
-Enchaînez les attaques pour des combos :
+Exemples :
+- **Dague** : Combo melee rapide sur cible unique
+- **Hache de bataille** : Attaque tourbillonnante frappant tous les ennemis environnants
+- **Arc court** : Tire trois fleches simultanement
 
-```
-Léger → Léger → Léger = Combo basique
-Léger → Léger → Lourd = Combo finisher
-Léger → Esquive → Lourd = Combo technique
-```
-
-## Défense
+## Defense
 
 ### Blocage
 
-Avec un bouclier ou certaines armes :
+Avec un bouclier ou une arme de melee :
 
-- **Réduction de dégâts** - Absorbe une partie des dommages
-- **Stabilité** - Résistance au stagger
-- **Contre-attaque** - Fenêtre après un bloc réussi
+- **Reduction de degats** - Absorbe une partie des degats
+- **Drain d'endurance** - Le blocage draine l'endurance (pas l'attaque)
+- **Contre-attaque** - Fenetre apres un blocage reussi
 
-### Parade
+### Roulade d'Esquive
 
-Timing précis pour une défense parfaite :
+Mouvement d'evasion avec des frames d'invincibilite :
 
-- **Fenêtre** : ~0.3 secondes
-- **Récompense** : Ennemi stagger, ouverture pour contre-attaque
-- **Risque** : Si raté, dégâts complets
+- **Direction** : Roulade dans n'importe quelle direction selon l'input de mouvement
+- **Cout** : Endurance moderee
+- **Effet** : Breve invincibilite, repositionnement
 
-### Esquive
+**Strategie d'esquive**
 
-Mouvement d'évitement :
+Contre des ennemis comme les Trorks ou les squelettes, observez leurs telegraphs - ils arment leur coup avant de frapper. Utilisez votre roulade d'esquive pour eviter, puis punissez-les pendant leur animation de recuperation.
 
-| Direction | Input | Effet |
-|-----------|-------|-------|
-| Arrière | Double-tap S | Saut arrière, distance |
-| Latérale | Double-tap Q/D | Roulade, invincibilité partielle |
-| Avant | Double-tap Z + Sprint | Dash offensif |
+## Effets de Statut
 
-## Statuts et Effets
-
-### Effets de Statut
+### Effets Negatifs
 
 | Effet | Source | Impact |
 |-------|--------|--------|
-| Saignement | Armes tranchantes | Dégâts sur la durée |
-| Poison | Créatures, plantes | Dégâts + ralentissement régén |
-| Brûlure | Feu, magie | Dégâts de feu continus |
-| Gel | Magie de glace | Ralentissement, puis immobilisation |
-| Étourdissement | Coups critiques | Incapacité temporaire |
+| Saignement | Armes tranchantes | Degats sur la duree |
+| Poison | Creatures, plantes | Degats + regeneration ralentie |
+| Brulure | Feu, magie | Degats de feu continus |
+| Gel | Magie de glace | Ralentissement, peut mener a l'immobilisation |
+| Etourdissement | Coups lourds, capacites | Incapacite temporaire |
 
 ### Buffs de Combat
 
 | Buff | Source | Effet |
 |------|--------|-------|
-| Rage | Compétence | +Dégâts, -Défense |
-| Fortification | Potion | +Défense temporaire |
-| Hâte | Nourriture | +Vitesse d'attaque |
-| Régénération | Potion | Récupération de vie |
+| Fortification | Potion | +Defense temporaire |
+| Hate | Nourriture | +Vitesse d'attaque |
+| Regeneration | Potion | Recuperation de vie sur la duree |
 
-## Progression de Combat
+## Strategie de Combat
 
-### Compétences d'Armes
+### Synergie d'Armes
 
-Chaque type d'arme a sa propre progression :
+Hytale recompense le positionnement intelligent et la synergie d'armes plus que les statistiques brutes :
 
-- **Novice** → **Apprenti** → **Adepte** → **Expert** → **Maître**
+- **Armes lourdes** (Masse, Hache de bataille) - Dominent en degats mais sont lentes
+- **Armes rapides** (Dagues) - Brillent par la mobilite et la securite
+- **Armes polyvalentes** (Epee) - Equilibrees, permettent les objets en main secondaire
+- **Armes a distance** (Arc) - Degats surs a distance
 
-Plus vous utilisez une arme, plus vous débloquez :
-- Nouvelles techniques
-- Combos avancés
-- Attaques spéciales alternatives
+**Strategie avancee**
 
-### Styles de Combat
+Combiner differentes armes selon la situation surpasse le fait de s'en tenir a une seule. Changez d'arme quand l'endurance est basse ou face a differents types d'ennemis.
 
-Développez votre style :
+### Contre les Ennemis PvE
 
-- **Berserker** - Attaques puissantes, peu de défense
-- **Gardien** - Équilibre attaque/défense
-- **Duelliste** - Parades et contre-attaques
-- **Ranger** - Combat à distance
-- **Mage** - Sorts et contrôle
-
-## Conseils Avancés
-
-### Contre les Ennemis
-
-Les patterns d'ennemis sont **lisibles mais exigeants** :
-
-1. **Observez les patterns** - Chaque ennemi a des tells visuels clairs
-2. **Apprenez les timings** - Les fenetres d'attaque sont precises
-3. **Attendez les ouvertures** - Attaquez apres leurs combos, pas pendant
-4. **Utilisez l'environnement** - Hauteur, obstacles, knockback contre les murs
-5. **Adaptez votre equipement** - Resistances appropriees selon l'ennemi
-6. **Gerez votre endurance** - Ne soyez jamais a court face a un ennemi dangereux
+1. **Observez les patterns** - Chaque ennemi a des tells avant d'attaquer
+2. **Attendez les ouvertures** - Attaquez pendant leurs frames de recuperation
+3. **Utilisez l'environnement** - Rebondissez sur les piliers, glissez sous les attaques, escaladez les objets
+4. **Adaptez votre equipement** - Associez armes et armures au defi
 
 ### En PvP
 
-1. **Lisez l'adversaire** - Anticipez ses actions
-2. **Variez vos attaques** - Ne soyez pas prévisible
-3. **Gérez l'espace** - Contrôlez la distance
-4. **Gardez votre calme** - La panique vide l'endurance
+1. **Lisez votre adversaire** - Anticipez ses actions
+2. **Variez vos attaques** - Melangez attaques legeres, attaques chargees et mouvements
+3. **Gerez l'endurance** - Le joueur qui epuise son endurance en premier est vulnerable
+4. **Utilisez les attaques chargees tactiquement** - Pour l'offense et la defense (repositionnement)
 
 ## Voir Aussi
 
 - [Armes](/docs/gameplay/combat/weapons)
 - [Magie](/docs/gameplay/combat/magic)
-- [Créatures Hostiles](/docs/gameplay/creatures/hostile)
+- [Creatures Hostiles](/docs/gameplay/creatures/hostile)
 
 ---
 
-*Source : [Combat System - Hytale.game](https://hytale.game/en/combat-system/)*
+**Note Early Access**
+
+Hytale est actuellement en Early Access (sortie le 13 janvier 2026). Les mecaniques de combat peuvent evoluer au fil du developpement du jeu. Certaines fonctionnalites avancees comme le Mode Aventure avec une progression plus profonde et des combats de boss sont prevues pour de futures mises a jour.

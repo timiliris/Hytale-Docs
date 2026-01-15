@@ -5,218 +5,228 @@ description: Guide to enemies and bosses in Hytale
 
 # Hostile Creatures
 
-Hostile creatures are your main adversaries on Orbis. Learn their patterns to survive.
+Hostile creatures are your main adversaries on Orbis. Learn their patterns to survive. Enemy difficulty scales with zone progression.
 
 ## Trorks
 
-The most common threat on Orbis. A primitive but dangerous warrior race.
+Troll-orc hybrid warriors in the Emerald Grove (Zone 1). Described as "Orbis' most dangerous monster-hunters." The name is a portmanteau of "troll" and "orc."
 
-### Variants
+### Classes
 
-| Variant | Health | Damage | Behavior |
-|---------|--------|--------|----------|
-| Scout | Low | Low | Flees to alert |
-| Warrior | Medium | Medium | Direct combat |
-| Berserker | Medium | High | Aggressive, charges |
-| Archer | Low | Medium | Ranged combat |
-| Shaman | Medium | Magic | Heals allies, buffs |
-| Chief | High | High | Commands others |
+Hytale's modular NPC system allows many variations. Each class requires different combat strategies:
+
+| Class | Equipment | Role |
+|-------|-----------|------|
+| Sentry | Large stone-tipped spears | Guards village boundaries, alerts others |
+| Warrior | Heavy armor, runed battle-axes | Main combatants, frontline fighters |
+| Hunter | Runed swords | Hunters of animals and players |
+| Shaman | Gold-tipped staves | Magic users, religious leaders |
+| Chieftain | Superior gear | Leaders, command other Trorks |
 
 ### Anti-Trork Tactics
 
-1. **Eliminate Scouts first** - Prevents alerts
-2. **Target Shamans** - Removes enemy healing
-3. **Avoid groups** - Lure them one by one
-4. **Use terrain** - They struggle with heights
+1. **Eliminate Sentries first** - Prevents alerts to the camp
+2. **Target Shamans** - Removes magic support
+3. **Avoid camps** - Lure individuals away from groups
+4. **Analyze before attacking** - Different classes require different strategies
 
 ### Loot
 
-| Drop | Chance | Use |
-|------|--------|-----|
-| Trork Weapon | 15% | Combat, selling |
-| Rough Leather | 60% | Crafting |
-| Meat | 40% | Cooking |
-| Trork Trophy | 5% | Quests, decoration |
+Trorks drop faction-specific weapons and armor with unique Trork runes.
 
 ---
 
 ## Undead
 
-Appear mainly at night or in dungeons.
+Appear in dungeons and throughout Orbis. Their appearance and threat level changes based on zone progression.
 
 ### Skeletons
 
-| Type | Weapon | Special |
-|------|--------|---------|
-| Skeleton | Sword | Basic |
-| Skeleton Archer | Bow | Precise shot |
-| Skeleton Warrior | Sword + Shield | Blocks |
-| Skeleton Mage | Staff | Fire spells |
+Skeletons are a standard enemy type with zone-specific variants:
 
-**Weakness**: Blunt damage (maces, hammers)
+| Type | Zone | Equipment | Notes |
+|------|------|-----------|-------|
+| Normal Skeleton | Zone 1 | Sword | Slow-moving, can crawl from ground |
+| Skeleton Archer | Zone 1+ | Bow, hood | Ranged attacks |
+| Swamp Undead | Zone 1 (swamps) | Sword | Fungi growing from skull |
+| Sand Warrior | Zone 2 | Desert gear | Adapted to Howling Sands |
+| Undead Adventurer | Various | Sword | Former explorers |
+| Undead Praetorian | Late game | Heavy armor, axe, shield | Strongest variant |
+
+**Progression Note**: Undead in later zones wear better armor and wield stronger weapons.
 
 ### Zombies
 
-| Type | Speed | Special |
-|------|-------|---------|
-| Zombie | Slow | Large groups |
-| Fast Zombie | Fast | Surprise attack |
-| Giant Zombie | Very slow | High health |
+Zombies appear widespread across Orbis, skeletal and rotting, wearing remnants of former clothes.
 
-**Weakness**: Fire, headshots
-
-### Specters
-
-| Type | Danger | Special |
-|------|--------|---------|
-| Ghost | Moderate | Passes through walls |
-| Wraith | High | Life drain |
-| Banshee | High | Paralyzing scream |
-
-**Weakness**: Light magic, blessed weapons
+| Type | Speed | Notes |
+|------|-------|-------|
+| Zombie | Slow | Common, appears in groups |
 
 ---
 
-## Elemental Creatures
+## Scaraks (Zone 2)
 
-### Golems
+Insectoid hive faction in the Howling Sands. Not psychic - they communicate efficiently using light and gestures, creating coordinated attacks that can seem uncanny.
 
-| Type | Region | Resistance | Weakness |
-|------|--------|------------|----------|
-| Stone Golem | Everywhere | Physical | Magic |
-| Sand Golem | Desert | Slashing | Water |
-| Ice Golem | Snow | Ice | Fire |
-| Lava Golem | Volcanoes | Fire | Ice |
+### Characteristics
 
-**Strategy**: Use magic corresponding to their weakness.
+- **Appearance**: Insectoid silhouettes, glowing blue eyes and body parts
+- **Communication**: Visual signals (light and gesture), not telepathy
+- **Society**: Highly ordered hierarchy, chain of command
 
-### Elementals
+### Variants
 
-| Type | Attacks | Immunity |
-|------|---------|----------|
-| Fire Elemental | Fireballs, burning aura | Fire |
-| Ice Elemental | Frost rays, blizzard | Ice |
-| Lightning Elemental | Chain lightning | Lightning |
-| Earth Elemental | Earthquake, rock projectiles | - |
+| Type | Role | Danger |
+|------|------|--------|
+| Scarak Larva | Young stage | Low |
+| Scarak Worker | Labor | Low |
+| Scarak Warrior | Guards, combat | Moderate |
+| Scarak Tank | Heavy assault | High |
+| Scarak Locust | Flying variant | Moderate |
+| Scarak Broodmother | Boss | Very High |
 
----
+### Scarak Warriors
 
-## Dungeon Creatures
+The most common variant. They:
+- Evolve from Scarak Larvae
+- Guard hive structures and patrol territory
+- Use front legs as melee weapons
+- Rely on hard carapace and numbers
 
-### Spiders
+### Loot
 
-| Type | Size | Special |
-|------|------|---------|
-| Spider | Small | Weak poison |
-| Giant Spider | Large | Strong poison, web |
-| Spider Queen | Boss | Spawns eggs, massive web |
-
-**Tip**: Bring antidotes!
-
-### Mimics
-
-Animated chests that attack when opened.
-
-- **Detection**: Slight texture difference
-- **Attacks**: Powerful bite, jump
-- **Reward**: Guaranteed quality loot
+- **Sturdy Chitin** - Crafting material for insect saddles and armor upgrades
+- Drops primarily in the Badlands biome of Zone 2
 
 ---
 
-## Desert Creatures
+## Spiders
 
-### Mummies
+Found in Emerald Grove and dungeons.
 
-| Type | Attack | Special |
-|------|--------|---------|
-| Mummy | Melee | Curse |
-| Priest Mummy | Magic | Summons scarabs |
-| Pharaoh | Boss | Multiple phases |
-
-**Weakness**: Fire (bandages burn)
-
-### Sandworms
-
-Massive monsters beneath the desert.
-
-- **Appearance**: Ground vibrations
-- **Attack**: Swallows, massive bite
-- **Avoidance**: Stay on rocks
-- **Weakness**: Attack the open mouth
+| Type | Size | Notes |
+|------|------|-------|
+| Spider | Small | Common in caves |
+| Giant Spider | Large | Poison, web attacks |
 
 ---
 
-## Frost Creatures
+## Desert Creatures (Zone 2)
 
-### Yetis
+### Savannah Predators
+
+| Creature | Danger | Notes |
+|----------|--------|-------|
+| Hyena | Moderate | Pack hunters |
+| Saber-toothed Tiger | High | Powerful predator |
+
+---
+
+## Outlanders (Zone 3)
+
+Corrupted human tribal faction in Borea. They worship Varyn and display his Evil Mark.
+
+### Characteristics
+
+- **Origin**: Offshoot of human civilization that isolated in Borea
+- **Corruption**: Heavily corrupted by dark rituals they practice
+- **Equipment**: Cobalt weaponry and armor
+- **First Seen**: Announcement trailer - colossal masked warrior in a dungeon
+
+### Threat Level
+
+Outlanders are the primary hostile faction players face in Zone 3. They are significantly more dangerous than Zone 1 and 2 enemies.
+
+---
+
+## Yeti (Zone 3 Boss)
+
+The major boss threat of Borea. An extremely large, territorial beast.
 
 | Stat | Value |
 |------|-------|
-| Health | Very high |
+| Health | Very High |
 | Damage | High |
 | Speed | Medium |
-| Resistance | Ice |
-| Weakness | Fire |
+| Type | Boss |
 
-**Attacks**:
-- Punch (knockback)
-- Rock throw
-- Roar (stun)
-
-### Arctic Wolves
-
-- **In packs**: Up to 6 wolves
-- **Alpha**: Bigger, stronger
-- **Strategy**: Kill the alpha, the pack flees
+Featured prominently in the Hytale Announcement Trailer. Extremely tough to defeat.
 
 ---
 
-## Demons
+## Void Creatures (Zone 4)
 
-Reserved for the Devastated Lands.
+Varyn's corrupted minions in the Devastated Lands. Characterized by glowing green eyes and purple coloration.
 
-### Hierarchy
+### The Void
 
-| Type | Danger | Abilities |
-|------|--------|-----------|
-| Imp | Moderate | Flight, fireballs |
-| Demon | High | Brutal combat |
-| Greater Demon | Very high | Dark magic |
-| Demon Lord | Boss | Multiple phases |
+The Void is one of six elemental runes. Varyn uses it to corrupt creatures and environments into twisted forms.
 
-**Resistances**: Fire, Darkness
-**Weaknesses**: Light, blessed weapons
+### Void Types
+
+| Type | Role | Danger |
+|------|------|--------|
+| Void Eyes | Scouts, reconnaissance | Moderate |
+| Void Spawn | Soldiers, combat | High |
+| Void Dragon | Varyn's aerial will | Extreme (Boss) |
+
+### Void Eyes
+
+- Serve as scouts for Varyn's forces
+- Can spawn in any zone of Orbis
+- Range deep into untainted territories
+- Report findings back to Varyn
+
+### Void Spawn
+
+- Lethal soldiers commanded by Varyn
+- Carry large Thorium weapons and armor
+- Among Varyn's most dangerous minions
 
 ---
 
 ## Bosses
 
-### Dungeon Guardians
+### Confirmed Bosses by Zone
 
-Each major dungeon has a unique boss.
+| Boss | Zone | Notes |
+|------|------|-------|
+| Scarak Broodmother | Zone 2 (Howling Sands) | Insect hive queen |
+| Yeti | Zone 3 (Borea) | Territorial beast, seen in trailers |
+| Ice Dragon | Zone 3 (Borea) | Dragon associated with Water element |
+| Void Dragon | Zone 4 (Devastated Lands) | Varyn's will incarnate |
 
-| Boss | Region | Mechanic |
-|------|--------|----------|
-| Trork King | Grasslands | Calls reinforcements |
-| Spider Queen | Emerald Wilds | Spawns eggs + webs |
-| Cursed Pharaoh | Howling Sands | Phases + summons |
-| Frost Titan | Whisperfrost | Freeze zone |
-| Archdemon | Devastated | Epic multi-phase combat |
+### Dungeon System
+
+Hytale features multiple dungeon types:
+- **Story Dungeons** - Spawn once per world, contain lore
+- **Random Dungeons** - Procedurally generated with final rooms
+- **Challenge Dungeons** - High difficulty for skilled players
+- **Portal Dungeons** - Connect to other dimensions (Alterverses)
 
 ### Boss Tips
 
-1. **Learn patterns** - Every attack is telegraphed
-2. **Prepare** - Potions, food, buffs
-3. **Manage stamina** - Don't spam dodges
-4. **Phases** - Bosses change behavior at certain HP
-5. **Environment** - Use the arena to your advantage
+1. **Learn patterns** - Boss attacks are telegraphed
+2. **Prepare** - Bring food and healing items
+3. **Phases** - Bosses change behavior at certain HP
+4. **Environment** - Use the arena to your advantage
+
+## Varyn - The Main Antagonist
+
+The primary antagonist of Hytale. A void-wielding entity not native to Orbis who commands all Void creatures.
+
+- **Appearance**: Demon-like figure
+- **Powers**: Powerful void magic, corruption
+- **Minions**: Void Spawn, Void Eyes, Void Dragon
+- **Influence**: Worshipped by Outlanders
 
 ## See Also
 
 - [Combat System](/docs/gameplay/combat/overview)
 - [Creatures](/docs/gameplay/creatures/overview)
-- [Regions](/docs/gameplay/world/regions)
+- [Zones](/docs/gameplay/world/zones)
 
 ---
 
-*Source: [HytaleGuide Mobs](https://hytaleguide.net/mobs)*
+*Sources: [Hytale Official Blog](https://hytale.com/news), [Hytale Wiki](https://hytale.fandom.com)*
