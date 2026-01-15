@@ -170,6 +170,7 @@
     "ecsSystem": "Système ECS",
     "dataTypes": "Types de Données",
     "networkPackets": "Packets Réseau",
+    "customUI": "UI Personnalisée",
     "officialApi": "API Officielle",
     "endpoints": "Endpoints",
     "authentication": "Authentification",

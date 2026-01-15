@@ -305,6 +305,7 @@ export const sidebarConfig: SidebarItem[] = [
           { titleKey: "ecsSystem", href: "/docs/api/server-internals/ecs" },
           { titleKey: "dataTypes", href: "/docs/api/server-internals/types" },
           { titleKey: "networkPackets", href: "/docs/api/server-internals/packets" },
+          { titleKey: "customUI", href: "/docs/api/server-internals/custom-ui" },
         ],
       },
       {
