@@ -12,6 +12,48 @@ description: Guide complet pour creer des interfaces joueur interactives dans le
 Cette documentation a ete testee avec un plugin fonctionnel. Les exemples sont confirmes comme fonctionnels.
 :::
 
+## Imports Requis
+
+```java
+// === Core UI Page ===
+import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
+import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
+import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
+import com.hypixel.hytale.server.core.ui.builder.EventData;
+import com.hypixel.hytale.server.core.ui.Value;
+import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
+import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
+
+// === Codec (pour event data) ===
+import com.hypixel.hytale.codec.Codec;
+import com.hypixel.hytale.codec.KeyedCodec;
+import com.hypixel.hytale.codec.builder.BuilderCodec;
+
+// === Composants ECS ===
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+
+// === Player & Commande ===
+import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.Message;
+
+// === Dropdown (optionnel) ===
+import com.hypixel.hytale.server.core.ui.DropdownEntryInfo;
+import com.hypixel.hytale.server.core.ui.LocalizableString;
+
+// === Notifications (optionnel) ===
+import com.hypixel.hytale.server.core.util.NotificationUtil;
+import com.hypixel.hytale.protocol.packets.interface_.NotificationStyle;
+
+// === Gestion des Pages ===
+import com.hypixel.hytale.protocol.packets.interface_.Page;
+```
+
 ## Vue d'ensemble
 
 Le systeme UI personnalise permet aux plugins de creer des interfaces joueur interactives. Le systeme utilise une **architecture client-serveur** :

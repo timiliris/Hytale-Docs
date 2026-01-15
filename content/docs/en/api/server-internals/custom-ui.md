@@ -12,6 +12,48 @@ description: Complete guide to creating interactive player interfaces in Hytale 
 This documentation has been tested with a working plugin. Examples are confirmed to work.
 :::
 
+## Required Imports
+
+```java
+// === Core UI Page ===
+import com.hypixel.hytale.server.core.entity.entities.player.pages.InteractiveCustomUIPage;
+import com.hypixel.hytale.server.core.ui.builder.UICommandBuilder;
+import com.hypixel.hytale.server.core.ui.builder.UIEventBuilder;
+import com.hypixel.hytale.server.core.ui.builder.EventData;
+import com.hypixel.hytale.server.core.ui.Value;
+import com.hypixel.hytale.protocol.packets.interface_.CustomPageLifetime;
+import com.hypixel.hytale.protocol.packets.interface_.CustomUIEventBindingType;
+
+// === Codec (for event data) ===
+import com.hypixel.hytale.codec.Codec;
+import com.hypixel.hytale.codec.KeyedCodec;
+import com.hypixel.hytale.codec.builder.BuilderCodec;
+
+// === ECS Components ===
+import com.hypixel.hytale.component.Ref;
+import com.hypixel.hytale.component.Store;
+import com.hypixel.hytale.server.core.universe.PlayerRef;
+import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+
+// === Player & Command ===
+import com.hypixel.hytale.server.core.entity.entities.Player;
+import com.hypixel.hytale.server.core.command.system.CommandContext;
+import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayerCommand;
+import com.hypixel.hytale.server.core.universe.world.World;
+import com.hypixel.hytale.server.core.Message;
+
+// === Dropdown (optional) ===
+import com.hypixel.hytale.server.core.ui.DropdownEntryInfo;
+import com.hypixel.hytale.server.core.ui.LocalizableString;
+
+// === Notifications (optional) ===
+import com.hypixel.hytale.server.core.util.NotificationUtil;
+import com.hypixel.hytale.protocol.packets.interface_.NotificationStyle;
+
+// === Page Management ===
+import com.hypixel.hytale.protocol.packets.interface_.Page;
+```
+
 ## Overview
 
 The Custom UI system allows plugins to create interactive player interfaces. The system uses a **client-server architecture**:
