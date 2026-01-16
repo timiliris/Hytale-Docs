@@ -705,5 +705,42 @@
       "title": "Contact Information",
       "content": "For questions about these Terms of Use, please contact us through our GitHub repository at https://github.com/HytaleDocs/wiki-next or via email at legal@hytale-docs.com."
     }
+  },
+  "pwa": {
+    "update": {
+      "title": "Update Available",
+      "description": "A new version of HytaleDocs is ready. Refresh to get the latest features and improvements.",
+      "refresh": "Refresh Now",
+      "updating": "Updating...",
+      "later": "Later",
+      "dismiss": "Dismiss update notification"
+    },
+    "install": {
+      "title": "Install HytaleDocs",
+      "description": "Add HytaleDocs to your device for quick access and offline browsing.",
+      "feature1": "Fast access from your home screen",
+      "feature2": "Works offline",
+      "feature3": "No app store required",
+      "installButton": "Install App",
+      "remindLater": "Remind Me Later",
+      "dontShowAgain": "Don't show again",
+      "dismiss": "Dismiss install prompt",
+      "iosInstructions": {
+        "title": "Install on iOS",
+        "description": "To install HytaleDocs on your iPhone or iPad, follow these steps:",
+        "step1": "Tap the Share button in Safari's toolbar",
+        "step2": "Scroll down and tap \"Add to Home Screen\"",
+        "step3": "Tap \"Add\" to confirm",
+        "shareIcon": "Share button",
+        "addToHome": "Add to Home Screen",
+        "gotIt": "Got it!"
+      },
+      "androidInstructions": {
+        "title": "Install on Android",
+        "description": "To install HytaleDocs, use Chrome and look for the install option.",
+        "step1": "Tap the menu button (three dots) and select \"Add to Home screen\" or \"Install app\"",
+        "gotIt": "Got it!"
+      }
+    }
   }
 }

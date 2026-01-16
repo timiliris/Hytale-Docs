@@ -1,5 +1,6 @@
 // HytaleDocs Service Worker - Optimized for Performance
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
+const BUILD_ID = '__BUILD_ID__'; // Will be replaced during build or use timestamp
 const STATIC_CACHE = `hytaledocs-static-${CACHE_VERSION}`;
 const PAGES_CACHE = `hytaledocs-pages-${CACHE_VERSION}`;
 const IMAGES_CACHE = `hytaledocs-images-${CACHE_VERSION}`;
@@ -215,4 +216,24 @@ self.addEventListener('message', (event) => {
       });
     });
   }
+
+  // Get current version info
+  if (event.data && event.data.type === 'GET_VERSION') {
+    event.ports[0].postMessage({
+      version: CACHE_VERSION,
+      buildId: BUILD_ID,
+    });
+  }
 });
+
+// Notify clients about updates
+function notifyClientsAboutUpdate() {
+  self.clients.matchAll({ type: 'window' }).then(clients => {
+    clients.forEach(client => {
+      client.postMessage({
+        type: 'SW_UPDATE_AVAILABLE',
+        version: CACHE_VERSION,
+      });
+    });
+  });
+}

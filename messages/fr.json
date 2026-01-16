@@ -705,5 +705,42 @@
       "title": "Coordonnees",
       "content": "Pour toute question concernant ces Conditions d'Utilisation, veuillez nous contacter via notre depot GitHub a https://github.com/HytaleDocs/wiki-next ou par email a legal@hytale-docs.com."
     }
+  },
+  "pwa": {
+    "update": {
+      "title": "Mise a jour disponible",
+      "description": "Une nouvelle version de HytaleDocs est prete. Actualisez pour obtenir les dernieres fonctionnalites.",
+      "refresh": "Actualiser",
+      "updating": "Mise a jour...",
+      "later": "Plus tard",
+      "dismiss": "Ignorer la notification de mise a jour"
+    },
+    "install": {
+      "title": "Installer HytaleDocs",
+      "description": "Ajoutez HytaleDocs a votre appareil pour un acces rapide et une navigation hors ligne.",
+      "feature1": "Acces rapide depuis l'ecran d'accueil",
+      "feature2": "Fonctionne hors ligne",
+      "feature3": "Pas d'app store requis",
+      "installButton": "Installer l'app",
+      "remindLater": "Me rappeler plus tard",
+      "dontShowAgain": "Ne plus afficher",
+      "dismiss": "Ignorer l'invitation d'installation",
+      "iosInstructions": {
+        "title": "Installer sur iOS",
+        "description": "Pour installer HytaleDocs sur votre iPhone ou iPad, suivez ces etapes :",
+        "step1": "Appuyez sur le bouton Partager dans la barre d'outils Safari",
+        "step2": "Faites defiler vers le bas et appuyez sur \"Sur l'ecran d'accueil\"",
+        "step3": "Appuyez sur \"Ajouter\" pour confirmer",
+        "shareIcon": "Bouton Partager",
+        "addToHome": "Sur l'ecran d'accueil",
+        "gotIt": "Compris !"
+      },
+      "androidInstructions": {
+        "title": "Installer sur Android",
+        "description": "Pour installer HytaleDocs, utilisez Chrome et cherchez l'option d'installation.",
+        "step1": "Appuyez sur le menu (trois points) et selectionnez \"Ajouter a l'ecran d'accueil\" ou \"Installer l'application\"",
+        "gotIt": "Compris !"
+      }
+    }
   }
 }

@@ -7,7 +7,8 @@ import { CookieConsent } from "@/components/cookie-consent";
 import { CookiePreferencesDialog } from "@/components/cookie-preferences";
 import { AdblockDetector } from "@/components/ads";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/seo/json-ld";
-import { ServiceWorkerRegister } from "@/components/pwa/service-worker-register";
+import { ServiceWorkerRegister, UpdateNotification, InstallPrompt } from "@/components/pwa";
+import { PWAProvider } from "@/contexts/pwa-context";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -205,9 +206,13 @@ export default async function LocaleLayout({
         >
           <NextIntlClientProvider messages={messages}>
             <CookieConsentProvider>
-              {children}
-              <CookieConsent />
-              <CookiePreferencesDialog />
+              <PWAProvider>
+                {children}
+                <CookieConsent />
+                <CookiePreferencesDialog />
+                <UpdateNotification />
+                <InstallPrompt />
+              </PWAProvider>
             </CookieConsentProvider>
             <AdblockDetector />
           </NextIntlClientProvider>
