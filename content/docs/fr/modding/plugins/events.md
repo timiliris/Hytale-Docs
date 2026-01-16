@@ -420,7 +420,8 @@ Declenche lorsqu'un joueur est en train d'etre ajoute a un monde.
 | `setBroadcastJoinMessage(boolean)` | `void` | Activer/desactiver le message de connexion |
 
 ```java
-eventBus.register(AddPlayerToWorldEvent.class, event -> {
+// AddPlayerToWorldEvent requires registerGlobal (not register)
+eventBus.registerGlobal(AddPlayerToWorldEvent.class, event -> {
     // Desactiver le message de connexion par defaut pour les connexions silencieuses
     if (isSilentJoin(event.getHolder())) {
         event.setBroadcastJoinMessage(false);

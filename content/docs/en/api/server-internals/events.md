@@ -772,8 +772,8 @@ public class ConnectionManager {
             event.setWorld(spawnWorld);
         });
 
-        // Player in world: broadcast
-        eventBus.register(AddPlayerToWorldEvent.class, event -> {
+        // Player in world: broadcast (global event)
+        eventBus.registerGlobal(AddPlayerToWorldEvent.class, event -> {
             String username = event.getHolder()
                 .getComponent(Player.getComponentType())
                 .getUsername();
