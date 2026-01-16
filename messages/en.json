@@ -428,6 +428,13 @@
     "title": "On this page",
     "navigation": "Table of contents"
   },
+  "mobileNav": {
+    "navigation": "Mobile navigation",
+    "home": "Home",
+    "docs": "Docs",
+    "toc": "Contents",
+    "menu": "Menu"
+  },
   "cookies": {
     "title": "We use cookies",
     "description": "We use cookies to enhance your browsing experience, analyze site traffic, and show personalized ads. You can customize your preferences below.",

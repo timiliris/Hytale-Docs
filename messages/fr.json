@@ -428,6 +428,13 @@
     "title": "Sur cette page",
     "navigation": "Table des matières"
   },
+  "mobileNav": {
+    "navigation": "Navigation mobile",
+    "home": "Accueil",
+    "docs": "Docs",
+    "toc": "Sommaire",
+    "menu": "Menu"
+  },
   "cookies": {
     "title": "Nous utilisons des cookies",
     "description": "Nous utilisons des cookies pour ameliorer votre experience de navigation, analyser le trafic du site et afficher des publicites personnalisees. Vous pouvez personnaliser vos preferences ci-dessous.",

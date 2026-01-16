@@ -8,25 +8,17 @@ import {
   Server,
   Code,
   Wrench,
-  Menu,
   Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSelector } from "./language-selector";
-import { MobileSidebar } from "./sidebar";
 import { SearchDialog } from "./search-dialog";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
 
   const mainNav = [
@@ -136,71 +128,6 @@ export function Navbar() {
 
             {/* Theme Toggle */}
             <ThemeToggle />
-
-            {/* Mobile Menu - 44x44px minimum touch target */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild className="lg:hidden">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="min-h-[44px] min-w-[44px] text-muted-foreground hover:text-foreground hover:bg-muted"
-                  aria-label={t("menu")}
-                >
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">{t("menu")}</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent
-                side="right"
-                className="w-[300px] bg-background border-l border-border p-0"
-              >
-                {/* Mobile Header */}
-                <div className="flex items-center gap-2.5 p-4 border-b border-border">
-                  <img
-                    src="/logo-h.png"
-                    alt="Hytale"
-                    className="h-7 w-7 object-contain"
-                  />
-                  <span className="text-lg font-bold">
-                    <span className="text-foreground">Hytale</span>
-                    <span className="text-primary">Docs</span>
-                  </span>
-                </div>
-
-                {/* Mobile Nav */}
-                <nav className="p-4 space-y-1">
-                  {mainNav.map((item) => {
-                    const isActive = pathname.startsWith(item.href);
-                    return (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className={cn(
-                          "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                          isActive
-                            ? "text-primary bg-primary/10"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                        )}
-                      >
-                        <item.icon className="h-5 w-5" />
-                        {item.title}
-                      </Link>
-                    );
-                  })}
-                </nav>
-
-                {/* Mobile Sidebar for docs */}
-                {pathname.startsWith("/docs") && (
-                  <div className="border-t border-border p-4">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">
-                      {t("navigation")}
-                    </p>
-                    <MobileSidebar />
-                  </div>
-                )}
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
       </div>

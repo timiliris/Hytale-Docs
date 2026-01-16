@@ -12,7 +12,7 @@ import { mdxComponents } from "@/components/mdx";
 import { remarkAdmonitions } from "@/lib/remark-admonitions";
 import { ArticleAd } from "@/components/ads";
 import { BreadcrumbJsonLd, ArticleJsonLd } from "@/components/seo/json-ld";
-import { DocsBreadcrumb, TableOfContents, extractHeadings, BackToTop } from "@/components/layout";
+import { DocsBreadcrumb, TableOfContents, extractHeadings, BackToTop, TocProvider } from "@/components/layout";
 
 const BASE_URL = "https://hytale-docs.com";
 
@@ -110,8 +110,9 @@ export default async function DocPage({ params }: DocPageProps) {
     : `${BASE_URL}/${locale}/docs/${actualSlug.join("/")}`;
 
   return (
-    <div className="flex gap-8">
-      <article className="max-w-4xl flex-1 min-w-0 py-6 lg:py-8">
+    <TocProvider items={tocItems}>
+      <div className="flex gap-8">
+        <article className="max-w-4xl flex-1 min-w-0 py-6 lg:py-8">
         {/* Structured Data */}
         <BreadcrumbJsonLd items={breadcrumbItems} />
         <ArticleJsonLd
@@ -204,11 +205,12 @@ export default async function DocPage({ params }: DocPageProps) {
         </nav>
       </article>
 
-      {/* Table of Contents - Right Sidebar */}
-      <TableOfContents items={tocItems} />
+        {/* Table of Contents - Right Sidebar */}
+        <TableOfContents items={tocItems} />
 
-      {/* Back to Top Button */}
-      <BackToTop />
-    </div>
+        {/* Back to Top Button */}
+        <BackToTop />
+      </div>
+    </TocProvider>
   );
 }

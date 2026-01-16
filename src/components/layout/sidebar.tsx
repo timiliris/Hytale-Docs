@@ -16,9 +16,16 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { sidebarConfig, type SidebarItem } from "@/config/sidebar";
 import { SidebarAd } from "@/components/ads";
+import { useMobileNavigation } from "@/contexts/mobile-navigation-context";
 
 function SidebarLink({
   item,
@@ -135,5 +142,43 @@ export function MobileSidebar() {
         ))}
       </nav>
     </ScrollArea>
+  );
+}
+
+export function MobileSidebarDrawer() {
+  const t = useTranslations("sidebar");
+  const navT = useTranslations("nav");
+  const { sidebarOpen, setSidebarOpen } = useMobileNavigation();
+
+  return (
+    <Sheet open={sidebarOpen} onOpenChange={setSidebarOpen}>
+      <SheetContent
+        side="left"
+        className={cn(
+          "w-[280px] sm:w-[320px]",
+          "bg-background border-r border-border",
+          "p-0"
+        )}
+      >
+        {/* Drag handle */}
+        <div className="flex justify-center pt-3 pb-1">
+          <div className="w-9 h-1 bg-muted-foreground/30 rounded-full" />
+        </div>
+
+        <SheetHeader className="px-4 pb-3 border-b border-border">
+          <SheetTitle className="text-sm font-semibold text-left">
+            {navT("navigation")}
+          </SheetTitle>
+        </SheetHeader>
+
+        <ScrollArea className="h-[calc(100vh-8rem)]">
+          <nav className="space-y-1 p-4">
+            {sidebarConfig.map((item) => (
+              <SidebarLink key={item.titleKey} item={item} t={t} />
+            ))}
+          </nav>
+        </ScrollArea>
+      </SheetContent>
+    </Sheet>
   );
 }

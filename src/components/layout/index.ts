@@ -1,10 +1,15 @@
 export { Navbar } from "./navbar";
 export { Footer } from "./footer";
-export { Sidebar, MobileSidebar } from "./sidebar";
+export { Sidebar, MobileSidebar, MobileSidebarDrawer } from "./sidebar";
 export { ThemeToggle } from "./theme-toggle";
 export { LanguageSelector } from "./language-selector";
 export { DocsBreadcrumb } from "./breadcrumb";
 export { BackToTop } from "./back-to-top";
 export { TableOfContents } from "./table-of-contents";
+export { BottomNavigation } from "./bottom-navigation";
+export { MobileToc } from "./mobile-toc";
+export { DocsMobileNavigation } from "./docs-mobile-navigation";
+export { TocProvider } from "./toc-provider";
+export { MobileMenu } from "./mobile-menu";
 export { extractHeadings } from "@/lib/extract-headings";
 export type { TocItem } from "@/lib/extract-headings";

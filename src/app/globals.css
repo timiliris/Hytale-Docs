@@ -184,6 +184,15 @@
 
 /* Custom utilities */
 @layer utilities {
+  /* Safe area support for iOS notch/home indicator */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+
   /* Hytale gold gradient text */
   .text-gradient {
     background: linear-gradient(135deg, #d4952e, #e8a849, #f0bc6a);
