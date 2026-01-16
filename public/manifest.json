@@ -12,10 +12,16 @@
   "categories": ["education", "games", "utilities"],
   "icons": [
     {
-      "src": "/logo-h.png",
+      "src": "/logo-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "shortcuts": [
@@ -24,14 +30,14 @@
       "short_name": "Docs",
       "description": "Browse the documentation",
       "url": "/en/docs",
-      "icons": [{ "src": "/logo-h.png", "sizes": "512x512" }]
+      "icons": [{ "src": "/logo-512.png", "sizes": "512x512" }]
     },
     {
       "name": "API Reference",
       "short_name": "API",
       "description": "Explore the API documentation",
       "url": "/en/docs/api",
-      "icons": [{ "src": "/logo-h.png", "sizes": "512x512" }]
+      "icons": [{ "src": "/logo-512.png", "sizes": "512x512" }]
     }
   ],
   "related_applications": [],
