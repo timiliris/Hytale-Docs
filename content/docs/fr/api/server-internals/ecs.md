@@ -3240,15 +3240,14 @@ public class DeathComponent implements Component<EntityStore> {
 **Comment utiliser:**
 
 ```java
-// La mort est typiquement appliquee via tryAddComponent
+// La mort est appliquee via tryAddComponent (le constructeur a un acces protege)
 DeathComponent.tryAddComponent(commandBuffer, entityRef, damage);
 
-// Ou manuellement
-DeathComponent death = new DeathComponent(damage);
-death.setShowDeathMenu(true);
-death.setDeathMessage(new Message("Tue par un dragon"));
-death.setItemsLossMode(DeathConfig.ItemsLossMode.RANDOM);
-commandBuffer.addComponent(ref, DeathComponent.getComponentType(), death);
+// Acceder aux informations de mort apres l'ajout du composant
+DeathComponent death = store.getComponent(ref, DeathComponent.getComponentType());
+DamageCause cause = death.getDeathCause();
+Damage damageInfo = death.getDeathInfo();
+boolean showMenu = death.isShowDeathMenu();
 ```
 
 **Notes d'utilisation:**
