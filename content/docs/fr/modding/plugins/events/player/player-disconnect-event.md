@@ -75,6 +75,117 @@ eventBus.register(EventPriority.LATE, PlayerDisconnectEvent.class, event -> {
 - Mettre a jour les systemes de presence ou de statut du joueur
 - Retirer les joueurs des equipes, groupes ou autres formations
 
+## Exemples pratiques
+
+### Obtenir les détails de la raison de déconnexion
+
+La méthode `getDisconnectReason()` retourne un objet `PacketHandler.DisconnectReason` qui contient soit une raison côté serveur, soit un type de déconnexion côté client :
+
+```java
+eventBus.register(PlayerDisconnectEvent.class, event -> {
+    PlayerRef player = event.getPlayerRef();
+    PacketHandler.DisconnectReason reason = event.getDisconnectReason();
+
+    // Vérifier si c'était une déconnexion initiée par le serveur
+    String serverReason = reason.getServerDisconnectReason();
+    if (serverReason != null) {
+        logger.info("Le serveur a expulsé " + player.getUsername() + ": " + serverReason);
+        return;
+    }
+
+    // Vérifier si c'était une déconnexion initiée par le client
+    DisconnectType clientType = reason.getClientDisconnectType();
+    if (clientType != null) {
+        switch (clientType) {
+            case Disconnect -> logger.info(player.getUsername() + " s'est déconnecté normalement");
+            case Crash -> logger.warn(player.getUsername() + " s'est déconnecté suite à un crash");
+        }
+    }
+});
+```
+
+### Valeurs de l'enum DisconnectType
+
+| Valeur | Description |
+|--------|-------------|
+| `Disconnect` | Déconnexion normale initiée par le client (le joueur a appuyé sur déconnecter) |
+| `Crash` | Le client a crashé ou la connexion a été perdue de manière inattendue |
+
+## Détails internes
+
+### Où l'événement est déclenché
+
+L'événement est déclenché dans la méthode `Universe.removePlayer()` :
+
+```java
+// Fichier: com/hypixel/hytale/server/core/universe/Universe.java:733
+public void removePlayer(@Nonnull PlayerRef playerRef) {
+    this.getLogger().at(Level.INFO).log("Removing player '" + playerRef.getUsername() + "'");
+
+    IEventDispatcher<PlayerDisconnectEvent, PlayerDisconnectEvent> eventDispatcher =
+        HytaleServer.get().getEventBus().dispatchFor(PlayerDisconnectEvent.class);
+
+    if (eventDispatcher.hasListener()) {
+        eventDispatcher.dispatch(new PlayerDisconnectEvent(playerRef));
+    }
+
+    // La suppression du joueur continue quoi qu'il arrive...
+}
+```
+
+### Chaîne de traitement de l'événement
+
+```
+Le joueur clique sur Déconnecter / Connexion perdue
+         ↓
+Universe.removePlayer(playerRef) appelé
+         ↓
+PlayerDisconnectEvent dispatché (si des listeners existent)
+         ↓
+Les handlers d'événements s'exécutent (ne peuvent pas empêcher la suppression)
+         ↓
+L'entité du joueur est retirée du monde
+         ↓
+finalizePlayerRemoval() appelé
+```
+
+### Hiérarchie de classes
+
+```
+PlayerDisconnectEvent
+  └── extends PlayerRefEvent<Void>
+        └── implements IEvent<Void>
+              └── extends IBaseEvent<Void>
+```
+
+## Test
+
+> **Testé :** 17 janvier 2026 - Vérifié avec le plugin doc-test
+
+Pour tester cet événement :
+1. Exécutez `/doctest test-player-disconnect-event`
+2. Déconnectez-vous du serveur (ESC -> Déconnecter)
+3. Vérifiez la console du serveur pour les détails de l'événement
+
+**Exemple de sortie de test :**
+```
+[SUCCESS] PlayerDisconnectEvent detected!
+
+Event details:
+  getPlayerRef():
+    -> Username: Timiliris
+    -> UUID: 8559eb7c-b33d-448c-ab06-e49e2fd75eb9
+  getDisconnectReason():
+    -> DisconnectReason{serverDisconnectReason='null', clientDisconnectType=Disconnect}
+    -> Client Type: Disconnect
+  toString():
+    -> PlayerDisconnectEvent{playerRef=...} PlayerRefEvent{playerRef=...}
+
+All documented methods work correctly!
+```
+
+> **Dernière mise à jour :** 17 janvier 2026 - Testé et vérifié. Ajout d'exemples pratiques et de détails internes.
+
 ## Événements lies
 
 - [PlayerConnectEvent](./player-connect-event.md) - Déclenché quand un joueur se connecte
