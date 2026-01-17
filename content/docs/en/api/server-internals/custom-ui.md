@@ -84,6 +84,10 @@ Your manifest must include `IncludesAssetPack: true`:
 }
 ```
 
+> **⚠️ Critical Requirement:** The `"IncludesAssetPack": true` line is mandatory for custom textures to work. Without it, clients will see a "Red X" for any custom image you try to load.
+
+> **⚠️ Critical Requirement:** The `"IncludesAssetPack": true` line is mandatory for custom textures to work. Without it, clients will see a "Red X" for any custom image you try to load.
+
 ### Step 3: Create the UI File
 
 Create `src/main/resources/Common/UI/Custom/YourPlugin/MyPage.ui`:
@@ -1147,8 +1151,13 @@ public void handleDataEvent(...) {
     cmd.set("#StatusLabel.Text", "Updated!");
     cmd.set("#Counter.Text", String.valueOf(counter++));
 
-    // Send update without clearing
-    this.sendUpdate(cmd, false);
+
+    // Send update ONLY (incremental patch)
+    this.update(false, cmd);
+}
+```
+
+> **Performance Tip:** Avoid calling `builder.append()` repeatedly in update loops. This forces a full document parse and can cause the client to disconnect with "Failed to load CustomUI documents". Always use `this.update(false, cmd)` for dynamic values.    this.sendUpdate(cmd, false);
 }
 ```
 
@@ -1500,6 +1509,12 @@ import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+
+// ⚠️ IMPORTANT: Thread-Safety
+// UI methods like handleDataEvent often run on network threads.
+// ALWAYS access player stats (Health, Mana) using:
+// EntityStatMap stats = playerRef.getComponent(EntityStatMap.getComponentType());
+// Do NOT use store.getComponent() directly if you are not sure you are on the World Tick thread.
 
 // Player & Commands
 import com.hypixel.hytale.server.core.entity.entities.Player;

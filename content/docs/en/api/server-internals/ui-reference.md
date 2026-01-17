@@ -114,8 +114,8 @@ Group {
 |----------|------|-------------|
 | `Anchor` | Anchor | Size and position constraints |
 | `Background` | Color/PatchStyle | Background color or 9-slice image |
-| `LayoutMode` | Enum | How children are arranged |
-| `Padding` | Padding | Internal spacing |
+| `LayoutMode` | Enum | How children are arranged (e.g. `Top`, `Left`, `Overlay`) |
+| `Padding` | Padding | Internal spacing (Note: Use padding on parent, NOT margin on children) |
 | `FlexWeight` | Number | Flexible sizing weight |
 | `Visible` | Boolean | Visibility |
 | `Enabled` | Boolean | Interaction enabled |
@@ -167,8 +167,13 @@ TextButton #MyButton {
 | `Enabled` | Boolean | Can be clicked |
 | `Visible` | Boolean | Visibility |
 
-### Image
+### Image (Deprecated Pattern)
+> **⚠️ Warning:** The direct `<Image>` node is widely deprecated in current Hytale modding due to parser instability.
 
+**Recommended Alternative:**
+Use a `Group` with a `Background` property instead.
+
+**Legacy Sytnax (Avoid if crashing):**
 ```
 Image {
   TexturePath: "Common/MyImage.png";
@@ -397,15 +402,18 @@ For scalable backgrounds using 9-slice images.
 ```
 PatchStyle(
   TexturePath: "Common/Button.png",
-  Border: 12                    // All sides equal
+  Border: 12                    // All sides (Top, Bottom, Left, Right)
 )
 
+// Advanced Syntax (Different borders)
 PatchStyle(
   TexturePath: "Common/Panel.png",
-  HorizontalBorder: 80,         // Left/right borders
-  VerticalBorder: 12            // Top/bottom borders
+  HorizontalBorder: 80,         // Affects Left and Right only
+  VerticalBorder: 12            // Affects Top and Bottom only
 )
 ```
+
+> **Best Practice:** Always use `PatchStyle` for UI backgrounds (buttons, panels) to prevent pixel stretching artifacts. A border of `10-12` is standard for Hytale's 32x textures.
 
 ---
 
