@@ -173,7 +173,7 @@ TextButton #MyButton {
 **Recommended Alternative:**
 Use a `Group` with a `Background` property instead.
 
-**Legacy Sytnax (Avoid if crashing):**
+**Legacy Syntax (Avoid if crashing):**
 ```
 Image {
   TexturePath: "Common/MyImage.png";

@@ -86,7 +86,6 @@ Your manifest must include `IncludesAssetPack: true`:
 
 > **⚠️ Critical Requirement:** The `"IncludesAssetPack": true` line is mandatory for custom textures to work. Without it, clients will see a "Red X" for any custom image you try to load.
 
-> **⚠️ Critical Requirement:** The `"IncludesAssetPack": true` line is mandatory for custom textures to work. Without it, clients will see a "Red X" for any custom image you try to load.
 
 ### Step 3: Create the UI File
 
@@ -1157,9 +1156,8 @@ public void handleDataEvent(...) {
 }
 ```
 
-> **Performance Tip:** Avoid calling `builder.append()` repeatedly in update loops. This forces a full document parse and can cause the client to disconnect with "Failed to load CustomUI documents". Always use `this.update(false, cmd)` for dynamic values.    this.sendUpdate(cmd, false);
-}
-```
+> **Performance Tip:** Avoid calling `builder.append()` repeatedly in update loops. This forces a full document parse and can cause the client to disconnect with "Failed to load CustomUI documents". Always use `this.update(false, cmd)` for dynamic values.
+
 
 ### Clearing and Refreshing
 

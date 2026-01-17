@@ -312,7 +312,7 @@ export const sidebarConfig: SidebarItem[] = [
           { titleKey: "networkPackets", href: "/docs/api/server-internals/packets" },
           { titleKey: "customUI", href: "/docs/api/server-internals/custom-ui", verified: true },
           { titleKey: "uiReference", href: "/docs/api/server-internals/ui-reference", verified: true },
-          { titleKey: "uiTroubleshooting", href: "/docs/api/server-internals/troubleshooting", verified: true },
+          { titleKey: "uiTroubleshooting", href: "/docs/api/server-internals/troubleshooting" },
         ],
       },
       {
