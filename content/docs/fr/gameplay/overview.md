@@ -62,8 +62,9 @@ Hytale entre en **Early Access le 13 janvier 2026**.
 
 | Edition | Prix | Contenu |
 |---------|------|---------|
-| Standard | 34,99 $ | Jeu complet |
-| Deluxe | A confirmer | Jeu + cosmetiques exclusifs |
+| Standard | 19,99 $ | Jeu complet |
+| Supporter | 34,99 $ | Jeu complet + cosmétiques exclusifs |
+| Cursebreaker Founders | 69,99 $ | Jeu complet + cosmétiques premium + reconnaissance early supporter |
 
 :::tip Precommande
 Le jeu est disponible en precommande sur [hytale.com](https://hytale.com) depuis le 13 decembre 2025.

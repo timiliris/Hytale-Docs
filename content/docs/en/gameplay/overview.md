@@ -62,8 +62,9 @@ Hytale enters **Early Access on January 13, 2026**.
 
 | Edition | Price | Content |
 |---------|-------|---------|
-| Standard | $34.99 | Full game |
-| Deluxe | TBC | Game + exclusive cosmetics |
+| Standard | $19.99 | Full game |
+| Supporter | $34.99 | Full game + exclusive cosmetics |
+| Cursebreaker Founders | $69.99 | Full game + premium cosmetics + early supporter recognition |
 
 :::tip Pre-order
 The game is available for pre-order on [hytale.com](https://hytale.com) since December 13, 2025.
