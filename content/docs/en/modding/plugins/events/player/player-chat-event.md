@@ -116,6 +116,66 @@ This event is **asynchronous**, which means handlers should return a `Completabl
 
 The `DEFAULT_FORMATTER` static field provides the default formatting behavior if no custom formatter is set.
 
+## Testing
+
+> **Tested:** January 17, 2026 - Verified with doc-test plugin
+
+To test this event:
+1. Run `/doctest test-player-chat-event`
+2. Send any chat message (press T or Enter, type, and send)
+3. The event should fire and display details including sender, content, targets, and formatter
+
+## Internal Details
+
+### Where the Event is Fired
+
+The event is fired in `GamePacketHandler.java:360` when the server receives a chat packet from a client:
+
+```java
+// Fired asynchronously when a player sends a chat message
+HytaleServer.get()
+    .getEventBus()
+    .<String, PlayerChatEvent>dispatchForAsync(PlayerChatEvent.class)
+    .dispatch(new PlayerChatEvent(playerRef, targetPlayerRefs, message))
+    .whenComplete((playerChatEvent, throwable) -> {
+        if (!playerChatEvent.isCancelled()) {
+            Message sentMessage = playerChatEvent.getFormatter()
+                .format(playerRef, playerChatEvent.getContent());
+            for (PlayerRef targetPlayerRef : playerChatEvent.getTargets()) {
+                targetPlayerRef.sendMessage(sentMessage);
+            }
+        }
+    });
+```
+
+### Cancellation Behavior
+
+When `setCancelled(true)` is called:
+- The message is **NOT** formatted
+- The message is **NOT** sent to any recipients
+- The message is **NOT** logged to the server console
+- No further processing occurs
+
+### Target Filtering
+
+Before the event fires, the server automatically removes hidden players from the target list:
+```java
+targetPlayerRefs.removeIf(targetPlayerRef ->
+    targetPlayerRef.getHiddenPlayersManager().isPlayerHidden(playerUUID)
+);
+```
+
+### Class Hierarchy
+
+```
+PlayerChatEvent
+├── implements IAsyncEvent<String>
+│   └── extends IBaseEvent<String>
+└── implements ICancellable
+```
+
+> **Last updated:** January 17, 2026 - Tested and verified. Added internal details from decompiled source.
+
 ## Source Reference
 
 `decompiled/com/hypixel/hytale/server/core/event/events/player/PlayerChatEvent.java:10`

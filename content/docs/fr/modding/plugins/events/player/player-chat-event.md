@@ -116,6 +116,66 @@ Cet événement est **asynchrone**, ce qui signifie que les handlers doivent ret
 
 Le champ statique `DEFAULT_FORMATTER` fournit le comportement de formatage par defaut si aucun formateur personnalise n'est défini.
 
+## Test
+
+> **Testé:** 17 janvier 2026 - Vérifié avec le plugin doc-test
+
+Pour tester cet événement:
+1. Exécutez `/doctest test-player-chat-event`
+2. Envoyez un message dans le chat (appuyez sur T ou Entrée, tapez et envoyez)
+3. L'événement devrait se déclencher et afficher les détails incluant sender, content, targets et formatter
+
+## Détails internes
+
+### Où l'événement est déclenché
+
+L'événement est déclenché dans `GamePacketHandler.java:360` quand le serveur reçoit un paquet de chat d'un client:
+
+```java
+// Déclenché de manière asynchrone quand un joueur envoie un message
+HytaleServer.get()
+    .getEventBus()
+    .<String, PlayerChatEvent>dispatchForAsync(PlayerChatEvent.class)
+    .dispatch(new PlayerChatEvent(playerRef, targetPlayerRefs, message))
+    .whenComplete((playerChatEvent, throwable) -> {
+        if (!playerChatEvent.isCancelled()) {
+            Message sentMessage = playerChatEvent.getFormatter()
+                .format(playerRef, playerChatEvent.getContent());
+            for (PlayerRef targetPlayerRef : playerChatEvent.getTargets()) {
+                targetPlayerRef.sendMessage(sentMessage);
+            }
+        }
+    });
+```
+
+### Comportement d'annulation
+
+Quand `setCancelled(true)` est appelé:
+- Le message n'est **PAS** formaté
+- Le message n'est **PAS** envoyé aux destinataires
+- Le message n'est **PAS** journalisé dans la console du serveur
+- Aucun traitement supplémentaire n'est effectué
+
+### Filtrage des destinataires
+
+Avant que l'événement ne se déclenche, le serveur retire automatiquement les joueurs cachés de la liste des destinataires:
+```java
+targetPlayerRefs.removeIf(targetPlayerRef ->
+    targetPlayerRef.getHiddenPlayersManager().isPlayerHidden(playerUUID)
+);
+```
+
+### Hiérarchie de classes
+
+```
+PlayerChatEvent
+├── implements IAsyncEvent<String>
+│   └── extends IBaseEvent<String>
+└── implements ICancellable
+```
+
+> **Dernière mise à jour:** 17 janvier 2026 - Testé et vérifié. Ajout des détails internes du code source décompilé.
+
 ## Référence source
 
 `decompiled/com/hypixel/hytale/server/core/event/events/player/PlayerChatEvent.java:10`
