@@ -121,6 +121,25 @@ Quand un joueur est transfere entre mondes :
 1. **DrainPlayerFromWorldEvent** - Joueur retire de l'ancien monde
 2. **AddPlayerToWorldEvent** - Joueur ajoute au nouveau monde
 
+## Test
+
+> **Testé :** 17 janvier 2026 - Vérifié avec le plugin doc-test
+
+Pour tester cet événement :
+
+1. Exécutez `/doctest test-add-player-to-world-event`
+2. Déconnectez-vous et reconnectez-vous au serveur (ou transférez vers un autre monde)
+3. L'événement devrait se déclencher et afficher les détails dans le chat/console
+
+**Résultats du test :**
+- `getHolder()` - Retourne correctement le conteneur d'entité
+- `getWorld()` - Retourne correctement le monde cible
+- `shouldBroadcastJoinMessage()` - Retourne le flag de diffusion (défaut: true)
+- `setBroadcastJoinMessage()` - Modifie avec succès le flag de diffusion
+- `toString()` - Retourne une représentation textuelle correcte
+
+Toutes les méthodes documentées fonctionnent correctement.
+
 ## Notes
 
 Cet événement ne peut pas etre annule, mais vous pouvez controler la diffusion du message de connexion via `setBroadcastJoinMessage()`. Pour empecher un joueur d'entrer complètement dans un monde, vous devriez gerer cela dans un événement anterieur comme `PlayerConnectEvent` lors de la definition du monde initial.
