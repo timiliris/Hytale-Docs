@@ -179,7 +179,65 @@ eventBus.register(AllWorldsLoadedEvent.class, event -> {
 });
 ```
 
+## Test
+
+> **Testé :** 18 janvier 2026 - Vérifié avec le plugin doc-test
+
+Cet événement a été testé et vérifié comme fonctionnant correctement. Pour tester cet événement vous-même :
+
+1. Exécutez `/doctest test-all-worlds-loaded-event`
+2. La commande vérifiera si l'événement a été capturé au démarrage du serveur
+3. En cas de succès, elle affiche les détails de l'événement et l'état actuel des mondes
+
+**Résultats du test :**
+- L'événement se déclenche correctement au démarrage du serveur : **Oui**
+- Implémentation IEvent<Void> vérifiée : **Oui**
+- Non annulable (pas de ICancellable) : **Oui**
+- Événement signal (pas de champs/méthodes) : **Oui**
+
+## Détails internes
+
+### Où l'événement est déclenché
+
+L'événement est dispatché dans `Universe.java` dans deux scénarios :
+
+**Mode normal (avec des mondes) :**
+```java
+// Universe.java:324
+this.universeReady = CompletableFuture.allOf(loadingWorlds.toArray(CompletableFuture[]::new))
+    .thenCompose(v -> {
+        // Créer le monde par défaut si nécessaire
+        String worldName = config.getDefaults().getWorld();
+        return worldName != null && !this.worlds.containsKey(worldName.toLowerCase())
+            ? CompletableFutureUtil._catch(this.addWorld(worldName))
+            : CompletableFuture.completedFuture(null);
+    })
+    .thenRun(() -> HytaleServer.get().getEventBus().dispatch(AllWorldsLoadedEvent.class));
+```
+
+**Mode BARE (sans mondes) :**
+```java
+// Universe.java:286
+if (Options.getOptionSet().has(Options.BARE)) {
+    this.universeReady = CompletableFuture.completedFuture(null);
+    HytaleServer.get().getEventBus().dispatch(AllWorldsLoadedEvent.class);
+}
+```
+
+### Hiérarchie de classes
+
+```
+AllWorldsLoadedEvent
+  └── implements IEvent<Void>
+      └── extends IBaseEvent<Void>
+```
+
 ## Référence source
 
-- **Definition de l'événement :** `decompiled/com/hypixel/hytale/server/core/universe/world/events/AllWorldsLoadedEvent.java`
+- **Définition de l'événement :** `decompiled/com/hypixel/hytale/server/core/universe/world/events/AllWorldsLoadedEvent.java`
 - **Interface IEvent :** `decompiled/com/hypixel/hytale/event/IEvent.java`
+- **Lieu de déclenchement :** `decompiled/com/hypixel/hytale/server/core/universe/Universe.java:286, 324`
+
+---
+
+> **Dernière mise à jour :** 18 janvier 2026 - Testé et vérifié avec le plugin doc-test. Ajout des détails internes.

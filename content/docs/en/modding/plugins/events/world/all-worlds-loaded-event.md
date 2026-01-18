@@ -178,7 +178,65 @@ eventBus.register(AllWorldsLoadedEvent.class, event -> {
 });
 ```
 
+## Testing
+
+> **Tested:** January 18, 2026 - Verified with doc-test plugin
+
+This event has been tested and verified to work correctly. To test this event yourself:
+
+1. Run `/doctest test-all-worlds-loaded-event`
+2. The command will check if the event was captured at server startup
+3. If successful, it displays event details and current world state
+
+**Test Results:**
+- Event fires correctly at server startup: **Yes**
+- IEvent<Void> implementation verified: **Yes**
+- Not cancellable (no ICancellable): **Yes**
+- Signal event (no fields/methods): **Yes**
+
+## Internal Details
+
+### Where the Event is Fired
+
+The event is dispatched in `Universe.java` in two scenarios:
+
+**Normal Mode (with worlds):**
+```java
+// Universe.java:324
+this.universeReady = CompletableFuture.allOf(loadingWorlds.toArray(CompletableFuture[]::new))
+    .thenCompose(v -> {
+        // Create default world if needed
+        String worldName = config.getDefaults().getWorld();
+        return worldName != null && !this.worlds.containsKey(worldName.toLowerCase())
+            ? CompletableFutureUtil._catch(this.addWorld(worldName))
+            : CompletableFuture.completedFuture(null);
+    })
+    .thenRun(() -> HytaleServer.get().getEventBus().dispatch(AllWorldsLoadedEvent.class));
+```
+
+**BARE Mode (without worlds):**
+```java
+// Universe.java:286
+if (Options.getOptionSet().has(Options.BARE)) {
+    this.universeReady = CompletableFuture.completedFuture(null);
+    HytaleServer.get().getEventBus().dispatch(AllWorldsLoadedEvent.class);
+}
+```
+
+### Class Hierarchy
+
+```
+AllWorldsLoadedEvent
+  └── implements IEvent<Void>
+      └── extends IBaseEvent<Void>
+```
+
 ## Source Reference
 
 - **Event Definition:** `decompiled/com/hypixel/hytale/server/core/universe/world/events/AllWorldsLoadedEvent.java`
 - **IEvent Interface:** `decompiled/com/hypixel/hytale/event/IEvent.java`
+- **Trigger Location:** `decompiled/com/hypixel/hytale/server/core/universe/Universe.java:286, 324`
+
+---
+
+> **Last updated:** January 18, 2026 - Tested and verified with doc-test plugin. Added internal details.

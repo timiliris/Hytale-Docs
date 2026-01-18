@@ -179,7 +179,7 @@ export const sidebarConfig: SidebarItem[] = [
                   { titleKey: "addWorldEvent", href: "/docs/modding/plugins/events/world/add-world-event", verified: true },
                   { titleKey: "removeWorldEvent", href: "/docs/modding/plugins/events/world/remove-world-event" },
                   { titleKey: "startWorldEvent", href: "/docs/modding/plugins/events/world/start-world-event", verified: true },
-                  { titleKey: "allWorldsLoadedEvent", href: "/docs/modding/plugins/events/world/all-worlds-loaded-event" },
+                  { titleKey: "allWorldsLoadedEvent", href: "/docs/modding/plugins/events/world/all-worlds-loaded-event", verified: true },
                   { titleKey: "moonPhaseChangeEvent", href: "/docs/modding/plugins/events/world/moon-phase-change-event" },
                   { titleKey: "worldPathChangedEvent", href: "/docs/modding/plugins/events/world/world-path-changed-event" },
                 ],
