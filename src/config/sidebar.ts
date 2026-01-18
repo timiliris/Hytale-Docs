@@ -396,6 +396,7 @@ export const sidebarConfig: SidebarItem[] = [
     titleKey: "tools",
     items: [
       { titleKey: "overview", href: "/docs/tools/overview" },
+      { titleKey: "intellijPlugin", href: "/docs/tools/intellij-plugin" },
       {
         titleKey: "blockbench",
         items: [

@@ -2,7 +2,13 @@
   "announcement": {
     "title": "Documentation Interne Serveur",
     "subtitle": "Référence API complète vérifiée contre le code source",
-    "cta": "Explorer"
+    "cta": "Explorer",
+    "intellij": {
+      "badge": "NOUVEAU",
+      "title": "Découvrez notre plugin IntelliJ IDEA",
+      "subtitle": "Autocomplétion, templates et outils intégrés pour le développement Hytale",
+      "cta": "Télécharger"
+    }
   },
   "sidebar": {
     "introduction": "Introduction",
@@ -180,6 +186,7 @@
     "authentication": "Authentification",
     "sdks": "SDKs",
     "tools": "Outils",
+    "intellijPlugin": "Plugin IntelliJ",
     "blockbench": "Blockbench",
     "pluginSetup": "Configuration Plugin",
     "modeling": "Modélisation",
