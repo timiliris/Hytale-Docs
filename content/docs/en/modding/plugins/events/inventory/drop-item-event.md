@@ -221,8 +221,7 @@ The `DropItemEvent` fires in the following scenarios:
 1. **Player Drop Request**: When a player presses the drop key (typically Q) to drop an item from their inventory
 2. **Inventory Overflow**: When items cannot fit in an inventory and are ejected into the world
 3. **Container Breaking**: When a container block is broken and its contents are dropped
-4. **Entity Death**: When an entity dies and drops its inventory contents
-5. **Programmatic Drops**: When game logic or scripts initiate an item drop
+4. **Programmatic Drops**: When game logic or scripts initiate an item drop
 
 ## Cancellation Behavior
 

@@ -221,8 +221,7 @@ Le `DropItemEvent` se déclenché dans les scenarios suivants :
 1. **Demande de lachage par le joueur** : Lorsqu'un joueur appuie sur la touche de lachage (généralement Q) pour lacher un objet de son inventaire
 2. **Debordement d'inventaire** : Lorsque les objets ne peuvent pas tenir dans un inventaire et sont ejectes dans le monde
 3. **Destruction de conteneur** : Lorsqu'un bloc conteneur est casse et que son contenu est lache
-4. **Mort d'entite** : Lorsqu'une entite meurt et lache le contenu de son inventaire
-5. **Lachages programmatiques** : Lorsque la logique du jeu ou des scripts initient un lachage d'objet
+4. **Lachages programmatiques** : Lorsque la logique du jeu ou des scripts initient un lachage d'objet
 
 ## Comportement d'annulation
 
