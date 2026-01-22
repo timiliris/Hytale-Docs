@@ -45,6 +45,7 @@
     "npcs": "NPCs",
     "aiSystem": "Système IA",
     "plugins": "Plugins",
+    "intellijPlugin": "Plugin IntelliJ",
     "projectSetup": "Configuration Projet",
     "pluginLifecycle": "Cycle de Vie Plugin",
     "entityStats": "Stats d'Entité",

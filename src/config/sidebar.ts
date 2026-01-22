@@ -177,13 +177,14 @@ export const sidebarConfig: SidebarItem[] = [
       {
         titleKey: "plugins",
         items: [
-          { titleKey: "overview", href: "/docs/modding/plugins/overview" },
-          { titleKey: "projectSetup", href: "/docs/modding/plugins/project-setup" },
-          { titleKey: "pluginLifecycle", href: "/docs/modding/plugins/plugin-lifecycle" },
+          { titleKey: "overview", href: "/docs/modding/plugins/overview", verified: true },
+          { titleKey: "intellijPlugin", href: "/docs/modding/plugins/intellij-plugin", verified: true },
+          { titleKey: "projectSetup", href: "/docs/modding/plugins/project-setup", verified: true },
+          { titleKey: "pluginLifecycle", href: "/docs/modding/plugins/plugin-lifecycle", verified: true },
           {
             titleKey: "events",
             items: [
-              { titleKey: "eventsOverview", href: "/docs/modding/plugins/events/overview" },
+              { titleKey: "eventsOverview", href: "/docs/modding/plugins/events/overview", verified: true },
               {
                 titleKey: "playerEvents",
                 items: [

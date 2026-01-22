@@ -10,25 +10,119 @@ description: Develop Java plugins for Hytale servers
 
 Java plugins provide the most powerful way to extend Hytale servers. According to the official [Modding Strategy](https://hytale.com/news/2025/11/hytale-modding-strategy-and-status), server plugins are "the most powerful modding option."
 
-## What Are Plugins?
+:::tip Recommended: Use the IntelliJ Plugin
+The fastest way to start developing Hytale plugins is with our **IntelliJ IDEA plugin**. It provides everything you need to create, develop, and test plugins efficiently.
 
-Plugins are Java `.jar` files that:
-- Hook into the server API
-- Handle events and game logic
-- Add custom commands
-- Register custom blocks, entities, and assets
-- Implement complex game mechanics
+**Key Benefits:**
+- **One-click project setup** - Create a fully configured plugin project in seconds
+- **Built-in live templates** - Type `hyevent`, `hycmd`, or `hyecs` for instant code snippets
+- **Integrated server management** - Start, stop, and monitor servers from your IDE
+- **Hot reload support** - See changes without restarting the server
+- **Code completion for Hytale API** - Full IntelliSense for all Hytale classes
+- **manifest.json validation** - Catch configuration errors before runtime
+
+[Get Started with IntelliJ Plugin](/docs/modding/plugins/intellij-plugin)
+:::
+
+## What is a Hytale Plugin?
+
+Plugins are Java `.jar` files that extend server functionality. They can:
+
+- **Hook into the server API** - Access and modify game systems
+- **Handle events** - React to player actions, world changes, and game events
+- **Add custom commands** - Create new commands for players and administrators
+- **Register custom content** - Add blocks, entities, items, and assets
+- **Implement game mechanics** - Build minigames, RPG systems, economy plugins, and more
 
 > "Server plugins are Java-based (.jar files). If you've worked with Bukkit, Spigot, or Paper plugins for Minecraft, that experience will transfer."
 > — [Hytale Modding Strategy](https://hytale.com/news/2025/11/hytale-modding-strategy-and-status)
 
+## Getting Started
+
+### Option 1: IntelliJ Plugin (Recommended)
+
+The IntelliJ IDEA plugin is the easiest way to create Hytale plugins:
+
+1. Install [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) (Community or Ultimate)
+2. Install the Hytale plugin from the JetBrains Marketplace
+3. Use **File > New > Project > Hytale Plugin** to create your project
+4. Start coding immediately with all dependencies configured
+
+[Detailed IntelliJ Setup Guide](/docs/modding/plugins/intellij-plugin)
+
+### Option 2: Manual Setup
+
+If you prefer manual configuration or use a different IDE:
+
+1. Set up a Gradle project with Java 25
+2. Add the Hytale server as a dependency
+3. Create your main plugin class extending `JavaPlugin`
+4. Configure your `manifest.json`
+
+[Manual Project Setup Guide](/docs/modding/plugins/project-setup)
+
 ## Requirements
 
-| Requirement | Version |
-|-------------|---------|
-| Java | **Java 25** |
-| Gradle | **9.2.0** |
-| IDE | IntelliJ IDEA (recommended) |
+| Requirement | Version | Notes |
+|-------------|---------|-------|
+| Java | **Java 25** | OpenJDK Temurin recommended |
+| Gradle | **9.2.0** | For build automation |
+| IDE | IntelliJ IDEA | Strongly recommended for Hytale plugin |
+
+## Quick Start: Your First Plugin
+
+Here's a minimal working plugin to get you started:
+
+```java
+package com.example.myplugin;
+
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import javax.annotation.Nonnull;
+
+public class MyFirstPlugin extends JavaPlugin {
+
+    public MyFirstPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
+    }
+
+    @Override
+    protected void setup() {
+        getLogger().info("Hello, Hytale!");
+
+        // Register a simple event listener
+        getEventRegistry().register(PlayerJoinEvent.class, event -> {
+            getLogger().info("Player joined: " + event.getPlayer().getName());
+        });
+    }
+
+    @Override
+    protected void start() {
+        getLogger().info("Plugin is now running!");
+    }
+
+    @Override
+    protected void shutdown() {
+        getLogger().info("Plugin shutting down...");
+    }
+}
+```
+
+And the required `manifest.json`:
+
+```json
+{
+    "Group": "com.example",
+    "Name": "MyFirstPlugin",
+    "Version": "1.0.0",
+    "Description": "My first Hytale plugin",
+    "Main": "com.example.myplugin.MyFirstPlugin"
+}
+```
+
+:::info Using IntelliJ Plugin?
+If you use the IntelliJ plugin, both files are generated automatically when you create a new project. Just fill in your plugin details in the wizard!
+:::
 
 ## Plugin Architecture
 
@@ -40,46 +134,99 @@ Hytale uses a two-level class hierarchy for plugins:
 
 - **`JavaPlugin`** (`com.hypixel.hytale.server.core.plugin.JavaPlugin`) - Extends `PluginBase` and is the class you extend when creating a plugin. It adds JAR file handling and class loader management.
 
-### Basic Plugin Structure
+### Plugin Lifecycle
 
-Here is a minimal plugin that extends `JavaPlugin`:
+Understanding when your code runs is crucial:
+
+| State | Description | What to do |
+|-------|-------------|------------|
+| `SETUP` | Plugin is initializing | Register commands, events, assets |
+| `START` | All plugins are set up | Start game logic, interact with other plugins |
+| `ENABLED` | Plugin is running | Normal operation |
+| `SHUTDOWN` | Server is stopping | Clean up resources, save data |
 
 ```java
-package com.example.myplugin;
+@Override
+protected void setup() {
+    // Called first - register everything here
+    getCommandRegistry().registerCommand(new MyCommand());
+    getEventRegistry().register(PlayerJoinEvent.class, this::onJoin);
+}
 
-import com.hypixel.hytale.server.core.plugin.JavaPlugin;
-import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import javax.annotation.Nonnull;
+@Override
+protected void start() {
+    // Called after ALL plugins have completed setup()
+    // Safe to interact with other plugins here
+}
 
-public class MyPlugin extends JavaPlugin {
-
-    public MyPlugin(@Nonnull JavaPluginInit init) {
-        super(init);
-    }
-
-    @Override
-    protected void setup() {
-        getLogger().info("Plugin is setting up!");
-        // Register commands, events, assets here
-    }
-
-    @Override
-    protected void start() {
-        getLogger().info("Plugin started!");
-    }
-
-    @Override
-    protected void shutdown() {
-        getLogger().info("Plugin shutting down!");
-    }
+@Override
+protected void shutdown() {
+    // Called when server stops - clean up here
+    savePlayerData();
 }
 ```
 
-**Important:** Your plugin must have a constructor that accepts `JavaPluginInit` as its only parameter. The server uses reflection to instantiate your plugin with this initialization object.
+## Key Concepts
+
+### Events
+
+React to things happening in the game:
+
+```java
+// Listen to player events
+getEventRegistry().register(PlayerJoinEvent.class, event -> {
+    event.getPlayer().sendMessage("Welcome to the server!");
+});
+
+// Listen with priority
+getEventRegistry().register(EventPriority.EARLY, BlockBreakEvent.class, this::onBlockBreak);
+```
+
+[Learn more about Events](/docs/modding/plugins/events)
+
+### Commands
+
+Add custom commands for players and console:
+
+```java
+getCommandRegistry().registerCommand(new MyCommand());
+```
+
+[Learn more about Commands](/docs/modding/plugins/commands)
+
+### Entity Component System (ECS)
+
+Hytale uses an ECS architecture for entities and chunks:
+
+```java
+// Register a custom component for entities
+getEntityStoreRegistry().registerComponent(MyComponent.class, MyComponent.CODEC);
+
+// Register a system that processes components
+EntityStore.REGISTRY.registerSystem(new MyProcessingSystem());
+```
+
+[Learn more about ECS](/docs/modding/plugins/ecs)
+
+## Available Registries
+
+`PluginBase` provides access to multiple registries:
+
+| Registry | Purpose | Access Method |
+|----------|---------|---------------|
+| Command Registry | Player/console commands | `getCommandRegistry()` |
+| Event Registry | Game event listeners | `getEventRegistry()` |
+| Asset Registry | Custom textures, models, sounds | `getAssetRegistry()` |
+| Block State Registry | Custom block states | `getBlockStateRegistry()` |
+| Entity Registry | Custom entity types | `getEntityRegistry()` |
+| Task Registry | Scheduled/delayed tasks | `getTaskRegistry()` |
+| Chunk Store Registry | Chunk components | `getChunkStoreRegistry()` |
+| Entity Store Registry | Entity components | `getEntityStoreRegistry()` |
+| Client Feature Registry | Client-side features | `getClientFeatureRegistry()` |
 
 ## The manifest.json File
 
-Every plugin requires a `manifest.json` file at the root of your JAR. This file defines your plugin's metadata and dependencies.
+Every plugin requires a `manifest.json` file at the root of your JAR:
 
 ### Required Fields
 
@@ -87,7 +234,7 @@ Every plugin requires a `manifest.json` file at the root of your JAR. This file 
 |-------|------|-------------|
 | `Name` | String | Plugin name identifier (required) |
 
-### Optional Fields
+### Common Optional Fields
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -96,16 +243,10 @@ Every plugin requires a `manifest.json` file at the root of your JAR. This file 
 | `Description` | String | Plugin description |
 | `Main` | String | Fully qualified main class name |
 | `Authors` | AuthorInfo[] | Array of author information |
-| `Website` | String | Plugin website URL |
-| `ServerVersion` | String | Compatible server version range |
 | `Dependencies` | Map | Required plugin dependencies |
-| `OptionalDependencies` | Map | Optional plugin dependencies |
-| `LoadBefore` | Map | Plugins that should load after this one |
-| `DisabledByDefault` | boolean | Whether plugin is disabled by default |
-| `IncludesAssetPack` | boolean | Whether plugin includes an asset pack |
-| `SubPlugins` | PluginManifest[] | Nested sub-plugin manifests |
+| `ServerVersion` | String | Compatible server version range |
 
-### Example manifest.json
+### Full Example
 
 ```json
 {
@@ -128,306 +269,36 @@ Every plugin requires a `manifest.json` file at the root of your JAR. This file 
 }
 ```
 
-### Plugin Identifiers
-
-Plugins are identified using a `Group:Name` format. For example: `Hytale:BlockSpawnerPlugin`. This identifier is used when specifying dependencies.
-
-## Plugin Lifecycle
-
-Plugins go through a series of states managed by the `PluginManager`. Understanding these states is crucial for proper resource management.
-
-### Plugin States
-
-| State | Description |
-|-------|-------------|
-| `NONE` | Initial state before any lifecycle method is called |
-| `SETUP` | During `setup()` method execution |
-| `START` | During `start()` method execution |
-| `ENABLED` | Plugin is fully operational |
-| `SHUTDOWN` | During `shutdown()` method execution |
-| `DISABLED` | Plugin is disabled or failed to initialize |
-
-### Lifecycle Methods
-
-#### preLoad()
-
-```java
-@Nullable
-public CompletableFuture<Void> preLoad()
-```
-
-Called before setup to preload configurations asynchronously. Returns a `CompletableFuture` that completes when all configs are loaded. You typically don't need to override this.
-
-#### setup()
-
-```java
-protected void setup()
-```
-
-Called during plugin initialization. This is where you register commands, events, assets, and components. All registration should happen here.
-
-#### start()
-
-```java
-protected void start()
-```
-
-Called after all plugins have completed `setup()`. Use this for logic that depends on other plugins being initialized.
-
-#### shutdown()
-
-```java
-protected void shutdown()
-```
-
-Called when the plugin is shutting down. Perform cleanup before registries are cleaned up.
-
-### Loading Process
-
-The `PluginManager` loads plugins through these phases:
-
-1. **Discovery** - Plugins are discovered from the `mods` directory, classpath, and builtin plugins
-2. **Dependency Validation** - Dependencies are validated against loaded plugins and server version
-3. **Load Order Calculation** - Plugins are sorted based on dependencies and `LoadBefore` declarations
-4. **Instantiation** - Main class is loaded and constructor is invoked with `JavaPluginInit`
-5. **PreLoad** - `preLoad()` is called to load configs asynchronously
-6. **Setup** - `setup()` is called to register commands, events, assets
-7. **Start** - `start()` is called after all plugins are set up
-
-## Available Registries
-
-`PluginBase` provides access to multiple registries for extending the server:
-
-### Command Registry
-
-```java
-@Nonnull
-public CommandRegistry getCommandRegistry()
-```
-
-Register commands that players and the console can execute:
-
-```java
-@Override
-protected void setup() {
-    getCommandRegistry().registerCommand(new MyCommand());
-}
-```
-
-### Event Registry
-
-```java
-@Nonnull
-public EventRegistry getEventRegistry()
-```
-
-Listen to and respond to game events:
-
-```java
-@Override
-protected void setup() {
-    getEventRegistry().register(PlayerJoinEvent.class, this::onPlayerJoin);
-
-    // With priority
-    getEventRegistry().register(EventPriority.EARLY, SomeEvent.class, this::handleEarly);
-
-    // Global listener (receives all events of that type)
-    getEventRegistry().registerGlobal(ChunkPreLoadProcessEvent.class, this::onChunkPreLoad);
-}
-```
-
-### Asset Registry
-
-```java
-@Nonnull
-public AssetRegistry getAssetRegistry()
-```
-
-Register custom assets like textures, models, and sounds.
-
-### Block State Registry
-
-```java
-@Nonnull
-public BlockStateRegistry getBlockStateRegistry()
-```
-
-Register custom block states.
-
-### Entity Registry
-
-```java
-@Nonnull
-public EntityRegistry getEntityRegistry()
-```
-
-Register custom entity types.
-
-### Task Registry
-
-```java
-@Nonnull
-public TaskRegistry getTaskRegistry()
-```
-
-Schedule recurring or delayed tasks.
-
-### Component Registries
-
-```java
-@Nonnull
-public ComponentRegistryProxy<ChunkStore> getChunkStoreRegistry()
-
-@Nonnull
-public ComponentRegistryProxy<EntityStore> getEntityStoreRegistry()
-```
-
-Register custom components for chunks and entities.
-
-### Client Feature Registry
-
-```java
-@Nonnull
-public ClientFeatureRegistry getClientFeatureRegistry()
-```
-
-Register features that affect client behavior.
-
-## Utility Methods
-
-### Logger Access
-
-```java
-@Nonnull
-public HytaleLogger getLogger()
-```
-
-Get a logger instance for your plugin:
-
-```java
-getLogger().info("Something happened");
-getLogger().warn("This might be a problem");
-getLogger().error("Something went wrong", exception);
-```
-
-### Data Directory
-
-```java
-@Nonnull
-public Path getDataDirectory()
-```
-
-Get the path to your plugin's data folder for storing configuration and data files.
-
-### Plugin Information
-
-```java
-@Nonnull
-public PluginIdentifier getIdentifier()
-
-@Nonnull
-public PluginManifest getManifest()
-```
-
-Access your plugin's identifier and manifest information.
-
-### Configuration
-
-```java
-@Nonnull
-protected final <T> Config<T> withConfig(@Nonnull BuilderCodec<T> configCodec)
-
-@Nonnull
-protected final <T> Config<T> withConfig(@Nonnull String name, @Nonnull BuilderCodec<T> configCodec)
-```
-
-Register configuration files that are automatically loaded during `preLoad()`. Must be called before `setup()`.
-
-## Real Plugin Examples
-
-Here are examples from Hytale's builtin plugins:
-
-### BlockSpawnerPlugin
-
-Handles block spawner mechanics:
-
-```java
-public class BlockSpawnerPlugin extends JavaPlugin {
-    private static BlockSpawnerPlugin INSTANCE;
-    private ComponentType<ChunkStore, BlockSpawner> blockSpawnerComponentType;
-
-    public static BlockSpawnerPlugin get() {
-        return INSTANCE;
-    }
-
-    public BlockSpawnerPlugin(@Nonnull JavaPluginInit init) {
-        super(init);
-        INSTANCE = this;
-    }
-}
-```
-
-### BlockTickPlugin
-
-Manages block ticking for growth and state changes:
-
-```java
-public class BlockTickPlugin extends JavaPlugin implements IBlockTickProvider {
-    private static BlockTickPlugin instance;
-
-    public BlockTickPlugin(@Nonnull JavaPluginInit init) {
-        super(init);
-        instance = this;
-    }
-
-    @Override
-    protected void setup() {
-        // Register tick procedures
-        TickProcedure.CODEC.register("BasicChance",
-            BasicChanceBlockGrowthProcedure.class,
-            BasicChanceBlockGrowthProcedure.CODEC);
-
-        // Register event listeners
-        this.getEventRegistry().registerGlobal(
-            EventPriority.EARLY,
-            ChunkPreLoadProcessEvent.class,
-            this::discoverTickingBlocks);
-
-        // Register systems
-        ChunkStore.REGISTRY.registerSystem(new ChunkBlockTickSystem.PreTick());
-        ChunkStore.REGISTRY.registerSystem(new ChunkBlockTickSystem.Ticking());
-    }
-}
-```
-
-### BlockPhysicsPlugin
-
-Handles block physics simulation:
-
-```java
-public class BlockPhysicsPlugin extends JavaPlugin {
-    public BlockPhysicsPlugin(@Nonnull JavaPluginInit init) {
-        super(init);
-    }
-
-    @Override
-    protected void setup() {
-        this.getEventRegistry().register(LoadAssetEvent.class, BlockPhysicsPlugin::validatePrefabs);
-        this.getChunkStoreRegistry().registerSystem(new BlockPhysicsSystems.Ticking());
-    }
-}
-```
-
 ## Plugin Installation
 
-Place your compiled `.jar` file in the `mods` directory of your server. The `PluginManager` automatically discovers and loads plugins from this location.
+1. Build your plugin JAR (using Gradle: `./gradlew build`)
+2. Place the `.jar` file in the `mods` directory of your server
+3. Start or restart the server
+4. Check server logs to confirm your plugin loaded
 
-## Getting Started
+:::tip Hot Reload with IntelliJ
+The IntelliJ plugin supports hot reload - rebuild your plugin and it will be automatically reloaded without restarting the server!
+:::
 
-1. [Project Setup](/docs/modding/plugins/project-setup)
-2. [Plugin Lifecycle](/docs/modding/plugins/plugin-lifecycle)
-3. [Events](/docs/modding/plugins/events)
-4. [Commands](/docs/modding/plugins/commands)
+## Next Steps
+
+### Essential Reading
+
+1. [IntelliJ Plugin Setup](/docs/modding/plugins/intellij-plugin) - Get your development environment ready
+2. [Project Setup](/docs/modding/plugins/project-setup) - Manual configuration details
+3. [Plugin Lifecycle](/docs/modding/plugins/plugin-lifecycle) - Deep dive into lifecycle states
+
+### Core Features
+
+4. [Events](/docs/modding/plugins/events) - React to game events
+5. [Commands](/docs/modding/plugins/commands) - Create custom commands
+6. [Entity Component System](/docs/modding/plugins/ecs) - Work with entities and chunks
+
+### Advanced Topics
+
+7. [Custom Blocks](/docs/modding/plugins/custom-blocks) - Add new block types
+8. [Custom Entities](/docs/modding/plugins/custom-entities) - Create new entities
+9. [Networking](/docs/modding/plugins/networking) - Client-server communication
 
 ## Server Source Code
 
@@ -454,4 +325,4 @@ For non-programmers, Hytale is developing a **Visual Scripting system** inspired
 - No coding required
 - Programmers can create custom nodes in Java that designers can use
 
-[Learn more about Visual Scripting →](/docs/modding/overview#4-visual-scripting-coming-soon)
+[Learn more about Visual Scripting](/docs/modding/overview#4-visual-scripting-coming-soon)

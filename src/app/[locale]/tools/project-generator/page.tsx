@@ -102,7 +102,7 @@ function generateFullStructure(config: ProjectConfig): string {
 }
 
 function generateBuildGradle(config: ProjectConfig): string {
-  const { name, packageName, version } = config;
+  const { packageName, version } = config;
 
   return `plugins {
     java
@@ -114,14 +114,12 @@ version = "${version}"
 
 repositories {
     mavenCentral()
-    maven {
-        name = "hytale"
-        url = uri("https://repo.hytale.com/releases")
-    }
 }
 
 dependencies {
-    compileOnly("com.hytale:server-api:1.0.0")
+    // Hytale Server JAR - download from https://cdn.hytale.com/HytaleServer.jar
+    // Place it in a 'libs' folder in your project root
+    compileOnly(files("libs/HytaleServer.jar"))
 
     implementation("com.google.guava:guava:32.1.3-jre")
     implementation("com.google.code.gson:gson:2.10.1")
@@ -194,48 +192,51 @@ function generateMainClass(config: ProjectConfig): string {
 
   return `package ${packageName};
 
-import com.hytale.api.plugin.Plugin;
-import com.hytale.api.plugin.PluginInfo;
-import com.hytale.api.event.EventManager;
-import com.hytale.api.command.CommandManager;
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 
-@PluginInfo(
-    id = "${toKebabCase(name)}",
-    name = "${name}",
-    version = "\${version}"
-)
-public class ${className} extends Plugin {
+import javax.annotation.Nonnull;
+
+public class ${className} extends JavaPlugin {
 
     private static ${className} instance;
 
-    @Override
-    public void onLoad() {
+    // Required constructor - must take JavaPluginInit parameter
+    public ${className}(@Nonnull JavaPluginInit init) {
+        super(init);
         instance = this;
-        getLogger().info("${name} is loading...");
     }
 
     @Override
-    public void onEnable() {
-        getLogger().info("${name} is enabling...");
+    protected void setup() {
+        // Called during plugin initialization
+        // Register commands, events, assets, and components here
+        getLogger().info("${name} is setting up...");
 
-        // Save default config
-        saveDefaultConfig();
-
-        // Register listeners
-        // EventManager events = getServer().getEventManager();
-        // events.registerListener(new YourListener(this));
+        // Register event listeners
+        // getEventRegistry().register(
+        //     com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent.class,
+        //     event -> {
+        //         getLogger().info("Player connected: " + event.getPlayer().getName());
+        //     }
+        // );
 
         // Register commands
-        // CommandManager commands = getServer().getCommandManager();
-        // commands.registerCommand(new YourCommand(this));
+        // getCommandRegistry().registerCommand(new YourCommand(this));
 
-        getLogger().info("${name} has been enabled!");
+        getLogger().info("${name} setup complete!");
     }
 
     @Override
-    public void onDisable() {
-        getLogger().info("${name} is disabling...");
-        getLogger().info("${name} has been disabled!");
+    protected void start() {
+        // Called after all plugins are set up
+        getLogger().info("${name} has started!");
+    }
+
+    @Override
+    protected void shutdown() {
+        // Called when plugin is shutting down
+        getLogger().info("${name} is shutting down...");
     }
 
     public static ${className} getInstance() {

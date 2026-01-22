@@ -8,43 +8,74 @@ description: Guide complet pour configurer un projet de plugin Java Hytale avec 
 
 # Configuration du Projet de Plugin
 
-Apprenez à créer un projet de plugin Hytale correctement structuré en utilisant Gradle et Java 25.
+Apprenez a creer un projet de plugin Hytale correctement structure en utilisant Gradle et Java 25.
 
-## Prérequis
+:::tip Recommande : Utilisez le Plugin IntelliJ
+La facon la plus simple de configurer un projet de plugin Hytale est avec le [Plugin IntelliJ Hytale](/docs/modding/plugins/intellij-plugin). Il fournit :
+- **Creation de projet en un clic** avec un assistant guide
+- **Configuration automatique du serveur** incluant Java 25 et telechargement du JAR serveur
+- **Templates en direct** pour les motifs de code courants (`hyplugin`, `hyevent`, `hycmd`, `hyecs`)
+- **Build et execution integres** avec support du hot reload
+
+[En savoir plus sur le Plugin IntelliJ](/docs/modding/plugins/intellij-plugin)
+:::
+
+## Prerequis
 
 Avant de commencer, assurez-vous d'avoir :
 
-- **Java Development Kit (JDK) 25** - [Télécharger depuis Adoptium](https://adoptium.net/) (requis pour un accès complet à l'API)
-- **IDE** - IntelliJ IDEA (recommandé) ou Eclipse
-- **Gradle 9.2.0** - Généralement inclus avec l'IDE
-- **Git** - Pour le contrôle de version (optionnel mais recommandé)
+- **Java Development Kit (JDK) 25** - [Telecharger depuis Adoptium](https://adoptium.net/) (requis pour un acces complet a l'API)
+- **IDE** - IntelliJ IDEA (recommande) ou Eclipse
+- **Gradle 9.2.0** - Generalement inclus avec l'IDE
+- **Git** - Pour le controle de version (optionnel mais recommande)
 
-> "Les développeurs de plugins ont besoin de Java 25 et IntelliJ IDEA pour un accès complet à l'API."
+> "Les developpeurs de plugins ont besoin de Java 25 et IntelliJ IDEA pour un acces complet a l'API."
 > — [Hytale Modding Strategy](https://hytale.com/news/2025/11/hytale-modding-strategy-and-status)
 
 :::tip Recommandation IDE
-IntelliJ IDEA Community Edition est gratuit et offre un excellent support Java/Gradle avec des fonctionnalités comme :
+IntelliJ IDEA Community Edition est gratuit et offre un excellent support Java/Gradle avec des fonctionnalites comme :
 
-- Complétion de code intelligente
-- Intégration Gradle intégrée
-- Support du débogueur
-- Outils de développement de plugins
+- Completion de code intelligente
+- Integration Gradle integree
+- Support du debogueur
+- Outils de developpement de plugins
+
+Installez le [Plugin IntelliJ Hytale](/docs/modding/plugins/intellij-plugin) pour debloquer des fonctionnalites specifiques a Hytale comme les assistants de projet et les templates en direct.
 :::
 
-## Démarrage Rapide
+## Demarrage Rapide
 
-### Avec IntelliJ IDEA
+### Option 1 : Utiliser le Plugin IntelliJ Hytale (Recommande)
 
-1. **File → New → Project**
-2. Sélectionnez **Gradle** avec **Java**
-3. Définissez le **JDK** à 21
+La facon la plus rapide de creer un nouveau projet de plugin :
+
+1. **File -> New -> Project**
+2. Selectionnez **Hytale Plugin** dans la liste des generateurs
+3. Remplissez l'assistant :
+   - Nom et ID du plugin
+   - Nom du package (ex : `com.example.myplugin`)
+   - Selectionnez un template (Basic, Events, Commands, ou Full)
+4. Cliquez sur **Create**
+
+Le plugin va automatiquement :
+- Creer la structure du projet avec tous les fichiers necessaires
+- Generer `build.gradle` configure pour Java 25
+- Creer `manifest.json` avec les details de votre plugin
+- Telecharger le JAR du serveur Hytale dans `libs/`
+- Configurer une configuration d'execution pour les tests
+
+### Option 2 : Configuration Manuelle avec IntelliJ IDEA
+
+1. **File -> New -> Project**
+2. Selectionnez **Gradle** avec **Java**
+3. Definissez le **JDK** a 25
 4. Nommez votre projet (ex : `my-hytale-plugin`)
 5. Cliquez sur **Create**
 
-### En Ligne de Commande
+### Option 3 : En Ligne de Commande
 
 ```bash
-# Créer le répertoire du projet
+# Creer le repertoire du projet
 mkdir my-hytale-plugin
 cd my-hytale-plugin
 
@@ -57,7 +88,7 @@ gradle init --type java-library --dsl kotlin
 
 ## Structure du Projet
 
-Un projet de plugin bien organisé ressemble à ceci :
+Un projet de plugin bien organise ressemble a ceci :
 
 ```filetree
 my-hytale-plugin/
@@ -93,10 +124,16 @@ my-hytale-plugin/
 
 ## Configuration du JAR Serveur
 
-Avant de pouvoir compiler votre plugin, vous devez ajouter le JAR du serveur Hytale à votre projet :
+Avant de pouvoir compiler votre plugin, vous devez ajouter le JAR du serveur Hytale a votre projet.
 
-1. **Téléchargez le JAR serveur** depuis [cdn.hytale.com/HytaleServer.jar](https://cdn.hytale.com/HytaleServer.jar)
-2. **Créez un dossier `libs`** à la racine de votre projet
+### Avec le Plugin IntelliJ (Automatique)
+
+Le Plugin IntelliJ Hytale gere cela automatiquement lorsque vous creez un nouveau projet. Vous pouvez aussi le telecharger a tout moment via **Tools -> Hytale -> Download Server JAR**.
+
+### Configuration Manuelle
+
+1. **Telechargez le JAR serveur** depuis [cdn.hytale.com/HytaleServer.jar](https://cdn.hytale.com/HytaleServer.jar)
+2. **Creez un dossier `libs`** a la racine de votre projet
 3. **Copiez `HytaleServer.jar`** dans le dossier `libs`
 
 ```bash
@@ -104,7 +141,7 @@ mkdir libs
 curl -o libs/HytaleServer.jar https://cdn.hytale.com/HytaleServer.jar
 ```
 
-Le JAR serveur est utilisé comme dépendance `compileOnly` - il fournit les classes API pour la compilation mais n'est pas inclus dans votre plugin (le serveur possède déjà ces classes au runtime).
+Le JAR serveur est utilise comme dependance `compileOnly` - il fournit les classes API pour la compilation mais n'est pas inclus dans votre plugin (le serveur possede deja ces classes au runtime).
 
 Pour un exemple de projet complet, voir [Build-9/Hytale-Example-Project](https://github.com/Build-9/Hytale-Example-Project) sur GitHub.
 
@@ -127,8 +164,8 @@ repositories {
 
 dependencies {
     // JAR Serveur Hytale - ajoutez au classpath depuis votre installation locale
-    // Téléchargez HytaleServer.jar depuis https://cdn.hytale.com/HytaleServer.jar
-    // Placez-le dans un dossier 'libs' à la racine du projet
+    // Telechargez HytaleServer.jar depuis https://cdn.hytale.com/HytaleServer.jar
+    // Placez-le dans un dossier 'libs' a la racine du projet
     compileOnly files('libs/HytaleServer.jar')
 
     // Optionnel : Utilitaires communs
@@ -142,7 +179,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 
@@ -150,15 +187,15 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-// Shadow JAR pour regrouper les dépendances
+// Shadow JAR pour regrouper les dependances
 shadowJar {
     archiveClassifier.set('')
 
-    // Relocaliser les dépendances pour éviter les conflits
+    // Relocaliser les dependances pour eviter les conflits
     relocate 'com.google.gson', 'com.example.myplugin.libs.gson'
 }
 
-// Le build produit le shadow JAR par défaut
+// Le build produit le shadow JAR par defaut
 tasks.named('build') {
     dependsOn shadowJar
 }
@@ -202,7 +239,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
@@ -239,18 +276,22 @@ rootProject.name = 'my-hytale-plugin'
 ### gradle.properties
 
 ```properties
-# Paramètres du projet
+# Parametres du projet
 org.gradle.jvmargs=-Xmx2G
 org.gradle.parallel=true
 org.gradle.caching=true
 
-# Versions des dépendances (optionnel, pour une gestion plus facile)
+# Versions des dependances (optionnel, pour une gestion plus facile)
 guavaVersion=32.1.3-jre
 ```
 
 ## Manifeste du Plugin
 
-Le fichier `manifest.json` identifie votre plugin auprès du serveur :
+Le fichier `manifest.json` identifie votre plugin aupres du serveur.
+
+:::tip Fonctionnalite du Plugin IntelliJ
+Le Plugin IntelliJ Hytale fournit la **validation de manifest.json** et l'**autocompletion**. Il vous avertira des champs requis manquants et suggerera des valeurs valides.
+:::
 
 ```json
 {
@@ -268,7 +309,7 @@ Le fichier `manifest.json` identifie votre plugin auprès du serveur :
   "load_order": "POSTWORLD",
   "permissions": {
     "myplugin.admin": {
-      "description": "Accès admin complet",
+      "description": "Acces admin complet",
       "default": "op"
     },
     "myplugin.use": {
@@ -279,92 +320,104 @@ Le fichier `manifest.json` identifie votre plugin auprès du serveur :
 }
 ```
 
-### Propriétés du Manifeste
+### Proprietes du Manifeste
 
-| Propriété | Requis | Description |
+| Propriete | Requis | Description |
 |-----------|--------|-------------|
 | `id` | Oui | Identifiant unique du plugin (minuscules, sans espaces) |
 | `name` | Oui | Nom d'affichage du plugin |
-| `version` | Oui | Version sémantique (ex : "1.0.0") |
-| `main` | Oui | Nom de classe principale entièrement qualifié |
+| `version` | Oui | Version semantique (ex : "1.0.0") |
+| `main` | Oui | Nom de classe principale entierement qualifie |
 | `api_version` | Oui | Version minimale de l'API Hytale requise |
-| `description` | Non | Brève description |
+| `description` | Non | Breve description |
 | `authors` | Non | Liste des noms d'auteurs |
-| `dependencies` | Non | Dépendances du plugin |
+| `dependencies` | Non | Dependances du plugin |
 | `load_order` | Non | Quand charger (STARTUP, POSTWORLD) |
-| `permissions` | Non | Nœuds de permission utilisés par votre plugin |
+| `permissions` | Non | Noeuds de permission utilises par votre plugin |
 
 ## Classe Principale du Plugin
 
-Créez votre classe point d'entrée :
+Creez votre classe point d'entree. Les plugins doivent etendre `JavaPlugin` et avoir un constructeur qui prend `JavaPluginInit`.
+
+### Avec le Plugin IntelliJ
+
+Tapez `hyplugin` et appuyez sur **Tab** pour etendre le template en direct, puis remplissez le nom de votre classe.
+
+### Implementation Manuelle
 
 ```java
 package com.example.myplugin;
 
-import com.hytale.api.plugin.Plugin;
-import com.hytale.api.plugin.PluginInfo;
-import com.hytale.api.event.EventManager;
-import com.hytale.api.command.CommandManager;
+import com.hypixel.hytale.server.core.plugin.JavaPlugin;
+import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.example.myplugin.commands.MyCommand;
 import com.example.myplugin.listeners.PlayerListener;
 
-@PluginInfo(
-    id = "my-plugin",
-    name = "My Awesome Plugin",
-    version = "1.0.0"
-)
-public class MyPlugin extends Plugin {
+import javax.annotation.Nonnull;
+
+public class MyPlugin extends JavaPlugin {
 
     private static MyPlugin instance;
-    private ConfigManager configManager;
 
-    @Override
-    public void onLoad() {
-        // Appelé quand le JAR du plugin est chargé
+    // Constructeur requis - doit prendre un parametre JavaPluginInit
+    public MyPlugin(@Nonnull JavaPluginInit init) {
+        super(init);
         instance = this;
-        getLogger().info("MyPlugin is loading...");
     }
 
     @Override
-    public void onEnable() {
-        // Appelé quand le plugin est activé
-        getLogger().info("MyPlugin is enabling...");
+    protected void setup() {
+        // Appele pendant l'initialisation du plugin
+        // Enregistrez les commandes, evenements, assets et composants ici
+        getLogger().info("MyPlugin is setting up...");
 
-        // Charger la configuration
-        saveDefaultConfig();
-        configManager = new ConfigManager(this);
-
-        // Enregistrer les listeners d'événements
-        EventManager events = getServer().getEventManager();
-        events.registerListener(new PlayerListener(this));
+        // Enregistrer les listeners d'evenements
+        // Astuce : Utilisez le template 'hyevent' dans IntelliJ pour creer rapidement des gestionnaires d'evenements
+        getEventRegistry().register(
+            com.hypixel.hytale.server.core.event.events.player.PlayerConnectEvent.class,
+            event -> {
+                getLogger().info("Player connected: " + event.getPlayer().getName());
+            }
+        );
 
         // Enregistrer les commandes
-        CommandManager commands = getServer().getCommandManager();
-        commands.registerCommand(new MyCommand(this));
+        // Astuce : Utilisez le template 'hycmd' dans IntelliJ pour creer rapidement des commandes
+        getCommandRegistry().registerCommand(new MyCommand(this));
 
-        getLogger().info("MyPlugin has been enabled!");
+        getLogger().info("MyPlugin setup complete!");
     }
 
     @Override
-    public void onDisable() {
-        // Appelé quand le plugin est désactivé
-        getLogger().info("MyPlugin is disabling...");
+    protected void start() {
+        // Appele apres que tous les plugins sont configures
+        // Effectuez toute logique de demarrage qui depend d'autres plugins
+        getLogger().info("MyPlugin has started!");
+    }
 
-        // Nettoyer les ressources
-        configManager.save();
-
-        getLogger().info("MyPlugin has been disabled!");
+    @Override
+    protected void shutdown() {
+        // Appele lors de l'arret du plugin
+        // Effectuez le nettoyage avant que les registres soient nettoyes
+        getLogger().info("MyPlugin is shutting down...");
     }
 
     public static MyPlugin getInstance() {
         return instance;
     }
-
-    public ConfigManager getConfigManager() {
-        return configManager;
-    }
 }
 ```
+
+### Templates en Direct Disponibles
+
+Le Plugin IntelliJ Hytale fournit plusieurs templates en direct pour accelerer le developpement :
+
+| Template | Description |
+|----------|-------------|
+| `hyplugin` | Generer une classe principale de plugin complete |
+| `hyevent` | Creer un enregistrement de listener d'evenement |
+| `hycmd` | Creer une classe de commande |
+| `hyecs` | Creer une classe de systeme ECS |
+| `hycomp` | Creer une classe de composant ECS |
 
 ## Compiler Votre Plugin
 
@@ -377,22 +430,22 @@ public class MyPlugin extends Plugin {
 # Nettoyer et recompiler
 ./gradlew clean build
 
-# Exécuter les tests
+# Executer les tests
 ./gradlew test
 
-# Générer le shadow JAR avec les dépendances
+# Generer le shadow JAR avec les dependances
 ./gradlew shadowJar
 ```
 
 ### IntelliJ IDEA
 
-1. Ouvrez la fenêtre d'outil **Gradle** (View → Tool Windows → Gradle)
-2. Naviguez vers **Tasks → build**
+1. Ouvrez la fenetre d'outil **Gradle** (View -> Tool Windows -> Gradle)
+2. Naviguez vers **Tasks -> build**
 3. Double-cliquez sur **build** ou **shadowJar**
 
 ### Emplacement de Sortie
 
-Votre plugin compilé sera à :
+Votre plugin compile sera a :
 
 ```
 build/libs/my-hytale-plugin-1.0.0.jar
@@ -408,20 +461,35 @@ hytale-server/
     └── my-hytale-plugin-1.0.0.jar
 ```
 
-Redémarrez le serveur pour charger votre plugin.
+Redemarrez le serveur pour charger votre plugin.
 
-## Workflow de Développement
+## Workflow de Developpement
 
-### Hot Reloading (Développement)
+### Avec le Plugin IntelliJ (Recommande)
 
-Pour une itération plus rapide pendant le développement :
+Le Plugin IntelliJ Hytale fournit un workflow de developpement integre avec hot reload :
+
+1. **Lancez votre serveur** en utilisant la configuration d'execution pre-configuree (bouton play vert)
+2. **Faites des modifications** au code de votre plugin
+3. **Appuyez sur Ctrl+F9** (Build Project) pour reconstruire
+4. Le plugin se deploie automatiquement dans le dossier plugins du serveur
+5. **Utilisez `/reload`** dans la console du serveur pour recharger les plugins sans redemarrage
+
+Vous pouvez aussi :
+- Utiliser **Tools -> Hytale -> Build and Deploy** pour un deploiement en un clic
+- Voir la sortie du build dans la fenetre d'outil Hytale
+- Voir les logs du serveur en temps reel dans la console integree
+
+### Workflow Manuel
+
+Pour une iteration plus rapide pendant le developpement :
 
 ```bash
 # Compiler et copier vers le serveur en une commande
 ./gradlew build && cp build/libs/*.jar ../hytale-server/plugins/
 ```
 
-Ou créez une tâche Gradle :
+Ou creez une tache Gradle :
 
 ```groovy
 task deploy(type: Copy, dependsOn: shadowJar) {
@@ -430,16 +498,25 @@ task deploy(type: Copy, dependsOn: shadowJar) {
 }
 ```
 
-Puis exécutez : `./gradlew deploy`
+Puis executez : `./gradlew deploy`
 
-### Débogage
+### Debogage
 
-1. Démarrez le serveur avec les flags de debug :
+#### Avec le Plugin IntelliJ
+
+1. Utilisez la configuration d'execution **Hytale Server (Debug)**
+2. Placez des points d'arret dans votre code
+3. Cliquez sur le bouton debug (icone de bug)
+4. Le serveur demarre avec le debogage active et IntelliJ s'attache automatiquement
+
+#### Debogage Manuel
+
+1. Demarrez le serveur avec les flags de debug :
 ```bash
 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -jar hytale-server.jar
 ```
 
-2. Dans IntelliJ : **Run → Attach to Process** ou créez une configuration **Remote JVM Debug**
+2. Dans IntelliJ : **Run -> Attach to Process** ou creez une configuration **Remote JVM Debug**
 
 ### Logging
 
@@ -449,30 +526,30 @@ Utilisez le logger du plugin pour la sortie de debug :
 getLogger().info("Message d'information");
 getLogger().warning("Message d'avertissement");
 getLogger().severe("Message d'erreur");
-getLogger().fine("Message de debug"); // Affiché uniquement avec le logging verbeux
+getLogger().fine("Message de debug"); // Affiche uniquement avec le logging verbeux
 ```
 
 ## Bonnes Pratiques
 
 ### Organisation du Code
 
-- **Une classe par fichier** - Gardez les classes focalisées
-- **Regroupez par fonctionnalité** - Groupez les classes liées ensemble
-- **Utilisez des interfaces** - Pour une meilleure testabilité
-- **Injection de dépendances** - Passez les dépendances via les constructeurs
+- **Une classe par fichier** - Gardez les classes focalisees
+- **Regroupez par fonctionnalite** - Groupez les classes liees ensemble
+- **Utilisez des interfaces** - Pour une meilleure testabilite
+- **Injection de dependances** - Passez les dependances via les constructeurs
 
 ### Configuration
 
-Fournissez toujours des valeurs par défaut et validez :
+Fournissez toujours des valeurs par defaut et validez :
 
 ```java
 public void loadConfig() {
-    // Fournir des valeurs par défaut
+    // Fournir des valeurs par defaut
     int maxPlayers = getConfig().getInt("max-players", 100);
 
     // Valider
     if (maxPlayers < 1 || maxPlayers > 1000) {
-        getLogger().warning("max-players invalide, utilisation de la valeur par défaut");
+        getLogger().warning("max-players invalide, utilisation de la valeur par defaut");
         maxPlayers = 100;
     }
 }
@@ -484,15 +561,21 @@ public void loadConfig() {
 try {
     operationRisquee();
 } catch (Exception e) {
-    getLogger().severe("L'opération a échoué : " + e.getMessage());
+    getLogger().severe("L'operation a echoue : " + e.getMessage());
     e.printStackTrace();
-    // Dégradation gracieuse
+    // Degradation gracieuse
 }
 ```
 
-## Prochaines Étapes
+## Prochaines Etapes
 
 <div className="doc-card-grid">
+  <DocCard item={{
+    type: 'link',
+    label: 'Plugin IntelliJ',
+    href: '/docs/modding/plugins/intellij-plugin',
+    description: 'Configurez le Plugin IntelliJ Hytale pour un developpement ameliore'
+  }} />
   <DocCard item={{
     type: 'link',
     label: 'Cycle de Vie du Plugin',
@@ -501,14 +584,14 @@ try {
   }} />
   <DocCard item={{
     type: 'link',
-    label: 'Système d\'Événements',
+    label: 'Systeme d\'Evenements',
     href: '/docs/modding/plugins/events',
-    description: 'Apprenez à écouter et gérer les événements du jeu'
+    description: 'Apprenez a ecouter et gerer les evenements du jeu'
   }} />
   <DocCard item={{
     type: 'link',
     label: 'Commandes',
     href: '/docs/modding/plugins/commands',
-    description: 'Créez des commandes personnalisées pour votre plugin'
+    description: 'Creez des commandes personnalisees pour votre plugin'
   }} />
 </div>

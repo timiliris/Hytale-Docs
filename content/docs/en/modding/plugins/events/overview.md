@@ -10,6 +10,26 @@ description: Complete reference for all Hytale server events
 
 The Hytale server uses a sophisticated event system that allows plugins to listen for and respond to various game actions. This reference provides comprehensive documentation for all available events, their interfaces, and how to use them effectively.
 
+## Quick Start
+
+Get started with events in seconds:
+
+```java
+// Listen to player connections
+getEventRegistry().register(PlayerConnectEvent.class, event -> {
+    getLogger().info("Welcome " + event.getPlayer().getName() + "!");
+});
+
+// Listen to chat messages (async event)
+getEventRegistry().register(PlayerChatEvent.class, event -> {
+    getLogger().info(event.getPlayer().getName() + ": " + event.getMessage());
+});
+```
+
+:::tip IntelliJ Integration
+Use the `hyevent` live template to quickly scaffold event listeners. Just type `hyevent` and press Tab to expand into a complete event registration block.
+:::
+
 ## Event System Architecture
 
 Hytale's event system is built on two parallel hierarchies:
@@ -18,6 +38,134 @@ Hytale's event system is built on two parallel hierarchies:
 2. **EcsEvent Hierarchy** - Entity Component System events for gameplay mechanics (block interactions, inventory changes, combat)
 
 Both systems support event priorities, cancellation (where applicable), and flexible registration patterns.
+
+## Understanding the Two Event Systems
+
+Hytale uses two distinct event systems, and it is important to understand when to use each one:
+
+### IEvent System (EventBus)
+
+Use the EventBus for **server lifecycle and player state events**:
+
+- Player connection/disconnection
+- Server boot/shutdown
+- World creation/removal
+- Permission changes
+- Chat messages
+
+**Registration method:** `getEventRegistry().register(...)`
+
+```java
+@Override
+protected void setup() {
+    // Register with priority
+    getEventRegistry().register(
+        EventPriority.EARLY,
+        PlayerChatEvent.class,
+        this::handleChat
+    );
+}
+
+private void handleChat(PlayerChatEvent event) {
+    // Filter bad words
+    if (event.getMessage().toLowerCase().contains("badword")) {
+        event.setCancelled(true);
+        event.getPlayer().sendMessage("Please keep chat family-friendly!");
+    }
+}
+```
+
+### EcsEvent System (EntityEventSystem)
+
+Use EntityEventSystem for **gameplay and entity-related events**:
+
+- Block breaking/placing
+- Item dropping/pickup
+- Inventory changes
+- Damage events
+- Crafting
+
+**Registration method:** `getEntityStoreRegistry().registerSystem(...)`
+
+```java
+public class BlockProtectionSystem extends EntityEventSystem<EntityStore, BreakBlockEvent> {
+
+    public BlockProtectionSystem() {
+        super(BreakBlockEvent.class);
+    }
+
+    @Override
+    public void handle(int index, @Nonnull ArchetypeChunk<EntityStore> chunk,
+                      @Nonnull Store<EntityStore> store,
+                      @Nonnull CommandBuffer<EntityStore> buffer,
+                      @Nonnull BreakBlockEvent event) {
+        // Protect spawn area (within 100 blocks of origin)
+        BlockPos pos = event.getTargetBlock();
+        if (Math.abs(pos.getX()) < 100 && Math.abs(pos.getZ()) < 100) {
+            event.setCancelled(true);
+        }
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty(); // Match all entities
+    }
+}
+```
+
+:::info ECS Events Require a System Class
+ECS events cannot use simple lambda registration. You must create a class extending `EntityEventSystem` and register it via `getEntityStoreRegistry().registerSystem(new YourSystem())`.
+:::
+
+:::tip IntelliJ Integration
+Use the `hyecs` live template to quickly create EntityEventSystem classes. Type `hyecs`, press Tab, and fill in the event type.
+:::
+
+## IntelliJ Live Templates
+
+The [Hytale IntelliJ Plugin](https://plugins.jetbrains.com/plugin/hytale) provides live templates for rapid development:
+
+| Template | Description | Expands To |
+|----------|-------------|------------|
+| `hyevent` | Event listener | Complete `getEventRegistry().register(...)` block |
+| `hyecs` | ECS event system | Full `EntityEventSystem` class with handle method |
+| `hycmd` | Command handler | Command registration with executor |
+| `hylog` | Logger statement | `getLogger().info(...)` |
+
+**Example: `hyevent` expansion**
+
+Type `hyevent` then Tab:
+```java
+getEventRegistry().register(EventPriority.NORMAL, $EVENT_CLASS$.class, event -> {
+    $END$
+});
+```
+
+**Example: `hyecs` expansion**
+
+Type `hyecs` then Tab:
+```java
+public class $NAME$System extends EntityEventSystem<EntityStore, $EVENT$> {
+    public $NAME$System() {
+        super($EVENT$.class);
+    }
+
+    @Override
+    public void handle(int index, @Nonnull ArchetypeChunk<EntityStore> chunk,
+                      @Nonnull Store<EntityStore> store,
+                      @Nonnull CommandBuffer<EntityStore> buffer,
+                      @Nonnull $EVENT$ event) {
+        $END$
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
 
 ## Core Interfaces
 
@@ -97,13 +245,41 @@ public abstract class CancellableEcsEvent extends EcsEvent implements ICancellab
 
 Events are dispatched to handlers in priority order. Lower values run first.
 
-| Priority | Value | Description |
-|----------|-------|-------------|
-| `FIRST` | -21844 | Highest priority, runs first. Use for preprocessing. |
-| `EARLY` | -10922 | High priority. Use for validation and early modifications. |
-| `NORMAL` | 0 | Default priority. Use for standard event handling. |
-| `LATE` | 10922 | Low priority. Use for reactions to modifications. |
-| `LAST` | 21844 | Lowest priority, runs last. Use for logging and final processing. |
+| Priority | Value | Description | Use Cases |
+|----------|-------|-------------|-----------|
+| `FIRST` | -21844 | Highest priority, runs first | Security checks, anti-cheat, logging input |
+| `EARLY` | -10922 | High priority | Validation, permission checks, early modifications |
+| `NORMAL` | 0 | Default priority | Standard event handling, game logic |
+| `LATE` | 10922 | Low priority | React to modifications from other handlers |
+| `LAST` | 21844 | Lowest priority, runs last | Final logging, cleanup, analytics |
+
+### Priority Best Practices
+
+```java
+// FIRST: Security and logging
+getEventRegistry().register(EventPriority.FIRST, PlayerChatEvent.class, event -> {
+    auditLog.record(event.getPlayer(), event.getMessage());
+});
+
+// EARLY: Validation and filtering
+getEventRegistry().register(EventPriority.EARLY, PlayerChatEvent.class, event -> {
+    if (containsProfanity(event.getMessage())) {
+        event.setCancelled(true);
+    }
+});
+
+// NORMAL: Standard handling
+getEventRegistry().register(EventPriority.NORMAL, PlayerChatEvent.class, event -> {
+    broadcastToDiscord(event.getPlayer(), event.getMessage());
+});
+
+// LATE: React to final state
+getEventRegistry().register(EventPriority.LATE, PlayerChatEvent.class, event -> {
+    if (!event.isCancelled()) {
+        incrementMessageCount(event.getPlayer());
+    }
+});
+```
 
 ### Shutdown Event Constants
 
@@ -305,6 +481,199 @@ The following events require `EntityEventSystem` registration (NOT EventBus):
 | `KillFeedEvent.*` | Kill feed messages |
 | `DiscoverZoneEvent` | Zone discovery |
 | `DiscoverInstanceEvent` | Instance discovery |
+
+## Async Events
+
+Some events execute asynchronously to prevent blocking the main server thread.
+
+### PlayerChatEvent (Async)
+
+`PlayerChatEvent` is the primary async event. It runs off the main thread, so you must be careful with thread safety.
+
+```java
+getEventRegistry().registerAsync(PlayerChatEvent.class, event -> {
+    return CompletableFuture.supplyAsync(() -> {
+        // Safe: Read-only operations
+        String message = event.getMessage();
+        Player player = event.getPlayer();
+
+        // Safe: Async-safe API calls
+        boolean hasProfanity = externalApi.checkProfanity(message).join();
+
+        if (hasProfanity) {
+            event.setCancelled(true);
+        }
+
+        return event;
+    });
+});
+```
+
+:::warning Thread Safety
+When handling async events:
+- Do NOT modify world state directly (use scheduled tasks)
+- Do NOT iterate over player collections without synchronization
+- DO use thread-safe data structures (ConcurrentHashMap, etc.)
+- DO use CompletableFuture for chaining async operations
+:::
+
+### Running Code on Main Thread
+
+If you need to modify game state from an async handler:
+
+```java
+getEventRegistry().registerAsync(PlayerChatEvent.class, event -> {
+    return CompletableFuture.supplyAsync(() -> {
+        // Async processing
+        boolean shouldReward = checkExternalCondition(event.getMessage());
+
+        if (shouldReward) {
+            // Schedule on main thread
+            getServer().getScheduler().runTask(() -> {
+                event.getPlayer().getInventory().addItem(rewardItem);
+            });
+        }
+
+        return event;
+    });
+});
+```
+
+## Cancellation Best Practices
+
+### When to Cancel
+
+```java
+// Good: Cancel at EARLY priority to prevent wasted processing
+getEventRegistry().register(EventPriority.EARLY, PlayerChatEvent.class, event -> {
+    if (isMuted(event.getPlayer())) {
+        event.setCancelled(true);
+        event.getPlayer().sendMessage("You are muted!");
+        return; // Exit early
+    }
+});
+```
+
+### Respecting Cancellation
+
+```java
+// Good: Check cancellation before processing
+getEventRegistry().register(EventPriority.NORMAL, PlayerChatEvent.class, event -> {
+    // Skip if another plugin cancelled this
+    if (event.isCancelled()) {
+        return;
+    }
+
+    // Process the event
+    broadcastMessage(event.getMessage());
+});
+```
+
+### Uncancelling Events
+
+```java
+// Rare case: Override another plugin's cancellation (use sparingly!)
+getEventRegistry().register(EventPriority.LATE, PlayerChatEvent.class, event -> {
+    // Allow admins to bypass chat filters
+    if (event.isCancelled() && event.getPlayer().hasPermission("chat.bypass")) {
+        event.setCancelled(false);
+        getLogger().info("Admin " + event.getPlayer().getName() + " bypassed chat filter");
+    }
+});
+```
+
+:::warning Uncancelling
+Avoid calling `setCancelled(false)` unless you have a specific override feature. Uncancelling events can break other plugins' security measures.
+:::
+
+## Common Patterns
+
+### Welcome Message on Join
+
+```java
+@Override
+protected void setup() {
+    getEventRegistry().register(PlayerConnectEvent.class, event -> {
+        Player player = event.getPlayer();
+
+        // Welcome the player
+        player.sendMessage("Welcome to the server, " + player.getName() + "!");
+
+        // Broadcast to others
+        getServer().broadcastMessage(player.getName() + " has joined the game!");
+    });
+}
+```
+
+### Chat Filtering
+
+```java
+@Override
+protected void setup() {
+    getEventRegistry().register(EventPriority.EARLY, PlayerChatEvent.class, event -> {
+        String message = event.getMessage().toLowerCase();
+
+        for (String badWord : bannedWords) {
+            if (message.contains(badWord)) {
+                event.setCancelled(true);
+                event.getPlayer().sendMessage("Please keep chat appropriate!");
+                return;
+            }
+        }
+    });
+}
+```
+
+### Block Protection System
+
+```java
+public class SpawnProtectionSystem extends EntityEventSystem<EntityStore, BreakBlockEvent> {
+    private static final int SPAWN_RADIUS = 50;
+
+    public SpawnProtectionSystem() {
+        super(BreakBlockEvent.class);
+    }
+
+    @Override
+    public void handle(int index, @Nonnull ArchetypeChunk<EntityStore> chunk,
+                      @Nonnull Store<EntityStore> store,
+                      @Nonnull CommandBuffer<EntityStore> buffer,
+                      @Nonnull BreakBlockEvent event) {
+        BlockPos pos = event.getTargetBlock();
+
+        // Check if within spawn protection radius
+        if (isInSpawnArea(pos)) {
+            // Allow ops to break blocks
+            // Note: You'd need to get player from event context
+            event.setCancelled(true);
+        }
+    }
+
+    private boolean isInSpawnArea(BlockPos pos) {
+        return Math.abs(pos.getX()) < SPAWN_RADIUS
+            && Math.abs(pos.getZ()) < SPAWN_RADIUS;
+    }
+
+    @Nullable
+    @Override
+    public Query<EntityStore> getQuery() {
+        return Archetype.empty();
+    }
+}
+```
+
+### Permission-Based Restrictions
+
+```java
+@Override
+protected void setup() {
+    // Restrict world changes to players with permission
+    getEventRegistry().register(EventPriority.FIRST, AddWorldEvent.class, event -> {
+        // Only allow world creation via plugin API, not player commands
+        // Additional permission checks would go here
+    });
+}
+```
 
 ## Event Categories
 
