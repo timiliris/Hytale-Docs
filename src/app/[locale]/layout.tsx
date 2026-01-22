@@ -218,6 +218,7 @@ export default async function LocaleLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem
+          themes={["light", "dark", "reading", "reading-dark", "system"]}
           storageKey="hytaledocs-theme"
         >
           <NextIntlClientProvider messages={messages}>

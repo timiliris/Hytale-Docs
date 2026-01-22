@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant reading (&:is(.reading *));
+@custom-variant reading-dark (&:is(.reading-dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -75,7 +77,7 @@
   --card-foreground: #1a2332;
   --popover: #ffffff;
   --popover-foreground: #1a2332;
-  --primary: #d4942b;
+  --primary: #e8a849;
   --primary-foreground: #1a2332;
   --secondary: #4a90a8;
   --secondary-foreground: #ffffff;
@@ -86,20 +88,90 @@
   --destructive: #c45c5c;
   --border: #d1d9e6;
   --input: #d1d9e6;
-  --ring: #d4942b;
-  --chart-1: #d4942b;
+  --ring: #e8a849;
+  --chart-1: #e8a849;
   --chart-2: #4a90a8;
   --chart-3: #4a9e6e;
   --chart-4: #8b5cf6;
   --chart-5: #c45c5c;
   --sidebar: #ffffff;
   --sidebar-foreground: #1a2332;
-  --sidebar-primary: #d4942b;
+  --sidebar-primary: #e8a849;
   --sidebar-primary-foreground: #1a2332;
   --sidebar-accent: #f0f4f8;
   --sidebar-accent-foreground: #1a2332;
   --sidebar-border: #e2e8f0;
-  --sidebar-ring: #d4942b;
+  --sidebar-ring: #e8a849;
+}
+
+/* Reading mode - Kindle-inspired sepia paper effect */
+.reading {
+  --background: #f7f3e9;
+  --foreground: #433422;
+  --card: #faf6ed;
+  --card-foreground: #433422;
+  --popover: #faf6ed;
+  --popover-foreground: #433422;
+  --primary: #e8a849;
+  --primary-foreground: #433422;
+  --secondary: #6b5a3e;
+  --secondary-foreground: #faf6ed;
+  --muted: #ebe5d6;
+  --muted-foreground: #6b5a3e;
+  --accent: #e8a849;
+  --accent-foreground: #433422;
+  --destructive: #a04040;
+  --border: #d4c9b0;
+  --input: #d4c9b0;
+  --ring: #e8a849;
+  --chart-1: #e8a849;
+  --chart-2: #6b5a3e;
+  --chart-3: #5a7a5a;
+  --chart-4: #7a5a7a;
+  --chart-5: #a04040;
+  --sidebar: #f2ebdd;
+  --sidebar-foreground: #433422;
+  --sidebar-primary: #e8a849;
+  --sidebar-primary-foreground: #433422;
+  --sidebar-accent: #e8e0ce;
+  --sidebar-accent-foreground: #433422;
+  --sidebar-border: #d4c9b0;
+  --sidebar-ring: #e8a849;
+}
+
+/* Reading mode dark - Warm sepia dark theme */
+.reading-dark {
+  --background: #1a1612;
+  --foreground: #d4c4a8;
+  --card: #241f1a;
+  --card-foreground: #d4c4a8;
+  --popover: #241f1a;
+  --popover-foreground: #d4c4a8;
+  --primary: #e8a849;
+  --primary-foreground: #1a1612;
+  --secondary: #c9a86c;
+  --secondary-foreground: #1a1612;
+  --muted: #2e2620;
+  --muted-foreground: #a89880;
+  --accent: #e8a849;
+  --accent-foreground: #1a1612;
+  --destructive: #c45c5c;
+  --border: #3d332a;
+  --input: #3d332a;
+  --ring: #e8a849;
+  --chart-1: #e8a849;
+  --chart-2: #c9a86c;
+  --chart-3: #5a8a5a;
+  --chart-4: #8a5a8a;
+  --chart-5: #c45c5c;
+  --sidebar: #151210;
+  --sidebar-foreground: #d4c4a8;
+  --sidebar-primary: #e8a849;
+  --sidebar-primary-foreground: #1a1612;
+  --sidebar-accent: #2e2620;
+  --sidebar-accent-foreground: #d4c4a8;
+  --sidebar-border: #3d332a;
+  --sidebar-ring: #e8a849;
 }
 
 /* Dark mode - GitHub-inspired with Hytale accent */
@@ -309,14 +381,26 @@
 
 .prose a {
   color: var(--primary);
-  text-decoration: none;
-  transition: color 0.2s;
+  text-decoration: underline;
+  text-decoration-color: var(--primary);
+  text-underline-offset: 2px;
+  transition: color 0.2s, text-decoration-color 0.2s;
 }
 
 .prose a:hover {
   color: var(--primary);
-  opacity: 0.8;
-  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 2px;
+}
+
+/* Light themes: darken link text for accessibility while keeping orange underline */
+:root:not(.dark):not(.reading-dark) .prose a {
+  color: #8b5a10;
+  text-decoration-color: var(--primary);
+}
+
+:root:not(.dark):not(.reading-dark) .prose a:hover {
+  color: var(--primary);
 }
 
 .prose code {
@@ -895,4 +979,402 @@ pre code {
 
 .mermaid-container marker path {
   fill: #e8a849 !important;
+}
+
+/* ============================================
+   Reading Mode - Kindle-style Paper Effect
+   ============================================ */
+
+/* Paper texture background effect */
+.reading {
+  background-image:
+    radial-gradient(ellipse at 100% 0%, rgba(139, 105, 20, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(107, 90, 62, 0.03) 0%, transparent 50%);
+}
+
+/* Optimize prose typography for reading */
+.reading .prose {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  max-width: 70ch;
+}
+
+.reading .prose p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.reading .prose h1,
+.reading .prose h2,
+.reading .prose h3,
+.reading .prose h4 {
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
+
+/* Softer borders in reading mode */
+.reading .prose h2 {
+  border-bottom-color: #c9b896;
+  border-bottom-width: 1px;
+}
+
+/* Warmer code blocks */
+.reading pre[class*="language-"] {
+  background: #f0e8d6 !important;
+  border-color: #c9b896;
+  box-shadow: inset 0 1px 3px rgba(107, 90, 62, 0.1);
+}
+
+.reading .prose :not(pre) > code {
+  background: #ebe5d6 !important;
+  border-color: #c9b896 !important;
+  color: #6b4423 !important;
+}
+
+/* Reading mode syntax highlighting */
+.reading {
+  /* Comments */
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #8b7355;
+    font-style: italic;
+  }
+
+  /* Punctuation */
+  .token.punctuation {
+    color: #5a4a3a;
+  }
+
+  /* Strings */
+  .token.string,
+  .token.attr-value {
+    color: #2d5a3d;
+  }
+
+  /* Keywords */
+  .token.keyword,
+  .token.selector,
+  .token.important,
+  .token.atrule {
+    color: #8b3a3a;
+  }
+
+  /* Operators & Entities */
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #3a5a8b;
+  }
+
+  /* Functions */
+  .token.function {
+    color: #6b3a8b;
+  }
+
+  /* Classes & Types */
+  .token.class-name,
+  .token.type,
+  .token.builtin {
+    color: #8b6914;
+  }
+
+  /* Variables & Properties */
+  .token.variable,
+  .token.property {
+    color: #3a5a8b;
+  }
+
+  /* Numbers & Booleans */
+  .token.number,
+  .token.boolean {
+    color: #3a5a8b;
+  }
+
+  /* Tags */
+  .token.tag {
+    color: #2d5a3d;
+  }
+
+  /* Attributes */
+  .token.attr-name {
+    color: #6b3a8b;
+  }
+
+  /* Annotations */
+  .token.annotation {
+    color: #8b6914;
+  }
+}
+
+/* Tables in reading mode */
+.reading .prose table {
+  background: #faf6ed;
+  border-color: #c9b896;
+}
+
+.reading .prose thead tr {
+  border-bottom-color: #8b6914 !important;
+}
+
+.reading .prose tbody tr:nth-child(odd) {
+  background: #f0e8d6;
+}
+
+.reading .prose tbody tr:nth-child(even) {
+  background: #faf6ed;
+}
+
+/* Mermaid diagrams in reading mode */
+.reading .mermaid-container .node rect,
+.reading .mermaid-container .node circle,
+.reading .mermaid-container .node ellipse,
+.reading .mermaid-container .node polygon {
+  fill: #f0e8d6 !important;
+  stroke: #8b6914 !important;
+}
+
+.reading .mermaid-container text {
+  fill: #433422 !important;
+}
+
+.reading .mermaid-container .edgePath .path {
+  stroke: #6b5a3e !important;
+}
+
+.reading .mermaid-container marker path {
+  fill: #8b6914 !important;
+}
+
+.reading .mermaid-container .cluster rect {
+  fill: #f7f3e9 !important;
+  stroke: #c9b896 !important;
+}
+
+/* Scrollbar in reading mode */
+.reading::-webkit-scrollbar-track {
+  background: #f7f3e9;
+}
+
+.reading::-webkit-scrollbar-thumb {
+  background: #c9b896;
+}
+
+.reading::-webkit-scrollbar-thumb:hover {
+  background: #8b6914;
+}
+
+/* Reduce visual noise in reading mode */
+.reading .glow-gold,
+.reading .glow-blue,
+.reading .glow-green {
+  box-shadow: none;
+}
+
+/* Softer card hover in reading mode */
+.reading .card-hover:hover {
+  box-shadow: 0 8px 24px rgba(107, 90, 62, 0.15);
+}
+
+/* ============================================
+   Reading Mode Dark - Warm Sepia Dark Theme
+   ============================================ */
+
+/* Paper texture background effect - dark */
+.reading-dark {
+  background-image:
+    radial-gradient(ellipse at 100% 0%, rgba(212, 168, 75, 0.02) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 100%, rgba(139, 115, 85, 0.02) 0%, transparent 50%);
+}
+
+/* Optimize prose typography for reading - dark */
+.reading-dark .prose {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  max-width: 70ch;
+}
+
+.reading-dark .prose p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.reading-dark .prose h1,
+.reading-dark .prose h2,
+.reading-dark .prose h3,
+.reading-dark .prose h4 {
+  font-family: var(--font-sans);
+  letter-spacing: 0.02em;
+}
+
+/* Softer borders in reading-dark mode */
+.reading-dark .prose h2 {
+  border-bottom-color: #3d332a;
+  border-bottom-width: 1px;
+}
+
+/* Warmer code blocks - dark */
+.reading-dark pre[class*="language-"] {
+  background: #241f1a !important;
+  border-color: #3d332a;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.reading-dark .prose :not(pre) > code {
+  background: #2e2620 !important;
+  border-color: #3d332a !important;
+  color: #d4a84b !important;
+}
+
+/* Reading-dark mode syntax highlighting */
+.reading-dark {
+  /* Comments */
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #8b7355;
+    font-style: italic;
+  }
+
+  /* Punctuation */
+  .token.punctuation {
+    color: #c4b498;
+  }
+
+  /* Strings */
+  .token.string,
+  .token.attr-value {
+    color: #a8c4a8;
+  }
+
+  /* Keywords */
+  .token.keyword,
+  .token.selector,
+  .token.important,
+  .token.atrule {
+    color: #d49898;
+  }
+
+  /* Operators & Entities */
+  .token.operator,
+  .token.entity,
+  .token.url {
+    color: #98b4d4;
+  }
+
+  /* Functions */
+  .token.function {
+    color: #c4a8d4;
+  }
+
+  /* Classes & Types */
+  .token.class-name,
+  .token.type,
+  .token.builtin {
+    color: #d4a84b;
+  }
+
+  /* Variables & Properties */
+  .token.variable,
+  .token.property {
+    color: #98b4d4;
+  }
+
+  /* Numbers & Booleans */
+  .token.number,
+  .token.boolean {
+    color: #98b4d4;
+  }
+
+  /* Tags */
+  .token.tag {
+    color: #a8c4a8;
+  }
+
+  /* Attributes */
+  .token.attr-name {
+    color: #c4a8d4;
+  }
+
+  /* Annotations */
+  .token.annotation {
+    color: #d4a84b;
+  }
+}
+
+/* Tables in reading-dark mode */
+.reading-dark .prose table {
+  background: #241f1a;
+  border-color: #3d332a;
+}
+
+.reading-dark .prose thead tr {
+  border-bottom-color: #d4a84b !important;
+}
+
+.reading-dark .prose tbody tr:nth-child(odd) {
+  background: #2e2620;
+}
+
+.reading-dark .prose tbody tr:nth-child(even) {
+  background: #241f1a;
+}
+
+/* Mermaid diagrams in reading-dark mode */
+.reading-dark .mermaid-container .node rect,
+.reading-dark .mermaid-container .node circle,
+.reading-dark .mermaid-container .node ellipse,
+.reading-dark .mermaid-container .node polygon {
+  fill: #2e2620 !important;
+  stroke: #d4a84b !important;
+}
+
+.reading-dark .mermaid-container text {
+  fill: #d4c4a8 !important;
+}
+
+.reading-dark .mermaid-container .edgePath .path {
+  stroke: #8b7355 !important;
+}
+
+.reading-dark .mermaid-container marker path {
+  fill: #d4a84b !important;
+}
+
+.reading-dark .mermaid-container .cluster rect {
+  fill: #1a1612 !important;
+  stroke: #3d332a !important;
+}
+
+/* Scrollbar in reading-dark mode */
+.reading-dark::-webkit-scrollbar-track {
+  background: #1a1612;
+}
+
+.reading-dark::-webkit-scrollbar-thumb {
+  background: #3d332a;
+}
+
+.reading-dark::-webkit-scrollbar-thumb:hover {
+  background: #d4a84b;
+}
+
+/* Reduce visual noise in reading-dark mode */
+.reading-dark .glow-gold,
+.reading-dark .glow-blue,
+.reading-dark .glow-green {
+  box-shadow: none;
+}
+
+/* Softer card hover in reading-dark mode */
+.reading-dark .card-hover:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }

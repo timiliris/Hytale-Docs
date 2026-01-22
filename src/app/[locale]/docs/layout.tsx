@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Navbar, Footer, Sidebar, DocsMobileNavigation } from "@/components/layout";
 import { DocsDisclaimer } from "@/components/docs-disclaimer";
 import { DisclaimerToast } from "@/components/disclaimer-toast";
+import { ReadingModeToggle } from "@/components/reading-mode-toggle";
 
 export default async function DocsLayout({
   children,
@@ -26,6 +27,7 @@ export default async function DocsLayout({
         </div>
         <Footer />
         <DisclaimerToast />
+        <ReadingModeToggle />
       </div>
     </DocsMobileNavigation>
   );
