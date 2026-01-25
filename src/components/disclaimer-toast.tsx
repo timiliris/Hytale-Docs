@@ -90,7 +90,7 @@ export function DisclaimerToast() {
           </div>
           <button
             onClick={handleDismiss}
-            className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
+            className="min-h-11 min-w-11 flex items-center justify-center rounded-md hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Close"
           >
             <X className="h-5 w-5" />

@@ -38,7 +38,7 @@ export function ThemeToggle() {
             <Button
               variant="ghost"
               size="icon"
-              className="min-h-[44px] min-w-[44px] text-muted-foreground hover:text-primary hover:bg-primary/10"
+              className="min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
               aria-label="Toggle theme"
             >
               {/* Show BookOpen for reading modes, Sun for light, Moon for dark */}
@@ -56,30 +56,30 @@ export function ThemeToggle() {
         <TooltipContent side="bottom" sideOffset={8}>
           Change theme
         </TooltipContent>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
-          <Sun className="h-4 w-4" />
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
-          <Moon className="h-4 w-4" />
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2">
-          <BookOpen className="h-4 w-4" />
-          Reading Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2">
-          <BookMarked className="h-4 w-4" />
-          Reading Dark
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
-          <Monitor className="h-4 w-4" />
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
+        <DropdownMenuContent align="end">
+          <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
+            <Sun className="h-4 w-4" />
+            Light
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
+            <Moon className="h-4 w-4" />
+            Dark
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2">
+            <BookOpen className="h-4 w-4" />
+            Reading Light
+          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2">
+            <BookMarked className="h-4 w-4" />
+            Reading Dark
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
+            <Monitor className="h-4 w-4" />
+            System
+          </DropdownMenuItem>
+        </DropdownMenuContent>
       </DropdownMenu>
     </Tooltip>
   );
