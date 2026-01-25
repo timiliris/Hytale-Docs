@@ -132,13 +132,26 @@ Le Plugin IntelliJ Hytale gere cela automatiquement lorsque vous creez un nouvea
 
 ### Configuration Manuelle
 
-1. **Telechargez le JAR serveur** depuis [cdn.hytale.com/HytaleServer.jar](https://cdn.hytale.com/HytaleServer.jar)
+1. **Obtenez le JAR serveur** via l'une des methodes suivantes:
+
+   **Option A - Hytale Downloader CLI (recommande):**
+   ```bash
+   wget https://downloader.hytale.com/hytale-downloader.zip
+   unzip hytale-downloader.zip
+   ./hytale-downloader-linux-amd64
+   ```
+
+   **Option B - Copier depuis le launcher:**
+   - Windows: `%appdata%\Hytale\install\release\package\game\latest\Server\HytaleServer.jar`
+   - Linux: `$XDG_DATA_HOME/Hytale/install/release/package/game/latest/Server/HytaleServer.jar`
+   - macOS: `~/Application Support/Hytale/install/release/package/game/latest/Server/HytaleServer.jar`
+
 2. **Creez un dossier `libs`** a la racine de votre projet
 3. **Copiez `HytaleServer.jar`** dans le dossier `libs`
 
 ```bash
 mkdir libs
-curl -o libs/HytaleServer.jar https://cdn.hytale.com/HytaleServer.jar
+cp /chemin/vers/HytaleServer.jar libs/
 ```
 
 Le JAR serveur est utilise comme dependance `compileOnly` - il fournit les classes API pour la compilation mais n'est pas inclus dans votre plugin (le serveur possede deja ces classes au runtime).
@@ -164,7 +177,8 @@ repositories {
 
 dependencies {
     // JAR Serveur Hytale - ajoutez au classpath depuis votre installation locale
-    // Telechargez HytaleServer.jar depuis https://cdn.hytale.com/HytaleServer.jar
+    // Obtenez HytaleServer.jar via le Hytale Downloader CLI ou depuis le launcher
+    // Voir: https://downloader.hytale.com/hytale-downloader.zip
     // Placez-le dans un dossier 'libs' a la racine du projet
     compileOnly files('libs/HytaleServer.jar')
 

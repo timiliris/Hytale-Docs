@@ -40,6 +40,7 @@ services:
       - ./data/mods:/server/mods
       - ./data/plugins:/server/plugins
       - ./server-files/HytaleServer.jar:/server/HytaleServer.jar:ro
+      - ./server-files/Assets.zip:/server/Assets.zip:ro
 
     working_dir: /server
 
@@ -48,9 +49,10 @@ services:
       -XX:+UseG1GC
       -XX:+ParallelRefProcEnabled
       -XX:MaxGCPauseMillis=200
+      -XX:+UseCompactObjectHeaders
       -jar HytaleServer.jar
-      --port 5520
-      nogui
+      --assets Assets.zip
+      -b 0.0.0.0:5520
 
     deploy:
       resources:
@@ -66,8 +68,16 @@ services:
 # Create directories
 mkdir -p data/{worlds,config,mods,plugins} server-files
 
-# Download server JAR from CDN
-curl -L -o server-files/HytaleServer.jar https://cdn.hytale.com/HytaleServer.jar
+# Download server files using Hytale Downloader CLI (recommended)
+wget https://downloader.hytale.com/hytale-downloader.zip
+unzip hytale-downloader.zip
+./hytale-downloader-linux-amd64
+# Extract the Server folder and Assets.zip to server-files/
+
+# Or copy from your Hytale launcher installation:
+# Windows: %appdata%\Hytale\install\release\package\game\latest
+# Linux: $XDG_DATA_HOME/Hytale/install/release/package/game/latest
+# macOS: ~/Application Support/Hytale/install/release/package/game/latest
 
 # Start container
 docker-compose up -d
@@ -75,6 +85,10 @@ docker-compose up -d
 # View logs
 docker-compose logs -f
 ```
+
+:::warning Assets Required
+The server requires both `HytaleServer.jar` AND `Assets.zip` to run. Make sure to copy both files from the downloaded package or launcher installation.
+:::
 
 ## Community Docker Projects
 
@@ -119,8 +133,10 @@ USER hytale
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
     CMD pgrep -f "HytaleServer.jar" > /dev/null || exit 1
 
+COPY Assets.zip /server/Assets.zip
+
 ENTRYPOINT ["java"]
-CMD ["-Xms4G", "-Xmx8G", "-XX:+UseG1GC", "-jar", "HytaleServer.jar", "--port", "5520", "nogui"]
+CMD ["-Xms4G", "-Xmx8G", "-XX:+UseG1GC", "-XX:+UseCompactObjectHeaders", "-jar", "HytaleServer.jar", "--assets", "Assets.zip", "-b", "0.0.0.0:5520"]
 ```
 
 Build and run:
@@ -167,7 +183,9 @@ docker cp hytale-server:/tmp/backup.tar.gz ./backup.tar.gz
 
 # Update server
 docker-compose down
-curl -L -o server-files/HytaleServer.jar https://cdn.hytale.com/HytaleServer.jar
+# Re-run hytale-downloader to get latest version
+./hytale-downloader-linux-amd64
+# Copy new HytaleServer.jar and Assets.zip to server-files/
 docker-compose up -d
 ```
 
