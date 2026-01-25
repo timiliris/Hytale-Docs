@@ -248,7 +248,8 @@
     "results": "résultats",
     "open": "ouvrir",
     "menu": "Menu",
-    "navigation": "Navigation"
+    "navigation": "Navigation",
+    "loading": "Chargement..."
   },
   "megaMenu": {
     "moddingFeaturedTitle": "Pour Commencer",

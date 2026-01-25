@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
@@ -51,6 +50,7 @@ import {
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSelector } from "./language-selector";
 import { cn } from "@/lib/utils";
+import { SearchDialog } from "./search-dialog";
 
 // Discord icon component
 const DiscordIcon = ({ className }: { className?: string }) => (
@@ -64,10 +64,6 @@ const DiscordIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const SearchDialog = dynamic(
-  () => import("./search-dialog").then((mod) => ({ default: mod.SearchDialog })),
-  { ssr: false }
-);
 
 // Menu item component for mega-menu
 interface MenuItemProps {
@@ -286,13 +282,13 @@ export function Navbar() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden min-h-[44px] min-w-[44px] text-muted-foreground hover:text-foreground hover:bg-muted"
+              className="lg:hidden min-h-11 min-w-11 text-muted-foreground hover:text-foreground hover:bg-muted"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
             </Button>
-            <SheetContent side="left" className="w-[300px] sm:w-[350px]">
+            <SheetContent side="left" className="w-75 sm:w-87.5">
               <SheetHeader className="border-b pb-4">
                 <SheetTitle className="flex items-center gap-2.5">
                   <Image
@@ -396,7 +392,7 @@ export function Navbar() {
                   {t("modding")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid gap-3 p-4 w-[600px] grid-cols-[180px_1fr]">
+                  <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
                     {/* Featured Section */}
                     <div className="row-span-3">
                       <FeaturedLink
@@ -431,7 +427,7 @@ export function Navbar() {
                   {t("servers")}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid gap-3 p-4 w-[600px] grid-cols-[180px_1fr]">
+                  <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
                     {/* Featured Section */}
                     <div className="row-span-3">
                       <FeaturedLink
@@ -481,7 +477,7 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="hidden sm:flex min-h-[44px] min-w-[44px] text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  className="hidden sm:flex min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
                   asChild
                 >
                   <a
@@ -506,7 +502,7 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="hidden sm:flex min-h-[44px] min-w-[44px] text-muted-foreground hover:text-primary hover:bg-primary/10"
+                  className="hidden sm:flex min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
                   asChild
                 >
                   <a
