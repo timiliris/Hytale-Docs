@@ -48,6 +48,20 @@
     "items": "Items",
     "npcs": "NPCs",
     "aiSystem": "Système IA",
+    "sensorsActions": "Capteurs & Actions",
+    "creatingBlocks": "Créer des Blocs",
+    "blockProperties": "Propriétés des Blocs",
+    "blockBehaviors": "Comportements des Blocs",
+    "creatingItems": "Créer des Items",
+    "itemTypes": "Types d'Items",
+    "itemProperties": "Propriétés des Items",
+    "itemBehaviors": "Comportements des Items",
+    "craftingRecipes": "Recettes de Craft",
+    "creatingNpcs": "Créer des NPCs",
+    "npcBehaviors": "Comportements des NPCs",
+    "playerApi": "API Player",
+    "worldApi": "API World",
+    "uiCompleteReference": "Référence UI Complète",
     "plugins": "Plugins",
     "intellijPlugin": "Plugin IntelliJ",
     "projectSetup": "Configuration Projet",
@@ -346,9 +360,11 @@
     "projectGenerator": "Generateur de Projet",
     "jsonValidator": "Validateur JSON",
     "copyright": "HytaleDocs. Non affilie a Hypixel Studios.",
+    "contributors": "Contributeurs",
     "contribute": "Contribuer",
     "privacy": "Confidentialite",
     "terms": "Conditions",
+    "license": "Licence",
     "cookieSettings": "Gestion des cookies"
   },
   "tools": {
@@ -847,6 +863,23 @@
       "description": "Ouvrez l'app pour une meilleure experience",
       "openButton": "Ouvrir l'app",
       "continueInBrowser": "Rester dans le navigateur"
+    }
+  },
+  "contributors": {
+    "title": "Contributeurs",
+    "description": "Merci à toutes les personnes incroyables qui ont contribué à HytaleDocs. Ce projet existe grâce à votre dévouement et votre travail.",
+    "stats": {
+      "contributors": "Contributeurs",
+      "contributions": "Contributions totales",
+      "viewRepo": "Voir le dépôt"
+    },
+    "commit": "commit",
+    "commits": "commits",
+    "noContributors": "Impossible de charger les contributeurs. Veuillez réessayer plus tard.",
+    "cta": {
+      "title": "Envie de contribuer ?",
+      "description": "Nous accueillons toutes les contributions - améliorations de la documentation, corrections de bugs, nouvelles fonctionnalités et plus encore. Rejoignez notre communauté de contributeurs !",
+      "button": "Commencer sur GitHub"
     }
   }
 }

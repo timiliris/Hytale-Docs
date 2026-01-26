@@ -168,11 +168,25 @@ export function Footer() {
                 {t("terms")}
               </Link>
               <Link
+                href="/contributors"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("contributors")}
+              </Link>
+              <Link
                 href="/docs/community/contributing"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("contribute")}
               </Link>
+              <a
+                href="https://github.com/timiliris/Hytale-Docs/blob/master/LICENSE"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("license")}
+              </a>
               <button
                 onClick={openPreferences}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"

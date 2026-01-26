@@ -1,5 +1,5 @@
 // HytaleDocs Service Worker - Optimized for Performance
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const BUILD_ID = '__BUILD_ID__'; // Will be replaced during build or use timestamp
 const STATIC_CACHE = `hytaledocs-static-${CACHE_VERSION}`;
 const PAGES_CACHE = `hytaledocs-pages-${CACHE_VERSION}`;
@@ -13,8 +13,8 @@ const PRECACHE_ASSETS = [
   '/fr',
   '/offline.html',
   '/manifest.json',
-  '/icon-192x192.png',
-  '/icon-512x512.png',
+  '/logo-512.png',
+  '/icon.png',
 ];
 
 // Install event - precache essential assets

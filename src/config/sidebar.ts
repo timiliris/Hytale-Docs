@@ -265,9 +265,36 @@ export const sidebarConfig: SidebarItem[] = [
         titleKey: "dataAssets",
         items: [
           { titleKey: "overview", href: "/docs/modding/data-assets/overview", verified: true },
-          { titleKey: "blocks", href: "/docs/modding/data-assets/blocks/overview" },
-          { titleKey: "items", href: "/docs/modding/data-assets/items/overview" },
-          { titleKey: "npcs", href: "/docs/modding/data-assets/npcs/overview" },
+          {
+            titleKey: "blocks",
+            items: [
+              { titleKey: "overview", href: "/docs/modding/data-assets/blocks/overview" },
+              { titleKey: "creatingBlocks", href: "/docs/modding/data-assets/blocks/creating-blocks" },
+              { titleKey: "blockProperties", href: "/docs/modding/data-assets/blocks/properties" },
+              { titleKey: "blockBehaviors", href: "/docs/modding/data-assets/blocks/behaviors" },
+            ],
+          },
+          {
+            titleKey: "items",
+            items: [
+              { titleKey: "overview", href: "/docs/modding/data-assets/items/overview" },
+              { titleKey: "creatingItems", href: "/docs/modding/data-assets/items/creating-items" },
+              { titleKey: "itemTypes", href: "/docs/modding/data-assets/items/item-types" },
+              { titleKey: "itemProperties", href: "/docs/modding/data-assets/items/properties" },
+              { titleKey: "itemBehaviors", href: "/docs/modding/data-assets/items/behaviors" },
+              { titleKey: "craftingRecipes", href: "/docs/modding/data-assets/items/crafting-recipes" },
+            ],
+          },
+          {
+            titleKey: "npcs",
+            items: [
+              { titleKey: "overview", href: "/docs/modding/data-assets/npcs/overview" },
+              { titleKey: "creatingNpcs", href: "/docs/modding/data-assets/npcs/creating-npcs" },
+              { titleKey: "npcBehaviors", href: "/docs/modding/data-assets/npcs/behaviors" },
+              { titleKey: "aiSystem", href: "/docs/modding/data-assets/npcs/ai-system" },
+              { titleKey: "sensorsActions", href: "/docs/modding/data-assets/npcs/sensors-actions" },
+            ],
+          },
         ],
       },
       {
@@ -283,8 +310,22 @@ export const sidebarConfig: SidebarItem[] = [
         titleKey: "tools",
         items: [
           { titleKey: "overview", href: "/docs/tools/overview", verified: true },
-          { titleKey: "assetEditor", href: "/docs/tools/asset-editor/overview" },
-          { titleKey: "blockbench", href: "/docs/tools/blockbench/installation" },
+          {
+            titleKey: "assetEditor",
+            items: [
+              { titleKey: "overview", href: "/docs/tools/asset-editor/overview" },
+              { titleKey: "editingData", href: "/docs/tools/asset-editor/editing-data" },
+            ],
+          },
+          {
+            titleKey: "blockbench",
+            items: [
+              { titleKey: "installation", href: "/docs/tools/blockbench/installation" },
+              { titleKey: "modeling", href: "/docs/tools/blockbench/modeling" },
+              { titleKey: "animation", href: "/docs/tools/blockbench/animation" },
+              { titleKey: "pluginSetup", href: "/docs/tools/blockbench/plugin-setup" },
+            ],
+          },
           { titleKey: "creativeMode", href: "/docs/tools/creative-mode" },
           { titleKey: "machinima", href: "/docs/tools/machinima" },
         ],
@@ -369,6 +410,8 @@ export const sidebarConfig: SidebarItem[] = [
     items: [
       { titleKey: "overview", href: "/docs/api/server-internals" },
       { titleKey: "pluginSystem", href: "/docs/api/server-internals/plugins" },
+      { titleKey: "playerApi", href: "/docs/api/server-internals/player" },
+      { titleKey: "worldApi", href: "/docs/api/server-internals/world" },
       {
         titleKey: "modules",
         items: [
@@ -401,6 +444,7 @@ export const sidebarConfig: SidebarItem[] = [
         items: [
           { titleKey: "customUIOverview", href: "/docs/api/server-internals/custom-ui", verified: true },
           { titleKey: "uiReference", href: "/docs/api/server-internals/ui-reference", verified: true },
+          { titleKey: "uiCompleteReference", href: "/docs/api/server-internals/ui-complete-reference" },
           { titleKey: "uiTroubleshooting", href: "/docs/api/server-internals/troubleshooting" },
         ],
       },

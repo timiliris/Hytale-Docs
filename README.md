@@ -97,7 +97,25 @@ Documentation is written in MDX format. Add new files to `content/docs/[locale]/
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project uses a **dual-license** approach:
+
+| Component | License | Summary |
+|-----------|---------|---------|
+| **Source Code** | [Elastic License 2.0](LICENSE) | View, fork, contribute. No hosted competing service. |
+| **Documentation** | [CC BY-NC-SA 4.0](LICENSE) | Share & adapt with attribution. Non-commercial. |
+| **Trademarks** | All Rights Reserved | "HytaleDocs" name and logo protected. |
+
+**You CAN:**
+- View and study the source code
+- Fork the project to contribute improvements
+- Use the documentation for personal/educational purposes
+
+**You CANNOT:**
+- Host a competing service using this codebase
+- Use the code or content for commercial purposes
+- Use the HytaleDocs name/branding without permission
+
+See the full [LICENSE](LICENSE) file for details.
 
 ## Disclaimer
 

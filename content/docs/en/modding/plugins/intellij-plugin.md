@@ -19,7 +19,7 @@ The **HytaleDocs Dev Tools** plugin is the ultimate toolkit for Hytale server pl
 - **Integrated Documentation**: Access API docs directly in your IDE
 
 :::tip Get the Plugin
-Install from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/hytale-docs-dev-tools) or search "Hytale" in your IDE's plugin settings.
+Install from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/29807-hytale-development-tools) or search "Hytale" in your IDE's plugin settings.
 :::
 
 ---
@@ -28,7 +28,7 @@ Install from the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/hy
 
 ### From JetBrains Marketplace
 
-1. Visit the [HytaleDocs Dev Tools](https://plugins.jetbrains.com/plugin/hytale-docs-dev-tools) page
+1. Visit the [HytaleDocs Dev Tools](https://plugins.jetbrains.com/plugin/29807-hytale-development-tools) page
 2. Click **Install to IDE**
 3. Restart IntelliJ IDEA
 

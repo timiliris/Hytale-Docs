@@ -48,6 +48,20 @@
     "items": "Items",
     "npcs": "NPCs",
     "aiSystem": "AI System",
+    "sensorsActions": "Sensors & Actions",
+    "creatingBlocks": "Creating Blocks",
+    "blockProperties": "Block Properties",
+    "blockBehaviors": "Block Behaviors",
+    "creatingItems": "Creating Items",
+    "itemTypes": "Item Types",
+    "itemProperties": "Item Properties",
+    "itemBehaviors": "Item Behaviors",
+    "craftingRecipes": "Crafting Recipes",
+    "creatingNpcs": "Creating NPCs",
+    "npcBehaviors": "NPC Behaviors",
+    "playerApi": "Player API",
+    "worldApi": "World API",
+    "uiCompleteReference": "Complete UI Reference",
     "plugins": "Plugins",
     "intellijPlugin": "IntelliJ Plugin",
     "projectSetup": "Project Setup",
@@ -346,9 +360,11 @@
     "projectGenerator": "Project Generator",
     "jsonValidator": "JSON Validator",
     "copyright": "HytaleDocs. Not affiliated with Hypixel Studios.",
+    "contributors": "Contributors",
     "contribute": "Contribute",
     "privacy": "Privacy",
     "terms": "Terms",
+    "license": "License",
     "cookieSettings": "Cookie Settings"
   },
   "tools": {
@@ -847,6 +863,23 @@
       "description": "Open the app for a better experience",
       "openButton": "Open App",
       "continueInBrowser": "Stay in browser"
+    }
+  },
+  "contributors": {
+    "title": "Contributors",
+    "description": "Thank you to all the amazing people who have contributed to HytaleDocs. This project exists because of your dedication and hard work.",
+    "stats": {
+      "contributors": "Contributors",
+      "contributions": "Total Contributions",
+      "viewRepo": "View Repository"
+    },
+    "commit": "commit",
+    "commits": "commits",
+    "noContributors": "Unable to load contributors. Please try again later.",
+    "cta": {
+      "title": "Want to contribute?",
+      "description": "We welcome contributions of all kinds - documentation improvements, bug fixes, new features, and more. Join our community of contributors!",
+      "button": "Get Started on GitHub"
     }
   }
 }
