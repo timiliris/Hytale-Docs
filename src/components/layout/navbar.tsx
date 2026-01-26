@@ -33,6 +33,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetClose,
+  SheetFooter,
 } from "@/components/ui/sheet";
 import {
   Tooltip,
@@ -261,7 +262,7 @@ export function Navbar() {
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5">
             <div className="relative flex h-8 w-8 items-center justify-center">
               <Image
                 src="/logo-h.png"
@@ -277,258 +278,278 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* Mobile Menu Button */}
-          <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="lg:hidden min-h-11 min-w-11 text-muted-foreground hover:text-foreground hover:bg-muted"
-              onClick={() => setMobileMenuOpen(true)}
-              aria-label="Open menu"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-            <SheetContent side="left" className="w-75 sm:w-87.5">
-              <SheetHeader className="border-b pb-4">
-                <SheetTitle className="flex items-center gap-2.5">
-                  <Image
-                    src="/logo-h.png"
-                    alt="Hytale"
-                    width={24}
-                    height={24}
-                    className="h-6 w-6 object-contain"
-                  />
-                  <span className="text-lg font-bold tracking-tight">
-                    <span className="text-foreground">Hytale</span>
-                    <span className="text-primary">Docs</span>
-                  </span>
-                </SheetTitle>
-              </SheetHeader>
-
-              {/* Mobile Navigation Links */}
-              <nav className="flex flex-col gap-1 px-2 py-4">
-                {mainNav.map((item) => {
-                  const isActive = pathname.startsWith(item.href);
-                  return (
-                    <SheetClose key={item.title} asChild>
-                      <Link
-                        href={item.href}
-                        className={cn(
-                          "flex items-center gap-3 px-3 py-3 text-base font-medium rounded-lg transition-all duration-200",
-                          isActive
-                            ? "text-primary bg-primary/10"
-                            : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                        )}
-                      >
-                        <item.icon className="h-5 w-5" />
-                        {item.title}
-                      </Link>
-                    </SheetClose>
-                  );
-                })}
-              </nav>
-
-              {/* Divider */}
-              <div className="border-t mx-4" />
-
-              {/* Social Links */}
-              <div className="flex flex-col gap-1 px-2 py-4">
-                <SheetClose asChild>
-                  <a
-                    href="https://discord.gg/yAjaFBH4Y8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-3 text-base font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
-                  >
-                    <DiscordIcon className="h-5 w-5" />
-                    Discord
-                  </a>
-                </SheetClose>
-                <SheetClose asChild>
-                  <a
-                    href="https://github.com/timiliris/Hytale-Docs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-3 py-3 text-base font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
-                  >
-                    <Github className="h-5 w-5" />
-                    GitHub
-                  </a>
-                </SheetClose>
-              </div>
-            </SheetContent>
-          </Sheet>
-
           {/* Desktop Navigation with Mega Menus */}
-          <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList>
-              {/* Player Guide - Simple Link */}
-              <NavigationMenuItem>
-                <Link
-                  href="/docs/gameplay/overview"
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                    pathname.startsWith("/docs/gameplay")
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  )}
-                >
-                  <Gamepad2 className="h-4 w-4" />
-                  {t("playerGuide")}
-                </Link>
-              </NavigationMenuItem>
+          <div className="hidden lg:flex w-full ml-7">
+            <NavigationMenu className="hidden lg:flex w-full">
+              <NavigationMenuList >
+                {/* Player Guide - Simple Link */}
+                <NavigationMenuItem>
+                  <Link
+                    href="/docs/gameplay/overview"
+                    className={cn(
+                      "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                      pathname.startsWith("/docs/gameplay")
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                    )}
+                  >
+                    <Gamepad2 className="h-4 w-4" />
+                    {t("playerGuide")}
+                  </Link>
+                </NavigationMenuItem>
 
-              {/* Modding - Mega Menu */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "flex items-center gap-2 rounded-lg",
-                    isModdingActive
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  <Code className="h-4 w-4" />
-                  {t("modding")}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
-                    {/* Featured Section */}
-                    <div className="row-span-3">
-                      <FeaturedLink
-                        href="/docs/modding/overview"
-                        icon={Zap}
-                        title={tMenu("moddingFeaturedTitle")}
-                        description={tMenu("moddingFeaturedDesc")}
-                        gradient="bg-gradient-to-b from-purple-500 to-indigo-600"
-                      />
+                {/* Modding - Mega Menu */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "flex items-center gap-2 rounded-lg",
+                      isModdingActive
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    <Code className="h-4 w-4" />
+                    {t("modding")}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
+                      {/* Featured Section */}
+                      <div className="row-span-3">
+                        <FeaturedLink
+                          href="/docs/modding/overview"
+                          icon={Zap}
+                          title={tMenu("moddingFeaturedTitle")}
+                          description={tMenu("moddingFeaturedDesc")}
+                          gradient="bg-gradient-to-b from-purple-500 to-indigo-600"
+                        />
+                      </div>
+                      {/* Menu Items */}
+                      <ul className="grid grid-cols-2 gap-1">
+                        {moddingItems.map((item) => (
+                          <MenuItem key={item.href} {...item} />
+                        ))}
+                      </ul>
                     </div>
-                    {/* Menu Items */}
-                    <ul className="grid grid-cols-2 gap-1">
-                      {moddingItems.map((item) => (
-                        <MenuItem key={item.href} {...item} />
-                      ))}
-                    </ul>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              {/* Servers - Mega Menu */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger
-                  className={cn(
-                    "flex items-center gap-2 rounded-lg",
-                    isServersActive
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  <Server className="h-4 w-4" />
-                  {t("servers")}
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
-                    {/* Featured Section */}
-                    <div className="row-span-3">
-                      <FeaturedLink
-                        href="/docs/servers/overview"
-                        icon={Server}
-                        title={tMenu("serversFeaturedTitle")}
-                        description={tMenu("serversFeaturedDesc")}
-                        gradient="bg-gradient-to-b from-orange-500 to-red-600"
-                      />
+                {/* Servers - Mega Menu */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger
+                    className={cn(
+                      "flex items-center gap-2 rounded-lg",
+                      isServersActive
+                        ? "text-primary"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    <Server className="h-4 w-4" />
+                    {t("servers")}
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid gap-3 p-4 w-150 grid-cols-[180px_1fr]">
+                      {/* Featured Section */}
+                      <div className="row-span-3">
+                        <FeaturedLink
+                          href="/docs/servers/overview"
+                          icon={Server}
+                          title={tMenu("serversFeaturedTitle")}
+                          description={tMenu("serversFeaturedDesc")}
+                          gradient="bg-gradient-to-b from-orange-500 to-red-600"
+                        />
+                      </div>
+                      {/* Menu Items */}
+                      <ul className="grid grid-cols-2 gap-1">
+                        {serversItems.map((item) => (
+                          <MenuItem key={item.href} {...item} />
+                        ))}
+                      </ul>
                     </div>
-                    {/* Menu Items */}
-                    <ul className="grid grid-cols-2 gap-1">
-                      {serversItems.map((item) => (
-                        <MenuItem key={item.href} {...item} />
-                      ))}
-                    </ul>
-                  </div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
 
-              {/* Tools - Simple Link */}
-              <NavigationMenuItem>
-                <Link
-                  href="/tools"
-                  className={cn(
-                    "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                    pathname.startsWith("/tools")
-                      ? "text-primary bg-primary/10"
-                      : "text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  )}
-                >
-                  <Wrench className="h-4 w-4" />
-                  {t("tools")}
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+                {/* Tools - Simple Link */}
+                <NavigationMenuItem>
+                  <Link
+                    href="/tools"
+                    className={cn(
+                      "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                      pathname.startsWith("/tools")
+                        ? "text-primary bg-primary/10"
+                        : "text-muted-foreground hover:text-primary hover:bg-primary/10"
+                    )}
+                  >
+                    <Wrench className="h-4 w-4" />
+                    {t("tools")}
+                  </Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
 
           {/* Right side */}
           <div className="flex items-center gap-2">
             {/* Search */}
             <SearchDialog />
 
-            {/* Discord - 44x44px minimum touch target */}
-            <Tooltip delayDuration={300}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hidden sm:flex min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  asChild
-                >
-                  <a
-                    href="https://discord.gg/yAjaFBH4Y8"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Discord server (opens in new tab)"
-                  >
-                    <DiscordIcon className="h-5 w-5" />
-                    <span className="sr-only">Discord</span>
-                  </a>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" sideOffset={8}>
-                Join our Discord
-              </TooltipContent>
-            </Tooltip>
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center gap-2">
+              {/* Discord */}
+              <SocialElement
+                href="https://discord.gg/yAjaFBH4Y8"
+                icon={DiscordIcon as LucideIcon}
+                title="Discord"
+                tooltipDescription="Join our Discord"
+                ariaLabel="Join our Discord"
+              />
 
-            {/* GitHub - 44x44px minimum touch target */}
-            <Tooltip delayDuration={300}>
-              <TooltipTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hidden sm:flex min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
-                  asChild
-                >
-                  <a
-                    href="https://github.com/timiliris/Hytale-Docs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub repository (opens in new tab)"
-                  >
-                    <Github className="h-5 w-5" />
-                    <span className="sr-only">GitHub</span>
-                  </a>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent side="bottom" sideOffset={8}>
-                View on GitHub
-              </TooltipContent>
-            </Tooltip>
+              {/* GitHub */}
+              <SocialElement
+                href="https://github.com/timiliris/Hytale-Docs"
+                icon={Github as LucideIcon}
+                title="GitHub"
+                tooltipDescription="View on GitHub"
+                ariaLabel="View on GitHub"
+              />
+              {/* Language Selector */}
+              <LanguageSelector />
 
-            {/* Language Selector */}
-            <LanguageSelector />
+              {/* Theme Toggle */}
+              <ThemeToggle />
+            </div>
 
-            {/* Theme Toggle */}
-            <ThemeToggle />
+            {/* Mobile Menu Button */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden min-h-11 min-w-11 text-muted-foreground hover:text-foreground hover:bg-muted"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open menu"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+              <SheetContent side="right" className="w-[85vw] sm:min-w-87.5 flex flex-col">
+                <SheetHeader className="px-5 py-4 border-b text-left">
+                  <SheetTitle className="flex items-center gap-2.5">
+                    <Image
+                      src="/logo-h.png"
+                      alt="Hytale"
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 object-contain"
+                    />
+                    <span className="text-lg font-bold tracking-tight">
+                      <span className="text-foreground">Hytale</span>
+                      <span className="text-primary">Docs</span>
+                    </span>
+                  </SheetTitle>
+                </SheetHeader>
+
+                <div className="flex-1 overflow-y-auto">
+                  <nav className="flex flex-col gap-1 p-3">
+                    <div className="px-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      Navigation
+                    </div>
+                    {mainNav.map((item) => {
+                      const isActive = pathname.startsWith(item.href);
+                      return (
+                        <SheetClose key={item.title} asChild>
+                          <Link
+                            href={item.href}
+                            className={cn(
+                              "flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200",
+                              isActive
+                                ? "text-primary bg-primary/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                            )}
+                          >
+                            <item.icon className="h-4 w-4" />
+                            {item.title}
+                          </Link>
+                        </SheetClose>
+                      );
+                    })}
+
+                    <div className="mt-3 px-2 pb-1 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      Community
+                    </div>
+                    <SheetClose asChild>
+                      <a
+                        href="https://discord.gg/yAjaFBH4Y8"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
+                      >
+                        <DiscordIcon className="h-4 w-4" />
+                        Discord
+                      </a>
+                    </SheetClose>
+                    <SheetClose asChild>
+                      <a
+                        href="https://github.com/timiliris/Hytale-Docs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
+                      >
+                        <Github className="h-4 w-4" />
+                        GitHub
+                      </a>
+                    </SheetClose>
+                  </nav>
+                </div>
+
+                {/* Footer Settings */}
+                <SheetFooter className="bg-muted/30 border-t">
+                  <div className="flex flex-col gap-1 pb-2">
+                    <ThemeToggle mobile label="Appearance" />
+                    <LanguageSelector mobile label="Language" />
+                  </div>
+                </SheetFooter>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
     </header>
   );
+}
+
+/*
+ * I also pulled out the social element component to make it reusable and to clean up the code a bit.
+ */
+interface SocialElementProps {
+  href: string;
+  icon: LucideIcon;
+  title: string;
+  tooltipDescription: string;
+  ariaLabel: string;
+  tooltipDelayDuration?: number;
+}
+const SocialElement = ({ ...props }: SocialElementProps) => {
+  return (
+    <Tooltip delayDuration={props.tooltipDelayDuration || 300}>
+      <TooltipTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="hidden sm:flex min-h-11 min-w-11 text-muted-foreground hover:text-primary hover:bg-primary/10"
+          asChild
+        >
+          <a
+            href={props.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={props.ariaLabel}
+          >
+            <props.icon className="h-5 w-5" />
+            <span className="sr-only">{props.title}</span>
+          </a>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent side="bottom" sideOffset={8}>
+        {props.tooltipDescription}
+      </TooltipContent>
+    </Tooltip>
+  )
 }

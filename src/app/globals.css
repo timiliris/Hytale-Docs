@@ -231,12 +231,14 @@
 
   /* Smooth theme transitions */
   html {
+    overflow-x: hidden;
     transition:
       background-color var(--transition-theme) var(--ease-in-out),
       color var(--transition-theme) var(--ease-in-out);
   }
 
   body {
+    overflow-x: hidden;
     @apply bg-background text-foreground;
     transition:
       background-color var(--transition-theme) var(--ease-in-out),
@@ -254,9 +256,14 @@
   }
 
   /* Interactive elements - faster hover response */
-  a, button, [role="button"],
-  input, select, textarea,
-  [class*="hover:"], [class*="focus:"] {
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  [class*="hover:"],
+  [class*="focus:"] {
     transition:
       background-color var(--transition-normal) var(--ease-out),
       border-color var(--transition-normal) var(--ease-out),
@@ -264,11 +271,19 @@
       opacity var(--transition-fast) var(--ease-out),
       transform var(--transition-normal) var(--ease-spring),
       box-shadow var(--transition-normal) var(--ease-out),
-      filter var(--transition-normal) var(--ease-out) !important;
+
+      /* removing important to allow for more specificity.
+   With !important, the transition will override any other transitions and in this case, it was just messing up everything.
+   Funny, such a small change can cause such a annoying issue.
+*/
+      filter var(--transition-normal) var(--ease-out);
   }
 
   /* Specific transition for SVG icons */
-  svg, svg path, svg circle, svg rect {
+  svg,
+  svg path,
+  svg circle,
+  svg rect {
     transition:
       fill var(--transition-normal) var(--ease-out),
       stroke var(--transition-normal) var(--ease-out),
@@ -312,6 +327,7 @@
 
 /* Custom utilities */
 @layer utilities {
+
   /* Safe area support for iOS notch/home indicator */
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0);
@@ -420,8 +436,15 @@
 
 /* Animations */
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes fade-in-up {
@@ -429,6 +452,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -436,10 +460,13 @@
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.5;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: scale(1.05);
@@ -447,13 +474,25 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .animate-gradient-shift {
@@ -538,6 +577,7 @@
 }
 
 @media (min-width: 640px) {
+
   .prose .doc-card-grid,
   .doc-card-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -546,7 +586,7 @@
 }
 
 /* Better spacing in prose content */
-.prose > * + * {
+.prose>*+* {
   margin-top: 1.25em;
 }
 
@@ -566,7 +606,8 @@
   line-height: 1.75;
 }
 
-.prose ul, .prose ol {
+.prose ul,
+.prose ol {
   padding-left: 1.5em;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -809,6 +850,7 @@ code[class*="language-"] {
 
 /* ---- Light Mode Tokens ---- */
 :root:not(.dark) {
+
   /* Comments */
   .token.comment,
   .token.prolog,
@@ -907,6 +949,7 @@ code[class*="language-"] {
 
 /* ---- Dark Mode Tokens ---- */
 .dark {
+
   /* Comments */
   .token.comment,
   .token.prolog,
@@ -1031,7 +1074,7 @@ code[class*="language-"] ::selection {
 }
 
 /* Inline code in prose - make sure it doesn't get prism styling */
-.prose :not(pre) > code {
+.prose :not(pre)>code {
   background: var(--muted) !important;
   color: var(--primary) !important;
   padding: 0.15em 0.4em !important;
@@ -1040,8 +1083,8 @@ code[class*="language-"] ::selection {
   border: 1px solid var(--border) !important;
 }
 
-.prose :not(pre) > code::before,
-.prose :not(pre) > code::after {
+.prose :not(pre)>code::before,
+.prose :not(pre)>code::after {
   content: none !important;
 }
 
@@ -1135,7 +1178,7 @@ pre code {
   box-shadow: inset 0 1px 3px rgba(107, 90, 62, 0.1);
 }
 
-.reading .prose :not(pre) > code {
+.reading .prose :not(pre)>code {
   background: #ebe5d6 !important;
   border-color: #c9b896 !important;
   color: #6b4423 !important;
@@ -1143,6 +1186,7 @@ pre code {
 
 /* Reading mode syntax highlighting */
 .reading {
+
   /* Comments */
   .token.comment,
   .token.prolog,
@@ -1334,7 +1378,7 @@ pre code {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.reading-dark .prose :not(pre) > code {
+.reading-dark .prose :not(pre)>code {
   background: #2e2620 !important;
   border-color: #3d332a !important;
   color: #d4a84b !important;
@@ -1342,6 +1386,7 @@ pre code {
 
 /* Reading-dark mode syntax highlighting */
 .reading-dark {
+
   /* Comments */
   .token.comment,
   .token.prolog,
