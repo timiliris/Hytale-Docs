@@ -14,8 +14,8 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-background" />
 
         {/* Subtle glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 left-1/3 w-[600px] h-[300px] bg-secondary/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-100 bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/3 w-150 h-75 bg-secondary/5 rounded-full blur-[100px]" />
 
         {/* Grid pattern */}
         <div
@@ -75,12 +75,14 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto gap-2 border-border hover:border-muted-foreground hover:bg-muted text-foreground h-12 px-8 text-base rounded-lg"
+              className="w-full sm:w-auto gap-2 border-border hover:border-muted group relative overflow-hidden h-12 px-8 text-base rounded-lg !transition-colors !duration-200 !ease-out"
               asChild
             >
-              <Link href="/docs/modding/overview">
-                {t("moddingDocsBtn")}
-                <ArrowRight className="h-5 w-5" />
+              <Link href="/docs/modding/overview" className="flex items-center gap-2 relative">
+                <span className="inline-block transition-colors group-hover:text-primary">
+                  {t("moddingDocsBtn")}
+                </span>
+                <ArrowRight className="h-5 w-5 translate-x-0 transition-all! duration-300! ease-in-out! group-hover:translate-x-1 group-hover:text-primary" />
               </Link>
             </Button>
           </div>
@@ -89,7 +91,7 @@ export function HeroSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
             <Link
               href="/docs/gameplay/overview"
-              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card transition-all"
+              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card !transition-colors !duration-200 !ease-out"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10">
                 <Gamepad2 className="h-5 w-5 text-green-500" />
@@ -104,7 +106,7 @@ export function HeroSection() {
 
             <Link
               href="/docs/modding/overview"
-              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card transition-all"
+              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card !transition-colors !duration-200 !ease-out"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10">
                 <Code className="h-5 w-5 text-primary" />
@@ -119,7 +121,7 @@ export function HeroSection() {
 
             <Link
               href="/docs/servers/overview"
-              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card transition-all"
+              className="group flex items-center gap-3 p-4 rounded-xl border border-border bg-card/50 hover:border-muted hover:bg-card !transition-colors !duration-200 !ease-out"
             >
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10">
                 <Server className="h-5 w-5 text-secondary" />
@@ -136,7 +138,7 @@ export function HeroSection() {
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-background to-transparent" />
     </section>
   );
 }
