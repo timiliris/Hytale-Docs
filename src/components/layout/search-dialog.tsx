@@ -168,7 +168,7 @@ export function SearchDialog() {
       {/* Search trigger button */}
       <button
         onClick={() => setOpen(true)}
-        className="hidden sm:flex items-center gap-3 h-10 min-w-[240px] px-4 bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground border border-border hover:border-primary/30 rounded-xl transition-all duration-200 hover:shadow-sm group"
+        className="hidden sm:flex items-center gap-3 h-10 min-w-60 px-4 bg-muted/60 hover:bg-muted text-muted-foreground hover:text-foreground border border-border hover:border-primary/30 rounded-xl transition-all duration-200 hover:shadow-sm group"
       >
         <Search className="h-4 w-4 text-muted-foreground/70 group-hover:text-primary transition-colors" />
         <span className="flex-1 text-sm text-left">{t("search")}</span>
@@ -180,7 +180,7 @@ export function SearchDialog() {
       {/* Mobile search button - 44x44px minimum touch target */}
       <button
         onClick={() => setOpen(true)}
-        className="sm:hidden flex items-center justify-center min-h-[44px] min-w-[44px] text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+        className="sm:hidden flex items-center justify-center min-h-11 min-w-11 text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
       >
         <Search className="h-5 w-5" />
         <span className="sr-only">{t("search")}</span>
