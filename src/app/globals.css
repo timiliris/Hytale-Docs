@@ -231,12 +231,14 @@
 
   /* Smooth theme transitions */
   html {
+    overflow-x: hidden;
     transition:
       background-color var(--transition-theme) var(--ease-in-out),
       color var(--transition-theme) var(--ease-in-out);
   }
 
   body {
+    overflow-x: hidden;
     @apply bg-background text-foreground;
     transition:
       background-color var(--transition-theme) var(--ease-in-out),

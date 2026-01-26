@@ -5,6 +5,7 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/routing";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +18,15 @@ const languages = [
   { code: "en", name: "English", flag: "EN" },
 ] as const;
 
-export function LanguageSelector() {
+export function LanguageSelector({
+  className,
+  mobile,
+  label
+}: {
+  className?: string;
+  mobile?: boolean;
+  label?: string;
+}) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -60,28 +69,38 @@ export function LanguageSelector() {
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
-          className="min-h-[44px] min-w-[44px] md:min-w-fit md:px-3 text-muted-foreground hover:text-primary hover:bg-primary/10"
+          className={cn(
+            mobile
+              ? "w-full justify-start gap-3 px-3 py-2 h-auto text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted"
+              : "min-h-11 min-w-11 md:min-w-fit md:px-3 text-muted-foreground hover:text-primary hover:bg-primary/10",
+            className
+          )}
           aria-label={`Select language. Current: ${currentLanguage?.name || "Select language"}`}
         >
-          <Globe className="h-5 w-5" />
-          <span className="hidden md:inline ml-1.5 text-sm font-medium">
-            {currentLanguage?.flag}
-          </span>
-          <span className="sr-only md:hidden">
-            {currentLanguage?.name || "Select language"}
-          </span>
+          <Globe className={cn(mobile ? "h-4 w-4" : "h-5 w-5")} />
+          {mobile ? (
+            <span>{label || currentLanguage?.name}</span>
+          ) : (
+            <>
+              <span className="hidden md:inline ml-1.5 text-sm font-medium">
+                {currentLanguage?.flag}
+              </span>
+              <span className="sr-only md:hidden">
+                {currentLanguage?.name || "Select language"}
+              </span>
+            </>
+          )}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-popover border-border">
+      <DropdownMenuContent align={mobile ? "start" : "end"} className="bg-popover border-border">
         {languages.map((language) => (
           <DropdownMenuItem
             key={language.code}
             onClick={() => handleLanguageChange(language.code)}
-            className={`cursor-pointer ${
-              locale === language.code
-                ? "text-primary bg-primary/10"
-                : "text-popover-foreground hover:text-primary hover:bg-primary/10"
-            }`}
+            className={`cursor-pointer ${locale === language.code
+              ? "text-primary bg-primary/10"
+              : "text-popover-foreground hover:text-primary hover:bg-primary/10"
+              }`}
           >
             <span className="mr-2 text-xs font-bold">{language.flag}</span>
             {language.name}
