@@ -15,6 +15,7 @@ import {
 const languages = [
   { code: "fr", name: "Francais", flag: "FR" },
   { code: "en", name: "English", flag: "EN" },
+  { code: "es", name: "Español", flag: "ES" },
 ] as const;
 
 export function LanguageSelector() {
@@ -28,7 +29,9 @@ export function LanguageSelector() {
       const preferredLanguage = localStorage.getItem("preferredLanguage");
       if (
         preferredLanguage &&
-        (preferredLanguage === "en" || preferredLanguage === "fr")
+        (preferredLanguage === "en" ||
+          preferredLanguage === "fr" ||
+          preferredLanguage === "es")
       ) {
         // Set cookie for server-side access
         document.cookie = `preferredLanguage=${preferredLanguage}; path=/; max-age=31536000; SameSite=Lax; Secure`;
@@ -36,7 +39,7 @@ export function LanguageSelector() {
         // If current locale doesn't match preference, redirect
         if (locale !== preferredLanguage) {
           router.replace(pathname, {
-            locale: preferredLanguage as "fr" | "en",
+            locale: preferredLanguage as "fr" | "en" | "es",
           });
         }
       }
@@ -50,7 +53,7 @@ export function LanguageSelector() {
       // Also set as cookie for server-side access
       document.cookie = `preferredLanguage=${newLocale}; path=/; max-age=31536000; SameSite=Lax; Secure`;
     }
-    router.replace(pathname, { locale: newLocale as "fr" | "en" });
+    router.replace(pathname, { locale: newLocale as "fr" | "en" | "es" });
   };
 
   const currentLanguage = languages.find((lang) => lang.code === locale);
