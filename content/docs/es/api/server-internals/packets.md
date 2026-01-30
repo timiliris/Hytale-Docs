@@ -20,10 +20,7 @@ Cuando juegas a Hytale, tu computadora (el **cliente**) y el servidor del juego 
 
 Cada acción en un juego multijugador implica comunicación de red:
 
-```
-
-```
-
+```text
 Tú presionas W para caminar hacia adelante
 │
 ▼
@@ -41,7 +38,6 @@ El servidor envía: "El jugador está ahora en la posición (X, Y, Z)"
 │
 ▼
 Tu cliente actualiza tu pantalla
-
 ```
 
 ¡Esto sucede **docenas de veces por segundo** para cada jugador!
@@ -49,6 +45,7 @@ Tu cliente actualiza tu pantalla
 ### Por Qué Importan los Paquetes
 
 Entender los paquetes te ayuda a:
+
 - **Depurar problemas de red**: "¿Por qué mi objeto personalizado no aparece?"
 - **Optimizar rendimiento**: Saber qué paquetes son costosos
 - **Entender los límites del juego**: ¿Por qué no puedo enviar datos ilimitados?
@@ -57,8 +54,6 @@ Entender los paquetes te ayuda a:
 ### Anatomía de un Paquete
 
 Cada paquete tiene una estructura estándar:
-
-```
 
 ┌─────────────────────────────────────────────┐
 │ ID de Paquete (1-5 bytes) │ ← ¿Qué tipo de paquete?
@@ -130,7 +125,7 @@ Cuando te unes a un servidor de Hytale, esto es lo que sucede:
    ↓
 7. Ambos: Intercambian paquetes de movimiento/acción continuamente
 
-```
+````
 
 ### Compresión y Optimización
 
@@ -161,40 +156,38 @@ El protocolo de red de Hytale utiliza un sistema de paquetes binarios para la co
 
 ### Arquitectura del Protocolo
 
-```
-
+```text
 +------------------+ +------------------+
 | CLIENT | | SERVER |
 +------------------+ +------------------+
 | |
 | Connect (ID:0) |
-|----------------------->|
+|----------------------─>|
 | |
 | ConnectAccept (ID:14) |
-|<-----------------------|
+|<──────────────────────|
 | |
 | WorldSettings (ID:20) |
-|<-----------------------|
+|<──────────────────────|
 | |
 | ClientMovement (ID:108)|
-|----------------------->|
+|----------------------─>|
 | |
 | EntityUpdates (ID:161)|
-|<-----------------------|
+|<──────────────────────|
 | |
-
-```
+````
 
 ### Formato del Paquete
 
 Cada paquete sigue esta estructura:
 
-| Campo | Tamaño | Descripción |
-|-------|------|-------------|
-| ID de Paquete | VarInt | Identificador único del paquete |
-| Bits Nulos | 1-2 bytes | Banderas para campos anulables (nullable) |
-| Bloque Fijo | Variable | Datos de tamaño fijo |
-| Bloque Variable | Variable | Datos de tamaño variable |
+| Campo           | Tamaño    | Descripción                               |
+| --------------- | --------- | ----------------------------------------- |
+| ID de Paquete   | VarInt    | Identificador único del paquete           |
+| Bits Nulos      | 1-2 bytes | Banderas para campos anulables (nullable) |
+| Bloque Fijo     | Variable  | Datos de tamaño fijo                      |
+| Bloque Variable | Variable  | Datos de tamaño variable                  |
 
 ---
 
@@ -208,16 +201,16 @@ Paquetes básicos para la gestión de la conexión.
 
 Paquete inicial enviado por el cliente para establecer una conexión.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `protocolHash` | String (64 bytes) | Hash de versión del protocolo |
-| `clientType` | ClientType (byte) | Tipo de cliente (Game, AssetEditor) |
-| `language` | String? | Idioma del cliente (max 128 chars) |
-| `identityToken` | String? | Token de autenticación (max 8192 chars) |
-| `uuid` | UUID | Identificador único del jugador |
-| `username` | String | Nombre del jugador (max 16 chars) |
-| `referralData` | byte[]? | Datos de referencia (max 4096 bytes) |
-| `referralSource` | HostAddress? | Fuente de conexión |
+| Campo            | Tipo              | Descripción                             |
+| ---------------- | ----------------- | --------------------------------------- |
+| `protocolHash`   | String (64 bytes) | Hash de versión del protocolo           |
+| `clientType`     | ClientType (byte) | Tipo de cliente (Game, AssetEditor)     |
+| `language`       | String?           | Idioma del cliente (max 128 chars)      |
+| `identityToken`  | String?           | Token de autenticación (max 8192 chars) |
+| `uuid`           | UUID              | Identificador único del jugador         |
+| `username`       | String            | Nombre del jugador (max 16 chars)       |
+| `referralData`   | byte[]?           | Datos de referencia (max 4096 bytes)    |
+| `referralSource` | HostAddress?      | Fuente de conexión                      |
 
 **Tamaño**: 82-38161 bytes
 
@@ -229,10 +222,10 @@ Paquete inicial enviado por el cliente para establecer una conexión.
 
 Terminación de conexión con razón opcional.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `reason` | String? | Razón de desconexión (max 4096000 chars) |
-| `type` | DisconnectType | Tipo de desconexión |
+| Campo    | Tipo           | Descripción                              |
+| -------- | -------------- | ---------------------------------------- |
+| `reason` | String?        | Razón de desconexión (max 4096000 chars) |
+| `type`   | DisconnectType | Tipo de desconexión                      |
 
 **Tamaño**: 2-16384007 bytes
 
@@ -244,13 +237,13 @@ Terminación de conexión con razón opcional.
 
 Medición de latencia de red.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `id` | int | Identificador de ping |
-| `time` | InstantData? | Marca de tiempo (Timestamp) |
-| `lastPingValueRaw` | int | Último valor de ping en bruto |
-| `lastPingValueDirect` | int | Ping directo |
-| `lastPingValueTick` | int | Ping basado en ticks |
+| Campo                 | Tipo         | Descripción                   |
+| --------------------- | ------------ | ----------------------------- |
+| `id`                  | int          | Identificador de ping         |
+| `time`                | InstantData? | Marca de tiempo (Timestamp)   |
+| `lastPingValueRaw`    | int          | Último valor de ping en bruto |
+| `lastPingValueDirect` | int          | Ping directo                  |
+| `lastPingValueTick`   | int          | Ping basado en ticks          |
 
 **Tamaño**: 29 bytes (fijo)
 
@@ -262,12 +255,12 @@ Medición de latencia de red.
 
 Respuesta a un paquete ping.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `id` | int | Identificador correspondiente al ping |
-| `time` | InstantData? | Marca de tiempo (Timestamp) |
-| `type` | PongType | Tipo de pong (Raw, Direct, Tick) |
-| `packetQueueSize` | short | Tamaño de la cola de paquetes |
+| Campo             | Tipo         | Descripción                           |
+| ----------------- | ------------ | ------------------------------------- |
+| `id`              | int          | Identificador correspondiente al ping |
+| `time`            | InstantData? | Marca de tiempo (Timestamp)           |
+| `type`            | PongType     | Tipo de pong (Raw, Direct, Tick)      |
+| `packetQueueSize` | short        | Tamaño de la cola de paquetes         |
 
 **Tamaño**: 20 bytes (fijo)
 
@@ -283,9 +276,9 @@ Gestión de autenticación y permisos.
 
 Estado de la conexión.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| (estructura compleja) | - | Información de estado |
+| Campo                 | Tipo | Descripción           |
+| --------------------- | ---- | --------------------- |
+| (estructura compleja) | -    | Información de estado |
 
 **Tamaño**: 9-2587 bytes
 
@@ -297,9 +290,9 @@ Estado de la conexión.
 
 Solicitud de autorización de autenticación.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| (credenciales) | - | Datos de autenticación |
+| Campo          | Tipo | Descripción            |
+| -------------- | ---- | ---------------------- |
+| (credenciales) | -    | Datos de autenticación |
 
 **Tamaño**: 1-49171 bytes
 
@@ -311,9 +304,9 @@ Solicitud de autorización de autenticación.
 
 Token de autenticación.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `accessToken` | String? | Token de acceso (max 8192 chars) |
+| Campo                      | Tipo    | Descripción                                             |
+| -------------------------- | ------- | ------------------------------------------------------- |
+| `accessToken`              | String? | Token de acceso (max 8192 chars)                        |
 | `serverAuthorizationGrant` | String? | Concesión de autorización del servidor (max 4096 chars) |
 
 **Tamaño**: 1-49171 bytes
@@ -391,9 +384,9 @@ Carga inicial del mundo y configuración de assets.
 
 Configuración del mundo.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `worldHeight` | int | Altura máxima del mundo |
+| Campo            | Tipo     | Descripción                |
+| ---------------- | -------- | -------------------------- |
+| `worldHeight`    | int      | Altura máxima del mundo    |
 | `requiredAssets` | Asset[]? | Lista de assets requeridos |
 
 **Tamaño**: 5+ bytes (variable, comprimido)
@@ -488,9 +481,9 @@ Solicitud de reconstrucción de assets comunes.
 
 Configuración de tasa de actualización.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `updateRate` | int | Tasa de actualización |
+| Campo        | Tipo | Descripción           |
+| ------------ | ---- | --------------------- |
+| `updateRate` | int  | Tasa de actualización |
 
 **Tamaño**: 4 bytes (fijo)
 
@@ -502,8 +495,8 @@ Configuración de tasa de actualización.
 
 Configuración de dilatación del tiempo.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
+| Campo          | Tipo  | Descripción          |
+| -------------- | ----- | -------------------- |
 | `timeDilation` | float | Factor de dilatación |
 
 **Tamaño**: 4 bytes (fijo)
@@ -526,9 +519,9 @@ Actualización de características habilitadas.
 
 Configuración del radio de visión.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `viewRadius` | int | Radio de visión en chunks |
+| Campo        | Tipo | Descripción               |
+| ------------ | ---- | ------------------------- |
+| `viewRadius` | int  | Radio de visión en chunks |
 
 **Size**: 4 bytes (fixed)
 
@@ -632,7 +625,7 @@ Definiciones de interacción.
 
 ---
 
-*Nota: Los paquetes 40-85 siguen todos el mismo patrón de actualización de assets.*
+_Nota: Los paquetes 40-85 siguen todos el mismo patrón de actualización de assets._
 
 ---
 
@@ -646,9 +639,9 @@ Gestión y acciones del jugador.
 
 Asignación de identificador de cliente.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `clientId` | int | ID de cliente único |
+| Campo      | Tipo | Descripción         |
+| ---------- | ---- | ------------------- |
+| `clientId` | int  | ID de cliente único |
 
 **Size**: 4 bytes (fixed)
 
@@ -660,8 +653,8 @@ Asignación de identificador de cliente.
 
 Cambio de modo de juego.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
+| Campo      | Tipo | Descripción   |
+| ---------- | ---- | ------------- |
 | `gameMode` | byte | Modo de juego |
 
 **Size**: 1 byte (fixed)
@@ -694,11 +687,11 @@ Anulación de colocación de bloques.
 
 Unirse a un mundo.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `clearWorld` | boolean | Limpiar mundo actual |
-| `fadeInOut` | boolean | Animación de transición |
-| `worldUuid` | UUID | Identificador del mundo |
+| Campo        | Tipo    | Descripción             |
+| ------------ | ------- | ----------------------- |
+| `clearWorld` | boolean | Limpiar mundo actual    |
+| `fadeInOut`  | boolean | Animación de transición |
+| `worldUuid`  | UUID    | Identificador del mundo |
 
 **Size**: 18 bytes (fixed)
 
@@ -730,18 +723,18 @@ Carga/Guardado de barra rápida.
 
 Actualización de posición y movimiento del jugador.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `movementStates` | MovementStates? | Estados de movimiento actuales |
-| `relativePosition` | HalfFloatPosition? | Posición relativa (delta) |
-| `absolutePosition` | Position? | Posición absoluta |
-| `bodyOrientation` | Direction? | Orientación del cuerpo |
-| `lookOrientation` | Direction? | Dirección de la mirada |
-| `teleportAck` | TeleportAck? | Reconocimiento de teletransporte |
-| `wishMovement` | Position? | Movimiento deseado |
-| `velocity` | Vector3d? | Velocidad actual |
-| `mountedTo` | int | ID de montura (0 si ninguna) |
-| `riderMovementStates` | MovementStates? | Estados de montura |
+| Campo                 | Tipo               | Descripción                      |
+| --------------------- | ------------------ | -------------------------------- |
+| `movementStates`      | MovementStates?    | Estados de movimiento actuales   |
+| `relativePosition`    | HalfFloatPosition? | Posición relativa (delta)        |
+| `absolutePosition`    | Position?          | Posición absoluta                |
+| `bodyOrientation`     | Direction?         | Orientación del cuerpo           |
+| `lookOrientation`     | Direction?         | Dirección de la mirada           |
+| `teleportAck`         | TeleportAck?       | Reconocimiento de teletransporte |
+| `wishMovement`        | Position?          | Movimiento deseado               |
+| `velocity`            | Vector3d?          | Velocidad actual                 |
+| `mountedTo`           | int                | ID de montura (0 si ninguna)     |
+| `riderMovementStates` | MovementStates?    | Estados de montura               |
 
 **Size**: 153 bytes (fixed)
 
@@ -773,15 +766,15 @@ Actualización de configuración de movimiento.
 
 Interacción del ratón (clics, movimiento).
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `clientTimestamp` | long | Marca de tiempo del cliente |
-| `activeSlot` | int | Ranura activa de barra rápida |
-| `itemInHandId` | String? | ID del objeto en mano |
-| `screenPoint` | Vector2f? | Posición en pantalla |
-| `mouseButton` | MouseButtonEvent? | Evento de botón |
-| `mouseMotion` | MouseMotionEvent? | Evento de movimiento |
-| `worldInteraction` | WorldInteraction? | Interacción con el mundo |
+| Campo              | Tipo              | Descripción                   |
+| ------------------ | ----------------- | ----------------------------- |
+| `clientTimestamp`  | long              | Marca de tiempo del cliente   |
+| `activeSlot`       | int               | Ranura activa de barra rápida |
+| `itemInHandId`     | String?           | ID del objeto en mano         |
+| `screenPoint`      | Vector2f?         | Posición en pantalla          |
+| `mouseButton`      | MouseButtonEvent? | Evento de botón               |
+| `mouseMotion`      | MouseMotionEvent? | Evento de movimiento          |
+| `worldInteraction` | WorldInteraction? | Interacción con el mundo      |
 
 **Size**: 44-20480071 bytes
 
@@ -878,14 +871,14 @@ Gestión de chunks y mundo.
 
 Transmisión de datos de chunk.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `x` | int | Coordenada X del Chunk |
-| `y` | int | Coordenada Y del Chunk |
-| `z` | int | Coordenada Z del Chunk |
-| `localLight` | byte[]? | Datos de luz local |
-| `globalLight` | byte[]? | Datos de luz global |
-| `data` | byte[]? | Datos de bloque |
+| Campo         | Tipo    | Descripción            |
+| ------------- | ------- | ---------------------- |
+| `x`           | int     | Coordenada X del Chunk |
+| `y`           | int     | Coordenada Y del Chunk |
+| `z`           | int     | Coordenada Z del Chunk |
+| `localLight`  | byte[]? | Datos de luz local     |
+| `globalLight` | byte[]? | Datos de luz global    |
+| `data`        | byte[]? | Datos de bloque        |
 
 **Size**: 13-12288040 bytes (compressed)
 
@@ -930,10 +923,10 @@ Entornos del chunk.
 
 Descarga de chunk.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `chunkX` | int | Coordenada X del Chunk |
-| `chunkZ` | int | Coordenada Z del Chunk |
+| Campo    | Tipo | Descripción            |
+| -------- | ---- | ---------------------- |
+| `chunkX` | int  | Coordenada X del Chunk |
+| `chunkZ` | int  | Coordenada Z del Chunk |
 
 **Size**: 8 bytes (fixed)
 
@@ -956,14 +949,14 @@ Fluidos del chunk.
 
 Modificación de bloque por el servidor.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `x` | int | Coordenada X |
-| `y` | int | Coordenada Y |
-| `z` | int | Coordenada Z |
-| `blockId` | int | Nuevo ID de bloque |
-| `filler` | short | Datos adicionales |
-| `rotation` | byte | Rotación del bloque |
+| Campo      | Tipo  | Descripción         |
+| ---------- | ----- | ------------------- |
+| `x`        | int   | Coordenada X        |
+| `y`        | int   | Coordenada Y        |
+| `z`        | int   | Coordenada Z        |
+| `blockId`  | int   | Nuevo ID de bloque  |
+| `filler`   | short | Datos adicionales   |
+| `rotation` | byte  | Rotación del bloque |
 
 **Size**: 19 bytes (fixed)
 
@@ -1140,10 +1133,10 @@ Semilla de entidad (para generación procedimental).
 
 Actualizaciones de entidad (posición, estado, etc.).
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `removed` | int[]? | IDs de entidades eliminadas |
-| `updates` | EntityUpdate[]? | Actualizaciones de entidad |
+| Campo     | Tipo            | Descripción                 |
+| --------- | --------------- | --------------------------- |
+| `removed` | int[]?          | IDs de entidades eliminadas |
+| `updates` | EntityUpdate[]? | Actualizaciones de entidad  |
 
 **Size**: Variable (compressed)
 
@@ -1210,16 +1203,16 @@ Gestión de inventario.
 
 Actualización completa de inventario.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `storage` | InventorySection? | Almacenamiento principal |
-| `armor` | InventorySection? | Armadura |
-| `hotbar` | InventorySection? | Barra de acción |
-| `utility` | InventorySection? | Utilidades |
+| Campo             | Tipo              | Descripción                |
+| ----------------- | ----------------- | -------------------------- |
+| `storage`         | InventorySection? | Almacenamiento principal   |
+| `armor`           | InventorySection? | Armadura                   |
+| `hotbar`          | InventorySection? | Barra de acción            |
+| `utility`         | InventorySection? | Utilidades                 |
 | `builderMaterial` | InventorySection? | Materiales de construcción |
-| `tools` | InventorySection? | Herramientas |
-| `backpack` | InventorySection? | Mochila |
-| `sortType` | SortType | Tipo de ordenamiento |
+| `tools`           | InventorySection? | Herramientas               |
+| `backpack`        | InventorySection? | Mochila                    |
+| `sortType`        | SortType          | Tipo de ordenamiento       |
 
 **Size**: Variable (compressed)
 
@@ -1271,13 +1264,13 @@ Soltar una pila de objetos.
 
 Mover una pila de objetos.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `fromSectionId` | int | Sección de origen |
-| `fromSlotId` | int | Ranura de origen |
-| `quantity` | int | Cantidad a mover |
-| `toSectionId` | int | Sección de destino |
-| `toSlotId` | int | Ranura de destino |
+| Campo           | Tipo | Descripción        |
+| --------------- | ---- | ------------------ |
+| `fromSectionId` | int  | Sección de origen  |
+| `fromSlotId`    | int  | Ranura de origen   |
+| `quantity`      | int  | Cantidad a mover   |
+| `toSectionId`   | int  | Sección de destino |
+| `toSlotId`      | int  | Ranura de destino  |
 
 **Size**: 20 bytes (fixed)
 
@@ -1334,13 +1327,13 @@ Gestión de ventanas/interfaz.
 
 Apertura de ventana.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `id` | int | ID de ventana |
-| `windowType` | WindowType | Tipo de ventana |
-| `windowData` | String? | Datos JSON de ventana |
-| `inventory` | InventorySection? | Inventario asociado |
-| `extraResources` | ExtraResources? | Recursos adicionales |
+| Campo            | Tipo              | Descripción           |
+| ---------------- | ----------------- | --------------------- |
+| `id`             | int               | ID de ventana         |
+| `windowType`     | WindowType        | Tipo de ventana       |
+| `windowData`     | String?           | Datos JSON de ventana |
+| `inventory`      | InventorySection? | Inventario asociado   |
+| `extraResources` | ExtraResources?   | Recursos adicionales  |
 
 **Size**: Variable (compressed)
 
@@ -1407,8 +1400,8 @@ Mensaje del servidor.
 
 Mensaje de chat.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
+| Campo     | Tipo    | Descripción                               |
+| --------- | ------- | ----------------------------------------- |
 | `message` | String? | Contenido del mensaje (max 4096000 chars) |
 
 **Size**: 1-16384006 bytes
@@ -1638,11 +1631,11 @@ Configuración del mapa.
 
 Actualización del mapa.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `chunks` | MapChunk[]? | Chunks del mapa |
-| `addedMarkers` | MapMarker[]? | Marcadores añadidos |
-| `removedMarkers` | String[]? | Marcadores eliminados |
+| Campo            | Tipo         | Descripción           |
+| ---------------- | ------------ | --------------------- |
+| `chunks`         | MapChunk[]?  | Chunks del mapa       |
+| `addedMarkers`   | MapMarker[]? | Marcadores añadidos   |
+| `removedMarkers` | String[]?    | Marcadores eliminados |
 
 **Size**: Variable (compressed)
 
@@ -1767,11 +1760,11 @@ Control de cámara.
 
 Configuración de cámara.
 
-| Campo | Tipo | Descripción |
-|-------|------|-------------|
-| `clientCameraView` | ClientCameraView | Vista (PrimeraPersona, TerceraPersona, etc.) |
-| `isLocked` | boolean | Cámara bloqueada |
-| `cameraSettings` | ServerCameraSettings? | Configuración detallada |
+| Campo              | Tipo                  | Descripción                                  |
+| ------------------ | --------------------- | -------------------------------------------- |
+| `clientCameraView` | ClientCameraView      | Vista (PrimeraPersona, TerceraPersona, etc.) |
+| `isLocked`         | boolean               | Cámara bloqueada                             |
+| `cameraSettings`   | ServerCameraSettings? | Configuración detallada                      |
 
 **Size**: 157 bytes (fixed)
 
@@ -1865,7 +1858,7 @@ Desmontar de un NPC.
 
 Herramientas de edición de assets (modo desarrollador).
 
-*Estos paquetes son utilizados por el editor de assets integrado y no se usan durante el juego normal.*
+_Estos paquetes son utilizados por el editor de assets integrado y no se usan durante el juego normal._
 
 ### AssetEditorInitialize (ID: 302)
 
@@ -1899,7 +1892,7 @@ Creación de asset.
 
 Eliminación de asset.
 
-*...y más de 40 paquetes de edición adicionales.*
+_...y más de 40 paquetes de edición adicionales._
 
 ---
 
@@ -2021,23 +2014,23 @@ Puntero láser.
 
 ---
 
-*...y más de 10 paquetes de herramientas de constructor adicionales.*
+_...y más de 10 paquetes de herramientas de constructor adicionales._
 
 ---
 
 ## Resumen de Direcciones
 
-| Categoría | Cliente -> Servidor | Servidor -> Cliente | Bidireccional |
-|----------|------------------|------------------|---------------|
-| Connection | Connect | - | Disconnect, Ping, Pong |
-| Auth | AuthToken, AuthGrant | ConnectAccept, Status | PasswordResponse |
-| Setup | RequestAssets, PlayerOptions | WorldSettings, WorldLoadProgress | ViewRadius |
-| Player | ClientMovement, MouseInteraction | JoinWorld, SetGameMode, ClientTeleport | SyncPlayerPreferences |
-| World | SetPaused | SetChunk, ServerSetBlock, EntityUpdates | - |
-| Inventory | MoveItemStack, DropItemStack | UpdatePlayerInventory | - |
-| Window | SendWindowAction, ClientOpenWindow | OpenWindow, UpdateWindow | CloseWindow |
-| Interface | ChatMessage, CustomPageEvent | ServerMessage, Notification | - |
-| Camera | RequestFlyCameraMode | SetServerCamera, CameraShakeEffect | - |
+| Categoría  | Cliente -> Servidor                | Servidor -> Cliente                     | Bidireccional          |
+| ---------- | ---------------------------------- | --------------------------------------- | ---------------------- |
+| Connection | Connect                            | -                                       | Disconnect, Ping, Pong |
+| Auth       | AuthToken, AuthGrant               | ConnectAccept, Status                   | PasswordResponse       |
+| Setup      | RequestAssets, PlayerOptions       | WorldSettings, WorldLoadProgress        | ViewRadius             |
+| Player     | ClientMovement, MouseInteraction   | JoinWorld, SetGameMode, ClientTeleport  | SyncPlayerPreferences  |
+| World      | SetPaused                          | SetChunk, ServerSetBlock, EntityUpdates | -                      |
+| Inventory  | MoveItemStack, DropItemStack       | UpdatePlayerInventory                   | -                      |
+| Window     | SendWindowAction, ClientOpenWindow | OpenWindow, UpdateWindow                | CloseWindow            |
+| Interface  | ChatMessage, CustomPageEvent       | ServerMessage, Notification             | -                      |
+| Camera     | RequestFlyCameraMode               | SetServerCamera, CameraShakeEffect      | -                      |
 
 ---
 
@@ -2062,5 +2055,4 @@ Cada paquete implementa un método `validateStructure` que verifica la integrida
 
 ---
 
-*Documentación generada a partir del análisis del código descompilado del servidor de Hytale.*
-```
+_Documentación generada a partir del análisis del código descompilado del servidor de Hytale._
