@@ -60,6 +60,7 @@
     "creatingNpcs": "Creating NPCs",
     "npcBehaviors": "NPC Behaviors",
     "playerApi": "Player API",
+    "playerOrientation": "Player Orientation",
     "worldApi": "World API",
     "uiCompleteReference": "Complete UI Reference",
     "plugins": "Plugins",

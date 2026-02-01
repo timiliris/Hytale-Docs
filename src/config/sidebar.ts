@@ -411,6 +411,7 @@ export const sidebarConfig: SidebarItem[] = [
       { titleKey: "overview", href: "/docs/api/server-internals" },
       { titleKey: "pluginSystem", href: "/docs/api/server-internals/plugins" },
       { titleKey: "playerApi", href: "/docs/api/server-internals/player" },
+      { titleKey: "playerOrientation", href: "/docs/api/server-internals/player-orientation", verified: true },
       { titleKey: "worldApi", href: "/docs/api/server-internals/world" },
       {
         titleKey: "modules",
