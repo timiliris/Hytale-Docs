@@ -278,6 +278,12 @@ public class PositionalAudioPlugin extends JavaPlugin {
 
 ### Entity-Attached Sounds
 
+:::warning Non-Functional API
+**`SoundUtil.playSoundEventEntity` is not implemented** as of version `2026.01.28-87d03be09`. The packet is sent to the client but nothing happens. Use `SoundUtil.playSoundEvent3d` with entity coordinates as a workaround.
+
+See [GitHub Issue #35](https://github.com/timiliris/Hytale-Docs/issues/35) for tracking.
+:::
+
 Sounds can be attached to entities and follow their movement:
 
 ```java
