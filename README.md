@@ -1,136 +1,128 @@
 # HytaleDocs
 
-Documentación y wiki de la comunidad para [Hytale](https://hytale.com), el próximo juego de Hypixel Studios.
+Community documentation and wiki for [Hytale](https://hytale.com), the upcoming game from Hypixel Studios.
 
-**Sitio en vivo:** [hytale-docs.com](https://hytale-docs.com)
+**Live site:** [hytale-docs.com](https://hytale-docs.com)
 
-## Características
+## Features
 
-- **Multilingüe** - Soporte completo para inglés, francés y español (En proceso)
-- **Documentación** - Guías completas para jugabilidad, modding, servidores y API
-- **Herramientas Interactivas** - Calculadora de servidor, generador de proyectos, validador de JSON
-- **Modo Oscuro/Claro** - Soporte de temas con detección de preferencias del sistema
-- **Optimizado para SEO** - Sitemap, datos estructurados, meta etiquetas
-- **Responsivo** - Diseño adaptado a dispositivos móviles
+- **Multilingual** - Full support for English, French and Spanish 
+- **Documentation** - Comprehensive guides for gameplay, modding, servers, and API
+- **Interactive Tools** - Server calculator, project generator, JSON validator
+- **Dark/Light Mode** - Theme support with system preference detection
+- **SEO Optimized** - Sitemap, structured data, meta tags
+- **Responsive** - Mobile-friendly design
 
-## Tecnologías
+## Tech Stack
 
-- [Next.js 16](https://nextjs.org/) - Framework de React
-- [TypeScript](https://www.typescriptlang.org/) - Seguridad de tipos
-- [Tailwind CSS](https://tailwindcss.com/) - Estilización
-- [shadcn/ui](https://ui.shadcn.com/) - Componentes de interfaz de usuario
-- [next-intl](https://next-intl-docs.vercel.app/) - Internacionalización
-- [MDX](https://mdxjs.com/) - Contenido de documentación
+- [Next.js 16](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - UI components
+- [next-intl](https://next-intl-docs.vercel.app/) - Internationalization
+- [MDX](https://mdxjs.com/) - Documentation content
 
-## Primeros Pasos
+## Getting Started
 
-### Requisitos Previos
+### Prerequisites
 
 - Node.js >= 20.9.0
-- npm o yarn
+- npm or yarn
 
-### Instalación
+### Installation
 
 ```bash
-# Clonar el repositorio
+# Clone the repository
 git clone https://github.com/timiliris/Hytale-Docs.git
-# Clonar el repositorio español
-git clone https://github.com/KANEKICODE/Hytale-Docs-Spanish.git
-
-# Luego de clonar el repositorio accede al directorio
 cd Hytale-Docs
-# en caso de que clones el español
-cd Hytale-Docs-Spanish
 
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Ejecutar el servidor de desarrollo
+# Run development server
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000) para ver el sitio.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-### Compilación (Build)
+### Build
 
 ```bash
 npm run build
 npm start
 ```
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 src/
-├── app/                  # Router de Next.js
-│   ├── [locale]/         # Páginas localizadas
-│   │   ├── docs/         # Páginas de documentación
-│   │   ├── tools/        # Herramientas interactivas
-│   │   ├── privacy/      # Política de privacidad
-│   │   └── terms/        # Términos de uso
-│   ├── sitemap.ts        # Sitemap dinámico
+├── app/                  # Next.js app router
+│   ├── [locale]/         # Localized pages
+│   │   ├── docs/         # Documentation pages
+│   │   ├── tools/        # Interactive tools
+│   │   ├── privacy/      # Privacy policy
+│   │   └── terms/        # Terms of use
+│   ├── sitemap.ts        # Dynamic sitemap
 │   └── robots.ts         # Robots.txt
-├── components/           # Componentes de React
-│   ├── homepage/         # Secciones de la página de inicio
-│   ├── layout/           # Barra de navegación, pie de página, barra lateral
-│   ├── mdx/              # Componentes MDX
-│   ├── seo/              # Datos estructurados JSON-LD
-│   └── ui/               # Componentes de shadcn/ui
-├── content/              # Archivos de documentación MDX
+├── components/           # React components
+│   ├── homepage/         # Homepage sections
+│   ├── layout/           # Navbar, footer, sidebar
+│   ├── mdx/              # MDX components
+│   ├── seo/              # JSON-LD structured data
+│   └── ui/               # shadcn/ui components
+├── content/              # MDX documentation files
 │   └── docs/
-│       ├── en/           # Documentación en inglés
-│       ├── es/           # Documentación en español
-│       └── fr/           # Documentación en francés
-├── i18n/                 # Configuración de internacionalización
-├── lib/                  # Utilidades
-└── messages/             # Archivos de traducción
+│       ├── en/           # English docs
+│       └── es/           # Spanish docs
+│       └── fr/           # French docs
+├── i18n/                 # Internationalization config
+├── lib/                  # Utilities
+└── messages/             # Translation files
     ├── en.json
     ├── es.json
     └── fr.json
 ```
 
-## Contribuir
+## Contributing
 
-¡Las contribuciones son bienvenidas! Siéntete libre de:
+Contributions are welcome! Feel free to:
 
-1. Hacer un Fork del repositorio
-2. Crear una rama para tu característica (`git checkout -b feature/increible-caracteristica`)
-3. Confirmar tus cambios (`git commit -m 'Añadir característica increíble'`)
-4. Subir la rama (`git push origin feature/increible-caracteristica`)
-5. Abrir un Pull Request
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Añadir Documentación
+### Adding Documentation
 
-La documentación se escribe en formato MDX. Añade nuevos archivos en `content/docs/[locale]/`.
+Documentation is written in MDX format. Add new files to `content/docs/[locale]/`.
 
-## Licencia
+## License
 
-Este proyecto utiliza un enfoque de **licencia dual**:
+This project uses a **dual-license** approach:
 
-| Componente             | Licencia                       | Resumen                                                                    |
-| ---------------------- | ------------------------------ | -------------------------------------------------------------------------- |
-| **Código Fuente**      | [Elastic License 2.0](LICENSE) | Ver, hacer fork, contribuir. No se permite hostear un servicio competidor. |
-| **Documentación**      | [CC BY-NC-SA 4.0](LICENSE)     | Compartir y adaptar con atribución. No comercial.                          |
-| **Marcas Registradas** | Todos los derechos reservados  | El nombre y logo "HytaleDocs" están protegidos.                            |
+| Component | License | Summary |
+|-----------|---------|---------|
+| **Source Code** | [Elastic License 2.0](LICENSE) | View, fork, contribute. No hosted competing service. |
+| **Documentation** | [CC BY-NC-SA 4.0](LICENSE) | Share & adapt with attribution. Non-commercial. |
+| **Trademarks** | All Rights Reserved | "HytaleDocs" name and logo protected. |
 
-**PUEDES:**
+**You CAN:**
+- View and study the source code
+- Fork the project to contribute improvements
+- Use the documentation for personal/educational purposes
 
-- Ver y estudiar el código fuente
-- Hacer un fork del proyecto para contribuir con mejoras
-- Usar la documentación para fines personales/educativos
+**You CANNOT:**
+- Host a competing service using this codebase
+- Use the code or content for commercial purposes
+- Use the HytaleDocs name/branding without permission
 
-**NO PUEDES:**
+See the full [LICENSE](LICENSE) file for details.
 
-- Hostear un servicio competidor usando esta base de código
-- Usar el código o contenido para fines comerciales
-- Usar el nombre/marca de HytaleDocs sin permiso
+## Disclaimer
 
-Consulta el archivo [LICENSE](LICENSE) completo para más detalles.
-
-## Aviso Legal
-
-HytaleDocs es un proyecto de la comunidad y **no está afiliado, respaldado ni conectado con Hypixel Studios o Riot Games**. Hytale es una marca registrada de Hypixel Studios.
+HytaleDocs is a community project and is **not affiliated with, endorsed by, or connected to Hypixel Studios or Riot Games**. Hytale is a trademark of Hypixel Studios.
 
 ---
 
-Hecho con ❤️ por la comunidad de Hytale
+Made with love by the Hytale community
