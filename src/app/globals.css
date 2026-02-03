@@ -245,15 +245,18 @@
       color var(--transition-theme) var(--ease-in-out);
   }
 
+
+  /* Again not the best idea, it's better to target the elements that need to be transitioned */
+
   /* Transition for all themed elements (colors) */
-  *:not(pre):not(code):not(.no-transition) {
-    transition:
-      background-color var(--transition-theme) var(--ease-in-out),
-      border-color var(--transition-theme) var(--ease-in-out),
-      color var(--transition-normal) var(--ease-in-out),
-      fill var(--transition-theme) var(--ease-in-out),
-      stroke var(--transition-theme) var(--ease-in-out);
-  }
+  /* *:not(pre):not(code):not(.no-transition) { */
+  /*   transition: */
+  /*     background-color var(--transition-theme) var(--ease-in-out), */
+  /*     border-color var(--transition-theme) var(--ease-in-out), */
+  /*     color var(--transition-normal) var(--ease-in-out), */
+  /*     fill var(--transition-theme) var(--ease-in-out), */
+  /*     stroke var(--transition-theme) var(--ease-in-out); */
+  /* } */
 
   /* Interactive elements - faster hover response */
   a,
@@ -262,7 +265,8 @@
   input,
   select,
   textarea,
-  [class*="hover:"],
+  /* Globally targetting hover class is not the best approach, especially with radix primitives. That's the reason why hover and colours were messed up on the hover */
+  /* [class*="hover:"], */
   [class*="focus:"] {
     transition:
       background-color var(--transition-normal) var(--ease-out),
