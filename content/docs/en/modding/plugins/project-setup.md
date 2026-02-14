@@ -334,6 +334,7 @@ The Hytale IntelliJ Plugin provides **manifest.json validation** and **autocompl
 | `dependencies` | No | Plugin dependencies |
 | `load_order` | No | When to load (STARTUP, POSTWORLD) |
 | `permissions` | No | Permission nodes your plugin uses |
+| `IncludesAssetPack` | No | Tells Hytale to actually load the asset pack your mod has. |
 
 ## Main Plugin Class
 
