@@ -46,6 +46,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // High-priority documentation pages
+  const highPriorityDocs = [
+    { path: "/docs/servers/update-3", priority: 0.9 },
+  ];
+
+  for (const doc of highPriorityDocs) {
+    entries.push({
+      url: `${BASE_URL}${doc.path}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: doc.priority,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}${doc.path}`,
+          fr: `${BASE_URL}/fr${doc.path}`,
+        },
+      },
+    });
+  }
+
   // Documentation pages
   for (const locale of locales) {
     const slugs = getAllDocSlugs(locale);

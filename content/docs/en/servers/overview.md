@@ -105,18 +105,37 @@ Configuration is stored in `config.json` at the server root:
 
 ```json
 {
-  "Version": 1,
+  "Version": 4,
   "ServerName": "My Hytale Server",
   "MOTD": "",
   "Password": "",
   "MaxPlayers": 100,
   "MaxViewRadius": 12,
+  "AutoUpdate": {
+    "Mode": "DISABLED",
+    "ScheduledTime": "04:00"
+  },
+  "Backup": {
+    "Enabled": false,
+    "IntervalMinutes": 60,
+    "MaxBackups": 5
+  },
   "Defaults": {
     "World": "Orbis",
     "GameMode": "Adventure"
   }
 }
 ```
+
+#### Auto-Update System
+
+The server supports three auto-update modes via `AutoUpdate.Mode`:
+
+| Mode | Description |
+|------|-------------|
+| `DISABLED` | No automatic updates (default) |
+| `WHEN_EMPTY` | Updates when no players are connected |
+| `SCHEDULED` | Updates at the configured `ScheduledTime` (24h format) |
 
 [Full Configuration Reference →](/docs/servers/setup/configuration)
 
@@ -134,6 +153,11 @@ Configuration is stored in `config.json` at the server root:
 - Use whitelist for private servers
 - Regular backups
 - DDoS protection for public servers
+- Set authentication tokens via environment variables: `HYTALE_SERVER_SESSION_TOKEN` and `HYTALE_SERVER_IDENTITY_TOKEN`
+
+:::info Update 3 Technical Documentation
+For in-depth details on the server's internal systems introduced and refined in Update 3, see the [Update 3 documentation](/docs/servers/update-3) covering world generation, ECS framework, multi-channel networking, and more.
+:::
 
 ## Modding & Plugins
 

@@ -92,13 +92,39 @@ java -Xms4G -Xmx8G -jar hytale-server.jar
 
 ### Paramètres principaux
 
-```properties
-# server.properties
-server-name=Mon Serveur Hytale
-port=5520
-max-players=50
-view-distance=10
+```json
+{
+  "Version": 4,
+  "ServerName": "Mon Serveur Hytale",
+  "MOTD": "",
+  "Password": "",
+  "MaxPlayers": 100,
+  "MaxViewRadius": 12,
+  "AutoUpdate": {
+    "Mode": "DISABLED",
+    "ScheduledTime": "04:00"
+  },
+  "Backup": {
+    "Enabled": false,
+    "IntervalMinutes": 60,
+    "MaxBackups": 5
+  },
+  "Defaults": {
+    "World": "Orbis",
+    "GameMode": "Adventure"
+  }
+}
 ```
+
+#### Système de mise à jour automatique
+
+Le serveur supporte trois modes de mise à jour automatique via `AutoUpdate.Mode` :
+
+| Mode | Description |
+|------|-------------|
+| `DISABLED` | Pas de mise à jour automatique (par défaut) |
+| `WHEN_EMPTY` | Met à jour quand aucun joueur n'est connecté |
+| `SCHEDULED` | Met à jour à l'heure configurée dans `ScheduledTime` (format 24h) |
 
 [Référence complète de configuration →](/docs/servers/setup/configuration)
 
@@ -112,10 +138,15 @@ view-distance=10
 
 ### Considérations de sécurité
 
-- Configurez les règles du pare-feu
+- Configurez les règles du pare-feu (UDP 5520)
 - Utilisez la whitelist pour les serveurs privés
 - Sauvegardes régulières
 - Protection DDoS pour les serveurs publics
+- Définissez les tokens d'authentification via les variables d'environnement : `HYTALE_SERVER_SESSION_TOKEN` et `HYTALE_SERVER_IDENTITY_TOKEN`
+
+:::info Documentation technique Update 3
+Pour des détails approfondis sur les systèmes internes du serveur introduits et améliorés dans l'Update 3, voir la [documentation Update 3](/docs/servers/update-3) couvrant la génération du monde, le framework ECS, le réseau multi-canaux et plus encore.
+:::
 
 ## Modding et plugins
 

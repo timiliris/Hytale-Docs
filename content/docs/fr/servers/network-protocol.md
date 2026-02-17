@@ -20,6 +20,10 @@ Hytale utilise un protocole réseau moderne et efficace construit sur QUIC (Quic
 | Port par défaut | 5520 |
 | Protocole applicatif | `hytale/1` |
 
+:::tip Update 3 - Architecture Multi-Canaux
+L'Update 3 a introduit une architecture réseau multi-canaux avec l'enum `NetworkChannel` définissant trois canaux : **Default**, **Chunks** et **WorldMap**. Chaque paquet est désormais routé vers un flux QUIC spécifique en fonction de son canal, éliminant le blocage en tête de ligne entre les paquets de gameplay et les transferts de données lourds. Voir la [Référence Protocole](/docs/servers/protocol) pour tous les détails.
+:::
+
 QUIC offre plusieurs avantages par rapport au TCP traditionnel :
 - **Latence réduite** : Établissement de connexion plus rapide avec prise en charge du 0-RTT
 - **Flux multiplexés** : Plusieurs flux de données sans blocage en tête de ligne
@@ -34,7 +38,7 @@ Le protocole utilise les constantes suivantes définies dans `ProtocolSettings.j
 |-----------|--------|-------------|
 | `PROTOCOL_HASH` | `6708f121966c1c443f4b0eb525b2f81d0a8dc61f5003a692a8fa157e5e02cea9` | Hachage SHA-256 pour la validation de version |
 | `PROTOCOL_VERSION` | 1 | Numéro de version du protocole |
-| `PACKET_COUNT` | 268 | Nombre total de types de paquets |
+| `PACKET_COUNT` | 268 | Nombre total de types de paquets (augmenté dans l'Update 3 avec de nouveaux paquets de gameplay et de carte du monde) |
 | `STRUCT_COUNT` | 315 | Nombre total de structures de données |
 | `ENUM_COUNT` | 136 | Nombre total d'énumérations |
 | `MAX_PACKET_SIZE` | 1 677 721 600 | Taille maximale d'un paquet en octets (~1,6 Go) |
@@ -51,6 +55,7 @@ public interface Packet {
    int getId();
    void serialize(@Nonnull ByteBuf var1);
    int computeSize();
+   NetworkChannel getChannel();
 }
 ```
 
@@ -59,6 +64,7 @@ public interface Packet {
 | `getId()` | Retourne l'identifiant unique du paquet |
 | `serialize(ByteBuf)` | Écrit les données du paquet dans un tampon d'octets |
 | `computeSize()` | Calcule la taille sérialisée du paquet |
+| `getChannel()` | Retourne le `NetworkChannel` par lequel ce paquet est routé (Default, Chunks ou WorldMap) |
 
 ## Sérialisation
 
@@ -120,6 +126,8 @@ Les paquets circulent dans trois directions :
 | **Client vers Serveur** | Envoyés par les clients, traités par les gestionnaires de paquets du serveur | `ClientMovement`, `ChatMessage` |
 | **Serveur vers Client** | Envoyés par le serveur, traités par le client | `SetChunk`, `EntityUpdates` |
 | **Bidirectionnel** | Peuvent être envoyés par l'une ou l'autre partie | `Disconnect`, `SetPaused` |
+
+La direction des paquets est également formalisée au moment de la compilation via les interfaces marqueurs `ToClientPacket` et `ToServerPacket`. Les paquets implémentent l'une ou les deux interfaces pour appliquer des vérifications de direction type-safe.
 
 Les paquets client vers serveur sont enregistrés dans `GamePacketHandler.registerHandlers()` :
 

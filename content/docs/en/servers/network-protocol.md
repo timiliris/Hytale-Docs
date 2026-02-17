@@ -20,6 +20,10 @@ Hytale uses a modern, efficient network protocol built on top of QUIC (Quick UDP
 | Default Port | 5520 |
 | Application Protocol | `hytale/1` |
 
+:::tip Update 3 - Multi-Channel Architecture
+Update 3 introduced a multi-channel networking architecture with `NetworkChannel` enum defining three channels: **Default**, **Chunks**, and **WorldMap**. Each packet is now routed to a specific QUIC stream based on its channel, eliminating head-of-line blocking between gameplay packets and heavy data transfers. See the [Protocol Reference](/docs/servers/protocol) for full details.
+:::
+
 QUIC provides several advantages over traditional TCP:
 - **Reduced latency**: Faster connection establishment with 0-RTT support
 - **Multiplexed streams**: Multiple data streams without head-of-line blocking
@@ -34,7 +38,7 @@ The protocol uses the following constants defined in `ProtocolSettings.java`:
 |----------|-------|-------------|
 | `PROTOCOL_HASH` | `6708f121966c1c443f4b0eb525b2f81d0a8dc61f5003a692a8fa157e5e02cea9` | SHA-256 hash for version validation |
 | `PROTOCOL_VERSION` | 1 | Protocol version number |
-| `PACKET_COUNT` | 268 | Total number of packet types |
+| `PACKET_COUNT` | 268 | Total number of packet types (increased in Update 3 with new gameplay and world map packets) |
 | `STRUCT_COUNT` | 315 | Total number of data structures |
 | `ENUM_COUNT` | 136 | Total number of enumerations |
 | `MAX_PACKET_SIZE` | 1,677,721,600 | Maximum packet size in bytes (~1.6 GB) |
@@ -51,6 +55,7 @@ public interface Packet {
    int getId();
    void serialize(@Nonnull ByteBuf var1);
    int computeSize();
+   NetworkChannel getChannel();
 }
 ```
 
@@ -59,6 +64,7 @@ public interface Packet {
 | `getId()` | Returns the unique packet identifier |
 | `serialize(ByteBuf)` | Writes the packet data to a byte buffer |
 | `computeSize()` | Calculates the serialized size of the packet |
+| `getChannel()` | Returns the `NetworkChannel` this packet is routed through (Default, Chunks, or WorldMap) |
 
 ## Serialization
 
@@ -120,6 +126,8 @@ Packets flow in three directions:
 | **Client to Server** | Sent by clients, handled by server packet handlers | `ClientMovement`, `ChatMessage` |
 | **Server to Client** | Sent by server, processed by client | `SetChunk`, `EntityUpdates` |
 | **Bidirectional** | Can be sent by either party | `Disconnect`, `SetPaused` |
+
+Packet direction is also formalized at compile-time through the `ToClientPacket` and `ToServerPacket` marker interfaces. Packets implement one or both of these interfaces to enforce type-safe direction checks.
 
 Client-to-server packets are registered in `GamePacketHandler.registerHandlers()`:
 

@@ -201,6 +201,19 @@ export const sidebarConfig: SidebarItem[] = [
   // 1. Introduction
   { titleKey: "introduction", href: "/docs/intro" },
 
+  // Update 3
+  {
+    titleKey: "update3",
+    items: [
+      { titleKey: "changelog", href: "/docs/servers/update-3" },
+      { titleKey: "worldGeneration", href: "/docs/servers/worldgen" },
+      { titleKey: "gameplaySystems", href: "/docs/servers/gameplay-systems" },
+      { titleKey: "serverInfrastructure", href: "/docs/servers/server-infrastructure" },
+      { titleKey: "ecsFramework", href: "/docs/servers/ecs-framework" },
+      { titleKey: "protocolReference", href: "/docs/servers/protocol" },
+    ],
+  },
+
   // 2. Player Guide
   {
     titleKey: "playerGuide",
