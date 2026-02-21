@@ -126,108 +126,108 @@ export default async function DocPage({ params }: DocPageProps) {
       isNonFunctional={verificationStatus.nonFunctional}
       isEventPage={verificationStatus.isEventPage}
     >
-    <TocProvider items={tocItems}>
-      <div className="flex gap-8">
-        <article id="main-content" className="flex-1 min-w-0 pb-6 lg:pb-8">
-        {/* Structured Data */}
-        <BreadcrumbJsonLd items={breadcrumbItems} />
-        <ArticleJsonLd
-          title={doc.meta.title}
-          description={doc.meta.description || ""}
-          url={articleUrl}
-        />
+      <TocProvider items={tocItems}>
+        <div className="flex gap-8">
+          <article id="main-content" className="flex-1 min-w-0 pb-6 lg:pb-8">
+            {/* Structured Data */}
+            <BreadcrumbJsonLd items={breadcrumbItems} />
+            <ArticleJsonLd
+              title={doc.meta.title}
+              description={doc.meta.description || ""}
+              url={articleUrl}
+            />
 
-        {/* Breadcrumb */}
-        <div className="mb-8">
-          <DocsBreadcrumb items={visualBreadcrumbItems} />
-        </div>
+            {/* Breadcrumb */}
+            <div className="mb-8">
+              <DocsBreadcrumb items={visualBreadcrumbItems} />
+            </div>
 
-        {/* Title */}
-        <h1 className="text-4xl font-bold tracking-tight text-gradient mb-4">
-          {doc.meta.title}
-        </h1>
+            {/* Title */}
+            <h1 className="text-4xl font-bold tracking-tight text-gradient mb-4">
+              {doc.meta.title}
+            </h1>
 
-        {doc.meta.description && (
-          <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
-            {doc.meta.description}
-          </p>
-        )}
+            {doc.meta.description && (
+              <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                {doc.meta.description}
+              </p>
+            )}
 
-        {/* Separator */}
-        <div className="h-px bg-gradient-to-r from-primary/50 via-border to-transparent mb-10" />
+            {/* Separator */}
+            <div className="h-px bg-linear-to-r from-primary/50 via-border to-transparent mb-10" />
 
-        {/* Content */}
-        <div className="prose prose-slate dark:prose-invert max-w-none">
-          <MDXRemote
-            source={doc.content}
-            components={localizedMdxComponents}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm, remarkAdmonitions],
-                rehypePlugins: [rehypeSlug, [rehypePrismPlus, { ignoreMissing: true }]],
-              },
-            }}
-          />
-        </div>
+            {/* Content */}
+            <div className="prose prose-slate dark:prose-invert max-w-none">
+              <MDXRemote
+                source={doc.content}
+                components={localizedMdxComponents}
+                options={{
+                  mdxOptions: {
+                    remarkPlugins: [remarkGfm, remarkAdmonitions],
+                    rehypePlugins: [rehypeSlug, [rehypePrismPlus, { ignoreMissing: true }]],
+                  },
+                }}
+              />
+            </div>
 
-        {/* Discrete ad after content */}
-        <ArticleAd />
+            {/* Discrete ad after content */}
+            <ArticleAd />
 
-        {/* Navigation */}
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-12" />
+            {/* Navigation */}
+            <div className="h-px bg-linear-to-r from-transparent via-border to-transparent my-12" />
 
-        <nav className="flex items-stretch gap-4">
-          {prev ? (
-            <Link
-              href={prev.href}
-              className="flex-1 group p-5 rounded-xl border-2 border-border bg-card/30 transition-all duration-300 hover:border-secondary/50 hover:bg-card/50"
-            >
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 transition-colors group-hover:bg-secondary/20">
-                  <ChevronLeft className="h-5 w-5 text-secondary" />
-                </div>
-                <div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t("previous")}</div>
-                  <div className="font-semibold text-foreground group-hover:text-secondary transition-colors">
-                    {prev.title}
+            <nav className="flex items-stretch gap-4">
+              {prev ? (
+                <Link
+                  href={prev.href}
+                  className="flex-1 group p-5 rounded-xl border-2 border-border bg-card/30 transition-all duration-300 hover:border-secondary/50 hover:bg-card/50"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-secondary/10 transition-colors group-hover:bg-secondary/20">
+                      <ChevronLeft className="h-5 w-5 text-secondary" />
+                    </div>
+                    <div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t("previous")}</div>
+                      <div className="font-semibold text-foreground group-hover:text-secondary transition-colors">
+                        {prev.title}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
+                </Link>
+              ) : (
+                <div className="flex-1" />
+              )}
 
-          {next ? (
-            <Link
-              href={next.href}
-              className="flex-1 group p-5 rounded-xl border-2 border-border bg-card/30 transition-all duration-300 hover:border-primary/50 hover:bg-card/50"
-            >
-              <div className="flex items-center justify-end gap-3">
-                <div className="text-right">
-                  <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t("next")}</div>
-                  <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {next.title}
+              {next ? (
+                <Link
+                  href={next.href}
+                  className="flex-1 group p-5 rounded-xl border-2 border-border bg-card/30 transition-all duration-300 hover:border-primary/50 hover:bg-card/50"
+                >
+                  <div className="flex items-center justify-end gap-3">
+                    <div className="text-right">
+                      <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">{t("next")}</div>
+                      <div className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {next.title}
+                      </div>
+                    </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                      <ChevronRight className="h-5 w-5 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <ChevronRight className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-            </Link>
-          ) : (
-            <div className="flex-1" />
-          )}
-        </nav>
-      </article>
+                </Link>
+              ) : (
+                <div className="flex-1" />
+              )}
+            </nav>
+          </article>
 
-        {/* Table of Contents - Right Sidebar */}
-        <TableOfContents items={tocItems} />
+          {/* Table of Contents - Right Sidebar */}
+          <TableOfContents items={tocItems} />
 
-        {/* Back to Top Button */}
-        <BackToTop />
-      </div>
-    </TocProvider>
+          {/* Back to Top Button */}
+          <BackToTop />
+        </div>
+      </TocProvider>
     </UnverifiedContentModal>
   );
 }

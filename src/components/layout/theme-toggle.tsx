@@ -61,27 +61,45 @@ export function ThemeToggle({
         <DropdownMenuTrigger asChild>
           {trigger}
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" className="w-56">
-          <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
-            <Sun className="h-4 w-4" />
+        <DropdownMenuContent align="start" className="w-56 ">
+          <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2 group text-muted-foreground">
+            <Sun className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
             Light
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
-            <Moon className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2 group text-muted-foreground">
+            <Moon className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
             Dark
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2">
-            <BookOpen className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2 group text-muted-foreground">
+            <BookOpen className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             Reading Light
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2">
-            <BookMarked className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2 group text-muted-foreground">
+            <BookMarked className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             Reading Dark
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
-            <Monitor className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2 group text-muted-foreground">
+            <Monitor className={cn(
+              "h-4 w-4 text-muted-foreground",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             System
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -105,26 +123,44 @@ export function ThemeToggle({
           Change theme
         </TooltipContent>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2">
-            <Sun className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("light")} className="gap-2 group text-muted-foreground">
+            <Sun className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
             Light
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2">
-            <Moon className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("dark")} className="gap-2 group text-muted-foreground">
+            <Moon className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
             Dark
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2">
-            <BookOpen className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("reading")} className="gap-2 group text-muted-foreground">
+            <BookOpen className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             Reading Light
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2">
-            <BookMarked className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("reading-dark")} className="gap-2 group text-muted-foreground">
+            <BookMarked className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             Reading Dark
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2">
-            <Monitor className="h-4 w-4" />
+          <DropdownMenuItem onClick={() => setTheme("system")} className="gap-2 group text-muted-foreground">
+            <Monitor className={cn(
+              "h-4 w-4",
+              theme === "dark" || theme === "reading-dark" ? "group-hover:text-black" : "group-hover:text-black"
+            )} />
+
             System
           </DropdownMenuItem>
         </DropdownMenuContent>
