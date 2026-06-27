@@ -27,6 +27,7 @@ A curated list of helpful resources for Hytale development.
 | HytalePlugins | [hytaleplugins.gg](https://hytaleplugins.gg) | Plugin hub |
 | HytaleHub | [hytalehub.com](https://hytalehub.com) | Community forums |
 | CurseForge | [curseforge.com/hytale](https://curseforge.com/hytale) | Mod distribution |
+| Hytale Character Recipes | [hytalecharacter.com](https://hytalecharacter.com/) | Fan-made character look recreation archive with screenshots, recipe JSON, in-game creator paths, and source notes |
 
 ## Tools
 
