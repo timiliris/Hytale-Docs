@@ -33,6 +33,7 @@ A curated list of helpful resources for Hytale development.
 | Tool | URL | Purpose |
 |------|-----|---------|
 | Blockbench | [blockbench.net](https://blockbench.net) | 3D modeling |
+| Citadel Desk (beta) | [citadeldesk.com](https://citadeldesk.com) | Free Windows planner for reviewing Minecraft schematics with adjustable Hytale material matches, 3D and layer views, and manual build-progress tracking. Known beta issues; no native Hytale schematic export or automatic block placement. |
 | IntelliJ IDEA | [jetbrains.com](https://jetbrains.com/idea) | Java development |
 | VS Code | [code.visualstudio.com](https://code.visualstudio.com) | Code editing |
 
